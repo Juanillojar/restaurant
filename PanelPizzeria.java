@@ -12,6 +12,7 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 import com.sun.jarsigner.ContentSignerParameters;
 
@@ -115,8 +116,6 @@ public class PanelPizzeria extends JPanel{
 		produ.add(lsubtotalOrder);
 		produ.add(lInfoDescuento);
 		add(produ, BorderLayout.CENTER);
-		
-		
 		JPanel botones = new JPanel();
 		buttonTique = new BotonPizzeria(iconTique);
 		buttonTique.addActionListener(gestorBotones);
@@ -197,14 +196,19 @@ public class PanelPizzeria extends JPanel{
 		ImageIcon iconOrderReport = new ImageIcon("src/gui/images/Report.png", "Order Report");
 		ImageIcon iconWorkerReport = new ImageIcon("src/gui/images/Report.png", "Worker Report");
 		BotonPizzeria bProductosReport = new BotonPizzeria(iconProductsReport);
+		//BotonPizzeria bProductosReport2 = new BotonPizzeria(iconProductsReport);
 		BotonPizzeria bOrderReport = new BotonPizzeria(iconOrderReport);
 		BotonPizzeria bWorkerReport = new BotonPizzeria(iconWorkerReport);
 		bWorkerReport.setEnabled(false);
 		// no lo muestro por que no se ve el botón BACK y provoca que todo falle
 		add(bProductosReport);
+//		add(bProductosReport2);
 		add(bOrderReport);
 		add(bWorkerReport);
+		bProductosReport.setActionCommand("OpenProductsReport");
 		bProductosReport.addActionListener(gestorBotones);
+	//	bProductosReport2.setActionCommand("OpenProductsReport2");
+		//bProductosReport2.addActionListener(gestorBotones);
 		bOrderReport.setActionCommand("OpenOrderReport");
 		bOrderReport.addActionListener(gestorBotones);
 		bWorkerReport.addActionListener(gestorBotones);
@@ -215,8 +219,24 @@ public class PanelPizzeria extends JPanel{
 		setVisible(false);
 	}
 	
+	
+	//Constructor for products report panel using a JTable
+	public PanelPizzeria(List<ComidaPizzeria> productos) {
+		String [] nombresColumnas = {"id", "Denomination", "Section", "Ingredients", "Price", "LowPrice"};
+		Class [] tipoColumnas = {java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,java.lang.Boolean.class};
+		ModeloTablaPizzeriaProductos tModelProductos = new ModeloTablaPizzeriaProductos(productos, nombresColumnas, tipoColumnas);
+		JTable tableProductos = new JTable(tModelProductos);
+		tableProductos.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		JScrollPane panelScrollProductosReport = new JScrollPane(tableProductos,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		add(panelScrollProductosReport);
+		BotonPizzeria buttonBackProductReport = new BotonPizzeria(iconBack);
+		buttonBackProductReport.setActionCommand("BackReportsFromProductsReport");
+		buttonBackProductReport.addActionListener(gestorBotones);
+		add(buttonBackProductReport, BorderLayout.SOUTH);	
+	}
+	
 	//Constructor for products report panel
-	public PanelPizzeria(int i, int j) {
+/*	public PanelPizzeria(int i, int j) {
 		setLayout(new BorderLayout());
 		JPanel pProductos = new JPanel(new GridLayout(0, 5, 5, 5));
 		JScrollPane panelScrollProductosReport = new JScrollPane(pProductos,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -251,9 +271,9 @@ public class PanelPizzeria extends JPanel{
 		buttonBackProductReport.addActionListener(gestorBotones);
 		add(buttonBackProductReport, BorderLayout.SOUTH);	
 	}
-
+*/
 	//Constructor for order report panel
-	public PanelPizzeria(String str) {
+/*	public PanelPizzeria(String str) {
 		setLayout(new BorderLayout());
 		JPanel pPedidos = new JPanel();
 		JScrollPane panelScrollPedidosReport = new JScrollPane(pPedidos,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -288,7 +308,24 @@ public class PanelPizzeria extends JPanel{
 		buttonBackOrderReport.addActionListener(gestorBotones);
 		add(buttonBackOrderReport, BorderLayout.SOUTH);	
 	}
-
+*/
+	
+	//Constructor for order report panel using JTable
+	public PanelPizzeria(List<Pedido> pedidos, String str) {
+		String [] nombresColumnas = {"id", "Date", "Price", "PriceWhitoutTaxes", "worker", "discount", "Destiny"};
+		Class [] tipoColumnas = {java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class};
+		ModeloTablaPizzeriaPedidos tModelPedidos = new ModeloTablaPizzeriaPedidos(pedidos, nombresColumnas, tipoColumnas);
+		JTable tablePedidos = new JTable(tModelPedidos);
+		tablePedidos.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		JScrollPane panelScrollPedidosReport = new JScrollPane(tablePedidos,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		add(panelScrollPedidosReport);
+		BotonPizzeria buttonBackPedidosReport = new BotonPizzeria(iconBack);
+		buttonBackPedidosReport.setActionCommand("BackReportsFromOrderReport");
+		buttonBackPedidosReport.addActionListener(gestorBotones);
+		add(buttonBackPedidosReport, BorderLayout.SOUTH);	
+	}
+	
+	
 	//Actualiza el valor de variable subtotal o la resetea 0.0, lo visualiza en el label y devuelve el valor 
 	public double IncrementaSutotal(Double precio) {
 		if (precio != 0.0) {
@@ -334,10 +371,7 @@ public class PanelPizzeria extends JPanel{
 		}
 	}
 	
-	public void hacerVisibleBotonTique() {
-		buttonTique.setVisible(true);
-	}
-	
+
 	public void calculoPrecioPedido(Pedido pedido) {
 		// Calcula el precio total de los productos del pedido sin impuestos
 		// si algún producto está promocionado descuenta antes de aplicar impuestos

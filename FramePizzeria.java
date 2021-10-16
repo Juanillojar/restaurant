@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.ScrollPane;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,6 +24,7 @@ public class FramePizzeria extends JFrame {
 	PanelPizzeria panelTique;
 	PanelPizzeria panelReport;
 	PanelPizzeria panelProductsReport;
+	PanelPizzeria panelProductsReport2;
 	//JScrollPane panelScrollProductosReport;
 	PanelPizzeria panelOrderReport;
 	Font fuenteTitulo = new Font("arial",Font.BOLD,20);
@@ -49,6 +51,10 @@ public class FramePizzeria extends JFrame {
 	}
 
 	public void ActivaPanel(PanelPizzeria panel) {
+		add(panel, BorderLayout.CENTER);
+		setVisible(true);
+	}
+	public void ActivaPanel(ScrollPane panel) {
 		add(panel, BorderLayout.CENTER);
 		setVisible(true);
 	}
@@ -99,6 +105,14 @@ public class FramePizzeria extends JFrame {
 
 	public void setPanelProductsReport(PanelPizzeria panelProductsReport) {
 		this.panelProductsReport = panelProductsReport;
+	}
+
+	public PanelPizzeria getPanelProductsReport2() {
+		return panelProductsReport2;
+	}
+
+	public void setPanelProductsReport2(PanelPizzeria panelProductsReport2) {
+		this.panelProductsReport2 = panelProductsReport2;
 	}
 
 }

@@ -19,24 +19,33 @@ public class TestPizzeria {
 		//Se crean los productos (objetos Comida), se crea la comidaPizzeria y se rellena 
 		ComidaPizzeria plato1 = new ComidaPizzeria("Patatas Fritas",Section.STARTERS.name(),"Patata, aceite, sal", 3.00, false);
 		ComidaPizzeria plato2 = new ComidaPizzeria("Pollo milanesa",Section.STARTERS.name(),"Pollo, tomate, cebolla, pan rallado, Huevo, pimienta",10.50,false);
-		ComidaPizzeria plato3 = new ComidaPizzeria("Tabla patés",Section.STARTERS.name(),"Pate de higado, paté de atún",7.20, true);
-		ComidaPizzeria plato4 = new ComidaPizzeria("Macarrones boloñesa", Section.PASTAS.name(), "Pasta, Tomate, Cebolla, champiñones",7.5, false);
-		ComidaPizzeria plato5 = new ComidaPizzeria("Pizza Caprichosa", Section.PIZZAS.name(), "Harina, aceite, aguan, tomate, Queso, Cebolla, champiñones",10, true);
-		ComidaPizzeria plato6 = new ComidaPizzeria("Pizza Margarita", Section.PIZZAS.name(), "Harina, aceite, agua, tomate, Queso" ,9.80, false);
-		ComidaPizzeria plato7 = new ComidaPizzeria("Ensalada Tropical", Section.SALADS.name(), "Lechuga, tomate, gauda, piña, manzana, kiwi, salsa rosa",9.20, false);
-		ComidaPizzeria plato8 = new ComidaPizzeria("Ensalada Nostra", Section.SALADS.name(), "Lechuga, tomate, zanahoria, atún, maiz, espárragos",8.00, false);
-		ComidaPizzeria plato9 = new ComidaPizzeria("Helado", Section.DESSERTS.name(), "Leche, azucar, Fruta según sabor",2.95, false);
-		ComidaPizzeria plato10= new ComidaPizzeria("Coolant", Section.DESSERTS.name(), "Leche, harina, chocolate, azucar",3.55, false);
-		ComidaPizzeria plato11 = new ComidaPizzeria("Pan rústico", Section.BREAD.name(), "harina, sal, agua",0.90, false);
-		ComidaPizzeria plato12 = new ComidaPizzeria("Pan con pasas", Section.BREAD.name(), "Harina, sal, agua, uva",1.20, false);
-		ComidaPizzeria plato13 = new ComidaPizzeria("Lomo y Huevos", Section.COMBINADOS.name(), "Cerdo, huevo, patata, aceite, sal",9.90, false);
-		ComidaPizzeria plato14 = new ComidaPizzeria("Cazón y Huevos", Section.COMBINADOS.name(), "Cazón, huevo, patata, aceite, sal",9.90, false);
-		ComidaPizzeria plato15 = new ComidaPizzeria("Hamburguesa casa", Section.OTHERS.name(), "Cerdo, huevo, patata, acerite, sal",9.90, false);
-		ComidaPizzeria plato16 = new ComidaPizzeria("Ketchup", Section.OTHERS.name(), "Tomate, azucar, sal...",0.20, false);
-		ComidaPizzeria plato17 = new ComidaPizzeria("Mahonesa", Section.OTHERS.name(), "Huevo, aceite, sal",0.20, false);
-		ComidaPizzeria plato18 = new ComidaPizzeria("Cerveza",Section.DRINKS.name(),"Cebada, Alcohol",1.5,false);
-		ComidaPizzeria plato19 = new ComidaPizzeria("Agua grande",Section.DRINKS.name(),"Agua",2.5,false);
-		ComidaPizzeria plato20 = new ComidaPizzeria("Refresco",Section.DRINKS.name(),"Agua carbonatada, azucar",1.5,false);
+		ComidaPizzeria plato3 = new ComidaPizzeria("Aros de cebolla",Section.STARTERS.name(),"Cebolla, aceite, pan rallado",5.50,false);
+		ComidaPizzeria plato4 = new ComidaPizzeria("Musaka",Section.STARTERS.name(),"Berengena, queso, tomate, lecha, harina, sal",11.50,false);
+		ComidaPizzeria plato5 = new ComidaPizzeria("Tabla patés",Section.STARTERS.name(),"Pate de higado, paté de atún",7.20, true);
+		ComidaPizzeria plato6 = new ComidaPizzeria("Macarrones boloñesa", Section.PASTAS.name(), "Pasta, Tomate, Cebolla, champiñones",7.5, false);
+		ComidaPizzeria plato7 = new ComidaPizzeria("Pizza Caprichosa", Section.PIZZAS.name(), "Harina, aceite, aguan, tomate, Queso, Cebolla, champiñones",10, true);
+		ComidaPizzeria plato8 = new ComidaPizzeria("Pizza Margarita", Section.PIZZAS.name(), "Harina, aceite, agua, tomate, Queso" ,9.80, false);
+		ComidaPizzeria plato9 = new ComidaPizzeria("Pizza Pepperoni", Section.PIZZAS.name(), "Tomate, Queso, pepperoni, salchicas",8.60, false);
+		ComidaPizzeria plato10 = new ComidaPizzeria("Ensalada Tropical", Section.SALADS.name(), "Lechuga, tomate, gauda, piña, manzana, kiwi, salsa rosa",9.20, false);
+		ComidaPizzeria plato11 = new ComidaPizzeria("Ensalada Nostra", Section.SALADS.name(), "Lechuga, tomate, zanahoria, atún, maiz, espárragos",8.00, false);
+		ComidaPizzeria plato12 = new ComidaPizzeria("Helado", Section.DESSERTS.name(), "Leche, azucar, Fruta según sabor",2.95, false);
+		ComidaPizzeria plato13= new ComidaPizzeria("Coolant", Section.DESSERTS.name(), "Leche, harina, chocolate, azucar",3.55, false);
+		ComidaPizzeria plato14 = new ComidaPizzeria("Pan rústico", Section.BREAD.name(), "harina, sal, agua",0.90, false);
+		ComidaPizzeria plato15 = new ComidaPizzeria("Pan centeno", Section.BREAD.name(), "Centeno, sal, agua",0.90, false);
+		ComidaPizzeria plato16 = new ComidaPizzeria("Pan con pasas", Section.BREAD.name(), "Harina, sal, agua, uva",1.20, false);
+		ComidaPizzeria plato17 = new ComidaPizzeria("Lomo y Huevos", Section.COMBINADOS.name(), "Cerdo, huevo, patata, aceite, sal",9.90, false);
+		ComidaPizzeria plato18 = new ComidaPizzeria("Cazón y Huevos", Section.COMBINADOS.name(), "Cazón, huevo, patata, aceite, sal",9.90, false);
+		ComidaPizzeria plato19 = new ComidaPizzeria("Salchichas y pimientos", Section.COMBINADOS.name(), "Cerdo, pimiento, patata, aceite, sal",5.90, false);
+		ComidaPizzeria plato20 = new ComidaPizzeria("Hamburguesa casa", Section.OTHERS.name(), "Cerdo, huevo, patata, acerite, sal",9.90, false);
+		ComidaPizzeria plato21 = new ComidaPizzeria("Ketchup", Section.OTHERS.name(), "Tomate, azucar, sal...",0.20, false);
+		ComidaPizzeria plato22 = new ComidaPizzeria("Mahonesa", Section.OTHERS.name(), "Huevo, aceite, sal",0.20, false);
+		ComidaPizzeria plato23 = new ComidaPizzeria("Cerveza",Section.DRINKS.name(),"Cebada, Alcohol",1.5,false);
+		ComidaPizzeria plato24 = new ComidaPizzeria("Cerveza sin",Section.DRINKS.name(),"Cebada",1.5,false);
+		ComidaPizzeria plato25 = new ComidaPizzeria("Agua grande",Section.DRINKS.name(),"Agua",2.5,false);
+		ComidaPizzeria plato26 = new ComidaPizzeria("Agua pequeña",Section.DRINKS.name(),"Agua",1.5,false);
+		
+		
+
 		List<ComidaPizzeria> comidaPizzeria = new ArrayList<ComidaPizzeria>();
 		comidaPizzeria.add(plato1);
 		comidaPizzeria.add(plato2);
@@ -58,7 +67,12 @@ public class TestPizzeria {
 		comidaPizzeria.add(plato18);
 		comidaPizzeria.add(plato19);
 		comidaPizzeria.add(plato20);
-
+		comidaPizzeria.add(plato21);
+		comidaPizzeria.add(plato22);
+		comidaPizzeria.add(plato23);
+		comidaPizzeria.add(plato24);
+		comidaPizzeria.add(plato25);
+		comidaPizzeria.add(plato26);
 		
 		//Creación de los arrays con los idiomas que conoce cada camarero, los camareros, repartidores y cocineros
 		String[] language1 = {"Español","inglés"};
