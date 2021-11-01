@@ -1,3 +1,3 @@
 # restaurant
-Manage a restaurant with a TPV app. 
+Manage a restaurant with a TPV aplication. 
 using Java with Eclipse IDE
