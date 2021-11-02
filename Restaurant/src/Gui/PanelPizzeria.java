@@ -104,19 +104,28 @@ public class PanelPizzeria extends JPanel{
 		setLayout(new BorderLayout());
 		lDestinoPedidoEnCurso = new LabelPizzeria("Order " + botonMesaPMesas.getDestinoBoton().getDestinationDenomination(),fuenteTitulo, "CENTER");
 		add(lDestinoPedidoEnCurso, BorderLayout.NORTH);
-		JPanel produ = new JPanel();
-		// se crean los botones en el panel de productos
-		for (int i = 0; i <= productos.size() - 1; i++) {
-			BotonPizzeria buttonProduct = new BotonPizzeria(i, productos.get(i));
-			produ.add(buttonProduct);
-			buttonProduct.addActionListener(gestorBotones);
+		//JPanel produ = new JPanel();
+		JTabbedPane produ = new JTabbedPane();
+		// se crean los botones en el panel de productos en pestañas creadas de acuerdo
+		// a la sección del producto (contenido del enum Section)
+		for(Section sec: Section.values()) {
+			JPanel panelProductos = new JPanel(new FlowLayout(FlowLayout.CENTER));
+			produ.addTab(sec.name(), panelProductos);
+			for(ComidaPizzeria producto :productos) {
+				if (sec == producto.getSection()) {
+					BotonPizzeria buttonProduct = new BotonPizzeria(producto);
+					panelProductos.add(buttonProduct);
+					buttonProduct.addActionListener(gestorBotones);
+				}
+			}
 		}
-		lsubtotalOrder = new LabelPizzeria("Subtotal Order:" + formatoDecimales.format(subtotal), fuenteTitulo);
-		LabelPizzeria lInfoDescuento = new LabelPizzeria("Los productos sombreados tienen un descuento", fuenteDatos, "CENTER");
-		produ.add(lsubtotalOrder);
-		produ.add(lInfoDescuento);
+		
 		add(produ, BorderLayout.CENTER);
 		JPanel botones = new JPanel();
+		lsubtotalOrder = new LabelPizzeria("Subtotal Order:" + formatoDecimales.format(subtotal), fuenteTitulo);
+		LabelPizzeria lInfoDescuento = new LabelPizzeria("Los productos sombreados tienen un descuento", fuenteDatos, "CENTER");
+		botones.add(lsubtotalOrder);
+		botones.add(lInfoDescuento);
 		buttonTique = new BotonPizzeria(iconTique);
 		buttonTique.addActionListener(gestorBotones);
 		buttonTique.setActionCommand("OpenTiquePanel");

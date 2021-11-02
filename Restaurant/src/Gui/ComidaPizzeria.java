@@ -15,14 +15,14 @@ public class ComidaPizzeria {
 	private static int foods = 0;
 	private int foodId;
 	private String denomination;    //Descripción del plato
-	private String section;			//Indica a que seccion de la carta pertenece. Pizza, plato combinado, postre, ensalada, bebidas...
+	private Section section;			//Indica a que seccion de la carta pertenece. Pizza, plato combinado, postre, ensalada, bebidas...
 	private String ingredients;
 	private double price;			
 	private boolean lowPrice;		//Si es true indica que el plato está promocionado
 	// como metemos el tamaño de la pizza??
 	
 	
-	public ComidaPizzeria(String denomination, String section, String ingredients, double prize, boolean lowPrice) {
+	public ComidaPizzeria(String denomination, Section section, String ingredients, double prize, boolean lowPrice) {
 		foods ++;
 		this.foodId += foods;				//Se utiliza la variable estática foods para asignar foodId
 		this.denomination = denomination;
@@ -36,7 +36,7 @@ public class ComidaPizzeria {
 		foods ++;
 		foodId += foods;
 		denomination = "";
-		section = "";
+		section = null;
 		ingredients = "";
 		price = 0.0d;
 		lowPrice = false;
@@ -54,7 +54,7 @@ public class ComidaPizzeria {
 		return denomination;
 	}
 
-	public String getSection() {
+	public Section getSection() {
 		return section;
 	}
 
@@ -82,7 +82,7 @@ public class ComidaPizzeria {
 		this.denomination = denomination;
 	}
 
-	public void setSection(String section) {
+	public void setSection(Section section) {
 		this.section = section;
 	}
 
@@ -100,7 +100,7 @@ public class ComidaPizzeria {
 
 	@Override
 	public String toString() {
-		return "\t" + denomination + ", section:" + section + ", ingredients:"
+		return " " + foodId + "\t" + denomination + ", section:" + section + ", ingredients:"
 				+ ingredients + ", prize:" + price + " €, lowPrice:" + lowPrice + "\n";
 	};
 	

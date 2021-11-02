@@ -22,9 +22,9 @@ public class BotonPizzeria extends JButton{
 	}
 	
 	//constructor para botones del JPanel Productos
-	public BotonPizzeria(int orden, ComidaPizzeria Cproducto) {
+	public BotonPizzeria(ComidaPizzeria Cproducto) {
 		producto = Cproducto;
-		setIconTextGap(orden);
+	//	setIconTextGap(orden);
 		setText(producto.getDenomination() + " " + producto.getPrice() + "€");
 		if(producto.isLowPrice()) {
 			setBackground(Color.CYAN);
@@ -42,11 +42,12 @@ public class BotonPizzeria extends JButton{
 	}
 }
 
+
 class BotonPizzeriaMesas extends BotonPizzeria{
 	private Pedido pedidoBoton;  //guarda un pedido antes de ser cobrado y añadido a la lista de pedidos
 	private DestinoPedido destinoBoton; // guarda el destino del botón aún sin crear el pedido
 	   
-	//usado para el constructor botones zona barra. reparto y mesas
+	//usado para el constructor botones zonaS barra, repartoS y mesas
 	public BotonPizzeriaMesas(ImageIcon img, int orden,  Zone zone) {
 		super(img);
 		setBackground(Color.lightGray);

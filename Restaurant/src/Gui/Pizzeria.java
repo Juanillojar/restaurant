@@ -285,7 +285,7 @@ public class Pizzeria {
 		// selecciones disponibles
 		List<Integer> opciones = new ArrayList<Integer>();
 		for (ComidaPizzeria p : platos) {
-			if (p.getSection() == seccion) {
+			if (p.getSection().name() == seccion) {
 				System.out.print(p.toString());
 				opciones.add(p.getFoodId());
 			}
