@@ -45,7 +45,6 @@ public class TestPizzeria {
 		ComidaPizzeria plato26 = new ComidaPizzeria("Agua pequeña",Section.DRINKS,"Agua",1.5,false);
 		
 		
-
 		List<ComidaPizzeria> comidaPizzeria = new ArrayList<ComidaPizzeria>();
 		comidaPizzeria.add(plato1);
 		comidaPizzeria.add(plato2);
@@ -97,7 +96,7 @@ public class TestPizzeria {
 		List<ComidaPizzeria> comidaPedido1 = new ArrayList<ComidaPizzeria>();
 		comidaPedido1.add(0, plato3); //0 es la posición en la lista y 1 el id de la "Comida"
 		comidaPedido1.add(1, plato5); //1 es la posición en la lista y 2 el id de la "Comida"
-		DestinoPedido destinoPedido1 = new DestinoPedido("Bar 1",Zone.BAR);
+		DestinoPedido destinoPedido1 = new DestinoPedido("Bar 1",Zone.Bar);
 		Pedido pedido1 = new Pedido(comidaPedido1, 32, camarero1, null, destinoPedido1);
 		//Creación de la lista de pedidos e inserción del pedido1
 		List<Pedido> pedidosPizzeria= new ArrayList<Pedido>();

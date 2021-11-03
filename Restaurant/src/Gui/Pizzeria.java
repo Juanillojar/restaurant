@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Scanner;
 
 enum Zone {
-	BAR, IntTable, ExtTable, Delivery;
+	Bar, IntTable, ExtTable, Delivery;
 }
 public class Pizzeria {
 	private static int impuestos = 10;

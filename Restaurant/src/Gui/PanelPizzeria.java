@@ -68,7 +68,7 @@ public class PanelPizzeria extends JPanel{
 		JPanel panelMesas = new JPanel();
 		// creación de botones de zonas barra
 		for (int i = 0; i < barzones; i++) {
-			BotonPizzeria buttonBar = new BotonPizzeriaMesas(iconBar, i+1, Zone.BAR);
+			BotonPizzeria buttonBar = new BotonPizzeriaMesas(iconBar, i+1, Zone.Bar);
 			panelMesas.add(buttonBar);
 			buttonBar.addActionListener(gestorBotones);
 		}

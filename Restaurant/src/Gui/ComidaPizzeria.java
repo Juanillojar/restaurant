@@ -21,7 +21,6 @@ public class ComidaPizzeria {
 	private boolean lowPrice;		//Si es true indica que el plato está promocionado
 	// como metemos el tamaño de la pizza??
 	
-	
 	public ComidaPizzeria(String denomination, Section section, String ingredients, double prize, boolean lowPrice) {
 		foods ++;
 		this.foodId += foods;				//Se utiliza la variable estática foods para asignar foodId
