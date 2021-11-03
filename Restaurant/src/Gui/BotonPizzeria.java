@@ -24,7 +24,6 @@ public class BotonPizzeria extends JButton{
 	//constructor para botones del JPanel Productos
 	public BotonPizzeria(ComidaPizzeria Cproducto) {
 		producto = Cproducto;
-	//	setIconTextGap(orden);
 		setText(producto.getDenomination() + " " + producto.getPrice() + "€");
 		if(producto.isLowPrice()) {
 			setBackground(Color.CYAN);
