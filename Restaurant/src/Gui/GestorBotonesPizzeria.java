@@ -52,10 +52,14 @@ public class GestorBotonesPizzeria implements ActionListener{
 		if (e.getActionCommand().equals("OpenTiquePanel")) {
 			// completa datos del Pedido y se pasa al panel tiquet
 			FramePizzeria.InstanceFPizzerie.panelProductos.upgradeOrderData(PanelPizzeria.getBotonMesa().getPedidoBoton());
-			FramePizzeria.InstanceFPizzerie.panelTique = new PanelPizzeria(PanelPizzeria.getBotonMesa().getPedidoBoton());
+			//FramePizzeria.InstanceFPizzerie.panelTique = new PanelPizzeria(PanelPizzeria.getBotonMesa().getPedidoBoton());
+			FramePizzeria.InstanceFPizzerie.panelticket = new panelticket(PanelPizzeria.getBotonMesa().getPedidoBoton());
 			
-			FramePizzeria.InstanceFPizzerie.ActivaPanel(FramePizzeria.InstanceFPizzerie.panelTique);
-			FramePizzeria.InstanceFPizzerie.getPanelTique().setVisible(true);
+			//FramePizzeria.InstanceFPizzerie.ActivaPanel(FramePizzeria.InstanceFPizzerie.panelTique);
+			//FramePizzeria.InstanceFPizzerie.getPanelTique().setVisible(true);
+			//FramePizzeria.InstanceFPizzerie.getPanelProductos().setVisible(false);
+			FramePizzeria.InstanceFPizzerie.ActivaPanel(FramePizzeria.InstanceFPizzerie.panelticket);
+			FramePizzeria.InstanceFPizzerie.getPanelticket().setVisible(true);
 			FramePizzeria.InstanceFPizzerie.getPanelProductos().setVisible(false);
 		}
 
@@ -66,7 +70,8 @@ public class GestorBotonesPizzeria implements ActionListener{
 			// back to products panel
 			FramePizzeria.InstanceFPizzerie.ActivaPanel(FramePizzeria.InstanceFPizzerie.panelProductos);
 			FramePizzeria.InstanceFPizzerie.getPanelProductos().setVisible(true);
-			FramePizzeria.InstanceFPizzerie.getPanelTique().setVisible(false);
+			//FramePizzeria.InstanceFPizzerie.getPanelTique().setVisible(false);
+			FramePizzeria.InstanceFPizzerie.getPanelticket().setVisible(false);
 		}
 		if (e.getActionCommand().equals("PaidOut")) {
 			pagarPedido();
@@ -167,7 +172,8 @@ public class GestorBotonesPizzeria implements ActionListener{
 		reseteaVariablesEstaticas();
 		JOptionPane.showMessageDialog(null, "Tique cobrado","Paid out" , JOptionPane.INFORMATION_MESSAGE);
 		//abrir panel de mesas
-		FramePizzeria.InstanceFPizzerie.panelTique.setVisible(false);
+		//FramePizzeria.InstanceFPizzerie.panelTique.setVisible(false);
+		FramePizzeria.InstanceFPizzerie.panelticket.setVisible(false);
 		FramePizzeria.InstanceFPizzerie.panelMesas.setVisible(true);	
 	}
 	

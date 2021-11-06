@@ -205,19 +205,16 @@ public class PanelPizzeria extends JPanel{
 		ImageIcon iconOrderReport = new ImageIcon("src/gui/images/Report.png", "Order Report");
 		ImageIcon iconWorkerReport = new ImageIcon("src/gui/images/Report.png", "Worker Report");
 		BotonPizzeria bProductosReport = new BotonPizzeria(iconProductsReport);
-		//BotonPizzeria bProductosReport2 = new BotonPizzeria(iconProductsReport);
 		BotonPizzeria bOrderReport = new BotonPizzeria(iconOrderReport);
 		BotonPizzeria bWorkerReport = new BotonPizzeria(iconWorkerReport);
 		bWorkerReport.setEnabled(false);
 		// no lo muestro por que no se ve el botón BACK y provoca que todo falle
 		add(bProductosReport);
-//		add(bProductosReport2);
 		add(bOrderReport);
 		add(bWorkerReport);
 		bProductosReport.setActionCommand("OpenProductsReport");
 		bProductosReport.addActionListener(gestorBotones);
-	//	bProductosReport2.setActionCommand("OpenProductsReport2");
-		//bProductosReport2.addActionListener(gestorBotones);
+
 		bOrderReport.setActionCommand("OpenOrderReport");
 		bOrderReport.addActionListener(gestorBotones);
 		bWorkerReport.addActionListener(gestorBotones);
@@ -245,7 +242,6 @@ public class PanelPizzeria extends JPanel{
 		add(buttonBackProductReport, BorderLayout.SOUTH);	
 	}
 	
-
 	//Constructor for order report panel using JTable
 	public PanelPizzeria(List<Pedido> pedidos, String str) {
 		setLayout(new BorderLayout());

@@ -22,6 +22,7 @@ public class FramePizzeria extends JFrame {
 	PanelPizzeria panelMesas;
 	PanelPizzeria panelProductos;
 	PanelPizzeria panelTique;
+	panelticket panelticket;
 	PanelPizzeria panelReport;
 	PanelPizzeria panelProductsReport;
 	PanelPizzeria panelOrderReport;
@@ -56,7 +57,10 @@ public class FramePizzeria extends JFrame {
 		add(panel, BorderLayout.CENTER);
 		setVisible(true);
 	}
-
+	public void ActivaPanel(panelticket panel) {
+		add(panel, BorderLayout.CENTER);
+		setVisible(true);
+	}
 	public PanelPizzeria getPanelPrincipal() {
 		return panelPrincipal;
 	}
@@ -111,6 +115,14 @@ public class FramePizzeria extends JFrame {
 
 	public void setPanelOrderReport(PanelPizzeria panelOrderReport) {
 		this.panelOrderReport = panelOrderReport;
+	}
+
+	public panelticket getPanelticket() {
+		return panelticket;
+	}
+
+	public void setPanelticket(panelticket panelticket) {
+		this.panelticket = panelticket;
 	}
 	
 }
