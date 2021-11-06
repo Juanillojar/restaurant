@@ -82,28 +82,13 @@ public class GestorBotonesPizzeria implements ActionListener{
 			FramePizzeria.InstanceFPizzerie.getPanelProductsReport().setVisible(true);
 			FramePizzeria.InstanceFPizzerie.getPanelReport().setVisible(false);
 		}
-	/*	if (e.getActionCommand().equals("OpenProductsReport2")) {
-			// show product report table
-			if (FramePizzeria.InstanceFPizzerie.panelProductsReport2 == null) {
-				FramePizzeria.InstanceFPizzerie.panelProductsReport2 = new PanelPizzeria(FramePizzeria.InstanceFPizzerie.myPizzerie.getFoods());
-			}
-			
-			FramePizzeria.InstanceFPizzerie.ActivaPanel(FramePizzeria.InstanceFPizzerie.panelProductsReport2);
-			FramePizzeria.InstanceFPizzerie.getPanelProductsReport2().setVisible(true);
-			FramePizzeria.InstanceFPizzerie.getPanelReport().setVisible(false);
-		}
-		*/
+
 		if (e.getActionCommand().equals("SalirPanelReports")) {
 			// back to main panel
 			FramePizzeria.InstanceFPizzerie.getPanelReport().setVisible(false);
 			FramePizzeria.InstanceFPizzerie.getPanelPrincipal().setVisible(true);
 		}
-/*		if (e.getActionCommand().equals("OpenOrderReport")) {
-			// Open order report
-			FramePizzeria.InstanceFPizzerie.panelOrderReport = new PanelPizzeria("a");
-			FramePizzeria.InstanceFPizzerie.ActivaPanel(FramePizzeria.InstanceFPizzerie.panelOrderReport);
-			FramePizzeria.InstanceFPizzerie.panelReport.setVisible(false);
-		}*/
+
 		if (e.getActionCommand().equals("OpenOrderReport")) {
 			// Open order report
 			FramePizzeria.InstanceFPizzerie.panelOrderReport = new PanelPizzeria(FramePizzeria.InstanceFPizzerie.myPizzerie.getOrders(),"Informe");
@@ -117,18 +102,13 @@ public class GestorBotonesPizzeria implements ActionListener{
 			FramePizzeria.InstanceFPizzerie.getPanelReport().setVisible(true);
 			FramePizzeria.InstanceFPizzerie.getPanelProductsReport().setVisible(false);
 		}
-/*		if (e.getActionCommand().equals("BackReportsFromProductsReport2")) {
-			// back to reports panel
-			FramePizzeria.InstanceFPizzerie.ActivaPanel(FramePizzeria.InstanceFPizzerie.panelReport);
-			FramePizzeria.InstanceFPizzerie.getPanelReport().setVisible(true);
-			FramePizzeria.InstanceFPizzerie.getPanelProductsReport2().setVisible(false);
-		}
-		*/
+
 		if (e.getActionCommand().equals("BackReportsFromOrderReport")) {
 			// back to reports panel from order report
 			FramePizzeria.InstanceFPizzerie.ActivaPanel(FramePizzeria.InstanceFPizzerie.panelReport);
 			FramePizzeria.InstanceFPizzerie.getPanelReport().setVisible(true);
 			FramePizzeria.InstanceFPizzerie.panelOrderReport.setVisible(false);
+			System.out.println("back from order report");
 		}
 		
 	}

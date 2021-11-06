@@ -231,103 +231,31 @@ public class PanelPizzeria extends JPanel{
 	
 	//Constructor for products report panel using a JTable
 	public PanelPizzeria(List<ComidaPizzeria> productos) {
+		setLayout(new BorderLayout());
 		String [] nombresColumnas = {"id", "Denomination", "Section", "Ingredients", "Price", "LowPrice"};
 		Class [] tipoColumnas = {java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,java.lang.Boolean.class};
 		ModeloTablaPizzeriaProductos tModelProductos = new ModeloTablaPizzeriaProductos(productos, nombresColumnas, tipoColumnas);
 		JTable tableProductos = new JTable(tModelProductos);
 		tableProductos.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		JScrollPane panelScrollProductosReport = new JScrollPane(tableProductos,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		add(panelScrollProductosReport);
+		add(panelScrollProductosReport,BorderLayout.NORTH);
 		BotonPizzeria buttonBackProductReport = new BotonPizzeria(iconBack);
 		buttonBackProductReport.setActionCommand("BackReportsFromProductsReport");
 		buttonBackProductReport.addActionListener(gestorBotones);
 		add(buttonBackProductReport, BorderLayout.SOUTH);	
 	}
 	
-	//Constructor for products report panel
-/*	public PanelPizzeria(int i, int j) {
-		setLayout(new BorderLayout());
-		JPanel pProductos = new JPanel(new GridLayout(0, 5, 5, 5));
-		JScrollPane panelScrollProductosReport = new JScrollPane(pProductos,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		panelScrollProductosReport.setAlignmentY(0.0f);
-		panelScrollProductosReport.setAlignmentX(0.0f);
-		LabelPizzeria jlTituloDenomination = new LabelPizzeria("Denomination", fuenteTitulo,"LEFT");
-		LabelPizzeria jlTituloSection = new LabelPizzeria("Section", fuenteTitulo);
-		LabelPizzeria jlTituloPrice = new LabelPizzeria("Price", fuenteTitulo);
-		LabelPizzeria jlTituloLowPrice = new LabelPizzeria("Low Price", fuenteTitulo);
-		LabelPizzeria jlTituloIngredients = new LabelPizzeria("Ingredients", fuenteTitulo);
-		pProductos.add(jlTituloDenomination);
-		pProductos.add(jlTituloSection);
-		pProductos.add(jlTituloPrice);
-		pProductos.add(jlTituloLowPrice);
-		pProductos.add(jlTituloIngredients);
-		for (ComidaPizzeria plato : FramePizzeria.InstanceFPizzerie.myPizzerie.getFoods()) {
-			LabelPizzeria jlDenomination = new LabelPizzeria(plato.getDenomination(), fuenteDatos);
-			LabelPizzeria jlSection = new LabelPizzeria(plato.getSection(), fuenteDatos);
-			LabelPizzeria jlPrice = new LabelPizzeria(((Double) plato.getPrice()).toString(), fuenteDatos);
-			JCheckBox jcLowPrice = new JCheckBox(" ", (plato.isLowPrice()) ? true : false);
-			jcLowPrice.setEnabled(false);
-			LabelPizzeria jlIngredients = new LabelPizzeria((plato.getIngredients()), fuenteDatos);
-			pProductos.add(jlDenomination);
-			pProductos.add(jlSection);
-			pProductos.add(jlPrice);
-			pProductos.add(jcLowPrice);
-			pProductos.add(jlIngredients);
-		}
-		add(panelScrollProductosReport, BorderLayout.CENTER);
-		BotonPizzeria buttonBackProductReport = new BotonPizzeria(iconBack);
-		buttonBackProductReport.setActionCommand("BackReportsFromProductsReport");
-		buttonBackProductReport.addActionListener(gestorBotones);
-		add(buttonBackProductReport, BorderLayout.SOUTH);	
-	}
-*/
-	//Constructor for order report panel
-/*	public PanelPizzeria(String str) {
-		setLayout(new BorderLayout());
-		JPanel pPedidos = new JPanel();
-		JScrollPane panelScrollPedidosReport = new JScrollPane(pPedidos,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		panelScrollPedidosReport.setAlignmentY(0.0f);
-		pPedidos.setLayout(new GridLayout(0, 5, 5,5));
-		LabelPizzeria jTituloOrderId = new LabelPizzeria("Id", fuenteTitulo);
-		LabelPizzeria jlTituloOrderDate = new LabelPizzeria("Date", fuenteTitulo);
-		LabelPizzeria jlTituloPrice = new LabelPizzeria("Price", fuenteTitulo);
-		LabelPizzeria jlTituloDestino = new LabelPizzeria("Destino", fuenteTitulo);
-		LabelPizzeria jlTituloCobrado = new LabelPizzeria("Cobrado", fuenteTitulo);
-		pPedidos.add(jTituloOrderId);
-		pPedidos.add(jlTituloOrderDate);
-		pPedidos.add(jlTituloPrice);
-		pPedidos.add(jlTituloDestino);
-		pPedidos.add(jlTituloCobrado);
-		for (Pedido order : FramePizzeria.InstanceFPizzerie.myPizzerie.getOrders()) {
-			LabelPizzeria jlOrderId = new LabelPizzeria(((Integer)order.getOrderId()).toString(), fuenteDatos);
-			LabelPizzeria jlOrderDate = new LabelPizzeria(formatoFechaHora.format(order.getDate()), fuenteDatos);
-			LabelPizzeria jlPrice = new LabelPizzeria(((Double) order.getOrderPrice()).toString(), fuenteDatos);
-			LabelPizzeria jlDestino = new LabelPizzeria(order.getDestination().getDestinationDenomination(), fuenteDatos);			
-			JCheckBox jcCobrado = new JCheckBox(" ", (order.isPedidoCobrado()) ? true : false);
-			jcCobrado.setEnabled(false);
-			pPedidos.add(jlOrderId);
-			pPedidos.add(jlOrderDate);
-			pPedidos.add(jlPrice);
-			pPedidos.add(jlDestino);
-			pPedidos.add(jcCobrado);
-		}
-		add(panelScrollPedidosReport, BorderLayout.CENTER);
-		BotonPizzeria buttonBackOrderReport = new BotonPizzeria(iconBack);
-		buttonBackOrderReport.setActionCommand("BackReportsFromOrderReport");
-		buttonBackOrderReport.addActionListener(gestorBotones);
-		add(buttonBackOrderReport, BorderLayout.SOUTH);	
-	}
-*/
-	
+
 	//Constructor for order report panel using JTable
 	public PanelPizzeria(List<Pedido> pedidos, String str) {
+		setLayout(new BorderLayout());
 		String [] nombresColumnas = {"id", "Date", "Price", "PriceWhitoutTaxes", "worker", "discount", "Destiny"};
 		Class [] tipoColumnas = {java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class};
 		ModeloTablaPizzeriaPedidos tModelPedidos = new ModeloTablaPizzeriaPedidos(pedidos, nombresColumnas, tipoColumnas);
 		JTable tablePedidos = new JTable(tModelPedidos);
 		tablePedidos.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		JScrollPane panelScrollPedidosReport = new JScrollPane(tablePedidos,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		add(panelScrollPedidosReport);
+		add(panelScrollPedidosReport, BorderLayout.NORTH);
 		BotonPizzeria buttonBackPedidosReport = new BotonPizzeria(iconBack);
 		buttonBackPedidosReport.setActionCommand("BackReportsFromOrderReport");
 		buttonBackPedidosReport.addActionListener(gestorBotones);

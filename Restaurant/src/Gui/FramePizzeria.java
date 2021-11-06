@@ -24,8 +24,6 @@ public class FramePizzeria extends JFrame {
 	PanelPizzeria panelTique;
 	PanelPizzeria panelReport;
 	PanelPizzeria panelProductsReport;
-	PanelPizzeria panelProductsReport2;
-	//JScrollPane panelScrollProductosReport;
 	PanelPizzeria panelOrderReport;
 	Font fuenteTitulo = new Font("arial",Font.BOLD,20);
 	
@@ -107,12 +105,12 @@ public class FramePizzeria extends JFrame {
 		this.panelProductsReport = panelProductsReport;
 	}
 
-	public PanelPizzeria getPanelProductsReport2() {
-		return panelProductsReport2;
+	public PanelPizzeria getPanelOrderReport() {
+		return panelOrderReport;
 	}
 
-	public void setPanelProductsReport2(PanelPizzeria panelProductsReport2) {
-		this.panelProductsReport2 = panelProductsReport2;
+	public void setPanelOrderReport(PanelPizzeria panelOrderReport) {
+		this.panelOrderReport = panelOrderReport;
 	}
-
+	
 }
