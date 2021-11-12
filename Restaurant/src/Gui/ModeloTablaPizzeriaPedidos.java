@@ -44,7 +44,7 @@ public class ModeloTablaPizzeriaPedidos extends AbstractTableModel {
 			;
 			return lista.get(rowIndex).getOrderPriceWithoutTaxes();
 		case 4:
-			return lista.get(rowIndex).getWaiter();
+			return lista.get(rowIndex).getTrabajador();
 		case 5:
 			return lista.get(rowIndex).getvalorDescuento();
 		case 6:

@@ -77,12 +77,12 @@ public class TestPizzeria {
 		String[] language1 = {"Español","inglés"};
 		String[] language2 = {"Español","inglés, Francés"};
 		String[] language3 = {"Español","inglés, Alemán"};
-		Cocinero cocinero1 = new Cocinero("Francisco", "Soler Villegas","14253678A", 1200.50, Turno.TARDE.name(), "624582159", "Pizzas", 2, false);
-		Cocinero cocinero2 = new Cocinero("Elena", "García Moro","85854545C", 1400.50, Turno.NOCHE.name(), "9834235485", "Vanguardia", 5, true);
-		Camarero camarero1 = new Camarero("Vanesa", "Martin Fierro","85412365B", 1050.50, Turno.NOCHE.name(),"523568974","Barra", language1, false);
-		Camarero camarero2 = new Camarero("Jonas", "Valverde Schultz","44128369R", 1050.50,Turno.TARDE.name(),"685214792","Terraza", language2, true);
-		Repartidor repartidor1 = new Repartidor("Juan", "Pérez Morales","78451236C", 800.00,Turno.TARDE.name(),"568471236", Transport.Moto.toString(), 19, true, true);
-		Repartidor repartidor2 = new Repartidor("Manu", "González Gazquez","45826573J", 900.00,Turno.NOCHE.name(),"631657157", Transport.Bicicleta.toString(), 18, false, false);
+		Cocinero cocinero1 = new Cocinero("Francisco", "Soler Villegas","14253678A", 1200.50, Turno.TARDE.name(), "624582159", "coci1", "Pizzas", 2, false);
+		Cocinero cocinero2 = new Cocinero("Elena", "García Moro","85854545C", 1400.50, Turno.NOCHE.name(), "9834235485", "coci2", "Vanguardia", 5, true);
+		Camarero camarero1 = new Camarero("Vanesa", "Martin Fierro","85412365B", 1050.50, Turno.NOCHE.name(),"523568974", "cam1","Barra", language1, false);
+		Camarero camarero2 = new Camarero("Jonas", "Valverde Schultz","44128369R", 1050.50,Turno.TARDE.name(),"685214792", "cam2","Terraza", language2, true);
+		Repartidor repartidor1 = new Repartidor("Juan", "Pérez Morales","78451236C", 800.00,Turno.TARDE.name(),"568471236", "rep1", Transport.Moto.toString(), 19, true, true);
+		Repartidor repartidor2 = new Repartidor("Manu", "González Gazquez","45826573J", 900.00,Turno.NOCHE.name(),"631657157", "rep2", Transport.Bicicleta.toString(), 18, false, false);
 		//Creación de lista de Trabajadores y se añaden los cocineros, camareros y repartidores
 		List<Trabajador> trabajadoresPizzeria= new ArrayList<Trabajador>();
 		trabajadoresPizzeria.add(0, cocinero1);
@@ -97,7 +97,7 @@ public class TestPizzeria {
 		comidaPedido1.add(0, plato3); //0 es la posición en la lista y 1 el id de la "Comida"
 		comidaPedido1.add(1, plato5); //1 es la posición en la lista y 2 el id de la "Comida"
 		DestinoPedido destinoPedido1 = new DestinoPedido("Bar 1",Zone.Bar);
-		Pedido pedido1 = new Pedido(comidaPedido1, 32, camarero1, null, destinoPedido1);
+		Pedido pedido1 = new Pedido(comidaPedido1, 32, camarero1, destinoPedido1);
 		//Creación de la lista de pedidos e inserción del pedido1
 		List<Pedido> pedidosPizzeria= new ArrayList<Pedido>();
 		pedidosPizzeria.add(0, pedido1);
@@ -120,9 +120,9 @@ public class TestPizzeria {
 
 		
 		//Generación de  un pedido con los datos que inserta el operador y se presenta el ticket
-		if (pizzeria.seleccionaTurno() !="" ) {
-			pizzeria.generarPedido(comidaPizzeria, log);
-		}else System.out.println("Fuera de horario de generación pedidos.");
+	//	if (pizzeria.seleccionaTurno() !="" ) {
+	//		pizzeria.generarPedido(comidaPizzeria, log);
+	//	}else System.out.println("Fuera de horario de generación pedidos.");
 
 		//Generación de listado de pedidos
 		System.out.println("\n*************** Listado de pedidos en pizzeria *****************");

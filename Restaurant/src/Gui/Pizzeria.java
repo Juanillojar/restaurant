@@ -188,7 +188,9 @@ public class Pizzeria {
 		}
 	}
 	
+	// queda obsoleto tras la validación de usuario
 	// Pide los datos para generar pedido por consola y visualiza el ticket
+/*	
 		public void generarPedido(List<ComidaPizzeria> platos, FicheroLog log) {
 		Pedido pedido = new Pedido();
 		double precioSinIva = 0.0;
@@ -242,7 +244,7 @@ public class Pizzeria {
 			generaTicket(pedido, precioSinIva);
 			log.Escritura("Pedido generado correctamete");
 		}
-
+*/
 
 	public double calculoPrecioPedido(Pedido pedido) {
 		// Calcula el precio total de los productos del pedido sin impuestos
@@ -271,12 +273,7 @@ public class Pizzeria {
 		System.out.println("\t\t\tTotal:" + formatoDecimales.format(pedido.getOrderPrice()) + " €");
 		System.out.println("\tPrecio sin Iva:" + formatoDecimales.format(precioSinIva) + " € \tDescuentos: " + formatoDecimales.format(pedido.getvalorDescuento()) + " €");
 		System.out.print("\tLe atendió: ");
-		if (pedido.getDeliveryMan() != null) {
-			System.out.println(pedido.getDeliveryMan().getName());
-		}
-		if (pedido.getWaiter() != null) {
-			System.out.println(pedido.getWaiter().getName());
-		}
+		System.out.println(pedido.getTrabajador().getName());
 		System.out.println("*************************************************");
 	}
 
@@ -396,7 +393,7 @@ public class Pizzeria {
 		} while (index < workers.size());
 		return null;
 	}
-
+	//este mòdulo queda obsoleto en interfaz gráfica tras insertar la validación de usuario
 	public Trabajador seleccionaTrabajadorPedidoSegunHorario(Repartidor rep) {
 		// Selecciona el Trabajador según el tipo que se pase por parámetros (camarero o
 		// repartidor)

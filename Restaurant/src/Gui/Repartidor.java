@@ -16,8 +16,8 @@ public class Repartidor extends Trabajador{
 	private boolean ownVehicle;		//especifica si el vehículo utilizado para el reparto es propio
 	
 	public Repartidor(String name, String surNames, String dni, double salary, String shift,
-			String telephone, String deliveyMode, int age, boolean motorcycleLicense, boolean ownVehicle) {
-		super(name, surNames, dni, salary, shift, telephone);
+			String telephone, String clave, String deliveyMode, int age, boolean motorcycleLicense, boolean ownVehicle) {
+		super(name, surNames, dni, salary, shift, telephone, clave);
 		this.deliveyMode = deliveyMode;
 		this.age = age;
 		this.motorcycleLicense = motorcycleLicense;
@@ -66,10 +66,13 @@ public class Repartidor extends Trabajador{
 
 	@Override
 	public String toString() {
+		return 	getName() + " " + getSurNames();
+	}
+/*	public String toString() {
 		return "Repartidor " + super.toString() + " deliveyMode:" + deliveyMode + ", age:" + age + ", motorcycleLicense:" + motorcycleLicense
 				+ ", ownVehicle:" + ownVehicle;
 	}
-
+*/
 	public boolean equals(Repartidor obj) {
 		return super.equals(obj);
 	}

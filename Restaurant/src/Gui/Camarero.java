@@ -18,8 +18,8 @@ public class Camarero extends Trabajador{
 	private boolean cocktail;		//especifica si el camarero sabe preparar cocteles
 	
 	public Camarero(String name, String surNames, String dni, double salary, String shift,
-			String telephone, String workZone, String[] languages, boolean cocktail) {
-		super(name, surNames, dni, salary, shift, telephone);
+			String telephone, String clave, String workZone, String[] languages, boolean cocktail) {
+		super(name, surNames, dni, salary, shift, telephone, clave);
 		this.workZone = workZone;
 		this.languages = languages;
 		this.cocktail = cocktail;
@@ -57,9 +57,12 @@ public class Camarero extends Trabajador{
 	}
 	
 	public String toString() {
+		return 	getName() + " " + getSurNames();
+	}
+/*	public String toString() {
 		return "Camarero " + super.toString() + " workZone:" + workZone + ", languages:(" + visualizaLanguages(languages) + "), cocktail:" + cocktail;
 	}
-
+*/
 	public boolean equals(Camarero obj) {
 		return super.equals(obj);	
 	}

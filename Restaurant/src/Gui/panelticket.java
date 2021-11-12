@@ -16,9 +16,6 @@ import javax.swing.JButton;
 
 public class panelticket extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
 	private GestorBotonesPizzeria gestorBotones = new GestorBotonesPizzeria();
 	
 	ImageIcon iconBack = new ImageIcon("src/gui/images/Back.png", "Back");
@@ -30,10 +27,6 @@ public class panelticket extends JPanel {
 	
 	public panelticket(Pedido order) {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0};
-		//gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
-		//gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		//gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		GridBagConstraints gbc_Miconstraint = new GridBagConstraints();
 		LabelPizzeria lTitulopizzeria = new LabelPizzeria(FramePizzeria.InstanceFPizzerie.myPizzerie.getName() + "  "
@@ -141,14 +134,7 @@ public class panelticket extends JPanel {
 		gbc_Miconstraint.gridx = 1;
 		gbc_Miconstraint.gridy = gridy;
 		add(lTituloAtendido, gbc_Miconstraint);
-		
-		String atiende = "";
-		if (order.getDestination().getDestinationZone().equals(Zone.Delivery)) { // add delivery man
-			atiende = order.getDeliveryMan().getName();
-		} else { // add waiter
-			atiende = order.getWaiter().getName();
-		};
-		LabelPizzeria lAtendido = new LabelPizzeria(atiende, fuenteTitulo);
+		LabelPizzeria lAtendido = new LabelPizzeria(order.getTrabajador().getName(), fuenteTitulo);
 		gbc_Miconstraint.anchor = GridBagConstraints.WEST;
 		gbc_Miconstraint.insets = new Insets(0, 5, 5, 0);
 		gbc_Miconstraint.gridx = 2;

@@ -13,12 +13,14 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 public class FramePizzeria extends JFrame {
 	public static FramePizzeria InstanceFPizzerie = null;
 	Pizzeria myPizzerie;
 	PanelPizzeria panelPrincipal;
+	PanelValida panelValida;
 	PanelPizzeria panelMesas;
 	PanelPizzeria panelProductos;
 	PanelPizzeria panelTique;
@@ -26,6 +28,8 @@ public class FramePizzeria extends JFrame {
 	PanelPizzeria panelReport;
 	PanelPizzeria panelProductsReport;
 	PanelPizzeria panelOrderReport;
+	Trabajador trabajadorValidado  = new Trabajador(); //especifica el trabajador que está validado con su clave
+	
 	Font fuenteTitulo = new Font("arial",Font.BOLD,20);
 	
 	public FramePizzeria(Pizzeria myPizzerie) {
@@ -58,6 +62,10 @@ public class FramePizzeria extends JFrame {
 		setVisible(true);
 	}
 	public void ActivaPanel(panelticket panel) {
+		add(panel, BorderLayout.CENTER);
+		setVisible(true);
+	}
+	public void ActivaPanel(JPanel panel) {
 		add(panel, BorderLayout.CENTER);
 		setVisible(true);
 	}
@@ -123,6 +131,22 @@ public class FramePizzeria extends JFrame {
 
 	public void setPanelticket(panelticket panelticket) {
 		this.panelticket = panelticket;
+	}
+
+	public PanelValida getPanelValida() {
+		return panelValida;
+	}
+
+	public void setPanelValida(PanelValida panelValida) {
+		this.panelValida = panelValida;
+	}
+
+	public Trabajador getTrabajadorValidado() {
+		return trabajadorValidado;
+	}
+
+	public void setTrabajadorValidado(Trabajador trabajadorValidado) {
+		this.trabajadorValidado = trabajadorValidado;
 	}
 	
 }

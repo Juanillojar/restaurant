@@ -23,24 +23,27 @@ public class Pedido {
 	private List<ComidaPizzeria> orderFoods;   //Guarda una lista con los objetos conida del pedido
 	private double orderPrice;      	 //total del pedido con impuestos
 	private double orderPriceWithoutTaxes;
+	private Trabajador trabajador; // trabajador que atiende la comanda (camarero o repartidor)
 	// Se podría poner solo una variable y evitar comprobaciones
-	private Trabajador waiter;		 	 //Si un pedido no tiene camarero por ser para reparto su valor será nulo.
-	private Trabajador deliveryMan;  	 //Si un pedido no tiene repartidor por no ser para reparto su valor será nulo
+
+//	private Trabajador waiter;		 	 //Si un pedido no tiene camarero por ser para reparto su valor será nulo.
+//	private Trabajador deliveryMan;  	 //Si un pedido no tiene repartidor por no ser para reparto su valor será nulo
 	private double valorDescuento;		 //Valor de descuento del pedido. Se aplica antes de aplicar impuestos
 	private DestinoPedido destination;
 	private boolean pedidoCobrado;
 	
 	//constructor para crear el pedido en test (interfaz consola)
-	public Pedido(List<ComidaPizzeria> orderFoods, double orderPrice, Camarero waiter,
-			Repartidor deliveryMan, DestinoPedido destino) {
+	public Pedido(List<ComidaPizzeria> orderFoods, double orderPrice, Trabajador trabajador,
+			 DestinoPedido destino) {
 		pedidos ++;
 		this.orderId += pedidos;
 		this.date = new Date();
 		this.orderFoods = orderFoods;
 		this.orderPrice = orderPrice;
 		this.orderPriceWithoutTaxes = 0.0d;
-		this.waiter = waiter;
-		this.deliveryMan = deliveryMan;
+		this.trabajador = trabajador;
+//		this.waiter = waiter;
+//		this.deliveryMan = deliveryMan;
 		this.destination = destino;
 		this.pedidoCobrado = false;
 	}
@@ -53,8 +56,7 @@ public class Pedido {
 		orderFoods = new ArrayList<ComidaPizzeria>();
 		orderPrice = 0.0d;
 		orderPriceWithoutTaxes = 0.0d;
-		waiter = null;
-		deliveryMan = null; 
+		trabajador = null;
 		destination = null;
 		pedidoCobrado= false;
 	}
@@ -66,8 +68,7 @@ public class Pedido {
 		orderFoods = new ArrayList<ComidaPizzeria>();
 		orderPrice = 0.0d;
 		orderPriceWithoutTaxes = 0.0d;
-		waiter = null;
-		deliveryMan = null;
+		trabajador = null;
 		this.destination = destino;
 	}
 
@@ -92,13 +93,6 @@ public class Pedido {
 		return orderPrice;
 	}
 
-	public Trabajador getWaiter() {
-		return waiter;
-	}
-
-	public Trabajador getDeliveryMan() {
-		return deliveryMan;
-	}
 	public double getvalorDescuento() {
 		return valorDescuento;
 	}
@@ -120,14 +114,6 @@ public class Pedido {
 
 	public void setOrderPrice(double orderPrice) {
 		this.orderPrice = orderPrice;
-	}
-
-	public void setWaiter(Trabajador waiter) {
-		this.waiter = waiter;
-	}
-
-	public void setDeliveryMan(Trabajador deliveryMan) {
-		this.deliveryMan = deliveryMan;
 	}
 
 	public void setValorDescuento(double valorDescuento) {
@@ -158,15 +144,22 @@ public class Pedido {
 		this.orderPriceWithoutTaxes = orderPriceWithoutTaxes;
 	}
 
+	
+	public Trabajador getTrabajador() {
+		return trabajador;
+	}
+
+	public void setTrabajador(Trabajador trabajador) {
+		this.trabajador = trabajador;
+	}
+
 	@Override
 	public String toString() {
 		DateFormat formatoFechaHora = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
 		DecimalFormat formatoDecimal = new DecimalFormat("###,###.##");  // formatea un double a String truncando según en formato
 		return "Pedido " + orderId + " date:" + formatoFechaHora.format(this.date.getTime())  + 
 				" " + orderFoods + " orderPrice:" + formatoDecimal.format(orderPrice) + " € "
-				+ (waiter != null ? "waiter=" + waiter.getName() + ", " : "")
-				+ (deliveryMan != null ? "deliveryMan=" + deliveryMan.getName() : "")
-				+ " valorDescuento: " + valorDescuento + " € \n";
+				+  trabajador.getName()	+ " valorDescuento: " + valorDescuento + " € \n";
 	}
 
 	public boolean equals(Pedido obj) {

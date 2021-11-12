@@ -23,11 +23,12 @@ public class Trabajador {
 	private double salary;
 	private String shift;		//especifica el turno de trabajo de tarde o noche
 	private String telephone;
+	private String clave;
 	
 	
 	
 	public Trabajador(String name, String surNames, String dni, double salary, String shift,
-			String telephone) {
+			String telephone, String clave) {
 		workers ++;					
 		this.workerId += workers;	//Se utiliza la variable estática workers para asignar workerId
 		this.name = name;
@@ -36,6 +37,7 @@ public class Trabajador {
 		this.salary = salary;
 		this.shift = shift;
 		this.telephone = telephone;
+		this.clave = clave;
 	}
 
 
@@ -48,6 +50,7 @@ public class Trabajador {
 		salary = 0.0;
 		shift = "";
 		telephone = "";
+		clave = "";
 	}
 
 
@@ -128,6 +131,16 @@ public class Trabajador {
 
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
+	}
+
+
+	public String getClave() {
+		return clave;
+	}
+
+
+	public void setClave(String clave) {
+		this.clave = clave;
 	}
 
 

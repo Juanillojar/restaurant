@@ -12,19 +12,43 @@ public class GestorBotonesPizzeria implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if (e.getActionCommand().equals("AbrirPanelMesas")) {
-			// show bar and tables panel
-			if (FramePizzeria.InstanceFPizzerie.panelMesas == null) {
-					FramePizzeria.InstanceFPizzerie.panelMesas =new PanelPizzeria(FramePizzeria.InstanceFPizzerie.myPizzerie.getBarZones(), FramePizzeria.InstanceFPizzerie.myPizzerie.getDeliveryZones() ,FramePizzeria.InstanceFPizzerie.myPizzerie.getInTables(),FramePizzeria.InstanceFPizzerie.myPizzerie.getOutTables());
-					System.out.println("Se crea panel mesas");
+		if (e.getActionCommand().equals("AbrirPanelValida")) {
+			// show valilda panel
+			if (FramePizzeria.InstanceFPizzerie.panelValida == null) {
+					FramePizzeria.InstanceFPizzerie.panelValida =new PanelValida(FramePizzeria.InstanceFPizzerie.myPizzerie.getWorkers());
+					System.out.println("Se crea panel valida");
 			}else {
 				//Cada botón debe tener el pedido abierto si existe
-				System.out.println("No se crea el panel mesas. Ya existe");
+				System.out.println("No se crea el panel Valida. Ya existe");
 			}
-			FramePizzeria.InstanceFPizzerie.ActivaPanel(FramePizzeria.InstanceFPizzerie.panelMesas);
-			FramePizzeria.InstanceFPizzerie.getPanelMesas().setVisible(true);
+			FramePizzeria.InstanceFPizzerie.ActivaPanel(FramePizzeria.InstanceFPizzerie.panelValida);
+			FramePizzeria.InstanceFPizzerie.getPanelValida().setVisible(true);
 			FramePizzeria.InstanceFPizzerie.getPanelPrincipal().setVisible(false);
 		}
+		if(e.getActionCommand().equals("Valida clave")) {
+			if (validaClave()) {
+				// inserted password is correct. Show bar and tables panel
+				if (FramePizzeria.InstanceFPizzerie.panelMesas == null) {
+						FramePizzeria.InstanceFPizzerie.panelMesas =new PanelPizzeria(FramePizzeria.InstanceFPizzerie.myPizzerie.getBarZones(), FramePizzeria.InstanceFPizzerie.myPizzerie.getDeliveryZones() ,FramePizzeria.InstanceFPizzerie.myPizzerie.getInTables(),FramePizzeria.InstanceFPizzerie.myPizzerie.getOutTables());
+						System.out.println("Se crea panel mesas");
+				}else {
+					//Cada botón debe tener el pedido abierto si existe
+					System.out.println("No se crea el panel mesas. Ya existe");
+				}
+				FramePizzeria.InstanceFPizzerie.setTrabajadorValidado((Trabajador)FramePizzeria.InstanceFPizzerie.getPanelValida().getComboBoxUser().getSelectedItem());
+				FramePizzeria.InstanceFPizzerie.ActivaPanel(FramePizzeria.InstanceFPizzerie.panelMesas);
+				FramePizzeria.InstanceFPizzerie.getPanelMesas().setVisible(true);
+				FramePizzeria.InstanceFPizzerie.getPanelValida().setVisible(false);
+			}
+			
+		}
+		if(e.getActionCommand().equals("Salir panel valida")) {
+			// back to principal panel
+			FramePizzeria.InstanceFPizzerie.ActivaPanel(FramePizzeria.InstanceFPizzerie.panelPrincipal);
+			FramePizzeria.InstanceFPizzerie.getPanelPrincipal().setVisible(true);
+			FramePizzeria.InstanceFPizzerie.getPanelValida().setVisible(false);
+		}
+
 		if (e.getActionCommand().equals("AbrirPanelConfiguracion")) {
 		}
 		if (e.getActionCommand().equals("AbrirPanelReports")) {
@@ -116,6 +140,15 @@ public class GestorBotonesPizzeria implements ActionListener{
 			System.out.println("back from order report");
 		}
 		
+	}
+	
+	public boolean validaClave() {
+		if(((Trabajador)FramePizzeria.InstanceFPizzerie.getPanelValida().getComboBoxUser().getSelectedItem()).getClave().equals(FramePizzeria.InstanceFPizzerie.getPanelValida().getPasswordField().getText())) {
+			return true;
+		}else {
+			JOptionPane.showMessageDialog(null, "Clave not match","clave insertion" , JOptionPane.INFORMATION_MESSAGE);
+			return false;
+		}
 	}
 	
 	public void abrirPanelProductos() {

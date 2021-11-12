@@ -42,9 +42,8 @@ public class PanelPizzeria extends JPanel{
 	// Constructor of main panel principal
 	public PanelPizzeria() {
 		setLayout(new FlowLayout(FlowLayout.CENTER, 5, 25));
-		//setLayout(new GridLayout());
 		BotonPizzeria bOperate = new BotonPizzeria(iconOperate);
-		bOperate.setActionCommand("AbrirPanelMesas");
+		bOperate.setActionCommand("AbrirPanelValida");
 		BotonPizzeria bConf = new BotonPizzeria(iconConf);
 		bConf.setActionCommand("AbrirPanelConfiguracion");
 		bConf.setEnabled(false);
@@ -61,7 +60,6 @@ public class PanelPizzeria extends JPanel{
 
 	// Contructor for bar, tables panel (Operar)
 	public PanelPizzeria(int barzones, int deliverys, int intTables, int extTables) {
-//		setLayout(new FlowLayout(FlowLayout.CENTER, 5, 25));
 		setLayout(new BorderLayout());
 		LabelPizzeria titulo = new LabelPizzeria("Seleccione una opción para crear pedido", fuenteTitulo, "CENTER");
 		add(titulo, BorderLayout.NORTH);
@@ -175,13 +173,7 @@ public class PanelPizzeria extends JPanel{
 		tique.add(lTituloDescuento);
 		tique.add(lDescuento);
 		LabelPizzeria lTituloAtendido = new LabelPizzeria("Le atendió: ", fuenteTitulo, "RIGHT");
-		String atiende = "";
-		if (order.getDestination().getDestinationZone().equals(Zone.Delivery)) { // add delivery man
-			atiende = order.getDeliveryMan().getName();
-		} else { // add waiter
-			atiende = order.getWaiter().getName();
-		};
-		LabelPizzeria lAtendido = new LabelPizzeria(atiende, fuenteTitulo);
+		LabelPizzeria lAtendido = new LabelPizzeria(order.getTrabajador().getName(), fuenteTitulo);
 		tique.add(lTituloAtendido);
 		tique.add(lAtendido);
 		add(tique, BorderLayout.CENTER);
@@ -273,16 +265,7 @@ public class PanelPizzeria extends JPanel{
 	//rellena los datos del pedido con el precio con impuestos y descuentos, el camarero o repartidor
 	public void upgradeOrderData(Pedido pedidoEnCurso) {
 		pedidoEnCurso.setOrderPriceWithoutTaxes(subtotal); // add total price whitout taxes
-		if (pedidoEnCurso.getDestination().getDestinationZone().equals(Zone.Delivery)) { // add delivery man
-			Repartidor rep = new Repartidor();
-			pedidoEnCurso.setDeliveryMan(
-					FramePizzeria.InstanceFPizzerie.myPizzerie.seleccionaTrabajadorPedidoSegunHorario(rep));
-			rep = null; // no sé si esto libera memoria
-		} else { // add waiter
-			Camarero cam = new Camarero(); // se pasa objeto del tipo solo para comparar
-			pedidoEnCurso.setWaiter(FramePizzeria.InstanceFPizzerie.myPizzerie.seleccionaTrabajadorPedidoSegunHorario(cam));
-			cam = null; // no sé si esto libera memoria
-		};
+		pedidoEnCurso.setTrabajador(FramePizzeria.InstanceFPizzerie.getTrabajadorValidado());
 		// calc total price and discounts
 		FramePizzeria.InstanceFPizzerie.myPizzerie.calculoPrecioPedido(pedidoEnCurso);
 		System.out.println("Rellenado pedido " + pedidoEnCurso);

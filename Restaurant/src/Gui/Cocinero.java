@@ -15,8 +15,8 @@ public class Cocinero extends Trabajador{
 	private boolean chef;			// indica si tiene el grado de chef o de pinche de cocina
 	
 	public Cocinero(String name, String surNames, String dni, double salary, String shift,
-			String telephone, String specialty, int workExperience, boolean chef) {
-		super(name, surNames, dni, salary, shift, telephone);
+			String telephone, String clave, String specialty, int workExperience, boolean chef) {
+		super(name, surNames, dni, salary, shift, telephone, clave);
 		this.specialty = specialty;
 		this.workExperience = workExperience;
 		this.chef = chef;
