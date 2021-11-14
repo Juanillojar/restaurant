@@ -11,7 +11,7 @@ import java.util.List;
 
 enum Section {PIZZAS, STARTERS, PASTAS, COMBINADOS, SALADS, DESSERTS, DRINKS, BREAD, OTHERS;}
 
-public class ComidaPizzeria {
+public class Productos {
 	private static int foods = 0;
 	private int foodId;
 	private String denomination;    //Descripción del plato
@@ -21,7 +21,7 @@ public class ComidaPizzeria {
 	private boolean lowPrice;		//Si es true indica que el plato está promocionado
 	// como metemos el tamaño de la pizza??
 	
-	public ComidaPizzeria(String denomination, Section section, String ingredients, double prize, boolean lowPrice) {
+	public Productos(String denomination, Section section, String ingredients, double prize, boolean lowPrice) {
 		foods ++;
 		this.foodId += foods;				//Se utiliza la variable estática foods para asignar foodId
 		this.denomination = denomination;
@@ -31,7 +31,7 @@ public class ComidaPizzeria {
 		this.lowPrice = lowPrice;
 	};
 	
-	public ComidaPizzeria() {
+	public Productos() {
 		foods ++;
 		foodId += foods;
 		denomination = "";
@@ -70,7 +70,7 @@ public class ComidaPizzeria {
 	}
 
 	public static void setFoods(int foods) {
-		ComidaPizzeria.foods = foods;
+		Productos.foods = foods;
 	}
 
 	public void setFoodId(int foodId) {

@@ -16,23 +16,25 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-public class FramePizzeria extends JFrame {
-	public static FramePizzeria InstanceFPizzerie = null;
-	Pizzeria myPizzerie;
-	PanelPizzeria panelPrincipal;
+public class Frame extends JFrame {
+	public static Frame InstanceFPizzerie = null;
+	Restaurant myPizzerie;
+	Panel panelPrincipal;
 	PanelValida panelValida;
-	PanelPizzeria panelMesas;
-	PanelPizzeria panelProductos;
-	PanelPizzeria panelTique;
+	Panel panelMesas;
+	Panel panelProductos;
+	//Panel panelTique;
 	panelticket panelticket;
-	PanelPizzeria panelReport;
-	PanelPizzeria panelProductsReport;
-	PanelPizzeria panelOrderReport;
+	Panel panelCobro;
+	Panel panelReport;
+	Panel panelProductsReport;
+	Panel panelOrderReport;
+	
 	Trabajador trabajadorValidado  = new Trabajador(); //especifica el trabajador que está validado con su clave
 	
 	Font fuenteTitulo = new Font("arial",Font.BOLD,20);
 	
-	public FramePizzeria(Pizzeria myPizzerie) {
+	public Frame(Restaurant myPizzerie) {
 		InstanceFPizzerie = this; // instancia del JFrame Singleton
 		this.myPizzerie = myPizzerie;
 		setTitle("Mi pizzeria");
@@ -45,15 +47,15 @@ public class FramePizzeria extends JFrame {
 		Image miIcono = mipantalla.getImage("src/images/icono.png");
 		setIconImage(miIcono); // icono del JFrame
 		setLayout(new BorderLayout());
-		LabelPizzeria lTitle = new LabelPizzeria(FramePizzeria.InstanceFPizzerie.myPizzerie.getName(), fuenteTitulo);
+		Label lTitle = new Label(Frame.InstanceFPizzerie.myPizzerie.getName(), fuenteTitulo);
 		add(lTitle, BorderLayout.NORTH);
 		//LabelPizzeria lOfertas = new LabelPizzeria("Nuestras ofertas", fuenteTitulo);
-		panelPrincipal = new PanelPizzeria();
+		panelPrincipal = new Panel();
 		add(panelPrincipal, BorderLayout.CENTER);
 		setVisible(true);	
 	}
 
-	public void ActivaPanel(PanelPizzeria panel) {
+	public void ActivaPanel(Panel panel) {
 		add(panel, BorderLayout.CENTER);
 		setVisible(true);
 	}
@@ -69,59 +71,59 @@ public class FramePizzeria extends JFrame {
 		add(panel, BorderLayout.CENTER);
 		setVisible(true);
 	}
-	public PanelPizzeria getPanelPrincipal() {
+	public Panel getPanelPrincipal() {
 		return panelPrincipal;
 	}
 
-	public PanelPizzeria getPanelMesas() {
+	public Panel getPanelMesas() {
 		return panelMesas;
 	}
 
-	public void setPanelPrincipal(PanelPizzeria panelPrincipal) {
+	public void setPanelPrincipal(Panel panelPrincipal) {
 		this.panelPrincipal = panelPrincipal;
 	}
 
-	public void setPanelMesas(PanelPizzeria panelOperation) {
+	public void setPanelMesas(Panel panelOperation) {
 		this.panelMesas = panelOperation;
 	}
 
-	public PanelPizzeria getPanelProductos() {
+	public Panel getPanelProductos() {
 		return panelProductos;
 	}
 
-	public void setPanelProductos(PanelPizzeria panelProductos) {
+	public void setPanelProductos(Panel panelProductos) {
 		this.panelProductos = panelProductos;
 	}
-
-	public PanelPizzeria getPanelTique() {
+/*
+	public Panel getPanelTique() {
 		return panelTique;
 	}
 
-	public void setPanelTique(PanelPizzeria panelTique) {
+	public void setPanelTique(Panel panelTique) {
 		this.panelTique = panelTique;
 	}
-
-	public PanelPizzeria getPanelReport() {
+*/
+	public Panel getPanelReport() {
 		return panelReport;
 	}
 
-	public void setPanelReport(PanelPizzeria panelReport) {
+	public void setPanelReport(Panel panelReport) {
 		this.panelReport = panelReport;
 	}
 
-	public PanelPizzeria getPanelProductsReport() {
+	public Panel getPanelProductsReport() {
 		return panelProductsReport;
 	}
 
-	public void setPanelProductsReport(PanelPizzeria panelProductsReport) {
+	public void setPanelProductsReport(Panel panelProductsReport) {
 		this.panelProductsReport = panelProductsReport;
 	}
 
-	public PanelPizzeria getPanelOrderReport() {
+	public Panel getPanelOrderReport() {
 		return panelOrderReport;
 	}
 
-	public void setPanelOrderReport(PanelPizzeria panelOrderReport) {
+	public void setPanelOrderReport(Panel panelOrderReport) {
 		this.panelOrderReport = panelOrderReport;
 	}
 
@@ -147,6 +149,14 @@ public class FramePizzeria extends JFrame {
 
 	public void setTrabajadorValidado(Trabajador trabajadorValidado) {
 		this.trabajadorValidado = trabajadorValidado;
+	}
+
+	public Panel getPanelCobro() {
+		return panelCobro;
+	}
+
+	public void setPanelCobro(Panel panelCobro) {
+		this.panelCobro = panelCobro;
 	}
 	
 }

@@ -6,9 +6,9 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-public class LabelPizzeria extends JLabel{
+public class Label extends JLabel{
 	//Constructor para JLabel de título
-	public LabelPizzeria(String Titulo, Font fuente, String alinea) {
+	public Label(String Titulo, Font fuente, String alinea) {
 		setText(Titulo);
 		setFont(fuente);
 		switch (alinea) {
@@ -25,7 +25,7 @@ public class LabelPizzeria extends JLabel{
 		}
 	}
 		
-	public LabelPizzeria(String Titulo, Font fuente) {
+	public Label(String Titulo, Font fuente) {
 		setText(Titulo);
 		setFont(fuente);
 		setMaximumSize(new Dimension(25,100));

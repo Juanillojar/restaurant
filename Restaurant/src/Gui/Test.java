@@ -10,42 +10,42 @@ Se visualizan los datos y se crea un pedido utilizando los datos insertados
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestPizzeria {
+public class Test {
 	public static String path= "E:\\Contenido USB Diciembre 2019\\personal\\cursos\\Curso Java 2021\\PracticasJava\\src\\Pizzeria\\pizzeria.log";
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		FicheroLog log = new FicheroLog(path);
 		//Se crean los productos (objetos Comida), se crea la comidaPizzeria y se rellena 
-		ComidaPizzeria plato1 = new ComidaPizzeria("Patatas Fritas",Section.STARTERS,"Patata, aceite, sal", 3.00, false);
-		ComidaPizzeria plato2 = new ComidaPizzeria("Pollo milanesa",Section.STARTERS,"Pollo, tomate, cebolla, pan rallado, Huevo, pimienta",10.50,false);
-		ComidaPizzeria plato3 = new ComidaPizzeria("Aros de cebolla",Section.STARTERS,"Cebolla, aceite, pan rallado",5.50,false);
-		ComidaPizzeria plato4 = new ComidaPizzeria("Musaka",Section.STARTERS,"Berengena, queso, tomate, lecha, harina, sal",11.50,false);
-		ComidaPizzeria plato5 = new ComidaPizzeria("Tabla patés",Section.STARTERS,"Pate de higado, paté de atún",7.20, true);
-		ComidaPizzeria plato6 = new ComidaPizzeria("Macarrones boloñesa", Section.PASTAS, "Pasta, Tomate, Cebolla, champiñones",7.5, false);
-		ComidaPizzeria plato7 = new ComidaPizzeria("Pizza Caprichosa", Section.PIZZAS, "Harina, aceite, aguan, tomate, Queso, Cebolla, champiñones",10, true);
-		ComidaPizzeria plato8 = new ComidaPizzeria("Pizza Margarita", Section.PIZZAS, "Harina, aceite, agua, tomate, Queso" ,9.80, false);
-		ComidaPizzeria plato9 = new ComidaPizzeria("Pizza Pepperoni", Section.PIZZAS, "Tomate, Queso, pepperoni, salchicas",8.60, false);
-		ComidaPizzeria plato10 = new ComidaPizzeria("Ensalada Tropical", Section.SALADS, "Lechuga, tomate, gauda, piña, manzana, kiwi, salsa rosa",9.20, false);
-		ComidaPizzeria plato11 = new ComidaPizzeria("Ensalada Nostra", Section.SALADS, "Lechuga, tomate, zanahoria, atún, maiz, espárragos",8.00, false);
-		ComidaPizzeria plato12 = new ComidaPizzeria("Helado", Section.DESSERTS, "Leche, azucar, Fruta según sabor",2.95, false);
-		ComidaPizzeria plato13= new ComidaPizzeria("Coolant", Section.DESSERTS, "Leche, harina, chocolate, azucar",3.55, false);
-		ComidaPizzeria plato14 = new ComidaPizzeria("Pan rústico", Section.BREAD, "harina, sal, agua",0.90, false);
-		ComidaPizzeria plato15 = new ComidaPizzeria("Pan centeno", Section.BREAD, "Centeno, sal, agua",0.90, false);
-		ComidaPizzeria plato16 = new ComidaPizzeria("Pan con pasas", Section.BREAD, "Harina, sal, agua, uva",1.20, false);
-		ComidaPizzeria plato17 = new ComidaPizzeria("Lomo y Huevos", Section.COMBINADOS, "Cerdo, huevo, patata, aceite, sal",9.90, false);
-		ComidaPizzeria plato18 = new ComidaPizzeria("Cazón y Huevos", Section.COMBINADOS, "Cazón, huevo, patata, aceite, sal",9.90, false);
-		ComidaPizzeria plato19 = new ComidaPizzeria("Salchichas y pimientos", Section.COMBINADOS, "Cerdo, pimiento, patata, aceite, sal",5.90, false);
-		ComidaPizzeria plato20 = new ComidaPizzeria("Hamburguesa casa", Section.OTHERS, "Cerdo, huevo, patata, acerite, sal",9.90, false);
-		ComidaPizzeria plato21 = new ComidaPizzeria("Ketchup", Section.OTHERS, "Tomate, azucar, sal...",0.20, false);
-		ComidaPizzeria plato22 = new ComidaPizzeria("Mahonesa", Section.OTHERS, "Huevo, aceite, sal",0.20, false);
-		ComidaPizzeria plato23 = new ComidaPizzeria("Cerveza",Section.DRINKS,"Cebada, Alcohol",1.5,false);
-		ComidaPizzeria plato24 = new ComidaPizzeria("Cerveza sin",Section.DRINKS,"Cebada",1.5,false);
-		ComidaPizzeria plato25 = new ComidaPizzeria("Agua grande",Section.DRINKS,"Agua",2.5,false);
-		ComidaPizzeria plato26 = new ComidaPizzeria("Agua pequeña",Section.DRINKS,"Agua",1.5,false);
+		Productos plato1 = new Productos("Patatas Fritas",Section.STARTERS,"Patata, aceite, sal", 3.00, false);
+		Productos plato2 = new Productos("Pollo milanesa",Section.STARTERS,"Pollo, tomate, cebolla, pan rallado, Huevo, pimienta",10.50,false);
+		Productos plato3 = new Productos("Aros de cebolla",Section.STARTERS,"Cebolla, aceite, pan rallado",5.50,false);
+		Productos plato4 = new Productos("Musaka",Section.STARTERS,"Berengena, queso, tomate, lecha, harina, sal",11.50,false);
+		Productos plato5 = new Productos("Tabla patés",Section.STARTERS,"Pate de higado, paté de atún",7.20, true);
+		Productos plato6 = new Productos("Macarrones boloñesa", Section.PASTAS, "Pasta, Tomate, Cebolla, champiñones",7.5, false);
+		Productos plato7 = new Productos("Pizza Caprichosa", Section.PIZZAS, "Harina, aceite, aguan, tomate, Queso, Cebolla, champiñones",10, true);
+		Productos plato8 = new Productos("Pizza Margarita", Section.PIZZAS, "Harina, aceite, agua, tomate, Queso" ,9.80, false);
+		Productos plato9 = new Productos("Pizza Pepperoni", Section.PIZZAS, "Tomate, Queso, pepperoni, salchicas",8.60, false);
+		Productos plato10 = new Productos("Ensalada Tropical", Section.SALADS, "Lechuga, tomate, gauda, piña, manzana, kiwi, salsa rosa",9.20, false);
+		Productos plato11 = new Productos("Ensalada Nostra", Section.SALADS, "Lechuga, tomate, zanahoria, atún, maiz, espárragos",8.00, false);
+		Productos plato12 = new Productos("Helado", Section.DESSERTS, "Leche, azucar, Fruta según sabor",2.95, false);
+		Productos plato13= new Productos("Coolant", Section.DESSERTS, "Leche, harina, chocolate, azucar",3.55, false);
+		Productos plato14 = new Productos("Pan rústico", Section.BREAD, "harina, sal, agua",0.90, false);
+		Productos plato15 = new Productos("Pan centeno", Section.BREAD, "Centeno, sal, agua",0.90, false);
+		Productos plato16 = new Productos("Pan con pasas", Section.BREAD, "Harina, sal, agua, uva",1.20, false);
+		Productos plato17 = new Productos("Lomo y Huevos", Section.COMBINADOS, "Cerdo, huevo, patata, aceite, sal",9.90, false);
+		Productos plato18 = new Productos("Cazón y Huevos", Section.COMBINADOS, "Cazón, huevo, patata, aceite, sal",9.90, false);
+		Productos plato19 = new Productos("Salchichas y pimientos", Section.COMBINADOS, "Cerdo, pimiento, patata, aceite, sal",5.90, false);
+		Productos plato20 = new Productos("Hamburguesa casa", Section.OTHERS, "Cerdo, huevo, patata, acerite, sal",9.90, false);
+		Productos plato21 = new Productos("Ketchup", Section.OTHERS, "Tomate, azucar, sal...",0.20, false);
+		Productos plato22 = new Productos("Mahonesa", Section.OTHERS, "Huevo, aceite, sal",0.20, false);
+		Productos plato23 = new Productos("Cerveza",Section.DRINKS,"Cebada, Alcohol",1.5,false);
+		Productos plato24 = new Productos("Cerveza sin",Section.DRINKS,"Cebada",1.5,false);
+		Productos plato25 = new Productos("Agua grande",Section.DRINKS,"Agua",2.5,false);
+		Productos plato26 = new Productos("Agua pequeña",Section.DRINKS,"Agua",1.5,false);
 		
 		
-		List<ComidaPizzeria> comidaPizzeria = new ArrayList<ComidaPizzeria>();
+		List<Productos> comidaPizzeria = new ArrayList<Productos>();
 		comidaPizzeria.add(plato1);
 		comidaPizzeria.add(plato2);
 		comidaPizzeria.add(plato3);
@@ -93,7 +93,7 @@ public class TestPizzeria {
 		trabajadoresPizzeria.add(5, repartidor2);
 		
 		//Creación de la lista de comidas para pedido1 y el objeto pedido1 y la lista de objetos pedido.
-		List<ComidaPizzeria> comidaPedido1 = new ArrayList<ComidaPizzeria>();
+		List<Productos> comidaPedido1 = new ArrayList<Productos>();
 		comidaPedido1.add(0, plato3); //0 es la posición en la lista y 1 el id de la "Comida"
 		comidaPedido1.add(1, plato5); //1 es la posición en la lista y 2 el id de la "Comida"
 		DestinoPedido destinoPedido1 = new DestinoPedido("Bar 1",Zone.Bar);
@@ -102,7 +102,7 @@ public class TestPizzeria {
 		List<Pedido> pedidosPizzeria= new ArrayList<Pedido>();
 		pedidosPizzeria.add(0, pedido1);
 		//Creación de un objeto pizzeria asociándole todos los datos creados antes
-		Pizzeria pizzeria = new Pizzeria("Pizzeria Bartolini", "c/Levantina 2 Bajo C.P:04240 Viator(Almeria)", trabajadoresPizzeria, comidaPizzeria,pedidosPizzeria);
+		Restaurant pizzeria = new Restaurant("Pizzeria Bartolini", "c/Levantina 2 Bajo C.P:04240 Viator(Almeria)", trabajadoresPizzeria, comidaPizzeria,pedidosPizzeria);
 		//pedidosPizzeria.indexOf(pedido1);
 		//Se asigna el número de puestos en barra, mesas en interior y exterior
 		pizzeria.setBarZones(4);
@@ -116,7 +116,7 @@ public class TestPizzeria {
 		
 		pizzeria.VisualizarListaComidas(comidaPedido1, "Postre");
 		//Se lanza frame
-		FramePizzeria miFrame = new FramePizzeria(pizzeria);
+		Frame miFrame = new Frame(pizzeria);
 
 		
 		//Generación de  un pedido con los datos que inserta el operador y se presenta el ticket

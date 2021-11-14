@@ -22,7 +22,7 @@ import java.util.Scanner;
 enum Zone {
 	Bar, IntTable, ExtTable, Delivery;
 }
-public class Pizzeria {
+public class Restaurant {
 	private static int impuestos = 10;
 	private static int descuento = 5;
 	private static int inicioTurnoTarde = 11;
@@ -35,10 +35,10 @@ public class Pizzeria {
 	private int inTables;	 // especifica el número de mesas en interior
 	private int outTables;   // especifica el número de mesas en interior
 	private List<Trabajador> workers;
-	public List<ComidaPizzeria> foods;
+	public List<Productos> foods;
 	private List<Pedido> orders;
 
-	public Pizzeria(String noum, String address, List<Trabajador> workers, List<ComidaPizzeria> foods, List<Pedido> orders) {
+	public Restaurant(String noum, String address, List<Trabajador> workers, List<Productos> foods, List<Pedido> orders) {
 		this.name = noum;
 		this.address = address;
 		this.workers = workers;
@@ -46,7 +46,7 @@ public class Pizzeria {
 		this.orders = orders;
 	}
 
-	public Pizzeria(String noum, String address) {
+	public Restaurant(String noum, String address) {
 		this.name = noum;
 		this.address = address;
 		workers = null;
@@ -54,7 +54,7 @@ public class Pizzeria {
 		orders = null;
 	}
 
-	public Pizzeria() {
+	public Restaurant() {
 		name = "";
 		address = "";
 		workers = null;
@@ -89,7 +89,7 @@ public class Pizzeria {
 		return workers;
 	}
 
-	public List<ComidaPizzeria> getFoods() {
+	public List<Productos> getFoods() {
 		return foods;
 	}
 
@@ -130,20 +130,20 @@ public class Pizzeria {
 	}
 
 	public static void setImpuestos(int impuestos) {
-		Pizzeria.impuestos = impuestos;
+		Restaurant.impuestos = impuestos;
 	}
 
 	public static void setDescuento(int descuento) {
-		Pizzeria.descuento = descuento;
+		Restaurant.descuento = descuento;
 	}
 	public static void setInicioTurnoTarde(int incioTurnoTarde) {
-		Pizzeria.inicioTurnoTarde = incioTurnoTarde;
+		Restaurant.inicioTurnoTarde = incioTurnoTarde;
 	}
 	public static void setInicioTurnoNoche(int incioTurnoNoche) {
-		Pizzeria.inicioTurnoNoche = incioTurnoNoche;
+		Restaurant.inicioTurnoNoche = incioTurnoNoche;
 	}
 	public static void setFinTurnoTarde(int finTurnoNoche) {
-		Pizzeria.finTurnoNoche = finTurnoNoche;
+		Restaurant.finTurnoNoche = finTurnoNoche;
 	}
 
 	public void setName(String noum) {
@@ -158,7 +158,7 @@ public class Pizzeria {
 		this.workers = workers;
 	}
 
-	public void setFoods(List<ComidaPizzeria> foods) {
+	public void setFoods(List<Productos> foods) {
 		this.foods = foods;
 	}
 
@@ -172,7 +172,7 @@ public class Pizzeria {
 				+ (foods != null ? "\nfoods=" + foods + ", " : "") + (orders != null ? "\norders=" + orders : "");
 	}
 
-	public boolean equals(Pizzeria obj) {
+	public boolean equals(Restaurant obj) {
 		return address.equals(obj.address) && name.equals(obj.name);
 	}
 	
@@ -182,8 +182,8 @@ public class Pizzeria {
 		}
 	}
 
-	public void VisualizarListaComidas(List<ComidaPizzeria> platos) {
-		for (ComidaPizzeria p : platos) {
+	public void VisualizarListaComidas(List<Productos> platos) {
+		for (Productos p : platos) {
 			System.out.println(p.toString());
 		}
 	}
@@ -252,7 +252,7 @@ public class Pizzeria {
 		// guarda en el objeto pedido los valores de descuento y valor total del pedido
 		double precioSinImpuestos = 0.0d;
 		double valorDescuento = 0.0d;
-		for (ComidaPizzeria p : pedido.getOrderFoods()) { // el for recorre la lista de comidas del pedido
+		for (Productos p : pedido.getOrderFoods()) { // el for recorre la lista de comidas del pedido
 			if (p.isLowPrice()) {
 				valorDescuento += p.getPrice() * descuento / 100;
 				precioSinImpuestos += (p.getPrice()- (p.getPrice() * descuento / 100));
@@ -277,11 +277,11 @@ public class Pizzeria {
 		System.out.println("*************************************************");
 	}
 
-	public List<Integer> VisualizarListaComidas(List<ComidaPizzeria> platos, String seccion) {
+	public List<Integer> VisualizarListaComidas(List<Productos> platos, String seccion) {
 		// Visualiza los productos de la sección y devuelve un array de enteros con las
 		// selecciones disponibles
 		List<Integer> opciones = new ArrayList<Integer>();
-		for (ComidaPizzeria p : platos) {
+		for (Productos p : platos) {
 			if (p.getSection().name() == seccion) {
 				System.out.print(p.toString());
 				opciones.add(p.getFoodId());
@@ -291,12 +291,12 @@ public class Pizzeria {
 	}
 	
 
-	public void seleccionProductos(List<ComidaPizzeria> foods, String strSeccion, Pedido pedido, FicheroLog log) {
+	public void seleccionProductos(List<Productos> foods, String strSeccion, Pedido pedido, FicheroLog log) {
 		// Visualiza los productos de la sección, acepta la/s selección/es de
 		// usuario y añade los productos al pedido
 		Scanner ins = new Scanner(System.in);
 		List<Integer> platosSeccion = new ArrayList<Integer>();  // lista de enteros correspondiente a los números de orden de productos de la sección en la lista de comidas
-		List<ComidaPizzeria> platosPedido = new ArrayList<ComidaPizzeria>(); 
+		List<Productos> platosPedido = new ArrayList<Productos>(); 
 		int selectProducto = 0;
 		Integer iselectProducto = 0;
 		
@@ -372,8 +372,8 @@ public class Pizzeria {
 	}
 
 	
-	public void VisualizarListaComidasTicket(List<ComidaPizzeria> lProductos) {
-		for (ComidaPizzeria p : lProductos) {
+	public void VisualizarListaComidasTicket(List<Productos> lProductos) {
+		for (Productos p : lProductos) {
 	
 					System.out.println("\t" + p.getDenomination() + "\t" + p.getPrice() + " €");
 		}

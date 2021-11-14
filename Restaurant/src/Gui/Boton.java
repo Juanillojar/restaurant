@@ -8,11 +8,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
-public class BotonPizzeria extends JButton{
-	private ComidaPizzeria producto;  // se usa para los botones de JPanel productos
+public class Boton extends JButton{
+	private Productos producto;  // se usa para los botones de JPanel productos
 
 	//constructor para botones del JPanel principal
-	public BotonPizzeria(ImageIcon img) {
+	public Boton(ImageIcon img) {
 		setIcon(img);
 		setVerticalTextPosition(SwingConstants.TOP);
 		setHorizontalTextPosition(SwingConstants.CENTER);
@@ -22,7 +22,7 @@ public class BotonPizzeria extends JButton{
 	}
 	
 	//constructor para botones del JPanel Productos
-	public BotonPizzeria(ComidaPizzeria Cproducto) {
+	public Boton(Productos Cproducto) {
 		producto = Cproducto;
 		setText(producto.getDenomination() + " " + producto.getPrice() + "€");
 		if(producto.isLowPrice()) {
@@ -33,16 +33,16 @@ public class BotonPizzeria extends JButton{
 	}
 	
 	//getters and setters
-	public ComidaPizzeria getProducto() {
+	public Productos getProducto() {
 		return producto;
 	}
-	public void setProducto(ComidaPizzeria producto) {
+	public void setProducto(Productos producto) {
 		this.producto = producto;
 	}
 }
 
 
-class BotonPizzeriaMesas extends BotonPizzeria{
+class BotonPizzeriaMesas extends Boton{
 	private Pedido pedidoBoton;  //guarda un pedido antes de ser cobrado y añadido a la lista de pedidos
 	private DestinoPedido destinoBoton; // guarda el destino del botón aún sin crear el pedido
 	   

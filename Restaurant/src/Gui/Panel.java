@@ -4,9 +4,16 @@ import java.awt.BorderLayout;
 
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
+import java.awt.TextArea;
+import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.List;
@@ -16,12 +23,12 @@ import javax.swing.table.DefaultTableModel;
 
 import com.sun.jarsigner.ContentSignerParameters;
 
-public class PanelPizzeria extends JPanel{
-	private GestorBotonesPizzeria gestorBotones = new GestorBotonesPizzeria();
+public class Panel extends JPanel {
+	private GestorBotones gestorBotones = new GestorBotones();
 	private static BotonPizzeriaMesas botonMesa;  //Identifica el botón de la mesa pulsado 
 	private static Double subtotal = 0.0;
-	private LabelPizzeria lsubtotalOrder, lDestinoPedidoEnCurso;
-	private BotonPizzeria buttonTique;  //botón para mostrar el tique de pedido. No siempre visible
+	private Label lsubtotalOrder, lDestinoPedidoEnCurso;
+	private Boton buttonTique;  //botón para mostrar el tique de pedido. No siempre visible
 
 	ImageIcon iconOperate = new ImageIcon("src/Gui/images/operar.jpg", "Operar");
 	ImageIcon iconConf = new ImageIcon("src/Gui/images/conf.png", "Configuración");
@@ -33,6 +40,8 @@ public class PanelPizzeria extends JPanel{
 	ImageIcon iconBack = new ImageIcon("src/gui/images/Back.png", "Back");
 	ImageIcon iconTique = new ImageIcon("src/gui/images/tique.png", "Tique");
 	ImageIcon iconCaja = new ImageIcon("src/gui/images/caja.png", "Caja");
+	ImageIcon iconImpirmir = new ImageIcon("src/gui/images/imprimir.png", "Imprimir");
+	ImageIcon iconAceptar = new ImageIcon("src/gui/images/aceptar2.png", "Aceptar");
 	Font fuenteTitulo = new Font("arial", Font.BOLD, 20);
 	Font fuenteDatos = new Font("arial", Font.PLAIN, 12);
 	DateFormat formatoFechaHora = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
@@ -40,14 +49,14 @@ public class PanelPizzeria extends JPanel{
 																		// formato
 
 	// Constructor of main panel principal
-	public PanelPizzeria() {
+	public Panel() {
 		setLayout(new FlowLayout(FlowLayout.CENTER, 5, 25));
-		BotonPizzeria bOperate = new BotonPizzeria(iconOperate);
+		Boton bOperate = new Boton(iconOperate);
 		bOperate.setActionCommand("AbrirPanelValida");
-		BotonPizzeria bConf = new BotonPizzeria(iconConf);
+		Boton bConf = new Boton(iconConf);
 		bConf.setActionCommand("AbrirPanelConfiguracion");
 		bConf.setEnabled(false);
-		BotonPizzeria bReport = new BotonPizzeria(iconReports);
+		Boton bReport = new Boton(iconReports);
 		bReport.setActionCommand("AbrirPanelReports");
 		add(bOperate);
 		add(bConf);
@@ -59,37 +68,37 @@ public class PanelPizzeria extends JPanel{
 	}
 
 	// Contructor for bar, tables panel (Operar)
-	public PanelPizzeria(int barzones, int deliverys, int intTables, int extTables) {
+	public Panel(int barzones, int deliverys, int intTables, int extTables) {
 		setLayout(new BorderLayout());
-		LabelPizzeria titulo = new LabelPizzeria("Seleccione una opción para crear pedido", fuenteTitulo, "CENTER");
+		Label titulo = new Label("Seleccione una opción para crear pedido", fuenteTitulo, "CENTER");
 		add(titulo, BorderLayout.NORTH);
 		JPanel panelMesas = new JPanel();
 		// creación de botones de zonas barra
 		for (int i = 0; i < barzones; i++) {
-			BotonPizzeria buttonBar = new BotonPizzeriaMesas(iconBar, i+1, Zone.Bar);
+			Boton buttonBar = new BotonPizzeriaMesas(iconBar, i+1, Zone.Bar);
 			panelMesas.add(buttonBar);
 			buttonBar.addActionListener(gestorBotones);
 		}
 		// Creación de botones Reparto
 		for (int i = 0; i < deliverys; i++) {
-			BotonPizzeria buttonDelivery = new BotonPizzeriaMesas(iconDelivery, i+1, Zone.Delivery);
+			Boton buttonDelivery = new BotonPizzeriaMesas(iconDelivery, i+1, Zone.Delivery);
 			panelMesas.add(buttonDelivery);
 			buttonDelivery.addActionListener(gestorBotones);
 		}
 		// Creación de botones de zona mesas interior
 		for (int i = 0; i < intTables; i++) {
-			BotonPizzeria buttonIntTables = new BotonPizzeriaMesas(iconIntTable, i+1, Zone.IntTable);
+			Boton buttonIntTables = new BotonPizzeriaMesas(iconIntTable, i+1, Zone.IntTable);
 			panelMesas.add(buttonIntTables);
 			buttonIntTables.addActionListener(gestorBotones);
 		}
 		// Creación de botones de zona mesas exterior
 		for (int i = 0; i < extTables; i++) {
-			BotonPizzeria buttonExtTables = new BotonPizzeriaMesas(iconExtTable, i+1, Zone.ExtTable);
+			Boton buttonExtTables = new BotonPizzeriaMesas(iconExtTable, i+1, Zone.ExtTable);
 			panelMesas.add(buttonExtTables);
 			buttonExtTables.addActionListener(gestorBotones);
 		}
 		add(panelMesas, BorderLayout.CENTER);
-		BotonPizzeria buttonBack = new BotonPizzeria(iconBack);
+		Boton buttonBack = new Boton(iconBack);
 		add(buttonBack, BorderLayout.SOUTH);
 		buttonBack.setActionCommand("SalirPanelMesas");
 		buttonBack.addActionListener(gestorBotones);
@@ -97,10 +106,10 @@ public class PanelPizzeria extends JPanel{
 	}
 
 	// Constructor for products panel
-	public PanelPizzeria(List<ComidaPizzeria> productos, BotonPizzeriaMesas botonMesaPMesas) {
+	public Panel(List<Productos> productos, BotonPizzeriaMesas botonMesaPMesas) {
 		botonMesa = botonMesaPMesas;  //se carga la variable estática con los datos de la mesa en curso
 		setLayout(new BorderLayout());
-		lDestinoPedidoEnCurso = new LabelPizzeria("Order " + botonMesaPMesas.getDestinoBoton().getDestinationDenomination(),fuenteTitulo, "CENTER");
+		lDestinoPedidoEnCurso = new Label("Order " + botonMesaPMesas.getDestinoBoton().getDestinationDenomination(),fuenteTitulo, "CENTER");
 		add(lDestinoPedidoEnCurso, BorderLayout.NORTH);
 		//JPanel produ = new JPanel();
 		JTabbedPane produ = new JTabbedPane();
@@ -109,9 +118,9 @@ public class PanelPizzeria extends JPanel{
 		for(Section sec: Section.values()) {
 			JPanel panelProductos = new JPanel(new FlowLayout(FlowLayout.CENTER));
 			produ.addTab(sec.name(), panelProductos);
-			for(ComidaPizzeria producto :productos) {
+			for(Productos producto :productos) {
 				if (sec == producto.getSection()) {
-					BotonPizzeria buttonProduct = new BotonPizzeria(producto);
+					Boton buttonProduct = new Boton(producto);
 					panelProductos.add(buttonProduct);
 					buttonProduct.addActionListener(gestorBotones);
 				}
@@ -120,17 +129,17 @@ public class PanelPizzeria extends JPanel{
 		
 		add(produ, BorderLayout.CENTER);
 		JPanel botones = new JPanel();
-		lsubtotalOrder = new LabelPizzeria("Subtotal Order:" + formatoDecimales.format(subtotal), fuenteTitulo);
-		LabelPizzeria lInfoDescuento = new LabelPizzeria("Los productos sombreados tienen un descuento", fuenteDatos, "CENTER");
+		lsubtotalOrder = new Label("Subtotal Order:" + formatoDecimales.format(subtotal), fuenteTitulo);
+		Label lInfoDescuento = new Label("Los productos sombreados tienen un descuento", fuenteDatos, "CENTER");
 		botones.add(lsubtotalOrder);
 		botones.add(lInfoDescuento);
-		buttonTique = new BotonPizzeria(iconTique);
+		buttonTique = new Boton(iconTique);
 		buttonTique.addActionListener(gestorBotones);
 		buttonTique.setActionCommand("OpenTiquePanel");
 		buttonTique.setVisible(false);
 		botones.add(buttonTique);
 		//el botón back devuelve el pedido a la variable pedido del boton de mesas
-		BotonPizzeria buttonSalirProductos = new BotonPizzeriaMesas(iconBack, 1, botonMesa.getPedidoBoton());
+		Boton buttonSalirProductos = new BotonPizzeriaMesas(iconBack, 1, botonMesa.getPedidoBoton());
 		buttonSalirProductos.addActionListener(gestorBotones);
 		buttonSalirProductos.setActionCommand("SalirPanelProductos");
 		botones.add(buttonSalirProductos);
@@ -139,66 +148,66 @@ public class PanelPizzeria extends JPanel{
 	}
 
 	// Constructor for ticket panel
-	public PanelPizzeria(Pedido order) {
+/*	public Panel(Pedido order) {
 		setLayout(new BorderLayout(50, 0));
-		LabelPizzeria lTitulopizzeria = new LabelPizzeria(FramePizzeria.InstanceFPizzerie.myPizzerie.getName() + "  "
-				+ FramePizzeria.InstanceFPizzerie.myPizzerie.getAddress(), fuenteTitulo, "CENTER");
+		Label lTitulopizzeria = new Label(Frame.InstanceFPizzerie.myPizzerie.getName() + "  "
+				+ Frame.InstanceFPizzerie.myPizzerie.getAddress(), fuenteTitulo, "CENTER");
 		add(lTitulopizzeria, BorderLayout.NORTH);
 		JPanel tique = new JPanel(new GridLayout(0, 2, 25,0));
-		LabelPizzeria lTituloFecha = new LabelPizzeria("Fecha: ", fuenteTitulo, "RIGHT");
-		LabelPizzeria lFecha = new LabelPizzeria(formatoFechaHora.format(order.getDate()), fuenteDatos);
+		Label lTituloFecha = new Label("Fecha: ", fuenteTitulo, "RIGHT");
+		Label lFecha = new Label(formatoFechaHora.format(order.getDate()), fuenteDatos);
 		tique.add(lTituloFecha);
 		tique.add(lFecha);
-		LabelPizzeria lTituloProductos = new LabelPizzeria("Producto", fuenteTitulo, "RIGHT");
-		LabelPizzeria lTituloImporte = new LabelPizzeria("Importe", fuenteTitulo);
+		Label lTituloProductos = new Label("Producto", fuenteTitulo, "RIGHT");
+		Label lTituloImporte = new Label("Importe", fuenteTitulo);
 		tique.add(lTituloProductos);
 		tique.add(lTituloImporte);
-		for (ComidaPizzeria producto : order.getOrderFoods()) {
-			LabelPizzeria prod = new LabelPizzeria(producto.getDenomination(), fuenteDatos, "RIGHT");
+		for (Productos producto : order.getOrderFoods()) {
+			Label prod = new Label(producto.getDenomination(), fuenteDatos, "RIGHT");
 			tique.add(prod);
-			LabelPizzeria importe = new LabelPizzeria(" " + producto.getPrice(), fuenteDatos);
+			Label importe = new Label(" " + producto.getPrice(), fuenteDatos);
 			tique.add(importe);
 		}
-		LabelPizzeria lTituloTotal = new LabelPizzeria("Total: ", fuenteTitulo, "RIGHT");
-		LabelPizzeria lTotal = new LabelPizzeria(formatoDecimales.format(order.getOrderPrice()) + " €", fuenteTitulo);
+		Label lTituloTotal = new Label("Total: ", fuenteTitulo, "RIGHT");
+		Label lTotal = new Label(formatoDecimales.format(order.getOrderPrice()) + " €", fuenteTitulo);
 		tique.add(lTituloTotal);
 		tique.add(lTotal);
-		LabelPizzeria lTituloPrecioSinIva = new LabelPizzeria("Precio sin IVA: ", fuenteTitulo, "RIGHT");
-		FramePizzeria.InstanceFPizzerie.getPanelProductos().calculoPrecioPedido(order);
-		LabelPizzeria lPrecioSinIva = new LabelPizzeria(formatoDecimales.format(order.getOrderPriceWithoutTaxes()) + " €",	fuenteDatos);
+		Label lTituloPrecioSinIva = new Label("Precio sin IVA: ", fuenteTitulo, "RIGHT");
+		Frame.InstanceFPizzerie.getPanelProductos().calculoPrecioPedido(order);
+		Label lPrecioSinIva = new Label(formatoDecimales.format(order.getOrderPriceWithoutTaxes()) + " €",	fuenteDatos);
 		tique.add(lTituloPrecioSinIva);
 		tique.add(lPrecioSinIva);
-		LabelPizzeria lTituloDescuento = new LabelPizzeria("Descuento: ", fuenteTitulo, "RIGHT");
-		LabelPizzeria lDescuento = new LabelPizzeria(formatoDecimales.format(order.getvalorDescuento()) + " €",	fuenteDatos);
+		Label lTituloDescuento = new Label("Descuento: ", fuenteTitulo, "RIGHT");
+		Label lDescuento = new Label(formatoDecimales.format(order.getvalorDescuento()) + " €",	fuenteDatos);
 		tique.add(lTituloDescuento);
 		tique.add(lDescuento);
-		LabelPizzeria lTituloAtendido = new LabelPizzeria("Le atendió: ", fuenteTitulo, "RIGHT");
-		LabelPizzeria lAtendido = new LabelPizzeria(order.getTrabajador().getName(), fuenteTitulo);
+		Label lTituloAtendido = new Label("Le atendió: ", fuenteTitulo, "RIGHT");
+		Label lAtendido = new Label(order.getTrabajador().getName(), fuenteTitulo);
 		tique.add(lTituloAtendido);
 		tique.add(lAtendido);
 		add(tique, BorderLayout.CENTER);
 		JPanel panelbotones = new JPanel(new FlowLayout(FlowLayout.CENTER,30,0));
-		BotonPizzeria buttonPaidOut = new BotonPizzeria(iconCaja);
+		Boton buttonPaidOut = new Boton(iconCaja);
 		buttonPaidOut.setActionCommand("PaidOut");
 		buttonPaidOut.addActionListener(gestorBotones);
 		panelbotones.add(buttonPaidOut);
-		BotonPizzeria buttonSalirTique = new BotonPizzeria(iconBack);
+		Boton buttonSalirTique = new Boton(iconBack);
 		buttonSalirTique.setActionCommand("SalirPanelTique");
 		buttonSalirTique.addActionListener(gestorBotones);
 		panelbotones.add(buttonSalirTique);
 		add(panelbotones, BorderLayout.SOUTH);
 		setVisible(false);
 	}
-
+*/
 	// Constructor for reports panel
-	public PanelPizzeria(int i) {
+	public Panel(int i) {
 		setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
 		ImageIcon iconProductsReport = new ImageIcon("src/gui/images/Report.png", "Products Report");
 		ImageIcon iconOrderReport = new ImageIcon("src/gui/images/Report.png", "Order Report");
 		ImageIcon iconWorkerReport = new ImageIcon("src/gui/images/Report.png", "Worker Report");
-		BotonPizzeria bProductosReport = new BotonPizzeria(iconProductsReport);
-		BotonPizzeria bOrderReport = new BotonPizzeria(iconOrderReport);
-		BotonPizzeria bWorkerReport = new BotonPizzeria(iconWorkerReport);
+		Boton bProductosReport = new Boton(iconProductsReport);
+		Boton bOrderReport = new Boton(iconOrderReport);
+		Boton bWorkerReport = new Boton(iconWorkerReport);
 		bWorkerReport.setEnabled(false);
 		// no lo muestro por que no se ve el botón BACK y provoca que todo falle
 		add(bProductosReport);
@@ -210,7 +219,7 @@ public class PanelPizzeria extends JPanel{
 		bOrderReport.setActionCommand("OpenOrderReport");
 		bOrderReport.addActionListener(gestorBotones);
 		bWorkerReport.addActionListener(gestorBotones);
-		BotonPizzeria buttonSalirReports = new BotonPizzeria(iconBack);
+		Boton buttonSalirReports = new Boton(iconBack);
 		buttonSalirReports.setActionCommand("SalirPanelReports");
 		buttonSalirReports.addActionListener(gestorBotones);
 		add(buttonSalirReports);
@@ -219,38 +228,126 @@ public class PanelPizzeria extends JPanel{
 	
 	
 	//Constructor for products report panel using a JTable
-	public PanelPizzeria(List<ComidaPizzeria> productos) {
+	public Panel(List<Productos> productos) {
 		setLayout(new BorderLayout());
 		String [] nombresColumnas = {"id", "Denomination", "Section", "Ingredients", "Price", "LowPrice"};
 		Class [] tipoColumnas = {java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,java.lang.Boolean.class};
-		ModeloTablaPizzeriaProductos tModelProductos = new ModeloTablaPizzeriaProductos(productos, nombresColumnas, tipoColumnas);
+		ModeloTablaProductos tModelProductos = new ModeloTablaProductos(productos, nombresColumnas, tipoColumnas);
 		JTable tableProductos = new JTable(tModelProductos);
 		tableProductos.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		JScrollPane panelScrollProductosReport = new JScrollPane(tableProductos,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		add(panelScrollProductosReport,BorderLayout.NORTH);
-		BotonPizzeria buttonBackProductReport = new BotonPizzeria(iconBack);
+		Boton buttonBackProductReport = new Boton(iconBack);
 		buttonBackProductReport.setActionCommand("BackReportsFromProductsReport");
 		buttonBackProductReport.addActionListener(gestorBotones);
 		add(buttonBackProductReport, BorderLayout.SOUTH);	
 	}
 	
 	//Constructor for order report panel using JTable
-	public PanelPizzeria(List<Pedido> pedidos, String str) {
+	public Panel(List<Pedido> pedidos, String str) {
 		setLayout(new BorderLayout());
 		String [] nombresColumnas = {"id", "Date", "Price", "PriceWhitoutTaxes", "worker", "discount", "Destiny"};
 		Class [] tipoColumnas = {java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class};
-		ModeloTablaPizzeriaPedidos tModelPedidos = new ModeloTablaPizzeriaPedidos(pedidos, nombresColumnas, tipoColumnas);
+		ModeloTablaPedidos tModelPedidos = new ModeloTablaPedidos(pedidos, nombresColumnas, tipoColumnas);
 		JTable tablePedidos = new JTable(tModelPedidos);
 		tablePedidos.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		JScrollPane panelScrollPedidosReport = new JScrollPane(tablePedidos,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		add(panelScrollPedidosReport, BorderLayout.NORTH);
-		BotonPizzeria buttonBackPedidosReport = new BotonPizzeria(iconBack);
+		Boton buttonBackPedidosReport = new Boton(iconBack);
 		buttonBackPedidosReport.setActionCommand("BackReportsFromOrderReport");
 		buttonBackPedidosReport.addActionListener(gestorBotones);
 		add(buttonBackPedidosReport, BorderLayout.SOUTH);	
 	}
 	
-	
+	//Constructor panel for change pago ticket
+	public Panel(double totalTique) {
+		JTextField txfEntregaDato;
+		Label lblCambioDato = new Label("",fuenteDatos,"LEFT");
+		KeyListener listener = new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+				
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				if (!Character.isDigit(e.getKeyChar()) && e.getKeyChar()!='.' && e.getKeyCode() !=10  && e.getKeyCode() !=8) {
+					getToolkit().beep();
+					JTextField txfOrigen = (JTextField)e.getSource();
+					try{
+						txfOrigen.setText(txfOrigen.getText(0,txfOrigen.getText().length()-1));
+					}
+					catch(Exception e2) {
+						System.out.println(e2.toString());
+					};
+					e.consume();
+				}else {
+						if (e.getKeyCode() == 10 ) {  //si pulsa enter 
+							//Calvular cambio
+							double cambio = Double.parseDouble(((JTextField)e.getSource()).getText()) - totalTique;
+							if(cambio < 0) {
+								JOptionPane.showMessageDialog(null, "No es suficiente","Paid out" , JOptionPane.INFORMATION_MESSAGE);
+							}else {
+								lblCambioDato.setText(cambio + "");
+							}
+								
+						}
+				}
+			}
+			
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				System.out.println(e.getKeyCode());
+				System.out.println(e.getKeyChar());
+			}
+		};
+		
+		GridBagConstraints gbc_MiConstraint= new GridBagConstraints();
+		setLayout(new GridBagLayout());
+		Label lblCobrar = new Label("Cobrar",fuenteTitulo,"LEFT");
+		gbc_MiConstraint.gridx = 0;		 //columna inicial que ocupa
+		gbc_MiConstraint.gridy = 0;		 //fila inicial que ocupa
+		gbc_MiConstraint.gridwidth = 1;  //Columnas que ocupa
+		gbc_MiConstraint.gridheight = 1; //Filas que ocupa
+		gbc_MiConstraint.fill = GridBagConstraints.HORIZONTAL; //ajusta el componente a la celda
+		gbc_MiConstraint.insets = new Insets(0, 10, 10, 0); //Espacio hasta los bordes del componente en la celda
+														  //top, left, botton, right
+		add(lblCobrar, gbc_MiConstraint);
+		Label lblTotal = new Label("Total:",fuenteDatos,"LEFT");		 
+		gbc_MiConstraint.gridy = 1;		  
+		add(lblTotal, gbc_MiConstraint);
+		Label lblEntrega = new Label("Entrega:",fuenteDatos,"LEFT");		
+		lblEntrega.addKeyListener(listener);
+		gbc_MiConstraint.gridy = 2;		  
+		add(lblEntrega, gbc_MiConstraint);
+		Label lblCambio = new Label("Cambio:",fuenteDatos,"LEFT");		 
+		gbc_MiConstraint.gridy = 3;		  
+		add(lblCambio, gbc_MiConstraint);
+		Boton btnImprimir = new Boton(iconImpirmir);
+		gbc_MiConstraint.gridy = 4;
+		add(btnImprimir, gbc_MiConstraint);
+		Label lblTotalDato = new Label(totalTique + "",fuenteDatos,"LEFT");		 
+		gbc_MiConstraint.gridx = 1;		  
+		gbc_MiConstraint.gridy = 1;
+		add(lblTotalDato, gbc_MiConstraint);
+		txfEntregaDato = new JTextField(50);		 		  
+		gbc_MiConstraint.gridy = 2;
+		txfEntregaDato.addKeyListener(listener);
+		add(txfEntregaDato, gbc_MiConstraint);
+				 		  
+		gbc_MiConstraint.gridy = 3;
+		add(lblCambioDato, gbc_MiConstraint);
+		Boton btnAceptar = new Boton(iconAceptar);
+		gbc_MiConstraint.gridy = 4;
+		add(btnAceptar, gbc_MiConstraint);
+		
+	}
 	//Actualiza el valor de variable subtotal o la resetea 0.0, lo visualiza en el label y devuelve el valor 
 	public double IncrementaSutotal(Double precio) {
 		if (precio != 0.0) {
@@ -265,9 +362,9 @@ public class PanelPizzeria extends JPanel{
 	//rellena los datos del pedido con el precio con impuestos y descuentos, el camarero o repartidor
 	public void upgradeOrderData(Pedido pedidoEnCurso) {
 		pedidoEnCurso.setOrderPriceWithoutTaxes(subtotal); // add total price whitout taxes
-		pedidoEnCurso.setTrabajador(FramePizzeria.InstanceFPizzerie.getTrabajadorValidado());
+		pedidoEnCurso.setTrabajador(Frame.InstanceFPizzerie.getTrabajadorValidado());
 		// calc total price and discounts
-		FramePizzeria.InstanceFPizzerie.myPizzerie.calculoPrecioPedido(pedidoEnCurso);
+		Frame.InstanceFPizzerie.myPizzerie.calculoPrecioPedido(pedidoEnCurso);
 		System.out.println("Rellenado pedido " + pedidoEnCurso);
 	}
 	
@@ -294,32 +391,32 @@ public class PanelPizzeria extends JPanel{
 		// guarda en el objeto pedido los valores de descuento, valor sin impuestos y valor total del pedido
 		double precioSinImpuestos = 0.0d;
 		double valorDescuento = 0.0d;
-		for (ComidaPizzeria p : pedido.getOrderFoods()) { // el for recorre la lista de comidas del pedido
+		for (Productos p : pedido.getOrderFoods()) { // el for recorre la lista de comidas del pedido
 			if (p.isLowPrice()) {
-				valorDescuento += p.getPrice() * Pizzeria.getDescuento() / 100;
-				precioSinImpuestos += (p.getPrice()- (p.getPrice() * Pizzeria.getDescuento() / 100));
+				valorDescuento += p.getPrice() * Restaurant.getDescuento() / 100;
+				precioSinImpuestos += (p.getPrice()- (p.getPrice() * Restaurant.getDescuento() / 100));
 			} else
 				precioSinImpuestos += p.getPrice();
 		}
 		pedido.setValorDescuento(valorDescuento);
 		pedido.setOrderPriceWithoutTaxes(precioSinImpuestos);
-		pedido.setOrderPrice(precioSinImpuestos + precioSinImpuestos * Pizzeria.getImpuestos() / 100);
+		pedido.setOrderPrice(precioSinImpuestos + precioSinImpuestos * Restaurant.getImpuestos() / 100);
 		
 	}
 
 	public static void setSubtotal(Double subtotal) {
-		PanelPizzeria.subtotal = subtotal;
+		Panel.subtotal = subtotal;
 	}
 
-	public LabelPizzeria getLsubtotalOrder() {
+	public Label getLsubtotalOrder() {
 		return lsubtotalOrder;
 	}
 
-	public BotonPizzeria getButtonTique() {
+	public Boton getButtonTique() {
 		return buttonTique;
 	}
 
-	public void setButtonTique(BotonPizzeria buttonTique) {
+	public void setButtonTique(Boton buttonTique) {
 		this.buttonTique = buttonTique;
 	}
 
@@ -328,9 +425,9 @@ public class PanelPizzeria extends JPanel{
 	}
 
 	public static void setBotonMesa(BotonPizzeriaMesas botonMesa) {
-		PanelPizzeria.botonMesa = botonMesa;
+		Panel.botonMesa = botonMesa;
 	};
-	public void setLsubtotalOrder(LabelPizzeria lsubtotalOrder) {
+	public void setLsubtotalOrder(Label lsubtotalOrder) {
 		this.lsubtotalOrder = lsubtotalOrder;
 	}
 
@@ -338,11 +435,11 @@ public class PanelPizzeria extends JPanel{
 		pedidoEnCurso.setPedidoCobrado(true);
 	}
 
-	public LabelPizzeria getlDestinoPedidoEnCurso() {
+	public Label getlDestinoPedidoEnCurso() {
 		return lDestinoPedidoEnCurso;
 	}
 
-	public void setlDestinoPedidoEnCurso(LabelPizzeria lDestinoPedidoEnCurso) {
+	public void setlDestinoPedidoEnCurso(Label lDestinoPedidoEnCurso) {
 		this.lDestinoPedidoEnCurso = lDestinoPedidoEnCurso;
 	}
 	

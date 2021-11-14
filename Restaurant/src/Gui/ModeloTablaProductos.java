@@ -1,24 +1,27 @@
 package Gui;
 
-import java.util.List;
 
+
+import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-public class ModeloTablaPizzeriaPedidos extends AbstractTableModel {
-	private List<Pedido> lista;
+
+public class ModeloTablaProductos extends AbstractTableModel {
+	private List<Productos> listaProductos;
 	private String[] textosCabecera;
 	private Class<?>[] tiposColumnas;
-
-	public ModeloTablaPizzeriaPedidos(List<Pedido> products, String[] cabecera, Class<?>[] tiposColum) {
+	
+	public ModeloTablaProductos(List<Productos> products, String[] cabecera, Class<?>[] tiposColum) {
 		// TODO Auto-generated constructor stub
-		lista = products;
+		listaProductos = products;
 		textosCabecera = cabecera;
 		tiposColumnas = tiposColum;
 	}
+
 	@Override
 	public int getRowCount() {
 		// TODO Auto-generated method stub
-		return lista.size();
+		return listaProductos.size();
 	}
 
 	@Override
@@ -30,30 +33,24 @@ public class ModeloTablaPizzeriaPedidos extends AbstractTableModel {
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		// TODO Auto-generated method stub
-		// String [] nombresColumnas = {"id", "Date", "Price", "PriceWhitoutTaxes",
-		// "worker", "discount", "Destiny"};
-
-		switch (columnIndex) {
+		switch(columnIndex) {
 		case 0:
-			return lista.get(rowIndex).getOrderId();
+			return listaProductos.get(rowIndex).getFoodId();
 		case 1:
-			return lista.get(rowIndex).getDate();
+			return listaProductos.get(rowIndex).getDenomination();
 		case 2:
-			return lista.get(rowIndex).getOrderPrice();
-		case 3:
-			;
-			return lista.get(rowIndex).getOrderPriceWithoutTaxes();
+			return listaProductos.get(rowIndex).getSection();
+		case 3:;
+			return listaProductos.get(rowIndex).getIngredients();
 		case 4:
-			return lista.get(rowIndex).getTrabajador();
+			return listaProductos.get(rowIndex).getPrice();
 		case 5:
-			return lista.get(rowIndex).getvalorDescuento();
-		case 6:
-			return lista.get(rowIndex).getDestination().getDestinationDenomination();
-		default:
-			return null;
+			return listaProductos.get(rowIndex).isLowPrice();
+			default:
+				return null;
 		}
+		
 	}
-	
 	public String getColumnName(int column) {
 		String dato = "";
 		switch(column) {
@@ -75,9 +72,6 @@ public class ModeloTablaPizzeriaPedidos extends AbstractTableModel {
 		case 5:
 			dato= textosCabecera[5];
 			break;
-		case 6:
-			dato= textosCabecera[6];
-			break;
 			default:
 				return null;
 		}
@@ -97,10 +91,8 @@ public class ModeloTablaPizzeriaPedidos extends AbstractTableModel {
 			return tiposColumnas[4];
 		case 5:
 			return tiposColumnas[5];
-		case 6:
-			return tiposColumnas[6];
-		default:
-			return null;
+			default:
+				return null;
 		}
 	}
 

@@ -20,7 +20,7 @@ public class Pedido {
 	private static int pedidos =0;    //número de pedidos
 	private int orderId;
 	private Date date;
-	private List<ComidaPizzeria> orderFoods;   //Guarda una lista con los objetos conida del pedido
+	private List<Productos> orderFoods;   //Guarda una lista con los objetos conida del pedido
 	private double orderPrice;      	 //total del pedido con impuestos
 	private double orderPriceWithoutTaxes;
 	private Trabajador trabajador; // trabajador que atiende la comanda (camarero o repartidor)
@@ -33,7 +33,7 @@ public class Pedido {
 	private boolean pedidoCobrado;
 	
 	//constructor para crear el pedido en test (interfaz consola)
-	public Pedido(List<ComidaPizzeria> orderFoods, double orderPrice, Trabajador trabajador,
+	public Pedido(List<Productos> orderFoods, double orderPrice, Trabajador trabajador,
 			 DestinoPedido destino) {
 		pedidos ++;
 		this.orderId += pedidos;
@@ -53,7 +53,7 @@ public class Pedido {
 		pedidos ++;
 		orderId += pedidos;
 		date = new Date();
-		orderFoods = new ArrayList<ComidaPizzeria>();
+		orderFoods = new ArrayList<Productos>();
 		orderPrice = 0.0d;
 		orderPriceWithoutTaxes = 0.0d;
 		trabajador = null;
@@ -65,7 +65,7 @@ public class Pedido {
 		pedidos ++;
 		orderId += pedidos;
 		date = new Date();
-		orderFoods = new ArrayList<ComidaPizzeria>();
+		orderFoods = new ArrayList<Productos>();
 		orderPrice = 0.0d;
 		orderPriceWithoutTaxes = 0.0d;
 		trabajador = null;
@@ -85,7 +85,7 @@ public class Pedido {
 		return date;
 	}
 
-	public List<ComidaPizzeria> getOrderFoods() {
+	public List<Productos> getOrderFoods() {
 		return orderFoods;
 	}
 
@@ -108,7 +108,7 @@ public class Pedido {
 		this.date = date;
 	}
 
-	public void setOrderFoods(List<ComidaPizzeria> orderFoods) {
+	public void setOrderFoods(List<Productos> orderFoods) {
 		this.orderFoods = orderFoods;
 	}
 
