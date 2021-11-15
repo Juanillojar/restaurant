@@ -80,11 +80,16 @@ public class GestorBotones implements ActionListener{
 			//FramePizzeria.InstanceFPizzerie.panelTique = new PanelPizzeria(PanelPizzeria.getBotonMesa().getPedidoBoton());
 			Frame.InstanceFPizzerie.panelticket = new panelticket(Panel.getBotonMesa().getPedidoBoton());
 			
+			
 			//FramePizzeria.InstanceFPizzerie.ActivaPanel(FramePizzeria.InstanceFPizzerie.panelTique);
 			//FramePizzeria.InstanceFPizzerie.getPanelTique().setVisible(true);
 			//FramePizzeria.InstanceFPizzerie.getPanelProductos().setVisible(false);
 			Frame.InstanceFPizzerie.ActivaPanel(Frame.InstanceFPizzerie.panelticket);
 			Frame.InstanceFPizzerie.getPanelticket().setVisible(true);
+			
+		//	Frame.InstanceFPizzerie.panelticket = new panelticket();
+		//	Frame.InstanceFPizzerie.ActivaPanelSouth(Frame.InstanceFPizzerie.panelticketBotones);
+		//	Frame.InstanceFPizzerie.getPanelticketBotones().setVisible(true);
 			Frame.InstanceFPizzerie.getPanelProductos().setVisible(false);
 		}
 
@@ -97,7 +102,20 @@ public class GestorBotones implements ActionListener{
 			Frame.InstanceFPizzerie.getPanelProductos().setVisible(true);
 			//FramePizzeria.InstanceFPizzerie.getPanelTique().setVisible(false);
 			Frame.InstanceFPizzerie.getPanelticket().setVisible(false);
+			
 		}
+		if (e.getActionCommand().equals("Acepta cobro")) {
+			Frame.InstanceFPizzerie.ActivaPanel(Frame.InstanceFPizzerie.panelMesas);
+			Frame.InstanceFPizzerie.getPanelMesas().setVisible(true);
+			//abrir panel de mesas
+			Frame.InstanceFPizzerie.panelCobro.setVisible(false);
+			JOptionPane.showMessageDialog(null, "Tique cobrado","Paid out" , JOptionPane.INFORMATION_MESSAGE);
+		}		
+		if (e.getActionCommand().equals("Imprimir")) {
+			Frame.InstanceFPizzerie.panelticket.imprimirTicket();
+			System.out.println("Gestor botones imprime");
+		}		
+
 		if (e.getActionCommand().equals("PaidOut")) {
 			pagarPedido();
 		}		
@@ -208,7 +226,7 @@ public class GestorBotones implements ActionListener{
 		Panel.getBotonMesa().setBackground(Color.LIGHT_GRAY);
 
 		
-		//JOptionPane.showMessageDialog(null, "Tique cobrado","Paid out" , JOptionPane.INFORMATION_MESSAGE);
+		
 		//crea panel cobro y lo visualiza
 		Frame.InstanceFPizzerie.panelCobro = new Panel(Panel.getBotonMesa().getPedidoBoton().getOrderPrice());
 		Frame.InstanceFPizzerie.panelticket.setVisible(false);
@@ -217,8 +235,7 @@ public class GestorBotones implements ActionListener{
 		//reset de variables estáticas
 		Panel.getBotonMesa().setPedidoBoton(null);//resetea el pedido guardado
 		reseteaVariablesEstaticas();
-		//abrir panel de mesas
-		//Frame.InstanceFPizzerie.panelMesas.setVisible(true);	
+		
 	}
 	
 	public void anyadeProducto(ActionEvent e) {

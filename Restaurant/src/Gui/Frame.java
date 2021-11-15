@@ -25,6 +25,7 @@ public class Frame extends JFrame {
 	Panel panelProductos;
 	//Panel panelTique;
 	panelticket panelticket;
+	//panelticket panelticketBotones;
 	Panel panelCobro;
 	Panel panelReport;
 	Panel panelProductsReport;
@@ -71,6 +72,11 @@ public class Frame extends JFrame {
 		add(panel, BorderLayout.CENTER);
 		setVisible(true);
 	}
+	
+//	public void ActivaPanelSouth(JPanel panel) {
+//		add(panel, BorderLayout.SOUTH);
+//		setVisible(true);
+//	}
 	public Panel getPanelPrincipal() {
 		return panelPrincipal;
 	}
@@ -158,5 +164,13 @@ public class Frame extends JFrame {
 	public void setPanelCobro(Panel panelCobro) {
 		this.panelCobro = panelCobro;
 	}
-	
+
+/*	public panelticket getPanelticketBotones() {
+		return panelticketBotones;
+	}
+
+	public void setPanelticketBotones(panelticket panelticketBotones) {
+		this.panelticketBotones = panelticketBotones;
+	}
+	*/
 }

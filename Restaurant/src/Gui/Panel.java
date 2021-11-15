@@ -40,7 +40,7 @@ public class Panel extends JPanel {
 	ImageIcon iconBack = new ImageIcon("src/gui/images/Back.png", "Back");
 	ImageIcon iconTique = new ImageIcon("src/gui/images/tique.png", "Tique");
 	ImageIcon iconCaja = new ImageIcon("src/gui/images/caja.png", "Caja");
-	ImageIcon iconImpirmir = new ImageIcon("src/gui/images/imprimir.png", "Imprimir");
+	ImageIcon iconImprimir = new ImageIcon("src/gui/images/imprimir.png", "Imprimir");
 	ImageIcon iconAceptar = new ImageIcon("src/gui/images/aceptar2.png", "Aceptar");
 	Font fuenteTitulo = new Font("arial", Font.BOLD, 20);
 	Font fuenteDatos = new Font("arial", Font.PLAIN, 12);
@@ -268,7 +268,6 @@ public class Panel extends JPanel {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				// TODO Auto-generated method stub
-
 				
 			}
 			
@@ -286,15 +285,16 @@ public class Panel extends JPanel {
 					};
 					e.consume();
 				}else {
-						if (e.getKeyCode() == 10 ) {  //si pulsa enter 
-							//Calvular cambio
+						if (e.getKeyCode() == 10 || e.getKeyChar() == KeyEvent.VK_TAB) {  //si pulsa enter o tabulador
+							//Calcular cambio
 							double cambio = Double.parseDouble(((JTextField)e.getSource()).getText()) - totalTique;
+							cambio = (double)Math.round(cambio *100) /100d; //redondeo
+							
 							if(cambio < 0) {
 								JOptionPane.showMessageDialog(null, "No es suficiente","Paid out" , JOptionPane.INFORMATION_MESSAGE);
 							}else {
 								lblCambioDato.setText(cambio + "");
-							}
-								
+							}		
 						}
 				}
 			}
@@ -329,9 +329,6 @@ public class Panel extends JPanel {
 		Label lblCambio = new Label("Cambio:",fuenteDatos,"LEFT");		 
 		gbc_MiConstraint.gridy = 3;		  
 		add(lblCambio, gbc_MiConstraint);
-		Boton btnImprimir = new Boton(iconImpirmir);
-		gbc_MiConstraint.gridy = 4;
-		add(btnImprimir, gbc_MiConstraint);
 		Label lblTotalDato = new Label(totalTique + "",fuenteDatos,"LEFT");		 
 		gbc_MiConstraint.gridx = 1;		  
 		gbc_MiConstraint.gridy = 1;
@@ -340,15 +337,22 @@ public class Panel extends JPanel {
 		gbc_MiConstraint.gridy = 2;
 		txfEntregaDato.addKeyListener(listener);
 		add(txfEntregaDato, gbc_MiConstraint);
-				 		  
 		gbc_MiConstraint.gridy = 3;
 		add(lblCambioDato, gbc_MiConstraint);
 		Boton btnAceptar = new Boton(iconAceptar);
+		gbc_MiConstraint.gridx = 0;
 		gbc_MiConstraint.gridy = 4;
 		add(btnAceptar, gbc_MiConstraint);
+		btnAceptar.addActionListener(gestorBotones);
+		btnAceptar.setActionCommand("Acepta cobro");
 		
 	}
-	//Actualiza el valor de variable subtotal o la resetea 0.0, lo visualiza en el label y devuelve el valor 
+	
+	/**
+	 * @param precio
+	 * @return
+	 * Actualiza el valor de variable subtotal o la resetea 0.0, lo visualiza en el Jlabel y devuelve el valor 
+	 */
 	public double IncrementaSutotal(Double precio) {
 		if (precio != 0.0) {
 			subtotal += precio;
@@ -368,9 +372,14 @@ public class Panel extends JPanel {
 		System.out.println("Rellenado pedido " + pedidoEnCurso);
 	}
 	
+	/**
+	 * @param boton
+	 * @param pedido
+	 * se devuelve al botón de la mesa, barra...???? el pedido modificado
+	 * tendría que pasar el pedido al objeto
+	 */
 	public void upgradePedidoEnCurso(BotonPizzeriaMesas boton, Pedido pedido) {
-	// se devuelve al botón de la mesa, barra...???? el pedido modificado
-	// tendría que pasar el pedido al objeto
+
 		boton.setPedidoBoton(pedido);
 	}
 	
@@ -385,10 +394,14 @@ public class Panel extends JPanel {
 	}
 	
 
+	/**
+	 * @param pedido
+	 * Calcula el precio total de los productos del pedido sin impuestos
+	 * si algún producto está promocionado descuenta antes de aplicar impuestos
+	 * guarda en el objeto pedido los valores de descuento, valor sin impuestos 
+	 * y valor total del pedido redondeados a dos decimales
+	 */
 	public void calculoPrecioPedido(Pedido pedido) {
-		// Calcula el precio total de los productos del pedido sin impuestos
-		// si algún producto está promocionado descuenta antes de aplicar impuestos
-		// guarda en el objeto pedido los valores de descuento, valor sin impuestos y valor total del pedido
 		double precioSinImpuestos = 0.0d;
 		double valorDescuento = 0.0d;
 		for (Productos p : pedido.getOrderFoods()) { // el for recorre la lista de comidas del pedido
@@ -398,12 +411,14 @@ public class Panel extends JPanel {
 			} else
 				precioSinImpuestos += p.getPrice();
 		}
-		pedido.setValorDescuento(valorDescuento);
-		pedido.setOrderPriceWithoutTaxes(precioSinImpuestos);
-		pedido.setOrderPrice(precioSinImpuestos + precioSinImpuestos * Restaurant.getImpuestos() / 100);
+		pedido.setValorDescuento((double)Math.round(valorDescuento*100) / 100d);
+		pedido.setOrderPriceWithoutTaxes((double)Math.round(precioSinImpuestos*100) /100d);
+		pedido.setOrderPrice((double)Math.round((precioSinImpuestos + precioSinImpuestos * Restaurant.getImpuestos() / 100)*100) / 100);
+	}
+	
+	public void imprimirPanelTicket() {
 		
 	}
-
 	public static void setSubtotal(Double subtotal) {
 		Panel.subtotal = subtotal;
 	}
