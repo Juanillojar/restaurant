@@ -12,6 +12,8 @@ import java.awt.TextArea;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.DateFormat;
@@ -23,8 +25,18 @@ import javax.swing.table.DefaultTableModel;
 
 import com.sun.jarsigner.ContentSignerParameters;
 
+/**
+ * @author Juan José Cárdenas
+ * Se definen los constructores de gran parte de los paneles que se utilizan
+ */
+/**
+ * @author Operador
+ *
+ */
 public class Panel extends JPanel {
 	private GestorBotones gestorBotones = new GestorBotones();
+	private GestorRaton gestorRaton = new GestorRaton();
+	private GestorEventosFoco gestorEventosFoco = new GestorEventosFoco();
 	private static BotonPizzeriaMesas botonMesa;  //Identifica el botón de la mesa pulsado 
 	private static Double subtotal = 0.0;
 	private Label lsubtotalOrder, lDestinoPedidoEnCurso;
@@ -106,12 +118,17 @@ public class Panel extends JPanel {
 	}
 
 	// Constructor for products panel
+	/**
+	 * @param productos Lista de productos
+	 * @param botonMesaPMesas Botón de mesa, zona de barra o reparto elegida por el usuario
+	 * Constructor for productos panel. Se genera lista de productos ordenados en pestañas por la
+	 * categoría del producto. El producto/s elegido/s se asocian a la mesa, zona de barra o reparto elegido
+	 */
 	public Panel(List<Productos> productos, BotonPizzeriaMesas botonMesaPMesas) {
 		botonMesa = botonMesaPMesas;  //se carga la variable estática con los datos de la mesa en curso
 		setLayout(new BorderLayout());
 		lDestinoPedidoEnCurso = new Label("Order " + botonMesaPMesas.getDestinoBoton().getDestinationDenomination(),fuenteTitulo, "CENTER");
 		add(lDestinoPedidoEnCurso, BorderLayout.NORTH);
-		//JPanel produ = new JPanel();
 		JTabbedPane produ = new JTabbedPane();
 		// se crean los botones en el panel de productos en pestañas creadas de acuerdo
 		// a la sección del producto (contenido del enum Section)
@@ -123,16 +140,14 @@ public class Panel extends JPanel {
 					Boton buttonProduct = new Boton(producto);
 					panelProductos.add(buttonProduct);
 					buttonProduct.addActionListener(gestorBotones);
+					buttonProduct.addMouseListener(gestorRaton);
 				}
 			}
 		}
-		
 		add(produ, BorderLayout.CENTER);
 		JPanel botones = new JPanel();
 		lsubtotalOrder = new Label("Subtotal Order:" + formatoDecimales.format(subtotal), fuenteTitulo);
-		Label lInfoDescuento = new Label("Los productos sombreados tienen un descuento", fuenteDatos, "CENTER");
 		botones.add(lsubtotalOrder);
-		botones.add(lInfoDescuento);
 		buttonTique = new Boton(iconTique);
 		buttonTique.addActionListener(gestorBotones);
 		buttonTique.setActionCommand("OpenTiquePanel");
@@ -147,59 +162,10 @@ public class Panel extends JPanel {
 		setVisible(false);
 	}
 
-	// Constructor for ticket panel
-/*	public Panel(Pedido order) {
-		setLayout(new BorderLayout(50, 0));
-		Label lTitulopizzeria = new Label(Frame.InstanceFPizzerie.myPizzerie.getName() + "  "
-				+ Frame.InstanceFPizzerie.myPizzerie.getAddress(), fuenteTitulo, "CENTER");
-		add(lTitulopizzeria, BorderLayout.NORTH);
-		JPanel tique = new JPanel(new GridLayout(0, 2, 25,0));
-		Label lTituloFecha = new Label("Fecha: ", fuenteTitulo, "RIGHT");
-		Label lFecha = new Label(formatoFechaHora.format(order.getDate()), fuenteDatos);
-		tique.add(lTituloFecha);
-		tique.add(lFecha);
-		Label lTituloProductos = new Label("Producto", fuenteTitulo, "RIGHT");
-		Label lTituloImporte = new Label("Importe", fuenteTitulo);
-		tique.add(lTituloProductos);
-		tique.add(lTituloImporte);
-		for (Productos producto : order.getOrderFoods()) {
-			Label prod = new Label(producto.getDenomination(), fuenteDatos, "RIGHT");
-			tique.add(prod);
-			Label importe = new Label(" " + producto.getPrice(), fuenteDatos);
-			tique.add(importe);
-		}
-		Label lTituloTotal = new Label("Total: ", fuenteTitulo, "RIGHT");
-		Label lTotal = new Label(formatoDecimales.format(order.getOrderPrice()) + " €", fuenteTitulo);
-		tique.add(lTituloTotal);
-		tique.add(lTotal);
-		Label lTituloPrecioSinIva = new Label("Precio sin IVA: ", fuenteTitulo, "RIGHT");
-		Frame.InstanceFPizzerie.getPanelProductos().calculoPrecioPedido(order);
-		Label lPrecioSinIva = new Label(formatoDecimales.format(order.getOrderPriceWithoutTaxes()) + " €",	fuenteDatos);
-		tique.add(lTituloPrecioSinIva);
-		tique.add(lPrecioSinIva);
-		Label lTituloDescuento = new Label("Descuento: ", fuenteTitulo, "RIGHT");
-		Label lDescuento = new Label(formatoDecimales.format(order.getvalorDescuento()) + " €",	fuenteDatos);
-		tique.add(lTituloDescuento);
-		tique.add(lDescuento);
-		Label lTituloAtendido = new Label("Le atendió: ", fuenteTitulo, "RIGHT");
-		Label lAtendido = new Label(order.getTrabajador().getName(), fuenteTitulo);
-		tique.add(lTituloAtendido);
-		tique.add(lAtendido);
-		add(tique, BorderLayout.CENTER);
-		JPanel panelbotones = new JPanel(new FlowLayout(FlowLayout.CENTER,30,0));
-		Boton buttonPaidOut = new Boton(iconCaja);
-		buttonPaidOut.setActionCommand("PaidOut");
-		buttonPaidOut.addActionListener(gestorBotones);
-		panelbotones.add(buttonPaidOut);
-		Boton buttonSalirTique = new Boton(iconBack);
-		buttonSalirTique.setActionCommand("SalirPanelTique");
-		buttonSalirTique.addActionListener(gestorBotones);
-		panelbotones.add(buttonSalirTique);
-		add(panelbotones, BorderLayout.SOUTH);
-		setVisible(false);
-	}
-*/
-	// Constructor for reports panel
+	/**
+	 * @param i no se utiliza
+	 * Constructor for reports panel
+	 */
 	public Panel(int i) {
 		setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
 		ImageIcon iconProductsReport = new ImageIcon("src/gui/images/Report.png", "Products Report");
@@ -208,8 +174,7 @@ public class Panel extends JPanel {
 		Boton bProductosReport = new Boton(iconProductsReport);
 		Boton bOrderReport = new Boton(iconOrderReport);
 		Boton bWorkerReport = new Boton(iconWorkerReport);
-		bWorkerReport.setEnabled(false);
-		// no lo muestro por que no se ve el botón BACK y provoca que todo falle
+		//bWorkerReport.setEnabled(false);
 		add(bProductosReport);
 		add(bOrderReport);
 		add(bWorkerReport);
@@ -218,6 +183,7 @@ public class Panel extends JPanel {
 
 		bOrderReport.setActionCommand("OpenOrderReport");
 		bOrderReport.addActionListener(gestorBotones);
+		bWorkerReport.setActionCommand("OpenWorkersReport");
 		bWorkerReport.addActionListener(gestorBotones);
 		Boton buttonSalirReports = new Boton(iconBack);
 		buttonSalirReports.setActionCommand("SalirPanelReports");
@@ -226,8 +192,10 @@ public class Panel extends JPanel {
 		setVisible(false);
 	}
 	
-	
-	//Constructor for products report panel using a JTable
+	/**
+	 * @param productos Lista de productos
+	 * Constructor for products report panel using a JTable
+	 */
 	public Panel(List<Productos> productos) {
 		setLayout(new BorderLayout());
 		String [] nombresColumnas = {"id", "Denomination", "Section", "Ingredients", "Price", "LowPrice"};
@@ -243,7 +211,11 @@ public class Panel extends JPanel {
 		add(buttonBackProductReport, BorderLayout.SOUTH);	
 	}
 	
-	//Constructor for order report panel using JTable
+	/**
+	 * @param pedidos Lista de pedidos 
+	 * @param str no se utiliza
+	 * Constructor for order report panel using JTable
+	 */
 	public Panel(List<Pedido> pedidos, String str) {
 		setLayout(new BorderLayout());
 		String [] nombresColumnas = {"id", "Date", "Price", "PriceWhitoutTaxes", "worker", "discount", "Destiny"};
@@ -259,18 +231,60 @@ public class Panel extends JPanel {
 		add(buttonBackPedidosReport, BorderLayout.SOUTH);	
 	}
 	
-	//Constructor panel for change pago ticket
+	/**
+	 * @param workers Lista de trabajadores
+	 * @param str1 No se utiliza
+	 * @param str2 No se utiliza
+	 * Genera un panel que contiene una tabla con la lista de trabajadores
+	 */
+	public Panel(List<Trabajador> workers, String str1, String str2) {
+		setLayout(new BorderLayout());
+		String [] nombresColumnas = {"id", "Name", "Surnames", "Telephone", "Dni", "salary", "Password"};
+		Class [] tipoColumnas = {java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class};
+		ModeloTablaTrabajadores tModelTrabajadores = new ModeloTablaTrabajadores(workers, nombresColumnas, tipoColumnas);
+		JTable tableTrabajadores = new JTable(tModelTrabajadores);
+		tableTrabajadores.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		JScrollPane panelScrollPedidosReport = new JScrollPane(tableTrabajadores,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		add(panelScrollPedidosReport, BorderLayout.NORTH);
+		Boton buttonBackPedidosReport = new Boton(iconBack);
+		buttonBackPedidosReport.setActionCommand("BackReportsFromWorkersReport");
+		buttonBackPedidosReport.addActionListener(gestorBotones);
+		add(buttonBackPedidosReport, BorderLayout.SOUTH);	
+	}
+	
+	//
+	/**
+	 * @param totalTique el total del tique a cobrar
+	 * Constructor panel for change and collect money ticket)
+	 * Este panel muestra el total del tique y proporciona al usuario el dinero a devolver
+	 */
 	public Panel(double totalTique) {
 		JTextField txfEntregaDato;
 		Label lblCambioDato = new Label("",fuenteDatos,"LEFT");
+		FocusListener focusListener = new FocusListener() {
+			
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				if(((JTextField)e.getSource()).getName().equals("txfEntrega")) {
+					System.out.println("canbidad entregada pierde foco");
+					calculaCambio(totalTique,((JTextField)e.getSource()).getText(),lblCambioDato);
+					
+				}
+			}
+			
+			@Override
+			public void focusGained(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
 		KeyListener listener = new KeyListener() {
 			
 			@Override
 			public void keyTyped(KeyEvent e) {
 				// TODO Auto-generated method stub
-				
 			}
-			
 			@Override
 			public void keyReleased(KeyEvent e) {
 				// TODO Auto-generated method stub
@@ -287,18 +301,18 @@ public class Panel extends JPanel {
 				}else {
 						if (e.getKeyCode() == 10 || e.getKeyChar() == KeyEvent.VK_TAB) {  //si pulsa enter o tabulador
 							//Calcular cambio
-							double cambio = Double.parseDouble(((JTextField)e.getSource()).getText()) - totalTique;
-							cambio = (double)Math.round(cambio *100) /100d; //redondeo
+							calculaCambio(totalTique,((JTextField)e.getSource()).getText(),lblCambioDato);
 							
+						/*	double cambio = Double.parseDouble(((JTextField)e.getSource()).getText()) - totalTique;
+							cambio = (double)Math.round(cambio *100) /100d; //redondeo
 							if(cambio < 0) {
 								JOptionPane.showMessageDialog(null, "No es suficiente","Paid out" , JOptionPane.INFORMATION_MESSAGE);
 							}else {
 								lblCambioDato.setText(cambio + "");
-							}		
+							}*/		
 						}
 				}
 			}
-			
 			
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -335,7 +349,10 @@ public class Panel extends JPanel {
 		add(lblTotalDato, gbc_MiConstraint);
 		txfEntregaDato = new JTextField(50);		 		  
 		gbc_MiConstraint.gridy = 2;
+		txfEntregaDato.setText("0.00");
+		txfEntregaDato.setName("txfEntrega");
 		txfEntregaDato.addKeyListener(listener);
+		txfEntregaDato.addFocusListener(focusListener);
 		add(txfEntregaDato, gbc_MiConstraint);
 		gbc_MiConstraint.gridy = 3;
 		add(lblCambioDato, gbc_MiConstraint);
@@ -349,8 +366,8 @@ public class Panel extends JPanel {
 	}
 	
 	/**
-	 * @param precio
-	 * @return
+	 * @param precio del producto añadido al pedido
+	 * @return la suma de productos añadidos al pedido
 	 * Actualiza el valor de variable subtotal o la resetea 0.0, lo visualiza en el Jlabel y devuelve el valor 
 	 */
 	public double IncrementaSutotal(Double precio) {
@@ -373,16 +390,19 @@ public class Panel extends JPanel {
 	}
 	
 	/**
-	 * @param boton
-	 * @param pedido
-	 * se devuelve al botón de la mesa, barra...???? el pedido modificado
-	 * tendría que pasar el pedido al objeto
+	 * @param boton Boton correspondiente a la mesa, zona de barra o reparto
+	 * @param pedido Pedido en curso correspondiente a la mesa, zona de barra o reparto elegido por el usuario
+	 * se asina al botón de la mesa, zona de barra o reparto el pedido modificado
 	 */
 	public void upgradePedidoEnCurso(BotonPizzeriaMesas boton, Pedido pedido) {
-
 		boton.setPedidoBoton(pedido);
 	}
 	
+	/**
+	 * @param pedidoEnCurso Pedido asociado al botón de la mesa, zona de barra o reparto elegido por el usuario
+	 * @return Devuelve false si no hay un pedido en curso para el botón de la mesa, zona de barra o reparo elegido por el usuario
+	 * Se comprueba si hay un pedido asociado al botón de mesa, zona de barra o reparto
+	 */
 	public Boolean checkForOpenOrder(Pedido pedidoEnCurso) {
 		if (pedidoEnCurso != null  && pedidoEnCurso.getOrderPrice() != 0.0f && pedidoEnCurso.isPedidoCobrado() != true) {
 			System.out.println("Boton mesa pulsado. Ya tiene datos");
@@ -416,8 +436,19 @@ public class Panel extends JPanel {
 		pedido.setOrderPrice((double)Math.round((precioSinImpuestos + precioSinImpuestos * Restaurant.getImpuestos() / 100)*100) / 100);
 	}
 	
-	public void imprimirPanelTicket() {
-		
+	/**
+	 * @param totalTique total del pedido en curso
+	 * @param entrega cantidad que entrega el cliente para pagar
+	 * @param jlCambio cantidad que hay que entregar al cliente
+	 */
+	public void calculaCambio(double totalTique, String entrega, JLabel jlCambio) {
+		double cambio = Double.parseDouble(entrega) - totalTique;
+		cambio = (double)Math.round(cambio *100) /100d; //redondeo
+		if(cambio < 0) {
+			JOptionPane.showMessageDialog(null, "No es suficiente","Paid out" , JOptionPane.INFORMATION_MESSAGE);
+		}else {
+			jlCambio.setText(cambio + "");
+		}		
 	}
 	public static void setSubtotal(Double subtotal) {
 		Panel.subtotal = subtotal;

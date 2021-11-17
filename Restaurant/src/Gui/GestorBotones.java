@@ -40,8 +40,7 @@ public class GestorBotones implements ActionListener{
 				Frame.InstanceFPizzerie.ActivaPanel(Frame.InstanceFPizzerie.panelMesas);
 				Frame.InstanceFPizzerie.getPanelMesas().setVisible(true);
 				Frame.InstanceFPizzerie.getPanelValida().setVisible(false);
-			}
-			
+			}		
 		}
 		if(e.getActionCommand().equals("Salir panel valida")) {
 			// back to principal panel
@@ -49,7 +48,6 @@ public class GestorBotones implements ActionListener{
 			Frame.InstanceFPizzerie.getPanelPrincipal().setVisible(true);
 			Frame.InstanceFPizzerie.getPanelValida().setVisible(false);
 		}
-
 		if (e.getActionCommand().equals("AbrirPanelConfiguracion")) {
 		}
 		if (e.getActionCommand().equals("AbrirPanelReports")) {
@@ -79,20 +77,10 @@ public class GestorBotones implements ActionListener{
 			Frame.InstanceFPizzerie.panelProductos.upgradeOrderData(Panel.getBotonMesa().getPedidoBoton());
 			//FramePizzeria.InstanceFPizzerie.panelTique = new PanelPizzeria(PanelPizzeria.getBotonMesa().getPedidoBoton());
 			Frame.InstanceFPizzerie.panelticket = new panelticket(Panel.getBotonMesa().getPedidoBoton());
-			
-			
-			//FramePizzeria.InstanceFPizzerie.ActivaPanel(FramePizzeria.InstanceFPizzerie.panelTique);
-			//FramePizzeria.InstanceFPizzerie.getPanelTique().setVisible(true);
-			//FramePizzeria.InstanceFPizzerie.getPanelProductos().setVisible(false);
 			Frame.InstanceFPizzerie.ActivaPanel(Frame.InstanceFPizzerie.panelticket);
 			Frame.InstanceFPizzerie.getPanelticket().setVisible(true);
-			
-		//	Frame.InstanceFPizzerie.panelticket = new panelticket();
-		//	Frame.InstanceFPizzerie.ActivaPanelSouth(Frame.InstanceFPizzerie.panelticketBotones);
-		//	Frame.InstanceFPizzerie.getPanelticketBotones().setVisible(true);
 			Frame.InstanceFPizzerie.getPanelProductos().setVisible(false);
 		}
-
 		if (e.getActionCommand().equals("SalirPanelProductos")) {
 			cerrarPanelProductos(e);
 		}
@@ -101,8 +89,7 @@ public class GestorBotones implements ActionListener{
 			Frame.InstanceFPizzerie.ActivaPanel(Frame.InstanceFPizzerie.panelProductos);
 			Frame.InstanceFPizzerie.getPanelProductos().setVisible(true);
 			//FramePizzeria.InstanceFPizzerie.getPanelTique().setVisible(false);
-			Frame.InstanceFPizzerie.getPanelticket().setVisible(false);
-			
+			Frame.InstanceFPizzerie.getPanelticket().setVisible(false);			
 		}
 		if (e.getActionCommand().equals("Acepta cobro")) {
 			Frame.InstanceFPizzerie.ActivaPanel(Frame.InstanceFPizzerie.panelMesas);
@@ -115,22 +102,18 @@ public class GestorBotones implements ActionListener{
 			Frame.InstanceFPizzerie.panelticket.imprimirTicket();
 			System.out.println("Gestor botones imprime");
 		}		
-
 		if (e.getActionCommand().equals("PaidOut")) {
 			pagarPedido();
-		}		
-		
+		}			
 		if (e.getActionCommand().equals("OpenProductsReport")) {
 			// show product report
 			if (Frame.InstanceFPizzerie.panelProductsReport == null) {
 				Frame.InstanceFPizzerie.panelProductsReport = new Panel(Frame.InstanceFPizzerie.myPizzerie.getFoods());
-			}
-			
+			}			
 			Frame.InstanceFPizzerie.ActivaPanel(Frame.InstanceFPizzerie.panelProductsReport);
 			Frame.InstanceFPizzerie.getPanelProductsReport().setVisible(true);
 			Frame.InstanceFPizzerie.getPanelReport().setVisible(false);
 		}
-
 		if (e.getActionCommand().equals("SalirPanelReports")) {
 			// back to main panel
 			Frame.InstanceFPizzerie.getPanelReport().setVisible(false);
@@ -144,13 +127,18 @@ public class GestorBotones implements ActionListener{
 			Frame.InstanceFPizzerie.panelReport.setVisible(false);
 		}
 
+		if (e.getActionCommand().equals("OpenWorkersReport")) {
+			// Open workers report
+			Frame.InstanceFPizzerie.panelWorkersReport = new Panel(Frame.InstanceFPizzerie.myPizzerie.getWorkers(),"Informe","Trabajadores");
+			Frame.InstanceFPizzerie.ActivaPanel(Frame.InstanceFPizzerie.panelWorkersReport);
+			Frame.InstanceFPizzerie.panelReport.setVisible(false);
+		}		
 		if (e.getActionCommand().equals("BackReportsFromProductsReport")) {
 			// back to reports panel
 			Frame.InstanceFPizzerie.ActivaPanel(Frame.InstanceFPizzerie.panelReport);
 			Frame.InstanceFPizzerie.getPanelReport().setVisible(true);
 			Frame.InstanceFPizzerie.getPanelProductsReport().setVisible(false);
 		}
-
 		if (e.getActionCommand().equals("BackReportsFromOrderReport")) {
 			// back to reports panel from order report
 			Frame.InstanceFPizzerie.ActivaPanel(Frame.InstanceFPizzerie.panelReport);
@@ -158,7 +146,12 @@ public class GestorBotones implements ActionListener{
 			Frame.InstanceFPizzerie.panelOrderReport.setVisible(false);
 			System.out.println("back from order report");
 		}
-		
+		if (e.getActionCommand().equals("BackReportsFromWorkersReport")) {
+			// back to reports panel
+			Frame.InstanceFPizzerie.ActivaPanel(Frame.InstanceFPizzerie.panelReport);
+			Frame.InstanceFPizzerie.getPanelReport().setVisible(true);
+			Frame.InstanceFPizzerie.getPanelWorkersReport().setVisible(false);
+		}	
 	}
 	
 	public boolean validaClave() {

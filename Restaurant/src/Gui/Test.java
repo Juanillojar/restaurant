@@ -104,10 +104,11 @@ public class Test {
 		//Creación de un objeto pizzeria asociándole todos los datos creados antes
 		Restaurant pizzeria = new Restaurant("Pizzeria Bartolini", "c/Levantina 2 Bajo C.P:04240 Viator(Almeria)", trabajadoresPizzeria, comidaPizzeria,pedidosPizzeria);
 		//pedidosPizzeria.indexOf(pedido1);
-		//Se asigna el número de puestos en barra, mesas en interior y exterior
+		//Se asigna el número de puestos en barra, mesas en interior, en exterior y repartos
 		pizzeria.setBarZones(4);
 		pizzeria.setInTables(3);
 		pizzeria.setOutTables(2);
+		pizzeria.setDeliveryZones(2);
 		System.out.println("\n***************Listado de comida en pizzeria********************");
 		System.out.println(comidaPizzeria);
 		System.out.println("\n***************Listado de trabajadores en pizzeria**************");

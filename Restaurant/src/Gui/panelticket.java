@@ -18,6 +18,12 @@ import java.awt.print.PrinterJob;
 import javax.swing.ImageIcon;
 
 
+/**
+ * @author Juan José Cárdenas
+ * Se genera el panel del ticket con dos subpaneles: uno con los datos del tiquet a imprimir
+ * y otro con los botones de las acciones.
+ * El botón Caja accede al panel para calculo de cambio y cobro definido en la clase Panel
+ */
 public class panelticket extends JPanel implements Printable{
 
 	private GestorBotones gestorBotones = new GestorBotones();

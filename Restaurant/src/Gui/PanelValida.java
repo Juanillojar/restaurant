@@ -27,10 +27,6 @@ public class PanelValida extends JPanel {
 	 */
 	public PanelValida(List<Trabajador> trabajadores) {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		//gridBagLayout.columnWidths = new int[]{0, 73, 131, 0, 101, 89, 0};
-		//gridBagLayout.rowHeights = new int[]{37, 35, 35, 35, 35, 0};
-		//gridBagLayout.columnWeights = new double[]{0.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		//gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
 		JLabel lblInfo = new JLabel("Seleccione su usuario");
@@ -41,8 +37,7 @@ public class PanelValida extends JPanel {
 		gbc_MiConstraint.gridwidth = 3;  //Columnas que ocupa
 		gbc_MiConstraint.gridheight = 1; //Filas que ocupa
 		gbc_MiConstraint.fill = GridBagConstraints.HORIZONTAL; //ajusta el componente a la celda
-		gbc_MiConstraint.insets = new Insets(0, 50, 10, 0); //Espacio hasta los bordes del componente en la celda
-														  //top, left, botton, right
+		gbc_MiConstraint.insets = new Insets(0, 50, 10, 0); //Espacio hasta los bordes del componente en la celda														  //top, left, botton, right
 		add(lblInfo, gbc_MiConstraint);
 		
 		JLabel lblOperador = new JLabel("Operador:");

@@ -23,13 +23,12 @@ public class Frame extends JFrame {
 	PanelValida panelValida;
 	Panel panelMesas;
 	Panel panelProductos;
-	//Panel panelTique;
 	panelticket panelticket;
-	//panelticket panelticketBotones;
 	Panel panelCobro;
 	Panel panelReport;
 	Panel panelProductsReport;
 	Panel panelOrderReport;
+	Panel panelWorkersReport;
 	
 	Trabajador trabajadorValidado  = new Trabajador(); //especifica el trabajador que está validado con su clave
 	
@@ -43,7 +42,7 @@ public class Frame extends JFrame {
 		Dimension tamanoPantalla = mipantalla.getScreenSize();
 		int width = tamanoPantalla.width;
 		int height = tamanoPantalla.height;
-		setBounds(width / 6, height / 6, width * 2 / 3, height * 2 / 3);// le doy al frame la posicón centrada y el																		// tamaño de 2/3 de la pantalla
+		setBounds(width / 6, height / 6, width * 1 / 3, height * 2 / 3);// le doy al frame la posicón centrada y el																		// tamaño de 2/3 de la pantalla
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Image miIcono = mipantalla.getImage("src/images/icono.png");
 		setIconImage(miIcono); // icono del JFrame
@@ -73,10 +72,6 @@ public class Frame extends JFrame {
 		setVisible(true);
 	}
 	
-//	public void ActivaPanelSouth(JPanel panel) {
-//		add(panel, BorderLayout.SOUTH);
-//		setVisible(true);
-//	}
 	public Panel getPanelPrincipal() {
 		return panelPrincipal;
 	}
@@ -100,15 +95,7 @@ public class Frame extends JFrame {
 	public void setPanelProductos(Panel panelProductos) {
 		this.panelProductos = panelProductos;
 	}
-/*
-	public Panel getPanelTique() {
-		return panelTique;
-	}
 
-	public void setPanelTique(Panel panelTique) {
-		this.panelTique = panelTique;
-	}
-*/
 	public Panel getPanelReport() {
 		return panelReport;
 	}
@@ -165,12 +152,12 @@ public class Frame extends JFrame {
 		this.panelCobro = panelCobro;
 	}
 
-/*	public panelticket getPanelticketBotones() {
-		return panelticketBotones;
+	public Panel getPanelWorkersReport() {
+		return panelWorkersReport;
 	}
 
-	public void setPanelticketBotones(panelticket panelticketBotones) {
-		this.panelticketBotones = panelticketBotones;
+	public void setPanelWorkersReport(Panel panelWorkersReport) {
+		this.panelWorkersReport = panelWorkersReport;
 	}
-	*/
+
 }
