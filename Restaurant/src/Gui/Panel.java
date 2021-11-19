@@ -1,7 +1,7 @@
 package Gui;
 
 import java.awt.BorderLayout;
-
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -210,7 +210,7 @@ public class Panel extends JPanel {
 		buttonBackProductReport.addActionListener(gestorBotones);
 		add(buttonBackProductReport, BorderLayout.SOUTH);	
 	}
-	
+ 
 	/**
 	 * @param pedidos Lista de pedidos 
 	 * @param str no se utiliza
@@ -364,7 +364,96 @@ public class Panel extends JPanel {
 		btnAceptar.setActionCommand("Acepta cobro");
 		
 	}
-	
+
+	/**
+	 * Crea o visualiza el panel de Productos asociándolo al botón de la mesa, zona de barra o reparto seleccionado
+	 * Si hay un pedido pendiente en el botón asociado carga los datos para visualizarlos  
+	 */
+	public void abrirPanelProductos() {
+		if (Frame.InstanceFPizzerie.panelProductos == null) {
+			System.out.println("nuevo panel productos");
+			Frame.InstanceFPizzerie.panelProductos = new Panel(Frame.InstanceFPizzerie.myPizzerie.foods,Panel.getBotonMesa());
+		} else { // ya existe el panel de productos
+			if (Frame.InstanceFPizzerie.panelMesas.checkForOpenOrder(Panel.getBotonMesa().getPedidoBoton())) { 
+				// hay un pedido pendiente de la mesa, zona de barra o reparto asociado al botón
+				// carga total pedido en curso en variable estática
+				Panel.setSubtotal(Panel.getBotonMesa().getPedidoBoton().getOrderPriceWithoutTaxes());
+				// Actualiza los valores de total pedido en curso y muestra el boton tique
+				Frame.InstanceFPizzerie.getPanelProductos().getLsubtotalOrder().setText(
+						"Subtotal Order: " + Panel.getBotonMesa().getPedidoBoton().getOrderPriceWithoutTaxes());
+				Frame.InstanceFPizzerie.getPanelProductos().getButtonTique().setVisible(true);
+			}
+		}
+		// actualiza el texto del label que indica la mesa, zona de barra o reparto que se está tratando
+		Frame.InstanceFPizzerie.getPanelProductos().getlDestinoPedidoEnCurso().setText(Panel.getBotonMesa().getDestinoBoton().getDestinationDenomination());
+		Frame.InstanceFPizzerie.getPanelProductos().getlDestinoPedidoEnCurso().repaint();
+		// Visualiza panel productos y oculta panel mesas
+		Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelProductos,	Frame.InstanceFPizzerie.panelMesas);
+	}
+
+	/**
+	 * @param e evento que genera el boton Back de panel productos. Contiene el contenido del pedido
+	 * en curso si el usuario no lo ha cerrado
+	 * Si ha quedado pedido sin cerrar cambia el aspecto del botón asociado a la mesa, zona de barra o reparto 
+	 * Resetea variables que contienen datos del pedido en curso 
+	 */
+	public void cerrarPanelProductos(ActionEvent e) {
+		if (Panel.getBotonMesa().getPedidoBoton() != null) { // Se ha insertado producto/s al pedido
+			// rellena datos del pedido (el operador añade productos sin ver el tique)
+			Frame.InstanceFPizzerie.panelProductos.upgradeOrderData(Panel.getBotonMesa().getPedidoBoton());
+			Panel.getBotonMesa().setBackground(Color.MAGENTA);
+			// guarda los datos en el botón del panel de mesas
+			((BotonPizzeriaMesas) e.getSource()).setPedidoBoton(Panel.getBotonMesa().getPedidoBoton());
+		}
+		reseteaVariablesEstaticas(); 
+		// back to bar and tables panel
+		Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelMesas,	Frame.InstanceFPizzerie.panelProductos);
+	}
+
+	/**
+	 * Añade el pedido a la lista y lo marca como pagado Muestra panelcobro para
+	 * insertar el dinero entregado y ofrecer el cambio muestra botón para imprimir
+	 * el tique
+	 */
+	public void pagarPedido() {
+		// store to pizzeria order list and mark as paid
+		Frame.InstanceFPizzerie.getPanelProductos().paidOut(Panel.getBotonMesa().getPedidoBoton());
+		Frame.InstanceFPizzerie.myPizzerie.getOrders().add(Panel.getBotonMesa().getPedidoBoton());
+		Panel.getBotonMesa().setBackground(Color.LIGHT_GRAY);
+
+		// crea panel cobro y lo visualiza
+		Frame.InstanceFPizzerie.panelCobro = new Panel(Panel.getBotonMesa().getPedidoBoton().getOrderPrice());
+		Frame.InstanceFPizzerie.panelticket.setVisible(false);
+		Frame.InstanceFPizzerie.add(Frame.InstanceFPizzerie.panelCobro, BorderLayout.CENTER);
+		Frame.InstanceFPizzerie.panelCobro.setVisible(true);
+		// reset de variables estáticas
+		Panel.getBotonMesa().setPedidoBoton(null);// resetea el pedido guardado
+		reseteaVariablesEstaticas();
+	}
+	/**
+	 * Resetea varibles estática botonMesa para cambiar de mesa...
+	 * Resetea valor de subtotal en panel productos
+	 */
+	public void reseteaVariablesEstaticas() {
+		Panel.setBotonMesa(null);
+		Frame.InstanceFPizzerie.getPanelProductos().IncrementaSutotal(0.0);
+		Frame.InstanceFPizzerie.panelProductos.getButtonTique().setVisible(false);
+	}
+
+	public void anyadeProducto(ActionEvent e) {
+		if (Panel.getBotonMesa().getPedidoBoton() == null) {// crear pedido y añadir el producto
+			Panel.getBotonMesa().setPedidoBoton(new Pedido(Panel.getBotonMesa().getDestinoBoton()));
+		}
+		// Add product to the order object list
+		Panel.getBotonMesa().getPedidoBoton().getOrderFoods().add(((Boton) e.getSource()).getProducto());
+		// incrementa el precio del pedido, lo guarda en el botón y actualiza el label
+		Panel.getBotonMesa().getPedidoBoton().setOrderPriceWithoutTaxes(Frame.InstanceFPizzerie.panelProductos
+				.IncrementaSutotal(((Boton) e.getSource()).getProducto().getPrice()));
+		// make visible Tique button
+		Frame.InstanceFPizzerie.getPanelProductos().getButtonTique().setVisible(true);
+		System.out.println("Añade producto al pedido.");
+	}
+
 	/**
 	 * @param precio del producto añadido al pedido
 	 * @return la suma de productos añadidos al pedido

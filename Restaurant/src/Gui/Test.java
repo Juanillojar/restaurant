@@ -7,11 +7,20 @@ Se insertan los datos creando los objetos y listas en tiempo de ejecución y no s
 Se visualizan los datos y se crea un pedido utilizando los datos insertados
  */
 
+import java.io.UnsupportedEncodingException;
+import java.security.GeneralSecurityException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.crypto.spec.SecretKeySpec;
+import static Gui.DataEncryption.*;
+
 public class Test {
 	public static String path= "E:\\Contenido USB Diciembre 2019\\personal\\cursos\\Curso Java 2021\\PracticasJava\\src\\Pizzeria\\pizzeria.log";
+	static SecretKeySpec key;
+	//private DataEncryption dataEncryption = new DataEncryption();  // para encriptar claves de usuario
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -72,17 +81,58 @@ public class Test {
 		comidaPizzeria.add(plato24);
 		comidaPizzeria.add(plato25);
 		comidaPizzeria.add(plato26);
-		
+		 
 		//Creación de los arrays con los idiomas que conoce cada camarero, los camareros, repartidores y cocineros
 		String[] language1 = {"Español","inglés"};
 		String[] language2 = {"Español","inglés, Francés"};
 		String[] language3 = {"Español","inglés, Alemán"};
-		Cocinero cocinero1 = new Cocinero("Francisco", "Soler Villegas","14253678A", 1200.50, Turno.TARDE.name(), "624582159", "coci1", "Pizzas", 2, false);
-		Cocinero cocinero2 = new Cocinero("Elena", "García Moro","85854545C", 1400.50, Turno.NOCHE.name(), "9834235485", "coci2", "Vanguardia", 5, true);
-		Camarero camarero1 = new Camarero("Vanesa", "Martin Fierro","85412365B", 1050.50, Turno.NOCHE.name(),"523568974", "cam1","Barra", language1, false);
-		Camarero camarero2 = new Camarero("Jonas", "Valverde Schultz","44128369R", 1050.50,Turno.TARDE.name(),"685214792", "cam2","Terraza", language2, true);
-		Repartidor repartidor1 = new Repartidor("Juan", "Pérez Morales","78451236C", 800.00,Turno.TARDE.name(),"568471236", "rep1", Transport.Moto.toString(), 19, true, true);
-		Repartidor repartidor2 = new Repartidor("Manu", "González Gazquez","45826573J", 900.00,Turno.NOCHE.name(),"631657157", "rep2", Transport.Bicicleta.toString(), 18, false, false);
+		
+		//Generación de claves encriptadas para los usuarios
+		byte[] salt = new String("Juanillo").getBytes();  //es como una llave para la encriptación.Clave pública?
+		int iteractionCount=40000;						  //iteraciones del algoritmo de emcriptación	
+		int KeyLength = 128;  							  //la longitud de la clave?
+		String passwordKey = "Restaurante";
+		String passwordcocinero1= "coc1";
+		String passwordEncriptadacocinero1="";
+		String passwordcocinero2= "coc2";
+		String passwordEncriptadacocinero2="";
+		String passwordCamarero1= "cam1";
+		String passwordEncriptadaCamarero1="";
+		String passwordCamarero2= "cam2";
+		String passwordEncriptadaCamarero2="";
+		String passwordRepartidor1= "rep1";
+		String passwordEncriptadaRepartidor1="";
+		String passwordRepartidor2= "rep2";
+		String passwordEncriptadaRepartidor2="";
+		try {
+			key = createSecretKey(passwordKey.toCharArray(),salt, iteractionCount, KeyLength);
+			passwordEncriptadacocinero1 = encrypt(passwordcocinero1, key);
+			passwordEncriptadacocinero2 = encrypt(passwordcocinero2, key);
+			passwordEncriptadaCamarero1 = encrypt(passwordCamarero1, key);
+			passwordEncriptadaCamarero2 = encrypt(passwordCamarero2, key);
+			passwordEncriptadaRepartidor1 = encrypt(passwordRepartidor1, key);
+			passwordEncriptadaRepartidor2 = encrypt(passwordRepartidor2, key);
+
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidKeySpecException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (GeneralSecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Cocinero cocinero1 = new Cocinero("Francisco", "Soler Villegas","14253678A", 1200.50, Turno.TARDE.name(), "624582159", passwordEncriptadacocinero1, "Pizzas", 2, false);
+		Cocinero cocinero2 = new Cocinero("Elena", "García Moro","85854545C", 1400.50, Turno.NOCHE.name(), "9834235485", passwordEncriptadacocinero2, "Vanguardia", 5, true);
+		Camarero camarero1 = new Camarero("Vanesa", "Martin Fierro","85412365B", 1050.50, Turno.NOCHE.name(),"523568974", passwordEncriptadaCamarero1,"Barra", language1, false);
+		Camarero camarero2 = new Camarero("Jonas", "Valverde Schultz","44128369R", 1050.50,Turno.TARDE.name(),"685214792", passwordEncriptadaCamarero2,"Terraza", language2, true);
+		Repartidor repartidor1 = new Repartidor("Juan", "Pérez Morales","78451236C", 800.00,Turno.TARDE.name(),"568471236", passwordEncriptadaRepartidor1, Transport.Moto.toString(), 19, true, true);
+		Repartidor repartidor2 = new Repartidor("Manu", "González Gazquez","45826573J", 900.00,Turno.NOCHE.name(),"631657157", passwordEncriptadaRepartidor2, Transport.Bicicleta.toString(), 18, false, false);
+
 		//Creación de lista de Trabajadores y se añaden los cocineros, camareros y repartidores
 		List<Trabajador> trabajadoresPizzeria= new ArrayList<Trabajador>();
 		trabajadoresPizzeria.add(0, cocinero1);
@@ -128,9 +178,16 @@ public class Test {
 		//Generación de listado de pedidos
 		System.out.println("\n*************** Listado de pedidos en pizzeria *****************");
 		System.out.println(pizzeria.getOrders().toString());	
-	
 		
 		
 	}
-	
+
+	public static SecretKeySpec getKey() {
+		return key;
+	}
+
+	public static void setKey(SecretKeySpec key) {
+		Test.key = key;
+	}
+
 }

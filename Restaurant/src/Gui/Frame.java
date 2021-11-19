@@ -54,7 +54,32 @@ public class Frame extends JFrame {
 		add(panelPrincipal, BorderLayout.CENTER);
 		setVisible(true);	
 	}
-
+	
+	public void cambiaPanel(Panel panelMostrar,Panel panelOcultar) {
+		add(panelMostrar, BorderLayout.CENTER);
+		panelMostrar.setVisible(true);
+		panelOcultar.setVisible(false);
+	}
+	public void cambiaPanel(PanelValida panelMostrar,Panel panelOcultar) {
+		add(panelMostrar, BorderLayout.CENTER);
+		panelMostrar.setVisible(true);
+		panelOcultar.setVisible(false);
+	}
+	public void cambiaPanel(Panel panelMostrar,PanelValida panelOcultar) {
+		add(panelMostrar, BorderLayout.CENTER);
+		panelMostrar.setVisible(true);
+		panelOcultar.setVisible(false);
+	}
+	public void cambiaPanel(Panel panelMostrar,panelticket panelOcultar) {
+		add(panelMostrar, BorderLayout.CENTER);
+		panelMostrar.setVisible(true);
+		panelOcultar.setVisible(false);
+	}
+	public void cambiaPanel(panelticket panelMostrar,Panel panelOcultar) {
+		add(panelMostrar, BorderLayout.CENTER);
+		panelMostrar.setVisible(true);
+		panelOcultar.setVisible(false);
+	}
 	public void ActivaPanel(Panel panel) {
 		add(panel, BorderLayout.CENTER);
 		setVisible(true);

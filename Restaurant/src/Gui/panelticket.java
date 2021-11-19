@@ -6,6 +6,7 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -199,7 +200,6 @@ public class panelticket extends JPanel implements Printable{
 		panelDatos.printAll(graphics);   //definimos que se va a imprimir
 		return PAGE_EXISTS;
 	}
-	
 	
 	public void imprimirTicket() {
 		try {

@@ -26,7 +26,6 @@ public class Trabajador {
 	private String clave;
 	
 	
-	
 	public Trabajador(String name, String surNames, String dni, double salary, String shift,
 			String telephone, String clave) {
 		workers ++;					

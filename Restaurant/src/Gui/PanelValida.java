@@ -3,17 +3,19 @@ package Gui;
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.io.IOException;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
-
-
 import javax.swing.JPasswordField;
+import java.security.*;
 
 public class PanelValida extends JPanel {
 	private JComboBox<Trabajador> comboBoxUser;
@@ -21,7 +23,8 @@ public class PanelValida extends JPanel {
 	private Camarero cam = new Camarero();
 	private Repartidor rep = new Repartidor();
 	private GestorBotones gestotBotones = new GestorBotones();
-	
+	private DataEncryption dataEncryption = new DataEncryption();
+	  
 	/**
 	 * Create the panel for user validate.
 	 */
@@ -100,6 +103,19 @@ public class PanelValida extends JPanel {
 		btnAtras.setActionCommand("Salir panel valida");
 		add(btnAtras, gbc_MiConstraint);
 	}
+	
+	public boolean validaClave() throws GeneralSecurityException, IOException {
+		//desencrita clave
+		String claveDesencriptada = dataEncryption.decrypt(((Trabajador)Frame.InstanceFPizzerie.getPanelValida().getComboBoxUser().getSelectedItem()).getClave(), Test.key);
+		;
+		if(claveDesencriptada.equals(Frame.InstanceFPizzerie.getPanelValida().getPasswordField().getText())) {
+			return true;
+		}else {
+			JOptionPane.showMessageDialog(null, "Clave not match","clave insertion" , JOptionPane.INFORMATION_MESSAGE);
+			return false;
+		}
+	}
+	
 
 	public JComboBox<Trabajador> getComboBoxUser() {
 		return comboBoxUser;
