@@ -93,7 +93,7 @@ public class panelticket extends JPanel implements Printable{
 			gbc_Miconstraint.gridx = 0;
 			gbc_Miconstraint.gridy = gridy;
 			panelDatos.add(prod, gbc_Miconstraint);
-			Label importe = new Label(" " + producto.getPrice(), fuenteDatos);
+			Label importe = new Label(" " + producto.getPrice() + " €", fuenteDatos);
 			gbc_Miconstraint.anchor = GridBagConstraints.WEST;
 			gbc_Miconstraint.insets = new Insets(0, 0, 5, 5);
 			gbc_Miconstraint.gridx = 1;
@@ -211,6 +211,7 @@ public class panelticket extends JPanel implements Printable{
 			}
 		}catch(PrinterException ex){
 			JOptionPane.showMessageDialog(getComponentPopupMenu(), ex, "Error",JOptionPane.INFORMATION_MESSAGE);
+			Frame.log.Escritura("Print" + ex.toString());
 		}
 	}
 }

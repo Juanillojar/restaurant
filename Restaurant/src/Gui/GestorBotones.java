@@ -34,6 +34,7 @@ public class GestorBotones implements ActionListener {
 								Frame.InstanceFPizzerie.myPizzerie.getInTables(),
 								Frame.InstanceFPizzerie.myPizzerie.getOutTables());
 						System.out.println("Se crea panel mesas");
+						Frame.log.Escritura("Se crea panel mesas");
 					}
 
 					Frame.InstanceFPizzerie.setTrabajadorValidado((Trabajador) Frame.InstanceFPizzerie.getPanelValida().getComboBoxUser().getSelectedItem());
@@ -62,7 +63,7 @@ public class GestorBotones implements ActionListener {
 		if (e.getActionCommand().equals("OpenProductsPanel")) {
 			// Se guarda en la variable estática BotonMesa el boton que genera la apertura
 			// de panel productos
-			Panel.setBotonMesa((BotonPizzeriaMesas) e.getSource());
+			Panel.setBotonMesa((BotonRestauranteMesas) e.getSource());
 			Frame.InstanceFPizzerie.panelMesas.abrirPanelProductos();
 		}
 		if (e.getActionCommand().equals("SalirPanelMesas")) {
@@ -90,6 +91,7 @@ public class GestorBotones implements ActionListener {
 		if (e.getActionCommand().equals("Imprimir")) {
 			Frame.InstanceFPizzerie.panelticket.imprimirTicket();
 			System.out.println("Gestor botones imprime");
+			Frame.log.Escritura("Gestor botones imprime tique");
 		}
 		if (e.getActionCommand().equals("PaidOut")) {
 			Frame.InstanceFPizzerie.panelProductos.pagarPedido();

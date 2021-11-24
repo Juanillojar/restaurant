@@ -1,0 +1,477 @@
+
+ 24/11/21 18:58Rellenado pedido Pedido 2 date:24/11/21 18:58 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  7	Pizza Caprichosa, section:PIZZAS, ingredients:Harina, aceite, aguan, tomate, Queso, Cebolla, champiñones, prize:10.0 €, lowPrice:true
+] orderPrice:19,91 € Vanesa valorDescuento: 0.5 € 
+
+ 24/11/21 19:15Rellenado pedido Pedido 2 date:24/11/21 19:15 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:9,46 € Vanesa valorDescuento: 0.0 € 
+
+ 24/11/21 19:17//n Boton mesa pulsado. No tiene datos
+ 24/11/21 19:18Rellenado pedido Pedido 3 date:24/11/21 19:18 [ 8	Pizza Margarita, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, prize:9.8 €, lowPrice:false
+,  21	Ketchup, section:OTHERS, ingredients:Tomate, azucar, sal..., prize:0.2 €, lowPrice:false
+,  15	Pan centeno, section:BREAD, ingredients:Centeno, sal, agua, prize:0.9 €, lowPrice:false
+] orderPrice:11,99 € Vanesa valorDescuento: 0.0 € 
+
+ 24/11/21 19:34Nuevo boton mesa
+ 24/11/21 19:34Nuevo boton mesa
+ 24/11/21 19:34Nuevo boton mesa
+ 24/11/21 19:34Nuevo boton mesa
+ 24/11/21 19:34Nuevo boton mesa
+ 24/11/21 19:34Nuevo boton mesa
+ 24/11/21 19:34Nuevo boton mesa
+ 24/11/21 19:34Nuevo boton mesa
+ 24/11/21 19:34Nuevo boton mesa
+ 24/11/21 19:34Nuevo boton mesa
+ 24/11/21 19:34Nuevo boton mesa
+ 24/11/21 19:34Se crea panel mesas
+ 24/11/21 19:34Cantidad entregada pierde foco
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:34Nuevo boton producto
+ 24/11/21 19:35Añade producto al pedido.
+ 24/11/21 19:42Nuevo boton mesa
+ 24/11/21 19:42Nuevo boton mesa
+ 24/11/21 19:42Nuevo boton mesa
+ 24/11/21 19:42Nuevo boton mesa
+ 24/11/21 19:42Nuevo boton mesa
+ 24/11/21 19:42Nuevo boton mesa
+ 24/11/21 19:42Nuevo boton mesa
+ 24/11/21 19:42Nuevo boton mesa
+ 24/11/21 19:42Nuevo boton mesa
+ 24/11/21 19:42Nuevo boton mesa
+ 24/11/21 19:42Nuevo boton mesa
+ 24/11/21 19:42Se crea panel mesas
+ 24/11/21 19:42Cantidad entregada pierde foco
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Nuevo boton producto
+ 24/11/21 19:42Añade producto al pedido.
+ 24/11/21 19:42Añade producto al pedido.
+ 24/11/21 19:44Nuevo boton mesa
+ 24/11/21 19:44Nuevo boton mesa
+ 24/11/21 19:44Nuevo boton mesa
+ 24/11/21 19:44Nuevo boton mesa
+ 24/11/21 19:44Nuevo boton mesa
+ 24/11/21 19:44Nuevo boton mesa
+ 24/11/21 19:44Nuevo boton mesa
+ 24/11/21 19:44Nuevo boton mesa
+ 24/11/21 19:44Nuevo boton mesa
+ 24/11/21 19:44Nuevo boton mesa
+ 24/11/21 19:44Nuevo boton mesa
+ 24/11/21 19:44Se crea panel mesas
+ 24/11/21 19:44Cantidad entregada pierde foco
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Nuevo boton producto
+ 24/11/21 19:44Añade producto al pedido.
+ 24/11/21 19:44Añade producto al pedido.
+ 24/11/21 19:45Rellenado pedido Pedido 2 date:24/11/21 19:44 [ 7	Pizza Caprichosa, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, Cebolla, champiñones, prize:10.0 €, lowPrice:true
+,  8	Pizza Margarita, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, prize:9.8 €, lowPrice:false
+] orderPrice:21,23 € Vanesa valorDescuento: 0.5 € 
+
+ 24/11/21 20:02Nuevo boton mesa
+ 24/11/21 20:02Nuevo boton mesa
+ 24/11/21 20:02Nuevo boton mesa
+ 24/11/21 20:02Nuevo boton mesa
+ 24/11/21 20:02Nuevo boton mesa
+ 24/11/21 20:02Nuevo boton mesa
+ 24/11/21 20:02Nuevo boton mesa
+ 24/11/21 20:02Nuevo boton mesa
+ 24/11/21 20:02Nuevo boton mesa
+ 24/11/21 20:02Nuevo boton mesa
+ 24/11/21 20:02Nuevo boton mesa
+ 24/11/21 20:02Se crea panel mesas
+ 24/11/21 20:02Cantidad entregada pierde foco
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Nuevo boton producto
+ 24/11/21 20:02Añade producto al pedido.
+ 24/11/21 20:02Añade producto al pedido.
+ 24/11/21 20:02Rellenado pedido Pedido 2 date:24/11/21 20:02 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:18,92 € Vanesa valorDescuento: 0.0 € 
+
+ 24/11/21 20:43Nuevo boton mesa
+ 24/11/21 20:43Nuevo boton mesa
+ 24/11/21 20:43Nuevo boton mesa
+ 24/11/21 20:43Nuevo boton mesa
+ 24/11/21 20:43Nuevo boton mesa
+ 24/11/21 20:43Nuevo boton mesa
+ 24/11/21 20:43Nuevo boton mesa
+ 24/11/21 20:43Nuevo boton mesa
+ 24/11/21 20:43Nuevo boton mesa
+ 24/11/21 20:43Nuevo boton mesa
+ 24/11/21 20:43Nuevo boton mesa
+ 24/11/21 20:43Se crea panel mesas
+ 24/11/21 20:43Cantidad entregada pierde foco
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:43Nuevo boton producto
+ 24/11/21 20:46Boton mesa pulsado. No tiene datos
+ 24/11/21 20:46Añade producto al pedido.
+ 24/11/21 20:46Añade producto al pedido.
+ 24/11/21 20:46Rellenado pedido Pedido 2 date:24/11/21 20:46 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  8	Pizza Margarita, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, prize:9.8 €, lowPrice:false
+] orderPrice:20,24 € Vanesa valorDescuento: 0.0 € 
+
+ 24/11/21 21:04Boton mesa pulsado. No tiene datos
+ 24/11/21 21:17Se crea panel mesas
+ 24/11/21 21:18Se crea panel mesas
+ 24/11/21 21:23Se crea panel mesas
+ 24/11/21 21:23Cantidad entregada pierde foco
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:23Nuevo boton producto
+ 24/11/21 21:26Se crea panel mesas
+ 24/11/21 21:26Cantidad entregada pierde foco
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Nuevo boton producto
+ 24/11/21 21:26Añade producto al pedido.
+ 24/11/21 21:26Añade producto al pedido.
+ 24/11/21 21:26Rellenado pedido Pedido 2 date:24/11/21 21:26 [ 7	Pizza Caprichosa, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, Cebolla, champiñones, prize:10.0 €, lowPrice:true
+,  9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:19,91 € Vanesa valorDescuento: 0.5 € 
+
+ 24/11/21 21:27Rellenado pedido Pedido 2 date:24/11/21 21:26 [ 7	Pizza Caprichosa, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, Cebolla, champiñones, prize:10.0 €, lowPrice:true
+,  9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:19,91 € Vanesa valorDescuento: 0.5 € 
+
+ 24/11/21 21:28Se crea panel mesas
+ 24/11/21 21:28Cantidad entregada pierde foco
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Añade producto al pedido.
+ 24/11/21 21:28Añade producto al pedido.
+ 24/11/21 21:28Rellenado pedido Pedido 2 date:24/11/21 21:28 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  7	Pizza Caprichosa, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, Cebolla, champiñones, prize:10.0 €, lowPrice:true
+] orderPrice:19,91 € Vanesa valorDescuento: 0.5 € 
+
+ 24/11/21 21:28Rellenado pedido Pedido 2 date:24/11/21 21:28 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  7	Pizza Caprichosa, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, Cebolla, champiñones, prize:10.0 €, lowPrice:true
+] orderPrice:19,91 € Vanesa valorDescuento: 0.5 € 
+
+ 24/11/21 21:28Se crea panel mesas
+ 24/11/21 21:28Cantidad entregada pierde foco
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Nuevo boton producto
+ 24/11/21 21:28Añade producto al pedido.
+ 24/11/21 21:28Rellenado pedido Pedido 2 date:24/11/21 21:28 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:9,46 € Vanesa valorDescuento: 0.0 € 
+
+ 24/11/21 21:29Rellenado pedido Pedido 2 date:24/11/21 21:28 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:9,46 € Vanesa valorDescuento: 0.0 € 
+
+ 24/11/21 21:29Boton mesa pulsado. No tiene datos
+ 24/11/21 21:29Boton mesa pulsado. No tiene datos
+ 24/11/21 21:30Añade producto al pedido.
+ 24/11/21 21:30Añade producto al pedido.
+ 24/11/21 21:30Añade producto al pedido.
+ 24/11/21 21:30Añade producto al pedido.
+ 24/11/21 21:30Añade producto al pedido.
+ 24/11/21 21:30Añade producto al pedido.
+ 24/11/21 21:30Añade producto al pedido.
+ 24/11/21 21:30Rellenado pedido Pedido 3 date:24/11/21 21:30 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  23	Cerveza, section:DRINKS, ingredients:Cebada, Alcohol, prize:1.5 €, lowPrice:false
+,  26	Agua pequeña, section:DRINKS, ingredients:Agua, prize:1.5 €, lowPrice:false
+,  26	Agua pequeña, section:DRINKS, ingredients:Agua, prize:1.5 €, lowPrice:false
+,  21	Ketchup, section:OTHERS, ingredients:Tomate, azucar, sal..., prize:0.2 €, lowPrice:false
+,  21	Ketchup, section:OTHERS, ingredients:Tomate, azucar, sal..., prize:0.2 €, lowPrice:false
+,  21	Ketchup, section:OTHERS, ingredients:Tomate, azucar, sal..., prize:0.2 €, lowPrice:false
+] orderPrice:15,07 € Vanesa valorDescuento: 0.0 € 
+
+ 24/11/21 21:30Rellenado pedido Pedido 3 date:24/11/21 21:30 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  23	Cerveza, section:DRINKS, ingredients:Cebada, Alcohol, prize:1.5 €, lowPrice:false
+,  26	Agua pequeña, section:DRINKS, ingredients:Agua, prize:1.5 €, lowPrice:false
+,  26	Agua pequeña, section:DRINKS, ingredients:Agua, prize:1.5 €, lowPrice:false
+,  21	Ketchup, section:OTHERS, ingredients:Tomate, azucar, sal..., prize:0.2 €, lowPrice:false
+,  21	Ketchup, section:OTHERS, ingredients:Tomate, azucar, sal..., prize:0.2 €, lowPrice:false
+,  21	Ketchup, section:OTHERS, ingredients:Tomate, azucar, sal..., prize:0.2 €, lowPrice:false
+] orderPrice:15,07 € Vanesa valorDescuento: 0.0 € 
+
+ 24/11/21 21:30Boton mesa pulsado. No tiene datos
+ 24/11/21 21:30Añade producto al pedido.
+ 24/11/21 21:31Añade producto al pedido.
+ 24/11/21 21:31Añade producto al pedido.
+ 24/11/21 21:31Añade producto al pedido.
+ 24/11/21 21:31Añade producto al pedido.
+ 24/11/21 21:31Añade producto al pedido.
+ 24/11/21 21:31Añade producto al pedido.
+ 24/11/21 21:31Añade producto al pedido.
+ 24/11/21 21:31Añade producto al pedido.
+ 24/11/21 21:31Rellenado pedido Pedido 4 date:24/11/21 21:30 [ 6	Macarrones boloñesa, section:PASTAS, ingredients:Pasta, Tomate, Cebolla, champiñones, prize:7.5 €, lowPrice:false
+,  19	Salchichas y pimientos, section:COMBINADOS, ingredients:Cerdo, pimiento, patata, aceite, sal, prize:5.9 €, lowPrice:false
+,  15	Pan centeno, section:BREAD, ingredients:Centeno, sal, agua, prize:0.9 €, lowPrice:false
+,  26	Agua pequeña, section:DRINKS, ingredients:Agua, prize:1.5 €, lowPrice:false
+,  26	Agua pequeña, section:DRINKS, ingredients:Agua, prize:1.5 €, lowPrice:false
+,  23	Cerveza, section:DRINKS, ingredients:Cebada, Alcohol, prize:1.5 €, lowPrice:false
+,  23	Cerveza, section:DRINKS, ingredients:Cebada, Alcohol, prize:1.5 €, lowPrice:false
+,  23	Cerveza, section:DRINKS, ingredients:Cebada, Alcohol, prize:1.5 €, lowPrice:false
+,  23	Cerveza, section:DRINKS, ingredients:Cebada, Alcohol, prize:1.5 €, lowPrice:false
+] orderPrice:25,63 € Vanesa valorDescuento: 0.0 € 
+
+ 24/11/21 21:31Rellenado pedido Pedido 4 date:24/11/21 21:30 [ 6	Macarrones boloñesa, section:PASTAS, ingredients:Pasta, Tomate, Cebolla, champiñones, prize:7.5 €, lowPrice:false
+,  19	Salchichas y pimientos, section:COMBINADOS, ingredients:Cerdo, pimiento, patata, aceite, sal, prize:5.9 €, lowPrice:false
+,  15	Pan centeno, section:BREAD, ingredients:Centeno, sal, agua, prize:0.9 €, lowPrice:false
+,  26	Agua pequeña, section:DRINKS, ingredients:Agua, prize:1.5 €, lowPrice:false
+,  26	Agua pequeña, section:DRINKS, ingredients:Agua, prize:1.5 €, lowPrice:false
+,  23	Cerveza, section:DRINKS, ingredients:Cebada, Alcohol, prize:1.5 €, lowPrice:false
+,  23	Cerveza, section:DRINKS, ingredients:Cebada, Alcohol, prize:1.5 €, lowPrice:false
+,  23	Cerveza, section:DRINKS, ingredients:Cebada, Alcohol, prize:1.5 €, lowPrice:false
+,  23	Cerveza, section:DRINKS, ingredients:Cebada, Alcohol, prize:1.5 €, lowPrice:false
+] orderPrice:25,63 € Vanesa valorDescuento: 0.0 € 
+
+ 24/11/21 21:31Rellenado pedido Pedido 3 date:24/11/21 21:30 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  23	Cerveza, section:DRINKS, ingredients:Cebada, Alcohol, prize:1.5 €, lowPrice:false
+,  26	Agua pequeña, section:DRINKS, ingredients:Agua, prize:1.5 €, lowPrice:false
+,  26	Agua pequeña, section:DRINKS, ingredients:Agua, prize:1.5 €, lowPrice:false
+,  21	Ketchup, section:OTHERS, ingredients:Tomate, azucar, sal..., prize:0.2 €, lowPrice:false
+,  21	Ketchup, section:OTHERS, ingredients:Tomate, azucar, sal..., prize:0.2 €, lowPrice:false
+,  21	Ketchup, section:OTHERS, ingredients:Tomate, azucar, sal..., prize:0.2 €, lowPrice:false
+] orderPrice:15,07 € Vanesa valorDescuento: 0.0 € 
+
+ 24/11/21 21:32Rellenado pedido Pedido 4 date:24/11/21 21:30 [ 6	Macarrones boloñesa, section:PASTAS, ingredients:Pasta, Tomate, Cebolla, champiñones, prize:7.5 €, lowPrice:false
+,  19	Salchichas y pimientos, section:COMBINADOS, ingredients:Cerdo, pimiento, patata, aceite, sal, prize:5.9 €, lowPrice:false
+,  15	Pan centeno, section:BREAD, ingredients:Centeno, sal, agua, prize:0.9 €, lowPrice:false
+,  26	Agua pequeña, section:DRINKS, ingredients:Agua, prize:1.5 €, lowPrice:false
+,  26	Agua pequeña, section:DRINKS, ingredients:Agua, prize:1.5 €, lowPrice:false
+,  23	Cerveza, section:DRINKS, ingredients:Cebada, Alcohol, prize:1.5 €, lowPrice:false
+,  23	Cerveza, section:DRINKS, ingredients:Cebada, Alcohol, prize:1.5 €, lowPrice:false
+,  23	Cerveza, section:DRINKS, ingredients:Cebada, Alcohol, prize:1.5 €, lowPrice:false
+,  23	Cerveza, section:DRINKS, ingredients:Cebada, Alcohol, prize:1.5 €, lowPrice:false
+] orderPrice:25,63 € Vanesa valorDescuento: 0.0 € 
+
+ 24/11/21 21:33Boton mesa pulsado. No tiene datos
+ 24/11/21 21:33Añade producto al pedido.
+ 24/11/21 21:33Añade producto al pedido.
+ 24/11/21 21:33Rellenado pedido Pedido 5 date:24/11/21 21:33 [ 2	Pollo milanesa, section:STARTERS, ingredients:Pollo, tomate, cebolla, pan rallado, Huevo, pimienta, prize:10.5 €, lowPrice:false
+,  2	Pollo milanesa, section:STARTERS, ingredients:Pollo, tomate, cebolla, pan rallado, Huevo, pimienta, prize:10.5 €, lowPrice:false
+] orderPrice:23,1 € Vanesa valorDescuento: 0.0 € 
+
+ 24/11/21 21:33Rellenado pedido Pedido 5 date:24/11/21 21:33 [ 2	Pollo milanesa, section:STARTERS, ingredients:Pollo, tomate, cebolla, pan rallado, Huevo, pimienta, prize:10.5 €, lowPrice:false
+,  2	Pollo milanesa, section:STARTERS, ingredients:Pollo, tomate, cebolla, pan rallado, Huevo, pimienta, prize:10.5 €, lowPrice:false
+] orderPrice:23,1 € Vanesa valorDescuento: 0.0 € 
+
+ 24/11/21 21:33Boton mesa pulsado. No tiene datos
+ 24/11/21 21:33Añade producto al pedido.
+ 24/11/21 21:33Añade producto al pedido.
+ 24/11/21 21:33Añade producto al pedido.
+ 24/11/21 21:33Añade producto al pedido.
+ 24/11/21 21:33Rellenado pedido Pedido 6 date:24/11/21 21:33 [ 2	Pollo milanesa, section:STARTERS, ingredients:Pollo, tomate, cebolla, pan rallado, Huevo, pimienta, prize:10.5 €, lowPrice:false
+,  4	Musaka, section:STARTERS, ingredients:Berengena, queso, tomate, lecha, harina, sal, prize:11.5 €, lowPrice:false
+,  1	Patatas Fritas, section:STARTERS, ingredients:Patata, aceite, sal, prize:3.0 €, lowPrice:false
+,  10	Ensalada Tropical, section:SALADS, ingredients:Lechuga, tomate, gauda, piña, manzana, kiwi, salsa rosa, prize:9.2 €, lowPrice:false
+] orderPrice:37,62 € Vanesa valorDescuento: 0.0 € 
+
+ 24/11/21 21:34Rellenado pedido Pedido 5 date:24/11/21 21:33 [ 2	Pollo milanesa, section:STARTERS, ingredients:Pollo, tomate, cebolla, pan rallado, Huevo, pimienta, prize:10.5 €, lowPrice:false
+,  2	Pollo milanesa, section:STARTERS, ingredients:Pollo, tomate, cebolla, pan rallado, Huevo, pimienta, prize:10.5 €, lowPrice:false
+] orderPrice:23,1 € Vanesa valorDescuento: 0.0 € 

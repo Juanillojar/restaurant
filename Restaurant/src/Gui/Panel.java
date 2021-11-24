@@ -29,15 +29,12 @@ import com.sun.jarsigner.ContentSignerParameters;
  * @author Juan José Cárdenas
  * Se definen los constructores de gran parte de los paneles que se utilizan
  */
-/**
- * @author Operador
- *
- */
+
 public class Panel extends JPanel {
 	private GestorBotones gestorBotones = new GestorBotones();
 	private GestorRaton gestorRaton = new GestorRaton();
 	private GestorEventosFoco gestorEventosFoco = new GestorEventosFoco();
-	private static BotonPizzeriaMesas botonMesa;  //Identifica el botón de la mesa pulsado 
+	private static BotonRestauranteMesas botonMesa;  //Identifica el botón de la mesa pulsado 
 	private static Double subtotal = 0.0;
 	private Label lsubtotalOrder, lDestinoPedidoEnCurso;
 	private Boton buttonTique;  //botón para mostrar el tique de pedido. No siempre visible
@@ -57,8 +54,7 @@ public class Panel extends JPanel {
 	Font fuenteTitulo = new Font("arial", Font.BOLD, 20);
 	Font fuenteDatos = new Font("arial", Font.PLAIN, 12);
 	DateFormat formatoFechaHora = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
-	DecimalFormat formatoDecimales = new DecimalFormat("###,###.##"); // formatea un double a String truncando según en
-																		// formato
+	DecimalFormat formatoDecimales = new DecimalFormat("###,###.##"); // formatea un double a String truncando según el formato
 
 	// Constructor of main panel principal
 	public Panel() {
@@ -79,7 +75,7 @@ public class Panel extends JPanel {
 		setVisible(true);
 	}
 
-	// Contructor for bar, tables panel (Operar)
+	// Contructor for bar zones, tables and deliveries panel
 	public Panel(int barzones, int deliverys, int intTables, int extTables) {
 		setLayout(new BorderLayout());
 		Label titulo = new Label("Seleccione una opción para crear pedido", fuenteTitulo, "CENTER");
@@ -87,27 +83,31 @@ public class Panel extends JPanel {
 		JPanel panelMesas = new JPanel();
 		// creación de botones de zonas barra
 		for (int i = 0; i < barzones; i++) {
-			Boton buttonBar = new BotonPizzeriaMesas(iconBar, i+1, Zone.Bar);
+			Boton buttonBar = new BotonRestauranteMesas(iconBar, i+1, Zone.Bar);
 			panelMesas.add(buttonBar);
 			buttonBar.addActionListener(gestorBotones);
+			buttonBar.addMouseListener(gestorRaton);
 		}
 		// Creación de botones Reparto
 		for (int i = 0; i < deliverys; i++) {
-			Boton buttonDelivery = new BotonPizzeriaMesas(iconDelivery, i+1, Zone.Delivery);
+			Boton buttonDelivery = new BotonRestauranteMesas(iconDelivery, i+1, Zone.Delivery);
 			panelMesas.add(buttonDelivery);
 			buttonDelivery.addActionListener(gestorBotones);
+			buttonDelivery.addMouseListener(gestorRaton);
 		}
-		// Creación de botones de zona mesas interior
+		// Creación de botones mesas interiores
 		for (int i = 0; i < intTables; i++) {
-			Boton buttonIntTables = new BotonPizzeriaMesas(iconIntTable, i+1, Zone.IntTable);
+			Boton buttonIntTables = new BotonRestauranteMesas(iconIntTable, i+1, Zone.IntTable);
 			panelMesas.add(buttonIntTables);
 			buttonIntTables.addActionListener(gestorBotones);
+			buttonIntTables.addMouseListener(gestorRaton);
 		}
-		// Creación de botones de zona mesas exterior
+		// Creación de botones de mesas exteriores
 		for (int i = 0; i < extTables; i++) {
-			Boton buttonExtTables = new BotonPizzeriaMesas(iconExtTable, i+1, Zone.ExtTable);
+			Boton buttonExtTables = new BotonRestauranteMesas(iconExtTable, i+1, Zone.ExtTable);
 			panelMesas.add(buttonExtTables);
 			buttonExtTables.addActionListener(gestorBotones);
+			buttonExtTables.addMouseListener(gestorRaton);
 		}
 		add(panelMesas, BorderLayout.CENTER);
 		Boton buttonBack = new Boton(iconBack);
@@ -124,7 +124,7 @@ public class Panel extends JPanel {
 	 * Constructor for productos panel. Se genera lista de productos ordenados en pestañas por la
 	 * categoría del producto. El producto/s elegido/s se asocian a la mesa, zona de barra o reparto elegido
 	 */
-	public Panel(List<Productos> productos, BotonPizzeriaMesas botonMesaPMesas) {
+	public Panel(List<Productos> productos, BotonRestauranteMesas botonMesaPMesas) {
 		botonMesa = botonMesaPMesas;  //se carga la variable estática con los datos de la mesa en curso
 		setLayout(new BorderLayout());
 		lDestinoPedidoEnCurso = new Label("Order " + botonMesaPMesas.getDestinoBoton().getDestinationDenomination(),fuenteTitulo, "CENTER");
@@ -146,7 +146,7 @@ public class Panel extends JPanel {
 		}
 		add(produ, BorderLayout.CENTER);
 		JPanel botones = new JPanel();
-		lsubtotalOrder = new Label("Subtotal Order:" + formatoDecimales.format(subtotal), fuenteTitulo);
+		lsubtotalOrder = new Label("Subtotal Order:" + formatoDecimales.format(subtotal) + " €", fuenteTitulo);
 		botones.add(lsubtotalOrder);
 		buttonTique = new Boton(iconTique);
 		buttonTique.addActionListener(gestorBotones);
@@ -154,7 +154,7 @@ public class Panel extends JPanel {
 		buttonTique.setVisible(false);
 		botones.add(buttonTique);
 		//el botón back devuelve el pedido a la variable pedido del boton de mesas
-		Boton buttonSalirProductos = new BotonPizzeriaMesas(iconBack, 1, botonMesa.getPedidoBoton());
+		Boton buttonSalirProductos = new BotonRestauranteMesas(iconBack, 1, botonMesa.getPedidoBoton());
 		buttonSalirProductos.addActionListener(gestorBotones);
 		buttonSalirProductos.setActionCommand("SalirPanelProductos");
 		botones.add(buttonSalirProductos);
@@ -174,7 +174,6 @@ public class Panel extends JPanel {
 		Boton bProductosReport = new Boton(iconProductsReport);
 		Boton bOrderReport = new Boton(iconOrderReport);
 		Boton bWorkerReport = new Boton(iconWorkerReport);
-		//bWorkerReport.setEnabled(false);
 		add(bProductosReport);
 		add(bOrderReport);
 		add(bWorkerReport);
@@ -261,22 +260,18 @@ public class Panel extends JPanel {
 	public Panel(double totalTique) {
 		JTextField txfEntregaDato;
 		Label lblCambioDato = new Label("",fuenteDatos,"LEFT");
-		FocusListener focusListener = new FocusListener() {
-			
+		FocusListener focusListener = new FocusListener() {	
 			@Override
 			public void focusLost(FocusEvent e) {
 				// TODO Auto-generated method stub
 				if(((JTextField)e.getSource()).getName().equals("txfEntrega")) {
-					System.out.println("canbidad entregada pierde foco");
-					calculaCambio(totalTique,((JTextField)e.getSource()).getText(),lblCambioDato);
-					
+					System.out.println("Cantidad entregada pierde foco");
+					calculaCambio(totalTique,((JTextField)e.getSource()).getText(),lblCambioDato);				
 				}
 			}
-			
 			@Override
 			public void focusGained(FocusEvent e) {
-				// TODO Auto-generated method stub
-				
+				// TODO Auto-generated method stub		
 			}
 		};
 		KeyListener listener = new KeyListener() {
@@ -296,29 +291,20 @@ public class Panel extends JPanel {
 					}
 					catch(Exception e2) {
 						System.out.println(e2.toString());
+						Frame.log.Escritura(e2.toString());
 					};
 					e.consume();
 				}else {
-						if (e.getKeyCode() == 10 || e.getKeyChar() == KeyEvent.VK_TAB) {  //si pulsa enter o tabulador
-							//Calcular cambio
+						if (e.getKeyCode() == 10 || e.getKeyChar() == KeyEvent.VK_TAB) {  //si pulsa enter o tabulador (tabulador no funciona)
 							calculaCambio(totalTique,((JTextField)e.getSource()).getText(),lblCambioDato);
-							
-						/*	double cambio = Double.parseDouble(((JTextField)e.getSource()).getText()) - totalTique;
-							cambio = (double)Math.round(cambio *100) /100d; //redondeo
-							if(cambio < 0) {
-								JOptionPane.showMessageDialog(null, "No es suficiente","Paid out" , JOptionPane.INFORMATION_MESSAGE);
-							}else {
-								lblCambioDato.setText(cambio + "");
-							}*/		
 						}
 				}
 			}
-			
 			@Override
 			public void keyPressed(KeyEvent e) {
 				// TODO Auto-generated method stub
-				System.out.println(e.getKeyCode());
-				System.out.println(e.getKeyChar());
+				//System.out.println(e.getKeyCode());
+				//System.out.println(e.getKeyChar());
 			}
 		};
 		
@@ -361,8 +347,7 @@ public class Panel extends JPanel {
 		gbc_MiConstraint.gridy = 4;
 		add(btnAceptar, gbc_MiConstraint);
 		btnAceptar.addActionListener(gestorBotones);
-		btnAceptar.setActionCommand("Acepta cobro");
-		
+		btnAceptar.setActionCommand("Acepta cobro");	
 	}
 
 	/**
@@ -372,6 +357,7 @@ public class Panel extends JPanel {
 	public void abrirPanelProductos() {
 		if (Frame.InstanceFPizzerie.panelProductos == null) {
 			System.out.println("nuevo panel productos");
+			Frame.log.Escritura("Cantidad entregada pierde foco");
 			Frame.InstanceFPizzerie.panelProductos = new Panel(Frame.InstanceFPizzerie.myPizzerie.foods,Panel.getBotonMesa());
 		} else { // ya existe el panel de productos
 			if (Frame.InstanceFPizzerie.panelMesas.checkForOpenOrder(Panel.getBotonMesa().getPedidoBoton())) { 
@@ -380,7 +366,7 @@ public class Panel extends JPanel {
 				Panel.setSubtotal(Panel.getBotonMesa().getPedidoBoton().getOrderPriceWithoutTaxes());
 				// Actualiza los valores de total pedido en curso y muestra el boton tique
 				Frame.InstanceFPizzerie.getPanelProductos().getLsubtotalOrder().setText(
-						"Subtotal Order: " + Panel.getBotonMesa().getPedidoBoton().getOrderPriceWithoutTaxes());
+						"Subtotal Order: " + Panel.getBotonMesa().getPedidoBoton().getOrderPriceWithoutTaxes() + " €");
 				Frame.InstanceFPizzerie.getPanelProductos().getButtonTique().setVisible(true);
 			}
 		}
@@ -403,7 +389,7 @@ public class Panel extends JPanel {
 			Frame.InstanceFPizzerie.panelProductos.upgradeOrderData(Panel.getBotonMesa().getPedidoBoton());
 			Panel.getBotonMesa().setBackground(Color.MAGENTA);
 			// guarda los datos en el botón del panel de mesas
-			((BotonPizzeriaMesas) e.getSource()).setPedidoBoton(Panel.getBotonMesa().getPedidoBoton());
+			((BotonRestauranteMesas) e.getSource()).setPedidoBoton(Panel.getBotonMesa().getPedidoBoton());
 		}
 		reseteaVariablesEstaticas(); 
 		// back to bar and tables panel
@@ -440,6 +426,12 @@ public class Panel extends JPanel {
 		Frame.InstanceFPizzerie.panelProductos.getButtonTique().setVisible(false);
 	}
 
+	/**
+	 * @param e evento que genera el click del botón del producto que el usuario selecciona
+	 * en el panel de productos
+	 * Este procedimiento añade el producto a la lista de productos del pedido en curso, 
+	 * incrementa el valor del total pedido. También habilita el botón Tique.
+	 */
 	public void anyadeProducto(ActionEvent e) {
 		if (Panel.getBotonMesa().getPedidoBoton() == null) {// crear pedido y añadir el producto
 			Panel.getBotonMesa().setPedidoBoton(new Pedido(Panel.getBotonMesa().getDestinoBoton()));
@@ -452,6 +444,7 @@ public class Panel extends JPanel {
 		// make visible Tique button
 		Frame.InstanceFPizzerie.getPanelProductos().getButtonTique().setVisible(true);
 		System.out.println("Añade producto al pedido.");
+		Frame.log.Escritura("Añade producto al pedido.");
 	}
 
 	/**
@@ -464,7 +457,7 @@ public class Panel extends JPanel {
 			subtotal += precio;
 		} else
 			subtotal = precio;
-		lsubtotalOrder.setText("Subtotal Order:" + formatoDecimales.format(subtotal));
+		lsubtotalOrder.setText("Subtotal Order:" + formatoDecimales.format(subtotal) + " €");
 		lsubtotalOrder.repaint();
 		return subtotal;
 	}
@@ -476,6 +469,7 @@ public class Panel extends JPanel {
 		// calc total price and discounts
 		Frame.InstanceFPizzerie.myPizzerie.calculoPrecioPedido(pedidoEnCurso);
 		System.out.println("Rellenado pedido " + pedidoEnCurso);
+		Frame.log.Escritura("Rellenado pedido " + pedidoEnCurso);
 	}
 	
 	/**
@@ -483,7 +477,7 @@ public class Panel extends JPanel {
 	 * @param pedido Pedido en curso correspondiente a la mesa, zona de barra o reparto elegido por el usuario
 	 * se asina al botón de la mesa, zona de barra o reparto el pedido modificado
 	 */
-	public void upgradePedidoEnCurso(BotonPizzeriaMesas boton, Pedido pedido) {
+	public void upgradePedidoEnCurso(BotonRestauranteMesas boton, Pedido pedido) {
 		boton.setPedidoBoton(pedido);
 	}
 	
@@ -498,6 +492,7 @@ public class Panel extends JPanel {
 			return true;
 		}else {
 			System.out.println("Boton mesa pulsado. No tiene datos");
+			Frame.log.Escritura("Boton mesa pulsado. No tiene datos");
 			return false;
 		}
 	}
@@ -555,11 +550,11 @@ public class Panel extends JPanel {
 		this.buttonTique = buttonTique;
 	}
 
-	public static BotonPizzeriaMesas getBotonMesa() {
+	public static BotonRestauranteMesas getBotonMesa() {
 		return botonMesa;
 	}
 
-	public static void setBotonMesa(BotonPizzeriaMesas botonMesa) {
+	public static void setBotonMesa(BotonRestauranteMesas botonMesa) {
 		Panel.botonMesa = botonMesa;
 	};
 	public void setLsubtotalOrder(Label lsubtotalOrder) {

@@ -29,8 +29,9 @@ public class Frame extends JFrame {
 	Panel panelProductsReport;
 	Panel panelOrderReport;
 	Panel panelWorkersReport;
-	
 	Trabajador trabajadorValidado  = new Trabajador(); //especifica el trabajador que está validado con su clave
+	public static String path="src/Gui/restaurant.log";
+	public static FicheroLog log = new FicheroLog(path);
 	
 	Font fuenteTitulo = new Font("arial",Font.BOLD,20);
 	

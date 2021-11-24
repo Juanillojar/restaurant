@@ -18,13 +18,10 @@ import javax.crypto.spec.SecretKeySpec;
 import static Gui.DataEncryption.*;
 
 public class Test {
-	public static String path= "E:\\Contenido USB Diciembre 2019\\personal\\cursos\\Curso Java 2021\\PracticasJava\\src\\Pizzeria\\pizzeria.log";
 	static SecretKeySpec key;
-	//private DataEncryption dataEncryption = new DataEncryption();  // para encriptar claves de usuario
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		FicheroLog log = new FicheroLog(path);
 		//Se crean los productos (objetos Comida), se crea la comidaPizzeria y se rellena 
 		Productos plato1 = new Productos("Patatas Fritas",Section.STARTERS,"Patata, aceite, sal", 3.00, false);
 		Productos plato2 = new Productos("Pollo milanesa",Section.STARTERS,"Pollo, tomate, cebolla, pan rallado, Huevo, pimienta",10.50,false);
@@ -32,7 +29,7 @@ public class Test {
 		Productos plato4 = new Productos("Musaka",Section.STARTERS,"Berengena, queso, tomate, lecha, harina, sal",11.50,false);
 		Productos plato5 = new Productos("Tabla patés",Section.STARTERS,"Pate de higado, paté de atún",7.20, true);
 		Productos plato6 = new Productos("Macarrones boloñesa", Section.PASTAS, "Pasta, Tomate, Cebolla, champiñones",7.5, false);
-		Productos plato7 = new Productos("Pizza Caprichosa", Section.PIZZAS, "Harina, aceite, aguan, tomate, Queso, Cebolla, champiñones",10, true);
+		Productos plato7 = new Productos("Pizza Caprichosa", Section.PIZZAS, "Harina, aceite, agua, tomate, Queso, Cebolla, champiñones",10, true);
 		Productos plato8 = new Productos("Pizza Margarita", Section.PIZZAS, "Harina, aceite, agua, tomate, Queso" ,9.80, false);
 		Productos plato9 = new Productos("Pizza Pepperoni", Section.PIZZAS, "Tomate, Queso, pepperoni, salchicas",8.60, false);
 		Productos plato10 = new Productos("Ensalada Tropical", Section.SALADS, "Lechuga, tomate, gauda, piña, manzana, kiwi, salsa rosa",9.20, false);
@@ -153,7 +150,6 @@ public class Test {
 		pedidosPizzeria.add(0, pedido1);
 		//Creación de un objeto pizzeria asociándole todos los datos creados antes
 		Restaurant pizzeria = new Restaurant("Pizzeria Bartolini", "c/Levantina 2 Bajo C.P:04240 Viator(Almeria)", trabajadoresPizzeria, comidaPizzeria,pedidosPizzeria);
-		//pedidosPizzeria.indexOf(pedido1);
 		//Se asigna el número de puestos en barra, mesas en interior, en exterior y repartos
 		pizzeria.setBarZones(4);
 		pizzeria.setInTables(3);
@@ -165,15 +161,9 @@ public class Test {
 		pizzeria.setOrders(pedidosPizzeria);
 		pizzeria.VisualizarListaTrabajadores(trabajadoresPizzeria);
 		
-		pizzeria.VisualizarListaComidas(comidaPedido1, "Postre");
+
 		//Se lanza frame
 		Frame miFrame = new Frame(pizzeria);
-
-		
-		//Generación de  un pedido con los datos que inserta el operador y se presenta el ticket
-	//	if (pizzeria.seleccionaTurno() !="" ) {
-	//		pizzeria.generarPedido(comidaPizzeria, log);
-	//	}else System.out.println("Fuera de horario de generación pedidos.");
 
 		//Generación de listado de pedidos
 		System.out.println("\n*************** Listado de pedidos en pizzeria *****************");

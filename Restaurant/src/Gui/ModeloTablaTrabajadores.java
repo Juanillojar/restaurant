@@ -42,7 +42,7 @@ public class ModeloTablaTrabajadores extends AbstractTableModel {
 		case 4:
 			return listaTrabajadores.get(rowIndex).getDni();
 		case 5:
-			return listaTrabajadores.get(rowIndex).getSalary();
+			return listaTrabajadores.get(rowIndex).getSalary()+ " €";
 		case 6:
 			return listaTrabajadores.get(rowIndex).getClave();
 		default:

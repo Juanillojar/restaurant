@@ -30,6 +30,7 @@ public class Boton extends JButton{
 		}
 		setActionCommand("AddToOrder");
 		System.out.print("Nuevo boton producto");
+		Frame.log.Escritura("Nuevo boton producto");
 	}
 	
 	//getters and setters
@@ -42,12 +43,12 @@ public class Boton extends JButton{
 }
 
 
-class BotonPizzeriaMesas extends Boton{
+class BotonRestauranteMesas extends Boton{
 	private Pedido pedidoBoton;  //guarda un pedido antes de ser cobrado y añadido a la lista de pedidos
 	private DestinoPedido destinoBoton; // guarda el destino del botón aún sin crear el pedido
 	   
-	//usado para el constructor botones zonaS barra, repartoS y mesas
-	public BotonPizzeriaMesas(ImageIcon img, int orden,  Zone zone) {
+	//Constructor de botones zonas barra, repartos y mesas
+	public BotonRestauranteMesas(ImageIcon img, int orden,  Zone zone) {
 		super(img);
 		setBackground(Color.lightGray);
 		setVerticalTextPosition(SwingConstants.TOP);
@@ -56,10 +57,11 @@ class BotonPizzeriaMesas extends Boton{
 		setActionCommand("OpenProductsPanel");
 		destinoBoton = new DestinoPedido(zone.name() + " " + ((Integer)orden).toString(), zone);
 		System.out.print("Nuevo boton mesa");
+		//Frame.log.Escritura("Nuevo boton mesa");
 	}
 	
-	//constructor el botón back que devuelve el pedido completo 
-	public BotonPizzeriaMesas(ImageIcon img, int orden,  Pedido pedido) {
+	//constructor del botón back que devuelve el pedido completo 
+	public BotonRestauranteMesas(ImageIcon img, int orden,  Pedido pedido) {
 		super(img);
 		setBackground(Color.lightGray);
 		setVerticalTextPosition(SwingConstants.TOP);

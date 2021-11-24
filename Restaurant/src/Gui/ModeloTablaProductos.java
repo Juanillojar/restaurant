@@ -43,7 +43,7 @@ public class ModeloTablaProductos extends AbstractTableModel {
 		case 3:;
 			return listaProductos.get(rowIndex).getIngredients();
 		case 4:
-			return listaProductos.get(rowIndex).getPrice();
+			return listaProductos.get(rowIndex).getPrice()+ " €";
 		case 5:
 			return listaProductos.get(rowIndex).isLowPrice();
 			default:

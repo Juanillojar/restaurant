@@ -1,5 +1,7 @@
 package Gui;
 
+import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
@@ -8,6 +10,8 @@ public class ModeloTablaPedidos extends AbstractTableModel {
 	private List<Pedido> lista;
 	private String[] textosCabecera;
 	private Class<?>[] tiposColumnas;
+	DateFormat formatoFechaHora = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
+	DecimalFormat formatoDecimales = new DecimalFormat("###,###.##"); // formatea un double a String truncando según el formato
 
 	public ModeloTablaPedidos(List<Pedido> products, String[] cabecera, Class<?>[] tiposColum) {
 		// TODO Auto-generated constructor stub
@@ -37,16 +41,16 @@ public class ModeloTablaPedidos extends AbstractTableModel {
 		case 0:
 			return lista.get(rowIndex).getOrderId();
 		case 1:
-			return lista.get(rowIndex).getDate();
+			return formatoFechaHora.format(lista.get(rowIndex).getDate());
 		case 2:
-			return lista.get(rowIndex).getOrderPrice();
+			return lista.get(rowIndex).getOrderPrice() + " €";
 		case 3:
 			;
-			return lista.get(rowIndex).getOrderPriceWithoutTaxes();
+			return lista.get(rowIndex).getOrderPriceWithoutTaxes()+ " €";
 		case 4:
 			return lista.get(rowIndex).getTrabajador();
 		case 5:
-			return lista.get(rowIndex).getvalorDescuento();
+			return lista.get(rowIndex).getvalorDescuento()+ " €";
 		case 6:
 			return lista.get(rowIndex).getDestination().getDestinationDenomination();
 		default:
