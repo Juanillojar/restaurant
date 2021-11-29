@@ -32,6 +32,7 @@ public class Frame extends JFrame {
 	Trabajador trabajadorValidado  = new Trabajador(); //especifica el trabajador que está validado con su clave
 	public static String path="src/Gui/restaurant.log";
 	public static FicheroLog log = new FicheroLog(path);
+	BdConnection conex = new BdConnection();
 	
 	Font fuenteTitulo = new Font("arial",Font.BOLD,20);
 	

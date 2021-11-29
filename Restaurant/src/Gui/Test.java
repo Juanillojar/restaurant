@@ -19,7 +19,7 @@ import static Gui.DataEncryption.*;
 
 public class Test {
 	static SecretKeySpec key;
-	
+	//private static BdConnection conex = new BdConnection();
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//Se crean los productos (objetos Comida), se crea la comidaPizzeria y se rellena 
@@ -50,7 +50,15 @@ public class Test {
 		Productos plato25 = new Productos("Agua grande",Section.DRINKS,"Agua",2.5,false);
 		Productos plato26 = new Productos("Agua pequeña",Section.DRINKS,"Agua",1.5,false);
 		
-		
+		String[] columns= {"foodId", "denomination", "section", "ingredients", "price", "lowprice", "image"};
+		String[] values= {"2","Patatas Frintas", "STARTERS", "Patata, aceite, sal", "3.00","0", null};
+		String[] tipos= {"int", "String", "String", "String", "double", "double", "int","String"};
+		try {
+			//conex.insertar("productos", columns, values,tipos);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} 
 		List<Productos> comidaPizzeria = new ArrayList<Productos>();
 		comidaPizzeria.add(plato1);
 		comidaPizzeria.add(plato2);

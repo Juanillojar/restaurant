@@ -475,3 +475,20 @@
  24/11/21 21:34Rellenado pedido Pedido 5 date:24/11/21 21:33 [ 2	Pollo milanesa, section:STARTERS, ingredients:Pollo, tomate, cebolla, pan rallado, Huevo, pimienta, prize:10.5 €, lowPrice:false
 ,  2	Pollo milanesa, section:STARTERS, ingredients:Pollo, tomate, cebolla, pan rallado, Huevo, pimienta, prize:10.5 €, lowPrice:false
 ] orderPrice:23,1 € Vanesa valorDescuento: 0.0 € 
+
+ 29/11/21 19:25Parameter index out of range (0 < 1 ).[Ljava.lang.StackTraceElement;@5656be13
+ 29/11/21 19:30Parameter index out of range (0 < 1 ).[Ljava.lang.StackTraceElement;@1b6e1eff
+ 29/11/21 19:50Se crea panel mesas
+ 29/11/21 20:04You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?,?,?,?,?,?,?)' at line 1[Ljava.lang.StackTraceElement;@6340e5f0
+ 29/11/21 20:08You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?,?,?,?)' at line 1[Ljava.lang.StackTraceElement;@4b45a2f5
+ 29/11/21 20:10Parameter index out of range (1 > number of parameters, which is 0).[Ljava.lang.StackTraceElement;@5d534f5d
+ 29/11/21 20:11Parameter index out of range (1 > number of parameters, which is 0).[Ljava.lang.StackTraceElement;@a38c7fe
+ 29/11/21 20:13Parameter index out of range (1 > number of parameters, which is 0).[Ljava.lang.StackTraceElement;@576d5deb
+ 29/11/21 20:18You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?,?)' at line 1[Ljava.lang.StackTraceElement;@4b45a2f5
+ 29/11/21 20:24Unknown column 'denominatio' in 'field list'[Ljava.lang.StackTraceElement;@1c7696c6
+ 29/11/21 20:24Field 'ingredients' doesn't have a default value[Ljava.lang.StackTraceElement;@38cee291
+ 29/11/21 20:34Parameter index out of range (0 < 1 ).[Ljava.lang.StackTraceElement;@5e600dd5
+ 29/11/21 20:38Parameter index out of range (0 < 1 ).[Ljava.lang.StackTraceElement;@7857fe2
+ 29/11/21 20:44Parameter index out of range (0 < 1 ).[Ljava.lang.StackTraceElement;@2e3967ea
+ 29/11/21 20:47Parameter index out of range (0 < 1 ).[Ljava.lang.StackTraceElement;@51c668e3
+ 29/11/21 20:56Parameter index out of range (0 < 1 ).[Ljava.lang.StackTraceElement;@446a1e84
