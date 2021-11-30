@@ -75,7 +75,7 @@ public class Panel extends JPanel {
 		setVisible(true);
 	}
 
-	// Contructor for bar zones, tables and deliveries panel
+	// Constructor for bar zones, tables and deliveries panel
 	public Panel(int barzones, int deliverys, int intTables, int extTables) {
 		setLayout(new BorderLayout());
 		Label titulo = new Label("Seleccione una opción para crear pedido", fuenteTitulo, "CENTER");
@@ -406,6 +406,7 @@ public class Panel extends JPanel {
 		Frame.InstanceFPizzerie.getPanelProductos().paidOut(Panel.getBotonMesa().getPedidoBoton());
 		Frame.InstanceFPizzerie.myPizzerie.getOrders().add(Panel.getBotonMesa().getPedidoBoton());
 		Panel.getBotonMesa().setBackground(Color.LIGHT_GRAY);
+		//Insertar pedido en la base de datos
 
 		// crea panel cobro y lo visualiza
 		Frame.InstanceFPizzerie.panelCobro = new Panel(Panel.getBotonMesa().getPedidoBoton().getOrderPrice());

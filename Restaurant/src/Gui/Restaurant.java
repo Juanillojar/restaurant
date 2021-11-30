@@ -120,7 +120,6 @@ public class Restaurant {
 		this.outTables = outTables;
 	}
 	
-	
 	public int getDeliveryZones() {
 		return deliveryZones;
 	}
