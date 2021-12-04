@@ -16,6 +16,9 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.List;
@@ -23,6 +26,7 @@ import java.util.List;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+import com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping;
 import com.sun.jarsigner.ContentSignerParameters;
 
 /**
@@ -211,9 +215,9 @@ public class Panel extends JPanel {
 	}
  
 	/**
+	 * Constructor for order report panel using JTable. Collet data from a List
 	 * @param pedidos Lista de pedidos 
 	 * @param str no se utiliza
-	 * Constructor for order report panel using JTable
 	 */
 	public Panel(List<Pedido> pedidos, String str) {
 		setLayout(new BorderLayout());
@@ -229,6 +233,39 @@ public class Panel extends JPanel {
 		buttonBackPedidosReport.addActionListener(gestorBotones);
 		add(buttonBackPedidosReport, BorderLayout.SOUTH);	
 	}
+	/**
+	 * Constructor for report panel using JTable. Collet data from a database based on a sql
+	 * @param str the title of the Panel
+	 */
+	public Panel(String sql) throws SQLException {
+		setLayout(new BorderLayout());
+		ResultSet rst = Test.conex.colletSQl(sql);
+		DefaultTableModel tableModel = new DefaultTableModel();
+		ResultSetMetaData metaData = rst.getMetaData();
+		// get column names from metadata and put in table model
+		int columnCount = metaData.getColumnCount();
+		for(int columnIndex =1; columnIndex<=columnCount; columnIndex++) {
+			tableModel.addColumn(metaData.getColumnLabel(columnIndex)); //add colum to table model
+		}
+		// extraction of data
+		Object[] row = new Object[columnCount];
+		while(rst.next()) {
+			for (int i = 0; i< columnCount;i++) {
+				row[i] = rst.getObject(i+1);
+			}
+			tableModel.addRow(row); // add row data to table model
+		}
+		JTable tablePedidos = new JTable(tableModel);
+		
+		tablePedidos.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		JScrollPane panelScrollPedidosReport = new JScrollPane(tablePedidos,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		add(panelScrollPedidosReport, BorderLayout.NORTH);
+		Boton buttonBackPedidosReport = new Boton(iconBack);
+		buttonBackPedidosReport.setActionCommand("BackReportsFromOrderReport");
+		buttonBackPedidosReport.addActionListener(gestorBotones);
+		add(buttonBackPedidosReport, BorderLayout.SOUTH);	
+	}
+
 	
 	/**
 	 * @param workers Lista de trabajadores
@@ -378,10 +415,10 @@ public class Panel extends JPanel {
 	}
 
 	/**
-	 * @param e evento que genera el boton Back de panel productos. Contiene el contenido del pedido
-	 * en curso si el usuario no lo ha cerrado
 	 * Si ha quedado pedido sin cerrar cambia el aspecto del botón asociado a la mesa, zona de barra o reparto 
 	 * Resetea variables que contienen datos del pedido en curso 
+	 * @param e evento que genera el boton Back de panel productos. Contiene el contenido del pedido
+	 * en curso si el usuario no lo ha cerrado
 	 */
 	public void cerrarPanelProductos(ActionEvent e) {
 		if (Panel.getBotonMesa().getPedidoBoton() != null) { // Se ha insertado producto/s al pedido
@@ -404,10 +441,13 @@ public class Panel extends JPanel {
 	public void pagarPedido() {
 		// store to pizzeria order list and mark as paid
 		Frame.InstanceFPizzerie.getPanelProductos().paidOut(Panel.getBotonMesa().getPedidoBoton());
+		//Al guardar en la base de datos sería innecesaria la lista de pedidos
+		//Se podría guardar en la lista y guardar los datos de esta cada cierto tiempo
 		Frame.InstanceFPizzerie.myPizzerie.getOrders().add(Panel.getBotonMesa().getPedidoBoton());
 		Panel.getBotonMesa().setBackground(Color.LIGHT_GRAY);
 		//Insertar pedido en la base de datos
-
+		Test.conex.insertOrderTableBD(Panel.getBotonMesa().getPedidoBoton());
+		Test.conex.insertTableordersProductsBD(Panel.getBotonMesa().getPedidoBoton());
 		// crea panel cobro y lo visualiza
 		Frame.InstanceFPizzerie.panelCobro = new Panel(Panel.getBotonMesa().getPedidoBoton().getOrderPrice());
 		Frame.InstanceFPizzerie.panelticket.setVisible(false);
@@ -428,10 +468,11 @@ public class Panel extends JPanel {
 	}
 
 	/**
-	 * @param e evento que genera el click del botón del producto que el usuario selecciona
-	 * en el panel de productos
 	 * Este procedimiento añade el producto a la lista de productos del pedido en curso, 
 	 * incrementa el valor del total pedido. También habilita el botón Tique.
+	 * @param e evento que genera el click del botón del producto que el usuario selecciona
+	 * en el panel de productos
+	 * 
 	 */
 	public void anyadeProducto(ActionEvent e) {
 		if (Panel.getBotonMesa().getPedidoBoton() == null) {// crear pedido y añadir el producto

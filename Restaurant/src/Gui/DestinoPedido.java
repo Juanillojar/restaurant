@@ -12,6 +12,7 @@ public class DestinoPedido {
 		destinationId = destinos;
 		this.destinationDenomination = destinationDenomination;
 		this.destinationZone = destinationZone;
+		
 	}
 	
 	public DestinoPedido() {
@@ -19,6 +20,14 @@ public class DestinoPedido {
 		destinationId = destinos;
 		this.destinationDenomination = "";
 		this.destinationZone = null;
+	}
+
+	public int getDestinationId() {
+		return destinationId;
+	}
+
+	public void setDestinationId(int destinationId) {
+		this.destinationId = destinationId;
 	}
 
 	public String getDestinationDenomination() {

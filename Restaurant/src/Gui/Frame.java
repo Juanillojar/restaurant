@@ -26,6 +26,7 @@ public class Frame extends JFrame {
 	panelticket panelticket;
 	Panel panelCobro;
 	Panel panelReport;
+	Panel panelReportsData;
 	Panel panelProductsReport;
 	Panel panelOrderReport;
 	Panel panelWorkersReport;
@@ -185,6 +186,14 @@ public class Frame extends JFrame {
 
 	public void setPanelWorkersReport(Panel panelWorkersReport) {
 		this.panelWorkersReport = panelWorkersReport;
+	}
+
+	public Panel getPanelReportsData() {
+		return panelReportsData;
+	}
+
+	public void setPanelReportsData(Panel panelReportsData) {
+		this.panelReportsData = panelReportsData;
 	}
 
 }

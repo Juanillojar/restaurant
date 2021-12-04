@@ -11,15 +11,15 @@ import java.io.UnsupportedEncodingException;
 import java.security.GeneralSecurityException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.crypto.spec.SecretKeySpec;
 import static Gui.DataEncryption.*;
 
 public class Test {
 	static SecretKeySpec key;
-	//private static BdConnection conex = new BdConnection();
+	public static BdConnection conex = new BdConnection();
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//Se crean los productos (objetos Comida), se crea la comidaPizzeria y se rellena 
@@ -50,15 +50,6 @@ public class Test {
 		Productos plato25 = new Productos("Agua grande",Section.DRINKS,"Agua",2.5,false);
 		Productos plato26 = new Productos("Agua pequeña",Section.DRINKS,"Agua",1.5,false);
 		
-		String[] columns= {"foodId", "denomination", "section", "ingredients", "price", "lowprice", "image"};
-		String[] values= {"2","Patatas Frintas", "STARTERS", "Patata, aceite, sal", "3.00","0", null};
-		String[] tipos= {"int", "String", "String", "String", "double", "double", "int","String"};
-		try {
-			//conex.insertar("productos", columns, values,tipos);
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} 
 		List<Productos> comidaPizzeria = new ArrayList<Productos>();
 		comidaPizzeria.add(plato1);
 		comidaPizzeria.add(plato2);
@@ -86,6 +77,16 @@ public class Test {
 		comidaPizzeria.add(plato24);
 		comidaPizzeria.add(plato25);
 		comidaPizzeria.add(plato26);
+		/**
+		 * Sólo usado una vez para insertar el contenido de la lista en la base de datos	
+		 *	try {
+			conex.insertarEnTablaProductosBD("productos", comidaPizzeria);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} 
+ 
+		 */
 		 
 		//Creación de los arrays con los idiomas que conoce cada camarero, los camareros, repartidores y cocineros
 		String[] language1 = {"Español","inglés"};
@@ -146,16 +147,17 @@ public class Test {
 		trabajadoresPizzeria.add(3, camarero2);
 		trabajadoresPizzeria.add(4, repartidor1);
 		trabajadoresPizzeria.add(5, repartidor2);
-		
+		//conex.insertWorkersBD(trabajadoresPizzeria);
 		//Creación de la lista de comidas para pedido1 y el objeto pedido1 y la lista de objetos pedido.
 		List<Productos> comidaPedido1 = new ArrayList<Productos>();
 		comidaPedido1.add(0, plato3); //0 es la posición en la lista y 1 el id de la "Comida"
 		comidaPedido1.add(1, plato5); //1 es la posición en la lista y 2 el id de la "Comida"
 		DestinoPedido destinoPedido1 = new DestinoPedido("Bar 1",Zone.Bar);
-		Pedido pedido1 = new Pedido(comidaPedido1, 32, camarero1, destinoPedido1);
+		//Pedido pedido1 = new Pedido(comidaPedido1, 32, camarero1, destinoPedido1);
+		//conex.insertOrderTableBD(pedido1);
 		//Creación de la lista de pedidos e inserción del pedido1
 		List<Pedido> pedidosPizzeria= new ArrayList<Pedido>();
-		pedidosPizzeria.add(0, pedido1);
+		//pedidosPizzeria.add(0, pedido1);
 		//Creación de un objeto pizzeria asociándole todos los datos creados antes
 		Restaurant pizzeria = new Restaurant("Pizzeria Bartolini", "c/Levantina 2 Bajo C.P:04240 Viator(Almeria)", trabajadoresPizzeria, comidaPizzeria,pedidosPizzeria);
 		//Se asigna el número de puestos en barra, mesas en interior, en exterior y repartos
@@ -163,13 +165,16 @@ public class Test {
 		pizzeria.setInTables(3);
 		pizzeria.setOutTables(2);
 		pizzeria.setDeliveryZones(2);
+		//conex.insertDestinationBD(pizzeria);
 		System.out.println("\n***************Listado de comida en pizzeria********************");
 		System.out.println(comidaPizzeria);
 		System.out.println("\n***************Listado de trabajadores en pizzeria**************");
-		pizzeria.setOrders(pedidosPizzeria);
-		pizzeria.VisualizarListaTrabajadores(trabajadoresPizzeria);
+		//pizzeria.setOrders(pedidosPizzeria);
+		//pizzeria.VisualizarListaTrabajadores(trabajadoresPizzeria);
 		
-
+		//Carga datos de base de datos
+			conex.chargeBDData();
+	
 		//Se lanza frame
 		Frame miFrame = new Frame(pizzeria);
 

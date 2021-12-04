@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -98,33 +100,77 @@ public class GestorBotones implements ActionListener {
 		}
 		if (e.getActionCommand().equals("OpenProductsReport")) {
 			// show or create products report panel
-			if (Frame.InstanceFPizzerie.panelProductsReport == null) {
+			String sql= "SELECT foodId AS 'Food Number', denomination AS 'Product', section AS 'Section', "
+					+ "ingredients AS 'Ingredientes', price AS 'Price', lowprice AS 'Discount' "
+					+ "FROM productos";
+			try {
+				Frame.InstanceFPizzerie.panelReportsData = new Panel(sql);
+			} catch (Exception e1){
+				System.out.println("Llama panel informe productos" + e1.getMessage() + e1.getStackTrace().toString());
+				Frame.log.Escritura("Llama panel informe productos" + e1.getMessage() + e1.getStackTrace());
+			}
+			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReportsData,	Frame.InstanceFPizzerie.panelReport);
+
+/*			
+  			if (Frame.InstanceFPizzerie.panelProductsReport == null) {
 				Frame.InstanceFPizzerie.panelProductsReport = new Panel(Frame.InstanceFPizzerie.myPizzerie.getFoods());
 			}
 			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelProductsReport,	Frame.InstanceFPizzerie.panelReport);
+*/
 		}
 		if (e.getActionCommand().equals("SalirPanelReports")) {
 			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelPrincipal,	Frame.InstanceFPizzerie.panelReport);
 		}
 		if (e.getActionCommand().equals("OpenOrderReport")) {
 			// Open order report
-			if (Frame.InstanceFPizzerie.panelOrderReport == null) {
-				Frame.InstanceFPizzerie.panelOrderReport = new Panel(Frame.InstanceFPizzerie.myPizzerie.getOrders(),"Informe");
+//			if (Frame.InstanceFPizzerie.panelOrderReport == null) {
+//				Frame.InstanceFPizzerie.panelOrderReport = new Panel(Frame.InstanceFPizzerie.myPizzerie.getOrders(),"Informe");
+//			}			
+//			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelOrderReport,	Frame.InstanceFPizzerie.panelReport);			
+			String sql = "SELECT orders.orderId AS 'Order Number', orders.date AS 'Date', "
+			+ "orders.OrderPriceWithoutTaxes AS 'Price whitout taxes', "
+			+ "orders.orderPrice AS 'Order Price', orders.valorDescuento AS 'Discount', "
+			+ "destinopedido.destinationDenomination AS 'Zone', worker.name AS 'Atendido' "
+			+ "FROM orders, destinopedido, worker "
+			+ "WHERE orders.destination = destinopedido.destinationId AND "
+			+ "orders.workerId = worker.workerId;";	
+			if (Frame.InstanceFPizzerie.panelReportsData == null) {
+				try {
+					Frame.InstanceFPizzerie.panelReportsData = new Panel(sql);
+				} catch (Exception e1){
+					System.out.println("Llama panel informe productos" + e1.getMessage() + e1.getStackTrace().toString());
+					Frame.log.Escritura("Llama panel informe productos" + e1.getMessage() + e1.getStackTrace());
+				}
 			}			
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelOrderReport,	Frame.InstanceFPizzerie.panelReport);			
+			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReportsData, Frame.InstanceFPizzerie.panelReport);
 		}
 		if (e.getActionCommand().equals("OpenWorkersReport")) {
+			String sql = "SELECT workerId AS 'Worker Number', name AS 'Name', surNames AS 'Surnames', "
+				   	   + "dni AS 'Dni', salary AS 'Salary', telephone AS 'Telephone' "
+				   	   + "FROM worker";
+			try {
+				Frame.InstanceFPizzerie.panelReportsData = new Panel(sql);
+			} catch (Exception e1){
+				System.out.println("Llama panel informe productos" + e1.getMessage() + e1.getStackTrace().toString());
+				Frame.log.Escritura("Llama panel informe productos" + e1.getMessage() + e1.getStackTrace());
+			}
+			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReportsData,	Frame.InstanceFPizzerie.panelReport);
+
+		/*	
 			Frame.InstanceFPizzerie.panelWorkersReport = new Panel(Frame.InstanceFPizzerie.myPizzerie.getWorkers(),"Informe", "Trabajadores");
 			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelWorkersReport,	Frame.InstanceFPizzerie.panelReport);
+		*/
 		}
 		if (e.getActionCommand().equals("BackReportsFromProductsReport")) {
 			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelProductsReport);
 		}
 		if (e.getActionCommand().equals("BackReportsFromOrderReport")) {
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelOrderReport);
+			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelReportsData);
+			//			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelOrderReport);
 		}
 		if (e.getActionCommand().equals("BackReportsFromWorkersReport")) {
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelWorkersReport);
+			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelReportsData);
+			//Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelWorkersReport);
 		}
 	}
 

@@ -17,18 +17,14 @@ import java.util.List;
 import java.util.Objects;
 
 public class Pedido {
-	private static int pedidos =0;    //número de pedidos
+	private static int pedidos =0; 		    //número de pedidos
 	private int orderId;
 	private Date date;
-	private List<Productos> orderFoods;   //Guarda una lista con los objetos conida del pedido
-	private double orderPrice;      	 //total del pedido con impuestos
+	private List<Productos> orderFoods;   	//Guarda una lista con los objetos conida del pedido
+	private double orderPrice;      	 	//total del pedido con impuestos
 	private double orderPriceWithoutTaxes;
-	private Trabajador trabajador; // trabajador que atiende la comanda (camarero o repartidor)
-	// Se podría poner solo una variable y evitar comprobaciones
-
-//	private Trabajador waiter;		 	 //Si un pedido no tiene camarero por ser para reparto su valor será nulo.
-//	private Trabajador deliveryMan;  	 //Si un pedido no tiene repartidor por no ser para reparto su valor será nulo
-	private double valorDescuento;		 //Valor de descuento del pedido. Se aplica antes de aplicar impuestos
+	private Trabajador trabajador; 			// trabajador que atiende la comanda (camarero o repartidor)
+	private double valorDescuento;		 	//Valor de descuento del pedido. Se aplica antes de aplicar impuestos
 	private DestinoPedido destination;
 	private boolean pedidoCobrado;
 	
