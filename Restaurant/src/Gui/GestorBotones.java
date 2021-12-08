@@ -101,7 +101,7 @@ public class GestorBotones implements ActionListener {
 		if (e.getActionCommand().equals("OpenProductsReport")) {
 			// show or create products report panel
 			String sql= "SELECT foodId AS 'Food Number', denomination AS 'Product', section AS 'Section', "
-					+ "ingredients AS 'Ingredientes', price AS 'Price', lowprice AS 'Discount' "
+					+ "ingredients AS 'Ingredientes', price AS 'Price (€)', lowprice AS 'Discount' "
 					+ "FROM productos";
 			try {
 				Frame.InstanceFPizzerie.panelReportsData = new Panel(sql);
@@ -128,8 +128,8 @@ public class GestorBotones implements ActionListener {
 //			}			
 //			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelOrderReport,	Frame.InstanceFPizzerie.panelReport);			
 			String sql = "SELECT orders.orderId AS 'Order Number', orders.date AS 'Date', "
-			+ "orders.OrderPriceWithoutTaxes AS 'Price whitout taxes', "
-			+ "orders.orderPrice AS 'Order Price', orders.valorDescuento AS 'Discount', "
+			+ "orders.OrderPriceWithoutTaxes AS 'Price whitout taxes (€)', "
+			+ "orders.orderPrice AS 'Order Price (€)', orders.valorDescuento AS 'Discount', "
 			+ "destinopedido.destinationDenomination AS 'Zone', worker.name AS 'Atendido' "
 			+ "FROM orders, destinopedido, worker "
 			+ "WHERE orders.destination = destinopedido.destinationId AND "
@@ -146,7 +146,7 @@ public class GestorBotones implements ActionListener {
 		}
 		if (e.getActionCommand().equals("OpenWorkersReport")) {
 			String sql = "SELECT workerId AS 'Worker Number', name AS 'Name', surNames AS 'Surnames', "
-				   	   + "dni AS 'Dni', salary AS 'Salary', telephone AS 'Telephone' "
+				   	   + "dni AS 'Dni', salary AS 'Salary (€)', telephone AS 'Telephone' "
 				   	   + "FROM worker";
 			try {
 				Frame.InstanceFPizzerie.panelReportsData = new Panel(sql);
@@ -161,13 +161,16 @@ public class GestorBotones implements ActionListener {
 			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelWorkersReport,	Frame.InstanceFPizzerie.panelReport);
 		*/
 		}
+		// OBSOLETO???
 		if (e.getActionCommand().equals("BackReportsFromProductsReport")) {
 			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelProductsReport);
 		}
+		// OBSOLETO???
 		if (e.getActionCommand().equals("BackReportsFromOrderReport")) {
 			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelReportsData);
 			//			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelOrderReport);
 		}
+		// OBSOLETO???
 		if (e.getActionCommand().equals("BackReportsFromWorkersReport")) {
 			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelReportsData);
 			//Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelWorkersReport);

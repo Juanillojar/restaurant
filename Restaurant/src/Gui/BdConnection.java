@@ -10,6 +10,7 @@ public class BdConnection {
 	private Statement myStatement;
 	private PreparedStatement myPreparedStatement;
 	private ResultSet myResultset;
+	private ResultSetMetaData myResultSetMetaData;
 	
 	public BdConnection(){
 		try {
@@ -90,35 +91,179 @@ public class BdConnection {
 			Frame.log.Escritura("Insercion tabla products" + e.getMessage() + e.getStackTrace());
 		};
 	}
+	
 	/**
-	 * @param lWorkers lista de trabajadores a insertar
-	 * Se insertan los trabajadores de la lista en la tabla "worker".
+	 * Return the metadata information of a table in the database
+	 * @param table name of the table in database
+	 * @return Metadata of the table
+	 * @throws SQLException
 	 */
-	public void insertWorkersBD(List<Trabajador> lWorkers) {
-		StringBuilder sql = new StringBuilder();
-		sql.append("INSERT INTO worker (workerId, name, surNames, dni, salary, telephone, clave) ");
-		sql.append("VALUES(?,?,?,?,?,?,?)");
+	public ResultSetMetaData metadataTable(String table) throws SQLException{
+		
+		ResultSet rs = myStatement.executeQuery("SELECT * FROM " + table);
+		return rs.getMetaData();
+	}
+	
+	/**
+	 * @param source object from witch we obtain data
+	 * @param columns number or data to get
+	 * @return array of objects with data. His size is "columns"
+	 * Obtain data from source and store it in a array of objects with size "columns"
+	 * We need to specify getters from object source for each database table
+	 */
+	public Object[] valuesToArray(Object source, int columns) {
+		Object[] values = new Object[columns];
+		if((source.getClass() == Cocinero.class || source.getClass() == Camarero.class || source.getClass() == Repartidor.class) && columns == 7) {
+			values[0] = ((Trabajador)source).getWorkerId();
+			values[1] = ((Trabajador)source).getName();
+			values[2] = ((Trabajador)source).getSurNames();
+			values[3] = ((Trabajador)source).getDni();		
+			values[4] = ((Trabajador)source).getSalary();		
+			values[5] = ((Trabajador)source).getTelephone();
+			values[6] = ((Trabajador)source).getClave();
+		}else if(source.getClass() == Cocinero.class) {
+			values[0] = ((Cocinero)source).getWorkerId();
+			values[1] = ((Cocinero)source).getSpeciality();
+			values[2] = ((Cocinero)source).getWorkExperience();
+			values[3] = ((Cocinero)source).getCategory().name();			
+		}else if(source.getClass() == Camarero.class) {
+			values[0] = ((Camarero)source).getWorkerId();
+			values[1] = ((Camarero)source).isCocktail();
+			int orden = 2; //
+			// insert values of languages array
+			for(int i=0; i< ((Camarero)source).getLanguages().length; i++) {
+				values[orden] = ((Camarero)source).getLanguages()[i];
+				orden ++;
+			}
+		}else if(source.getClass() == Repartidor.class) {
+			values[0] = ((Repartidor)source).getWorkerId();
+			values[1] = ((Repartidor)source).getDeliveyMode().name();
+			values[2] = ((Repartidor)source).getAge();
+			values[3] = ((Repartidor)source).isMotorcycleLicense();		
+			values[4] = ((Repartidor)source).isOwnVehicle();		
+		}
+		else if(source.getClass() == Pedido.class) {
+			values[0] = ((Pedido)source).getOrderId();
+			//Para pasar una java.util.Date a java.sql.Date. Primero expresamos java.util.Date en milisegundos desde 01/01/1970 con getTime.
+			//java.sal.Date es una fecha en fomato que JDBC entiende, sólo contiene años meses y días
+			values[1] = new java.sql.Date(((Pedido)source).getDate().getTime());
+			values[2] = ((Pedido)source).getOrderPrice();
+			values[3] = ((Pedido)source).getOrderPriceWithoutTaxes();		
+			values[4] = ((Pedido)source).getTrabajador().getWorkerId();
+			values[5] = ((Pedido)source).getvalorDescuento();
+			values[6] = ((Pedido)source).getDestination().getDestinationId();
+			values[7] = ((Pedido)source).isPedidoCobrado();
+		}
+		return values;
+	}	
+	
+	/**
+	 * @param values array of objects that contain values to insert 
+	 * @param table no of database table wich insert values
+	 * @param rsmd ResultSetMetaData of database table
+	 * Generate a UPDATE sql command based on metadata of "table" and
+	 * data from object array "values' and insert in "table" of database
+	 */
+	public void insertDataOnTableBd(Object[] values, String table, ResultSetMetaData rsmd) {
 		try {
-			for(Trabajador w:lWorkers) {
-				myPreparedStatement = myConnection.prepareStatement(sql.toString());
-				myPreparedStatement.setInt(1, w.getWorkerId());
-				myPreparedStatement.setString(2, w.getName());
-				myPreparedStatement.setString(3, w.getSurNames());
-				myPreparedStatement.setString(4, w.getDni());
-				myPreparedStatement.setDouble(5, w.getSalary());
-				myPreparedStatement.setString(6, w.getTelephone());
-				myPreparedStatement.setString(7, w.getClave());
-				myPreparedStatement.executeLargeUpdate();
+			StringBuilder sql = new StringBuilder();
+			int columns = rsmd.getColumnCount();
+			sql.append("INSERT INTO " + table + "(");
+			for(int columnIndex=1;columnIndex <= columns;columnIndex++){
+				sql.append(rsmd.getColumnLabel(columnIndex));
+				if(columnIndex <columns) {
+					sql.append(", ");
+				}
+			}
+			sql.append(") ");
+			sql.append("VALUES(");
+			for(int i =1; i<= columns; i++) {
+				sql.append("?");
+				if(i< columns) {
+					sql.append(",");
+				}
+			}
+			sql.append(")");
+			//ejecutar los set de preparedstatement
+			myPreparedStatement =  myConnection.prepareStatement(sql.toString());
+			for(int columnIndex=0;columnIndex < columns;columnIndex++){
+				System.out.println(rsmd.getColumnType(columnIndex+1));
+				switch (rsmd.getColumnType(columnIndex+1)){
+				case -1: //String mysqlType:252 y sqlType -1
+					myPreparedStatement.setString(columnIndex+1,(String)values[columnIndex]);		
+					break;
+				case 1: //enum mysqlType:254, sqlType 1
+					myPreparedStatement.setString(columnIndex+1,(String)values[columnIndex]);		
+					break;
+
+				case 4:  //int mysqlType:3 y sqlType 4 FIELD_TYPE_INT
+					myPreparedStatement.setInt(columnIndex+1,(int)values[columnIndex]);		
+					break;
+				case 8:  //Double mysqlType:5 y sqlType 8 FIELD_TYPE_DOUBLE
+					myPreparedStatement.setDouble(columnIndex+1,(Double)values[columnIndex]);		
+					break;
+				case 10, 91: //Date mysqlType:91 y sqlType 10 FIELD TYPE_DATE
+					myPreparedStatement.setDate(columnIndex+1, (Date)values[columnIndex]);		
+					break;
+				case -7: //Boolean mysqlType:1 y sqlType -7 FIELD TYPE_BIT
+					myPreparedStatement.setBoolean(columnIndex+1, (Boolean)values[columnIndex]);		
+					break;
+				}
+			}
+			System.out.println(myPreparedStatement.toString());
+			myPreparedStatement.executeUpdate();			
+		}catch (Exception e){
+			System.out.println("Worker insertion" + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Worker insertion" + e.getMessage() + e.getStackTrace());
+		};
+	}
+
+	/**
+	 * @param lWorkers list of objects to insert (cooker, waiters or delivery men)
+	 * Insert workers of the List on database with his details.
+	 */
+	public void insertWorkersBD(List<?> lWorkers) {
+		Object[] valuesWorker;
+		try {
+			ResultSetMetaData rsmdWorker = metadataTable("worker");  //obtain metadata from table worker
+			for(int i =0; i<=lWorkers.size()-1;i++) {
+				Trabajador w = (Trabajador)lWorkers.get(i);
+				valuesWorker = new Object[rsmdWorker.getColumnCount()];
+				valuesWorker = valuesToArray(((Trabajador)w), rsmdWorker.getColumnCount());	// get values of a object ant put on a array
+				insertDataOnTableBd(valuesWorker,"worker",rsmdWorker); //insert data into database table
+			
+				if(w.getClass() == Cocinero.class) {
+					myResultSetMetaData = metadataTable("cooker");  //obtain metadata from table cooker
+					Object[] valuesWorkerDetail = new Object[myResultSetMetaData.getColumnCount()];
+					valuesWorkerDetail = valuesToArray(((Cocinero)w), myResultSetMetaData.getColumnCount()); // get values of a object ant put on a array
+					insertDataOnTableBd(valuesWorkerDetail,"cooker",myResultSetMetaData);//insert data into database cooker table
+				}else if (w.getClass() == Camarero.class) {
+					myResultSetMetaData = metadataTable("waiter");  //obtain metadata from table waiter
+					Object[] values = new Object[myResultSetMetaData.getColumnCount()];
+					values = valuesToArray(((Camarero)w), myResultSetMetaData.getColumnCount()); // get values of a object ant put on a array
+					insertDataOnTableBd(values,"waiter",myResultSetMetaData); //insert data into database waiter table
+				}else if (w.getClass() == Repartidor.class) {
+					myResultSetMetaData = metadataTable("delivery");  //obtain metadata from table delivery
+					Object[] values = new Object[myResultSetMetaData.getColumnCount()];
+					values = valuesToArray(((Repartidor)w), myResultSetMetaData.getColumnCount()); // get values of a object ant put on a array
+					insertDataOnTableBd(values,"delivery",myResultSetMetaData);  //insert data into database delevery table
+				}
 			}
 		}catch (Exception e){
-			System.out.println("Insercion tabla worker" + e.getMessage() + e.getStackTrace().toString());
-			Frame.log.Escritura("Insercion tabla worker" + e.getMessage() + e.getStackTrace());
+			System.out.println("Worker insertion" + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Worker insertion" + e.getMessage() + e.getStackTrace());
 		};
 	}
 	
-	public void insertDestinationBD(Restaurant myRestaurant) {
+	/**
+	 * @param myRestaurant generic Restaurant object un variables of configuration
+	 * Store data in destinopedido table on database. 
+	 * Use variables barZones, inTables, outTables and deleveryZones
+	 * This data only store one the first time
+	 */
+	public void createDestinationsBD(Restaurant myRestaurant) {
 		StringBuilder sql = new StringBuilder();
-		sql.append("INSERT INTO destinoPedido (destinationId, destinationDenomination, destinationZone) ");
+		sql.append("INSERT INTO destinopedido (destinationId, destinationDenomination, destinationZone) ");
 		sql.append("VALUES(?,?,?)");
 		int contador = 1;
 		try {
@@ -156,45 +301,15 @@ public class BdConnection {
 			}
 
 		}catch (Exception e){
-			System.out.println("Insercion tabla Destino pedido" + e.getMessage() + e.getStackTrace().toString());
-			Frame.log.Escritura("Insercion tabla Destino pedido" +e.getMessage() + e.getStackTrace());
+			System.out.println("Insert on 'destinopedido' table" + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Insert on 'destinopedido' table" +e.getMessage() + e.getStackTrace());
 		};
 	}
-
-	/**
-	 * @param order The order to insert y database
-	 * This metod insert a order in the database table "orders"
-	 */
-	public void insertOrderTableBD(Pedido order) {
-		StringBuilder sql = new StringBuilder();
-		sql.append("INSERT INTO Orders (OrderId, date, orderPrice, OrderPriceWithoutTaxes, workerId, valorDescuento, destination, PedidoCobrado) ");
-		sql.append("VALUES(?,?,?,?,?,?,?,?)");
-		try {
-				myPreparedStatement = myConnection.prepareStatement(sql.toString());
-				myPreparedStatement.setInt(1, order.getOrderId());
-				//Para pasar una java.util.Date a java.sql.Date. Primero expresamos java.util.Date en milisegundos desde 01/01/1970 con getTime.
-				//java.sal.Date es una fecha en fomato que JDBC entiende, sólo contiene años meses y días
-				myPreparedStatement.setDate(2, new java.sql.Date(order.getDate().getTime()));
-				myPreparedStatement.setDouble(3, order.getOrderPrice());
-				myPreparedStatement.setDouble(4, order.getOrderPriceWithoutTaxes());
-				myPreparedStatement.setInt(5, order.getTrabajador().getWorkerId());
-				myPreparedStatement.setDouble(6, order.getvalorDescuento());
-				myPreparedStatement.setInt(7, order.getDestination().getDestinationId());
-				myPreparedStatement.setBoolean(8, order.isPedidoCobrado());
-				System.out.println(myPreparedStatement.toString());
-				myPreparedStatement.executeLargeUpdate();
-
-		}catch (Exception e){
-			System.out.println("Insercion tabla pedido" + e.getMessage() + e.getStackTrace().toString());
-			Frame.log.Escritura("Insercion tabla pedido" + e.getMessage() + e.getStackTrace());
-		};
-	}
-	
 	/**
 	 * @param order The order to insert y database
 	 * This metod insert orderId and foodId in table orders-producto table
 	 * Apply the relationship between an order and all products on it. 
-	 * Using a mysql relational database 
+	 * Using a mysql relational database. Insert data on table "orderproducts"
 	 */
 	public void insertTableordersProductsBD(Pedido order) {
 		PreparedStatement myPreparedStatement;
@@ -217,7 +332,8 @@ public class BdConnection {
 	
 	/**
 	 * @param sql sql command to eject in database
-	 * @return Resultset that contain data from de database
+	 * @return Resultset that contain data from database
+	 * Eject a Select sql in a database and obtain data in a ResultSet
 	 */
 	public ResultSet colletSQl(String sql) {		
 		try {
@@ -230,76 +346,4 @@ public class BdConnection {
 		};
 		return myResultset;
 	}
-	/**
-	 * @param table nombre de la tabla en la que insertar los datos
-	 * @param columns array con los nombres de la columnas
-	 * @param values array con los valores convertidos a String
-	 * @para tipos array con los tipos de las columnas
-	 * Insercion de datos en una tabla genérica. Pretende insertar datos en cualquier tabla de la base de datos pasando los parámetros.
-	 * NO FUNCIONA CORRECTAMENTE
-	 */
-	public void insertarEnTablaBD(String table, String[] columns, String[] values, Class[] tipos) {
-		table= "productos";
-		//String[] columns= {"foodId", "denomination", "section", "ingredients", "price", "lowprice", "image"};
-		//String[] values= {"5","Musaka", "Section.STARTERS.name()", "Berengena, queso, tomate, lecha, harina, sal", "11.5d","0", null};
-		//String[] tipos= {"int", "String", "String", "String", "double", "int","String"};
-		//Class [] tipos = {java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class,java.lang.Boolean.class, java.lang.String.class};
-
-		//String[] columns= {"foodId", "denomination"};
-		//String[] values= {"5","Musaka"};
-		//String[] tipos= {"int", "String"};
-
-		
-		String sql ="";
-		sql="INSER INTO" + table + " (";
-		for(int i =0; i<= columns.length-1; i++) {
-			sql = sql + columns[i];
-			if(i< columns.length-1) {
-				sql = sql + ",";
-			}
-		}
-		sql =sql + ") VALUES(";
-		for(int i =0; i<= columns.length-1; i++) {
-			sql = sql + "?";
-			if(i< columns.length-1) {
-				sql = sql + ",";
-			}
-		}
-		sql = sql + ")";
-		System.out.println(sql);
-		try {
-			myPreparedStatement = myConnection.prepareStatement(sql);
-			for(int i =0; i<= tipos.length-1; i++) {
-				switch (tipos[i].toString()){
-				case "java.lang.String.class":
-					myPreparedStatement.setString(i,values[i]);		
-					break;
-				case "java.lang.Integer.class":
-					myPreparedStatement.setInt(i,Integer.parseInt(values[i]));		
-					break;
-				case "java.lang.Double.class":
-					myPreparedStatement.setDouble(i,Double.parseDouble(values[i]));		
-					break;
-				case "java.lang.Date.class":
-					myPreparedStatement.setDate(i, Date.valueOf(values[i]));		
-					break;
-				}
-				
-			}
-			myPreparedStatement.executeUpdate();
-		}catch (Exception e){
-			System.out.println(e.getMessage() + e.getStackTrace().toString());
-			Frame.log.Escritura(e.getMessage() + e.getStackTrace());
-		}
-		
-		
-
-		
-				
-				
-		sql = sql + ";";
-		
-
-	}
-
 }

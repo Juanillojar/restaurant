@@ -2014,3 +2014,688 @@
  4/12/21 14:17Llama panel informe productosColumn Index out of range, 9 > 8. [Ljava.lang.StackTraceElement;@509ddf1c
  4/12/21 15:43Select Can not issue empty query.[Ljava.lang.StackTraceElement;@4f1413ce
  4/12/21 15:44Select Can not issue empty query.[Ljava.lang.StackTraceElement;@230cec8d
+ 5/12/21 11:46Insercion tabla workerColumn index out of range.[Ljava.lang.StackTraceElement;@68267da0
+ 5/12/21 12:01Insercion tabla workerDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1b2abca6
+ 5/12/21 12:02Insercion tabla workerYou have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1[Ljava.lang.StackTraceElement;@3f56875e
+ 5/12/21 12:59Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6404f418
+ 5/12/21 13:21Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@b9b00e0
+ 5/12/21 16:44Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@43dac38f
+ 5/12/21 17:44Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@43dac38f
+ 5/12/21 17:45Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@485966cc
+ 5/12/21 18:17Worker insertionColumn index out of range.[Ljava.lang.StackTraceElement;@74751b3
+ 5/12/21 18:23Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@43dac38f
+ 5/12/21 18:30Worker insertionYou have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'VALUES(1,'Desserts',3'ASSISTANT')' at line 1[Ljava.lang.StackTraceElement;@32910148
+ 5/12/21 18:30Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@659499f1
+ 5/12/21 18:41Worker insertionYou have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''ASSISTANT')' at line 1[Ljava.lang.StackTraceElement;@485966cc
+ 5/12/21 18:52Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@194bcebf
+ 5/12/21 18:52Worker insertionclass Gui.kitchenCategory cannot be cast to class java.lang.String (Gui.kitchenCategory is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@611889f4
+ 5/12/21 18:52Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@593aaf41
+ 5/12/21 18:53Se crea panel mesas
+ 5/12/21 18:53Cantidad entregada pierde foco
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 18:53Nuevo boton producto
+ 5/12/21 19:25Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7748410a
+ 5/12/21 21:31Worker insertionIndex 2 out of bounds for length 2[Ljava.lang.StackTraceElement;@37271612
+ 6/12/21 7:41Worker insertionTable 'bdrestaurant.intocooker' doesn't exist[Ljava.lang.StackTraceElement;@484970b0
+ 6/12/21 7:42Worker insertionIndex 2 out of bounds for length 2[Ljava.lang.StackTraceElement;@37271612
+ 6/12/21 7:57Worker insertionIndex 2 out of bounds for length 2[Ljava.lang.StackTraceElement;@6f45df59
+ 6/12/21 8:08Worker insertionIndex 2 out of bounds for length 2[Ljava.lang.StackTraceElement;@2d2ffcb7
+ 6/12/21 8:10Worker insertionNo value specified for parameter 2[Ljava.lang.StackTraceElement;@32910148
+ 6/12/21 8:19Worker insertionNo value specified for parameter 2[Ljava.lang.StackTraceElement;@57250572
+ 6/12/21 8:32Worker insertionclass Gui.Transport cannot be cast to class java.lang.String (Gui.Transport is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@3c0be339
+ 6/12/21 8:49Worker insertionData truncated for column 'deliveryMode' at row 1[Ljava.lang.StackTraceElement;@6236eb5f
+ 6/12/21 9:42Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@313b2ea6
+ 6/12/21 11:11Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@32910148
+ 6/12/21 11:11Se crea panel mesas
+ 6/12/21 11:11Cantidad entregada pierde foco
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Nuevo boton producto
+ 6/12/21 11:11Añade producto al pedido.
+ 6/12/21 11:11Añade producto al pedido.
+ 6/12/21 11:11Rellenado pedido Pedido 1 date:6/12/21 11:11 [ 6	Macarrones boloñesa, section:PASTAS, ingredients:Pasta, Tomate, Cebolla, champiñones, prize:7.5 €, lowPrice:false
+,  4	Musaka, section:STARTERS, ingredients:Berengena, queso, tomate, lecha, harina, sal, prize:11.5 €, lowPrice:false
+] orderPrice:20,9 € Vanesa valorDescuento: 0.0 € 
+
+ 6/12/21 11:11Worker insertionNo value specified for parameter 2[Ljava.lang.StackTraceElement;@1fe79b15
+ 6/12/21 11:11Insercion tabla pedidoCannot add or update a child row: a foreign key constraint fails (`bdrestaurant`.`ordersproducts`, CONSTRAINT `ordersproducts_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`))[Ljava.lang.StackTraceElement;@28d129ea
+ 6/12/21 19:53Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7c1e2a9e
+ 6/12/21 19:53Se crea panel mesas
+ 6/12/21 19:53Cantidad entregada pierde foco
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Nuevo boton producto
+ 6/12/21 19:53Añade producto al pedido.
+ 6/12/21 19:53Rellenado pedido Pedido 1 date:6/12/21 19:53 [ 8	Pizza Margarita, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, prize:9.8 €, lowPrice:false
+] orderPrice:10,78 € Vanesa valorDescuento: 0.0 € 
+
+ 6/12/21 19:53Worker insertionNo value specified for parameter 2[Ljava.lang.StackTraceElement;@6b8e0e97
+ 6/12/21 19:53Insercion tabla pedidoCannot add or update a child row: a foreign key constraint fails (`bdrestaurant`.`ordersproducts`, CONSTRAINT `ordersproducts_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`))[Ljava.lang.StackTraceElement;@66ac0d7f
+ 6/12/21 20:37Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3a44431a
+ 6/12/21 20:37Se crea panel mesas
+ 6/12/21 20:37Cantidad entregada pierde foco
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Nuevo boton producto
+ 6/12/21 20:37Añade producto al pedido.
+ 6/12/21 20:37Rellenado pedido Pedido 1 date:6/12/21 20:37 [ 7	Pizza Caprichosa, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, Cebolla, champiñones, prize:10.0 €, lowPrice:true
+] orderPrice:10,45 € Vanesa valorDescuento: 0.5 € 
+
+ 6/12/21 20:46Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3a44431a
+ 6/12/21 20:46Se crea panel mesas
+ 6/12/21 20:46Cantidad entregada pierde foco
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Nuevo boton producto
+ 6/12/21 20:46Añade producto al pedido.
+ 6/12/21 20:46Rellenado pedido Pedido 1 date:6/12/21 20:46 [ 8	Pizza Margarita, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, prize:9.8 €, lowPrice:false
+] orderPrice:10,78 € Vanesa valorDescuento: 0.0 € 
+
+ 6/12/21 20:50Boton mesa pulsado. No tiene datos
+ 6/12/21 20:50Añade producto al pedido.
+ 6/12/21 20:50Añade producto al pedido.
+ 6/12/21 20:50Añade producto al pedido.
+ 6/12/21 20:50Rellenado pedido Pedido 2 date:6/12/21 20:50 [ 8	Pizza Margarita, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, prize:9.8 €, lowPrice:false
+,  9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  18	Cazón y Huevos, section:COMBINADOS, ingredients:Cazón, huevo, patata, aceite, sal, prize:9.9 €, lowPrice:false
+] orderPrice:31,13 € Vanesa valorDescuento: 0.0 € 
+
+ 6/12/21 20:51Boton mesa pulsado. No tiene datos
+ 6/12/21 20:51Añade producto al pedido.
+ 6/12/21 20:51Añade producto al pedido.
+ 6/12/21 20:51Rellenado pedido Pedido 3 date:6/12/21 20:51 [ 19	Salchichas y pimientos, section:COMBINADOS, ingredients:Cerdo, pimiento, patata, aceite, sal, prize:5.9 €, lowPrice:false
+,  18	Cazón y Huevos, section:COMBINADOS, ingredients:Cazón, huevo, patata, aceite, sal, prize:9.9 €, lowPrice:false
+] orderPrice:17,38 € Vanesa valorDescuento: 0.0 € 
+
+ 6/12/21 21:02Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@37d4349f
+ 6/12/21 21:02Se crea panel mesas
+ 6/12/21 21:02Cantidad entregada pierde foco
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Nuevo boton producto
+ 6/12/21 21:02Añade producto al pedido.
+ 6/12/21 21:02Rellenado pedido Pedido 4 date:6/12/21 21:02 [ 1	Patatas Fritas, section:STARTERS, ingredients:Patata, aceite, sal, prize:3.0 €, lowPrice:false
+] orderPrice:3,3 € Vanesa valorDescuento: 0.0 € 
+
+ 7/12/21 18:22Worker insertionTable 'bdrestaurant.water' doesn't exist[Ljava.lang.StackTraceElement;@7748410a
+ 7/12/21 18:22Worker insertionTable 'bdrestaurant.water' doesn't exist[Ljava.lang.StackTraceElement;@68e965f5
+ 7/12/21 19:43Worker insertionclass java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@bae7dc0
+ 7/12/21 20:07Se crea panel mesas
+ 7/12/21 20:07Cantidad entregada pierde foco
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Nuevo boton producto
+ 7/12/21 20:07Añade producto al pedido.
+ 7/12/21 20:07Añade producto al pedido.
+ 7/12/21 20:07Añade producto al pedido.
+ 7/12/21 20:07Rellenado pedido Pedido 1 date:7/12/21 20:07 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  8	Pizza Margarita, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, prize:9.8 €, lowPrice:false
+,  7	Pizza Caprichosa, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, Cebolla, champiñones, prize:10.0 €, lowPrice:true
+] orderPrice:30,69 € Vanesa valorDescuento: 0.5 € 
+
+ 7/12/21 20:07Worker insertionCannot add or update a child row: a foreign key constraint fails (`bdrestaurant`.`orders`, CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`destination`) REFERENCES `destinopedido` (`destinationId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@3b1827b9
+ 7/12/21 20:07Insercion tabla pedidoCannot add or update a child row: a foreign key constraint fails (`bdrestaurant`.`ordersproducts`, CONSTRAINT `ordersproducts_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@2783afc4
+ 7/12/21 20:13Boton mesa pulsado. No tiene datos
+ 7/12/21 20:13Añade producto al pedido.
+ 7/12/21 20:13Rellenado pedido Pedido 2 date:7/12/21 20:13 [ 10	Ensalada Tropical, section:SALADS, ingredients:Lechuga, tomate, gauda, piña, manzana, kiwi, salsa rosa, prize:9.2 €, lowPrice:false
+] orderPrice:10,12 € Vanesa valorDescuento: 0.0 € 
+
+ 7/12/21 20:14Boton mesa pulsado. No tiene datos
+ 7/12/21 20:14Añade producto al pedido.
+ 7/12/21 20:14Rellenado pedido Pedido 3 date:7/12/21 20:14 [ 11	Ensalada Nostra, section:SALADS, ingredients:Lechuga, tomate, zanahoria, atún, maiz, espárragos, prize:8.0 €, lowPrice:false
+] orderPrice:8,8 € Vanesa valorDescuento: 0.0 € 
+
+ 7/12/21 20:25Boton mesa pulsado. No tiene datos
+ 7/12/21 20:26Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4803b726
+ 7/12/21 20:26Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4efac082
+ 7/12/21 20:26Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@48aca48b
+ 7/12/21 20:26Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@b9b00e0
+ 7/12/21 20:26Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7d4f9aae
+ 7/12/21 20:26Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54e1c68b
+ 7/12/21 20:26Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@52b1beb6
+ 7/12/21 20:26Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7db12bb6
+ 7/12/21 20:26Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@272113c4
+ 7/12/21 20:26Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@771a660
+ 7/12/21 20:26Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@242b836
+ 7/12/21 20:26Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3527942a
+ 7/12/21 20:26Se crea panel mesas
+ 7/12/21 20:26Cantidad entregada pierde foco
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Nuevo boton producto
+ 7/12/21 20:26Añade producto al pedido.
+ 7/12/21 20:26Añade producto al pedido.
+ 7/12/21 20:26Rellenado pedido Pedido 4 date:7/12/21 20:26 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:18,92 € Vanesa valorDescuento: 0.0 € 
+
+ 7/12/21 20:27Worker insertionCannot add or update a child row: a foreign key constraint fails (`bdrestaurant`.`orders`, CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`destination`) REFERENCES `destinopedido` (`destinationId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@4191d5b7
+ 7/12/21 20:27Insercion tabla pedidoCannot add or update a child row: a foreign key constraint fails (`bdrestaurant`.`ordersproducts`, CONSTRAINT `ordersproducts_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@33813064
+ 7/12/21 20:29Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3ee37e5a
+ 7/12/21 20:29Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b0d79fc
+ 7/12/21 20:29Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@428640fa
+ 7/12/21 20:29Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2d710f1a
+ 7/12/21 20:29Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@59505b48
+ 7/12/21 20:29Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6bd61f98
+ 7/12/21 20:29Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@13fd2ccd
+ 7/12/21 20:29Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@506ae4d4
+ 7/12/21 20:29Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@72e5a8e
+ 7/12/21 20:29Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@53aac487
+ 7/12/21 20:29Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@273e7444
+ 7/12/21 20:29Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@783a467b
+ 7/12/21 20:29Se crea panel mesas
+ 7/12/21 20:29Cantidad entregada pierde foco
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Nuevo boton producto
+ 7/12/21 20:29Añade producto al pedido.
+ 7/12/21 20:29Rellenado pedido Pedido 4 date:7/12/21 20:29 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:9,46 € Vanesa valorDescuento: 0.0 € 
+
+ 8/12/21 8:49Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@5a56cdac
+ 8/12/21 8:49Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@47d9a273
+ 8/12/21 8:49Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@27f981c6
+ 8/12/21 8:49Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1151e434
+ 8/12/21 8:49Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4659191b
+ 8/12/21 8:49Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b0d79fc
+ 8/12/21 8:49Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@428640fa
+ 8/12/21 8:49Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2d710f1a
+ 8/12/21 8:49Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@59505b48
+ 8/12/21 8:49Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6bd61f98
+ 8/12/21 8:49Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@13fd2ccd
+ 8/12/21 8:49Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@506ae4d4
+ 8/12/21 9:05Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@43dac38f
+ 8/12/21 9:05Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@659499f1
+ 8/12/21 9:05Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@47e2e487
+ 8/12/21 9:05Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@61001b64
+ 8/12/21 9:05Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54a7079e
+ 8/12/21 9:05Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@47d9a273
+ 8/12/21 9:05Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@27f981c6
+ 8/12/21 9:05Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1151e434
+ 8/12/21 9:05Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4659191b
+ 8/12/21 9:05Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b0d79fc
+ 8/12/21 9:05Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@428640fa
+ 8/12/21 9:05Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2d710f1a
+ 8/12/21 9:17Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3e96bacf
+ 8/12/21 9:17Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@5f683daf
+ 8/12/21 9:17Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@8317c52
+ 8/12/21 9:17Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@68e965f5
+ 8/12/21 9:17Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6c779568
+ 8/12/21 9:17Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2cdd0d4b
+ 8/12/21 9:17Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2e1d27ba
+ 8/12/21 9:17Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2525ff7e
+ 8/12/21 9:17Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@152aa092
+ 8/12/21 9:17Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4ef37659
+ 8/12/21 9:17Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@37858383
+ 8/12/21 9:17Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1bb266b3
+ 8/12/21 9:18Se crea panel mesas
+ 8/12/21 9:18Cantidad entregada pierde foco
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Nuevo boton producto
+ 8/12/21 9:18Añade producto al pedido.
+ 8/12/21 9:18Rellenado pedido Pedido 4 date:8/12/21 9:18 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:9,46 € Vanesa valorDescuento: 0.0 € 
+
+ 8/12/21 9:20Boton mesa pulsado. No tiene datos
+ 8/12/21 9:20Añade producto al pedido.
+ 8/12/21 9:20Añade producto al pedido.
+ 8/12/21 9:20Añade producto al pedido.
+ 8/12/21 9:20Rellenado pedido Pedido 5 date:8/12/21 9:20 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  22	Mahonesa, section:OTHERS, ingredients:Huevo, aceite, sal, prize:0.2 €, lowPrice:false
+,  22	Mahonesa, section:OTHERS, ingredients:Huevo, aceite, sal, prize:0.2 €, lowPrice:false
+] orderPrice:9,9 € Vanesa valorDescuento: 0.0 € 
+
+ 8/12/21 9:21Boton mesa pulsado. No tiene datos
+ 8/12/21 9:21Añade producto al pedido.
+ 8/12/21 9:21Añade producto al pedido.
+ 8/12/21 9:21Rellenado pedido Pedido 6 date:8/12/21 9:21 [ 21	Ketchup, section:OTHERS, ingredients:Tomate, azucar, sal..., prize:0.2 €, lowPrice:false
+,  21	Ketchup, section:OTHERS, ingredients:Tomate, azucar, sal..., prize:0.2 €, lowPrice:false
+] orderPrice:0,44 € Vanesa valorDescuento: 0.0 € 
+
+ 8/12/21 9:22Boton mesa pulsado. No tiene datos
+ 8/12/21 9:22Añade producto al pedido.
+ 8/12/21 9:22Añade producto al pedido.
+ 8/12/21 9:22Rellenado pedido Pedido 7 date:8/12/21 9:22 [ 24	Cerveza sin, section:DRINKS, ingredients:Cebada, prize:1.5 €, lowPrice:false
+,  24	Cerveza sin, section:DRINKS, ingredients:Cebada, prize:1.5 €, lowPrice:false
+] orderPrice:3,3 € Vanesa valorDescuento: 0.0 € 
+
+ 8/12/21 9:22Rellenado pedido Pedido 7 date:8/12/21 9:22 [ 24	Cerveza sin, section:DRINKS, ingredients:Cebada, prize:1.5 €, lowPrice:false
+,  24	Cerveza sin, section:DRINKS, ingredients:Cebada, prize:1.5 €, lowPrice:false
+] orderPrice:3,3 € Vanesa valorDescuento: 0.0 € 
+
+ 8/12/21 9:22Añade producto al pedido.
+ 8/12/21 9:22Rellenado pedido Pedido 6 date:8/12/21 9:21 [ 21	Ketchup, section:OTHERS, ingredients:Tomate, azucar, sal..., prize:0.2 €, lowPrice:false
+,  21	Ketchup, section:OTHERS, ingredients:Tomate, azucar, sal..., prize:0.2 €, lowPrice:false
+,  5	Tabla patés, section:STARTERS, ingredients:Pate de higado, paté de atún, prize:7.2 €, lowPrice:true
+] orderPrice:7,96 € Vanesa valorDescuento: 0.36 € 
+
+ 8/12/21 9:23Rellenado pedido Pedido 6 date:8/12/21 9:21 [ 21	Ketchup, section:OTHERS, ingredients:Tomate, azucar, sal..., prize:0.2 €, lowPrice:false
+,  21	Ketchup, section:OTHERS, ingredients:Tomate, azucar, sal..., prize:0.2 €, lowPrice:false
+,  5	Tabla patés, section:STARTERS, ingredients:Pate de higado, paté de atún, prize:7.2 €, lowPrice:true
+] orderPrice:7,96 € Vanesa valorDescuento: 0.36 € 
+
+ 8/12/21 9:23Boton mesa pulsado. No tiene datos
+ 8/12/21 9:23Añade producto al pedido.
+ 8/12/21 9:23Añade producto al pedido.
+ 8/12/21 9:23Rellenado pedido Pedido 8 date:8/12/21 9:23 [ 17	Lomo y Huevos, section:COMBINADOS, ingredients:Cerdo, huevo, patata, aceite, sal, prize:9.9 €, lowPrice:false
+,  25	Agua grande, section:DRINKS, ingredients:Agua, prize:2.5 €, lowPrice:false
+] orderPrice:13,64 € Vanesa valorDescuento: 0.0 € 
+
+ 8/12/21 9:23Rellenado pedido Pedido 8 date:8/12/21 9:23 [ 17	Lomo y Huevos, section:COMBINADOS, ingredients:Cerdo, huevo, patata, aceite, sal, prize:9.9 €, lowPrice:false
+,  25	Agua grande, section:DRINKS, ingredients:Agua, prize:2.5 €, lowPrice:false
+] orderPrice:13,64 € Vanesa valorDescuento: 0.0 € 
+
+ 8/12/21 9:25Boton mesa pulsado. No tiene datos
+ 8/12/21 9:25Añade producto al pedido.
+ 8/12/21 9:25Rellenado pedido Pedido 9 date:8/12/21 9:25 [ 13	Coolant, section:DESSERTS, ingredients:Leche, harina, chocolate, azucar, prize:3.55 €, lowPrice:false
+] orderPrice:3,9 € Vanesa valorDescuento: 0.0 € 
+
+ 8/12/21 9:25Rellenado pedido Pedido 9 date:8/12/21 9:25 [ 13	Coolant, section:DESSERTS, ingredients:Leche, harina, chocolate, azucar, prize:3.55 €, lowPrice:false
+] orderPrice:3,9 € Vanesa valorDescuento: 0.0 € 
+
+ 8/12/21 10:44Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@a1cdc6d
+ 8/12/21 10:44Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@236e3f4e
+ 8/12/21 10:44Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6bf0219d
+ 8/12/21 10:44Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@21b2e768
+ 8/12/21 10:44Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@69fb6037
+ 8/12/21 10:44Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@87a85e1
+ 8/12/21 10:44Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@5552768b
+ 8/12/21 10:44Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@609db43b
+ 8/12/21 10:44Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1356d4d4
+ 8/12/21 10:44Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1329eff
+ 8/12/21 10:44Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@41c2284a
+ 8/12/21 10:44Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@46fa7c39
+ 8/12/21 10:44Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4f67eb2a
+ 8/12/21 10:44Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@5f683daf
+ 8/12/21 10:44Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@8317c52
+ 8/12/21 11:57Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@fa36558
+ 8/12/21 11:57Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6497b078
+ 8/12/21 11:57Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@53aad5d5
+ 8/12/21 11:57Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1fb700ee
+ 8/12/21 11:57Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4a668b6e
+ 8/12/21 11:57Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@78ffe6dc
+ 8/12/21 11:57Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@76f2bbc1
+ 8/12/21 11:57Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6f27a732
+ 8/12/21 11:57Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@f381794
+ 8/12/21 11:57Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7e9131d5
+ 8/12/21 11:57Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@61d6015a
+ 8/12/21 11:57Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@524d6d96
+ 8/12/21 11:57Se crea panel mesas
+ 8/12/21 11:57Cantidad entregada pierde foco
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:57Nuevo boton producto
+ 8/12/21 11:58Añade producto al pedido.
+ 8/12/21 11:58Rellenado pedido Pedido 6 date:8/12/21 11:58 [ 6	Macarrones boloñesa, section:PASTAS, ingredients:Pasta, Tomate, Cebolla, champiñones, prize:7.5 €, lowPrice:false
+] orderPrice:8,25 € Vanesa valorDescuento: 0.0 € 
+
+ 8/12/21 11:58Worker insertionYou have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'order' at line 1[Ljava.lang.StackTraceElement;@4a2db4d8
+ 8/12/21 11:58Insercion tabla pedidoCannot add or update a child row: a foreign key constraint fails (`bdrestaurant`.`ordersproducts`, CONSTRAINT `ordersproducts_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@2fd2c391
+ 8/12/21 12:01Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4803b726
+ 8/12/21 12:01Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4efac082
+ 8/12/21 12:01Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@48aca48b
+ 8/12/21 12:01Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@b9b00e0
+ 8/12/21 12:01Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7d4f9aae
+ 8/12/21 12:01Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54e1c68b
+ 8/12/21 12:01Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@52b1beb6
+ 8/12/21 12:01Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7db12bb6
+ 8/12/21 12:01Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@272113c4
+ 8/12/21 12:01Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@771a660
+ 8/12/21 12:01Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@242b836
+ 8/12/21 12:01Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3527942a
+ 8/12/21 12:04Se crea panel mesas
+ 8/12/21 12:05Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6404f418
+ 8/12/21 12:05Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@b9b00e0
+ 8/12/21 12:05Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7d4f9aae
+ 8/12/21 12:05Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54e1c68b
+ 8/12/21 12:05Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@52b1beb6
+ 8/12/21 12:05Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7db12bb6
+ 8/12/21 12:05Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@272113c4
+ 8/12/21 12:05Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@771a660
+ 8/12/21 12:05Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@242b836
+ 8/12/21 12:05Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3527942a
+ 8/12/21 12:05Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1ed6388a
+ 8/12/21 12:05Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@534a5a98
+ 8/12/21 12:05Se crea panel mesas
+ 8/12/21 12:05Cantidad entregada pierde foco
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Nuevo boton producto
+ 8/12/21 12:05Añade producto al pedido.
+ 8/12/21 12:05Rellenado pedido Pedido 6 date:8/12/21 12:05 [ 6	Macarrones boloñesa, section:PASTAS, ingredients:Pasta, Tomate, Cebolla, champiñones, prize:7.5 €, lowPrice:false
+] orderPrice:8,25 € Vanesa valorDescuento: 0.0 € 
+
+ 8/12/21 12:06Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@5b03b9fe
+ 8/12/21 12:06Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1b11171f
+ 8/12/21 12:06Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2dc54ad4
+ 8/12/21 12:06Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@55634720
+ 8/12/21 12:06Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4c1909a3
+ 8/12/21 12:06Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@d9345cd
+ 8/12/21 12:06Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@29215f06
+ 8/12/21 12:06Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4efac082
+ 8/12/21 12:06Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@48aca48b
+ 8/12/21 12:06Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@b9b00e0
+ 8/12/21 12:06Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7d4f9aae
+ 8/12/21 12:06Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54e1c68b
+ 8/12/21 12:06Se crea panel mesas
+ 8/12/21 12:06Cantidad entregada pierde foco
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Nuevo boton producto
+ 8/12/21 12:06Añade producto al pedido.
+ 8/12/21 12:06Rellenado pedido Pedido 6 date:8/12/21 12:06 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:9,46 € Vanesa valorDescuento: 0.0 € 
+
+ 8/12/21 12:09Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@43dac38f
+ 8/12/21 12:09Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@659499f1
+ 8/12/21 12:09Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@47e2e487
+ 8/12/21 12:09Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@61001b64
+ 8/12/21 12:09Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54a7079e
+ 8/12/21 12:09Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@47d9a273
+ 8/12/21 12:09Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@27f981c6
+ 8/12/21 12:09Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1151e434
+ 8/12/21 12:09Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4659191b
+ 8/12/21 12:09Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b0d79fc
+ 8/12/21 12:09Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@428640fa
+ 8/12/21 12:09Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2d710f1a

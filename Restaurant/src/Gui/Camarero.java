@@ -13,28 +13,28 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Camarero extends Trabajador{
-	private String workZone;  		//especifica si sirve en terraza, interior o barra.
-	private String[] languages;		//especifíca los idiomas que domina
+	//private String workZone;  		//especifica si sirve en terraza, interior o barra.
 	private boolean cocktail;		//especifica si el camarero sabe preparar cocteles
+	private String[] languages;		//especifíca los idiomas que domina
 	
-	public Camarero(String name, String surNames, String dni, double salary, String shift,
-			String telephone, String clave, String workZone, String[] languages, boolean cocktail) {
+	public Camarero(String name, String surNames, String dni, double salary, Turno shift,
+			String telephone, String clave, String[] languages, boolean cocktail) {
 		super(name, surNames, dni, salary, shift, telephone, clave);
-		this.workZone = workZone;
+	//	this.workZone = workZone;
 		this.languages = languages;
 		this.cocktail = cocktail;
 	}
 	
 	public Camarero() {
 		super();
-		workZone= "";
+//		workZone= "";
 		languages = new String[5];
 		cocktail= false;
 	}
 
-	public String getWorkZone() {
-		return workZone;
-	}
+//	public String getWorkZone() {
+//		return workZone;
+//	}
 
 	public String[] getLanguages() {
 		return languages;
@@ -44,9 +44,9 @@ public class Camarero extends Trabajador{
 		return cocktail;
 	}
 
-	public void setWorkZone(String workZone) {
-		this.workZone = workZone;
-	}
+//	public void setWorkZone(String workZone) {
+//		this.workZone = workZone;
+//	}
 
 	public void setLanguages(String[] languages) {
 		this.languages = languages;

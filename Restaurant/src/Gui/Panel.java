@@ -27,6 +27,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 import com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping;
+import com.mysql.cj.x.protobuf.MysqlxPrepare;
 import com.sun.jarsigner.ContentSignerParameters;
 
 /**
@@ -92,13 +93,6 @@ public class Panel extends JPanel {
 			buttonBar.addActionListener(gestorBotones);
 			buttonBar.addMouseListener(gestorRaton);
 		}
-		// Creación de botones Reparto
-		for (int i = 0; i < deliverys; i++) {
-			Boton buttonDelivery = new BotonRestauranteMesas(iconDelivery, i+1, Zone.Delivery);
-			panelMesas.add(buttonDelivery);
-			buttonDelivery.addActionListener(gestorBotones);
-			buttonDelivery.addMouseListener(gestorRaton);
-		}
 		// Creación de botones mesas interiores
 		for (int i = 0; i < intTables; i++) {
 			Boton buttonIntTables = new BotonRestauranteMesas(iconIntTable, i+1, Zone.IntTable);
@@ -112,6 +106,13 @@ public class Panel extends JPanel {
 			panelMesas.add(buttonExtTables);
 			buttonExtTables.addActionListener(gestorBotones);
 			buttonExtTables.addMouseListener(gestorRaton);
+		}
+		// Creación de botones Reparto
+		for (int i = 0; i < deliverys; i++) {
+			Boton buttonDelivery = new BotonRestauranteMesas(iconDelivery, i+1, Zone.Delivery);
+			panelMesas.add(buttonDelivery);
+			buttonDelivery.addActionListener(gestorBotones);
+			buttonDelivery.addMouseListener(gestorRaton);
 		}
 		add(panelMesas, BorderLayout.CENTER);
 		Boton buttonBack = new Boton(iconBack);
@@ -441,12 +442,26 @@ public class Panel extends JPanel {
 	public void pagarPedido() {
 		// store to pizzeria order list and mark as paid
 		Frame.InstanceFPizzerie.getPanelProductos().paidOut(Panel.getBotonMesa().getPedidoBoton());
-		//Al guardar en la base de datos sería innecesaria la lista de pedidos
+		//Al guardar en la base de datos ¿no sería necesaria la lista de pedidos?
 		//Se podría guardar en la lista y guardar los datos de esta cada cierto tiempo
 		Frame.InstanceFPizzerie.myPizzerie.getOrders().add(Panel.getBotonMesa().getPedidoBoton());
 		Panel.getBotonMesa().setBackground(Color.LIGHT_GRAY);
 		//Insertar pedido en la base de datos
-		Test.conex.insertOrderTableBD(Panel.getBotonMesa().getPedidoBoton());
+		try {
+			ResultSetMetaData rsmdOrder = Test.conex.metadataTable("orders");  //obtain metadata from table
+			Object[] valuesOrder = new Object[rsmdOrder.getColumnCount()];
+			valuesOrder = Test.conex.valuesToArray(Panel.getBotonMesa().getPedidoBoton(), rsmdOrder.getColumnCount());	// get values of a object ant put on a array
+			Test.conex.insertDataOnTableBd(valuesOrder,"orders",rsmdOrder); //insert data into database table
+
+			//Test.conex.insertDataOnTableBd(Test.conex.valuesToArray(Panel.getBotonMesa().getPedidoBoton(), Test.conex.metadataTable("order").getColumnCount()), "order", Test.conex.metadataTable("order"));			
+		}catch (Exception e){
+			System.out.println("Worker insertion" + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Worker insertion" + e.getMessage() + e.getStackTrace());
+		
+			
+		};
+		
+
 		Test.conex.insertTableordersProductsBD(Panel.getBotonMesa().getPedidoBoton());
 		// crea panel cobro y lo visualiza
 		Frame.InstanceFPizzerie.panelCobro = new Panel(Panel.getBotonMesa().getPedidoBoton().getOrderPrice());

@@ -88,10 +88,7 @@ public class Test {
  
 		 */
 		 
-		//Creación de los arrays con los idiomas que conoce cada camarero, los camareros, repartidores y cocineros
-		String[] language1 = {"Español","inglés"};
-		String[] language2 = {"Español","inglés, Francés"};
-		String[] language3 = {"Español","inglés, Alemán"};
+	
 		
 		//Generación de claves encriptadas para los usuarios
 		byte[] salt = new String("Juanillo").getBytes();  //es como una llave para la encriptación.Clave pública?
@@ -132,12 +129,16 @@ public class Test {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Cocinero cocinero1 = new Cocinero("Francisco", "Soler Villegas","14253678A", 1200.50, Turno.TARDE.name(), "624582159", passwordEncriptadacocinero1, "Pizzas", 2, false);
-		Cocinero cocinero2 = new Cocinero("Elena", "García Moro","85854545C", 1400.50, Turno.NOCHE.name(), "9834235485", passwordEncriptadacocinero2, "Vanguardia", 5, true);
-		Camarero camarero1 = new Camarero("Vanesa", "Martin Fierro","85412365B", 1050.50, Turno.NOCHE.name(),"523568974", passwordEncriptadaCamarero1,"Barra", language1, false);
-		Camarero camarero2 = new Camarero("Jonas", "Valverde Schultz","44128369R", 1050.50,Turno.TARDE.name(),"685214792", passwordEncriptadaCamarero2,"Terraza", language2, true);
-		Repartidor repartidor1 = new Repartidor("Juan", "Pérez Morales","78451236C", 800.00,Turno.TARDE.name(),"568471236", passwordEncriptadaRepartidor1, Transport.Moto.toString(), 19, true, true);
-		Repartidor repartidor2 = new Repartidor("Manu", "González Gazquez","45826573J", 900.00,Turno.NOCHE.name(),"631657157", passwordEncriptadaRepartidor2, Transport.Bicicleta.toString(), 18, false, false);
+		//Creación de los arrays con los idiomas que conoce cada camarero, los camareros, repartidores y cocineros
+		String[] language1 = {"Español","inglés"};
+		String[] language2 = {"Español","inglés, Francés"};
+		String[] language3 = {"Español","inglés, Alemán"};
+		Cocinero cocinero1 = new Cocinero("Francisco", "Soler Villegas","14253678A", 1200.50, Turno.TARDE, "624582159", passwordEncriptadacocinero1, "Desserts", 3, kitchenCategory.ASSISTANT);
+		Cocinero cocinero2 = new Cocinero("Elena", "García Moro","85854545C", 1400.50, Turno.NOCHE, "9834235485", passwordEncriptadacocinero2, "Vanguardia", 5, kitchenCategory.CHEF);
+		Camarero camarero1 = new Camarero("Vanesa", "Martin Fierro","85412365B", 1050.50, Turno.NOCHE,"523568974", passwordEncriptadaCamarero1, language1, false);
+		Camarero camarero2 = new Camarero("Jonas", "Valverde Schultz","44128369R", 1050.50,Turno.TARDE,"685214792", passwordEncriptadaCamarero2, language2, true);
+		Repartidor repartidor1 = new Repartidor("Juan", "Pérez Morales","78451236C", 800.00,Turno.TARDE,"568471236", passwordEncriptadaRepartidor1, Transport.Motorcycle, 19, true, true);
+		Repartidor repartidor2 = new Repartidor("Manu", "González Gazquez","45826573J", 900.00,Turno.NOCHE,"631657157", passwordEncriptadaRepartidor2, Transport.Bicycle, 18, false, false);
 
 		//Creación de lista de Trabajadores y se añaden los cocineros, camareros y repartidores
 		List<Trabajador> trabajadoresPizzeria= new ArrayList<Trabajador>();
@@ -147,25 +148,27 @@ public class Test {
 		trabajadoresPizzeria.add(3, camarero2);
 		trabajadoresPizzeria.add(4, repartidor1);
 		trabajadoresPizzeria.add(5, repartidor2);
-		//conex.insertWorkersBD(trabajadoresPizzeria);
+		conex.insertWorkersBD(trabajadoresPizzeria);
 		//Creación de la lista de comidas para pedido1 y el objeto pedido1 y la lista de objetos pedido.
 		List<Productos> comidaPedido1 = new ArrayList<Productos>();
 		comidaPedido1.add(0, plato3); //0 es la posición en la lista y 1 el id de la "Comida"
 		comidaPedido1.add(1, plato5); //1 es la posición en la lista y 2 el id de la "Comida"
-		DestinoPedido destinoPedido1 = new DestinoPedido("Bar 1",Zone.Bar);
-		//Pedido pedido1 = new Pedido(comidaPedido1, 32, camarero1, destinoPedido1);
-		//conex.insertOrderTableBD(pedido1);
-		//Creación de la lista de pedidos e inserción del pedido1
-		List<Pedido> pedidosPizzeria= new ArrayList<Pedido>();
-		//pedidosPizzeria.add(0, pedido1);
 		//Creación de un objeto pizzeria asociándole todos los datos creados antes
-		Restaurant pizzeria = new Restaurant("Pizzeria Bartolini", "c/Levantina 2 Bajo C.P:04240 Viator(Almeria)", trabajadoresPizzeria, comidaPizzeria,pedidosPizzeria);
+		Restaurant pizzeria = new Restaurant("Pizzeria Bartolini", "c/Levantina 2 Bajo C.P:04240 Viator(Almeria)", trabajadoresPizzeria, comidaPizzeria,null);
 		//Se asigna el número de puestos en barra, mesas en interior, en exterior y repartos
 		pizzeria.setBarZones(4);
 		pizzeria.setInTables(3);
 		pizzeria.setOutTables(2);
 		pizzeria.setDeliveryZones(2);
+		//insertar los destinos en la base de datos
 		//conex.insertDestinationBD(pizzeria);
+		//Pedido pedido1 = new Pedido(comidaPedido1, 32, camarero1, destinoPedido1);
+		//conex.insertOrderTableBD(pedido1);
+		//Creación de la lista de pedidos e inserción del pedido1
+		List<Pedido> pedidosPizzeria= new ArrayList<Pedido>();
+		pizzeria.setOrders(pedidosPizzeria);
+		//pedidosPizzeria.add(0, pedido1);
+
 		System.out.println("\n***************Listado de comida en pizzeria********************");
 		System.out.println(comidaPizzeria);
 		System.out.println("\n***************Listado de trabajadores en pizzeria**************");

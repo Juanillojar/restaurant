@@ -2,21 +2,21 @@ package Gui;
 
 /*
 Versión: 1.2.0
-Fecha creación:	03/08/2021. Última modificación: 14/08/2021 
+Fecha creación:	03/08/2021. Última modificación: 05/12/2021 
 clase Repartidor. Además de los atributos del objeto Repartidor se definen constructores, getters, setters,
 y los métodos toString y equals. 
  */
 
-enum Transport {Pie, Moto, Bicicleta, CocheElectrico, CocheCombustion;}
+enum Transport {On_foot, Motorcycle, Bicycle, Electric_car, Combustion_car;}
 
 public class Repartidor extends Trabajador{
-	private String deliveyMode;   //especifica si se desplaza a pie, bicicleta, moto...
+	private Transport deliveyMode;   //especifica si se desplaza a pie, bicicleta, moto...
 	private int age;				
 	private boolean motorcycleLicense;
 	private boolean ownVehicle;		//especifica si el vehículo utilizado para el reparto es propio
 	
-	public Repartidor(String name, String surNames, String dni, double salary, String shift,
-			String telephone, String clave, String deliveyMode, int age, boolean motorcycleLicense, boolean ownVehicle) {
+	public Repartidor(String name, String surNames, String dni, double salary, Turno shift,
+			String telephone, String clave, Transport deliveyMode, int age, boolean motorcycleLicense, boolean ownVehicle) {
 		super(name, surNames, dni, salary, shift, telephone, clave);
 		this.deliveyMode = deliveyMode;
 		this.age = age;
@@ -26,13 +26,13 @@ public class Repartidor extends Trabajador{
 
 	public Repartidor() {
 		super();
-		deliveyMode = "";
+		deliveyMode = null;
 		age = 0;
 		motorcycleLicense = false;
 		ownVehicle = false;
 	}
 
-	public String getDeliveyMode() {
+	public Transport getDeliveyMode() {
 		return deliveyMode;
 	}
 
@@ -48,7 +48,7 @@ public class Repartidor extends Trabajador{
 		return ownVehicle;
 	}
 
-	public void setDeliveyMode(String deliveyMode) {
+	public void setDeliveyMode(Transport deliveyMode) {
 		this.deliveyMode = deliveyMode;
 	}
 

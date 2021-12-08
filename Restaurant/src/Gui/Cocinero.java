@@ -1,61 +1,63 @@
 package Gui;
 
-/*
-Versión: 1.2.0
-Fecha creación:	03/08/2021. Última modificación: 14/08/2021 
-clase Cocineto. Además de los atributos del objeto Cocinero se definen constructores, getters, setters,
-y los métodos toString y equals. 
+enum kitchenCategory{CHEF, ASSISTANT};
+
+/**
+ * Versión: 1.2.0
+ * Fecha creación:	03/08/2021. Última modificación: 05/12/2021
+ * clase Cocineto. Además de los atributos del objeto Cocinero se definen constructores, getters, setters,
+ * y los métodos toString y equals.
+ * @author Operador
+ *
  */
-
-import java.util.Objects;
-
 public class Cocinero extends Trabajador{		
-	private String specialty;		// guarda la especialidad del cocinero; respostería, platos tradicionales, platos vanguardia 
+	private String speciality;		// guarda la especialidad del cocinero; respostería, platos tradicionales, platos vanguardia 
 	private int workExperience;		// guarda los años de experiencia
-	private boolean chef;			// indica si tiene el grado de chef o de pinche de cocina
+	private kitchenCategory category;	// specifies the category of a worker in the kitchen
 	
-	public Cocinero(String name, String surNames, String dni, double salary, String shift,
-			String telephone, String clave, String specialty, int workExperience, boolean chef) {
+	public Cocinero(String name, String surNames, String dni, double salary, Turno shift,
+			String telephone, String clave, String specialty, int workExperience, kitchenCategory category) {
 		super(name, surNames, dni, salary, shift, telephone, clave);
-		this.specialty = specialty;
+		this.speciality = specialty;
 		this.workExperience = workExperience;
-		this.chef = chef;
+		this.category = category;
 	}
 
 	public Cocinero() {
 		super();
-		specialty = "";
+		speciality = "";
 		workExperience = 0;
-		chef = false;
+		category = null;
 	}
 
-	public String getSpecialty() {
-		return specialty;
+	public String getSpeciality() {
+		return speciality;
 	}
 
 	public int getWorkExperience() {
 		return workExperience;
 	}
 
-	public boolean isChef() {
-		return chef;
-	}
-
-	public void setSpecialty(String specialty) {
-		this.specialty = specialty;
+	public void setSpeciality(String specialty) {
+		this.speciality = specialty;
 	}
 
 	public void setWorkExperience(int workExperience) {
 		this.workExperience = workExperience;
 	}
 
-	public void setChef(boolean chef) {
-		this.chef = chef;
+	
+	public kitchenCategory getCategory() {
+		return category;
+	}
+
+	public void setCategory(kitchenCategory category) {
+		this.category = category;
 	}
 
 	@Override
 	public String toString() {
-		return "Cocinero: "+ super.toString() + " specialty:" + specialty + ", workExperience:" + workExperience + ", chef" + chef ;
+		return "Cocinero: "+ super.toString() + " specialty:" + speciality + ", workExperience:" + workExperience + ", chef" + category ;
 	}
 
 	public boolean equals(Cocinero obj) {		

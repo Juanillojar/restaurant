@@ -38,8 +38,6 @@ public class Pedido {
 		this.orderPrice = orderPrice;
 		this.orderPriceWithoutTaxes = 0.0d;
 		this.trabajador = trabajador;
-//		this.waiter = waiter;
-//		this.deliveryMan = deliveryMan;
 		this.destination = destino;
 		this.pedidoCobrado = false;
 	}
