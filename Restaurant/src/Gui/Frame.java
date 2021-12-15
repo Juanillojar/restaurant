@@ -30,10 +30,12 @@ public class Frame extends JFrame {
 	Panel panelProductsReport;
 	Panel panelOrderReport;
 	Panel panelWorkersReport;
+	Panel panelConfig;
+	
 	Trabajador trabajadorValidado  = new Trabajador(); //especifica el trabajador que está validado con su clave
 	public static String path="src/Gui/restaurant.log";
 	public static FicheroLog log = new FicheroLog(path);
-	BdConnection conex = new BdConnection();
+	//BdConnection conex = new BdConnection();
 	
 	Font fuenteTitulo = new Font("arial",Font.BOLD,20);
 	
@@ -194,6 +196,14 @@ public class Frame extends JFrame {
 
 	public void setPanelReportsData(Panel panelReportsData) {
 		this.panelReportsData = panelReportsData;
+	}
+
+	public Panel getPanelConfig() {
+		return panelConfig;
+	}
+
+	public void setPanelConfig(Panel panelConfig) {
+		this.panelConfig = panelConfig;
 	}
 
 }

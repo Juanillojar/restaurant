@@ -15,14 +15,96 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.crypto.spec.SecretKeySpec;
+import javax.swing.JOptionPane;
+
+import com.mysql.cj.xdevapi.CreateIndexParams;
+
 import static Gui.DataEncryption.*;
 
 public class Test {
 	static SecretKeySpec key;
-	public static BdConnection conex = new BdConnection();
+	public static BdConnection conex;
+	public static String[] arrayConfig;
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		//Se crean los productos (objetos Comida), se crea la comidaPizzeria y se rellena 
+		arrayConfig = new String[10];
+		//Carga datos de configuración
+		XmlDoc myXmlDoc = new XmlDoc("config.xml", "src/Gui/");
+		arrayConfig = myXmlDoc.load();
+		//conexión a base de datos
+		conex = new BdConnection(arrayConfig);
+		
+		if(conex.isConnectedBdMotorButBbNoExist()) {
+			int respuesta = JOptionPane.showConfirmDialog(null, "Database not found. Create database?", "Database not found", JOptionPane.YES_NO_CANCEL_OPTION);
+			if (respuesta == 0) {
+				//create database and tables
+				conex.createDatabase(arrayConfig);
+				conex.createTables(arrayConfig);
+			}			
+		}
+		
+		List<Productos> productsRestaurant = new ArrayList<Productos>();
+		createProducts(productsRestaurant);
+		List<Trabajador> workers= new ArrayList<Trabajador>();
+		createWorkers(workers);
+
+		//Creación de un objeto pizzeria asociándole todos los datos creados antes
+		Restaurant myRestaurant= new Restaurant("Pizzeria Bartolini", "c/Levantina 2 Bajo C.P:04240 Viator(Almeria)", workers, productsRestaurant,null);
+		//Se asigna el número de puestos en barra, mesas en interior, en exterior y repartos extraidas del archivo de configuración
+		myRestaurant.setBarZones(Integer.parseInt(arrayConfig[6]));
+		myRestaurant.setInTables(Integer.parseInt(arrayConfig[7]));
+		myRestaurant.setOutTables(Integer.parseInt(arrayConfig[8]));
+		myRestaurant.setDeliveryZones(Integer.parseInt(arrayConfig[9]));
+		
+		//Creación de la lista de comidas para pedido1 y el objeto pedido1 y la lista de objetos pedido.
+		//List<Productos> comidaPedido1 = new ArrayList<Productos>();
+		//comidaPedido1.add(0, plato3); //0 es la posición en la lista y 1 el id de la "Comida"
+		//comidaPedido1.add(1, plato5); //1 es la posición en la lista y 2 el id de la "Comida"
+
+		//Pedido pedido1 = new Pedido(comidaPedido1, 32, camarero1, destinoPedido1);
+		
+		//Creación de la lista de pedidos e inserción del pedido1
+		List<Pedido> pedidosPizzeria= new ArrayList<Pedido>();
+		//pizzeria.setOrders(pedidosPizzeria);
+		//pedidosPizzeria.add(0, pedido1);
+	
+		if (conex.isConnectedBdMotorButBbNoExist() == true) {
+		 // Sólo usado una vez para insertar el contenido de la lista en la base de datos	
+		 //	try {
+				conex.insertarEnTablaProductosBD("productos", productsRestaurant);
+		//	} catch (Exception e1) {
+			// TODO Auto-generated catch block
+		//		e1.printStackTrace();
+		//	} 	 
+		 
+		//insert worker list in database
+		conex.insertWorkersBD(workers);
+		//insertar los destinos en la base de datos
+		conex.createDestinationsBD(myRestaurant);
+		//Carga datos de base de datos
+		conex.chargeBDData();
+		//conex.insertOrderTableBD(pedido1);
+			
+		}
+				
+	
+		System.out.println("\n***************Listado de comida en pizzeria********************");
+		System.out.println(productsRestaurant);
+		System.out.println("\n***************Listado de trabajadores en pizzeria**************");
+		myRestaurant.setOrders(pedidosPizzeria);
+		//pizzeria.VisualizarListaTrabajadores(trabajadoresPizzeria);
+		
+	
+		//Se lanza frame
+		Frame miFrame = new Frame(myRestaurant);
+
+		//Generación de listado de pedidos
+		System.out.println("\n*************** Listado de pedidos en pizzeria *****************");
+		System.out.println(myRestaurant.getOrders().toString());	
+	}
+	
+	public static void createProducts(List<Productos> lista){
+	//Se crean los productos (objetos Comida), se crea la lista y se rellena 
 		Productos plato1 = new Productos("Patatas Fritas",Section.STARTERS,"Patata, aceite, sal", 3.00, false);
 		Productos plato2 = new Productos("Pollo milanesa",Section.STARTERS,"Pollo, tomate, cebolla, pan rallado, Huevo, pimienta",10.50,false);
 		Productos plato3 = new Productos("Aros de cebolla",Section.STARTERS,"Cebolla, aceite, pan rallado",5.50,false);
@@ -50,46 +132,37 @@ public class Test {
 		Productos plato25 = new Productos("Agua grande",Section.DRINKS,"Agua",2.5,false);
 		Productos plato26 = new Productos("Agua pequeña",Section.DRINKS,"Agua",1.5,false);
 		
-		List<Productos> comidaPizzeria = new ArrayList<Productos>();
-		comidaPizzeria.add(plato1);
-		comidaPizzeria.add(plato2);
-		comidaPizzeria.add(plato3);
-		comidaPizzeria.add(plato4);
-		comidaPizzeria.add(plato5);
-		comidaPizzeria.add(plato6);
-		comidaPizzeria.add(plato7);
-		comidaPizzeria.add(plato8);
-		comidaPizzeria.add(plato9);
-		comidaPizzeria.add(plato10);
-		comidaPizzeria.add(plato11);
-		comidaPizzeria.add(plato12);
-		comidaPizzeria.add(plato13);
-		comidaPizzeria.add(plato14);
-		comidaPizzeria.add(plato15);
-		comidaPizzeria.add(plato16);
-		comidaPizzeria.add(plato17);
-		comidaPizzeria.add(plato18);
-		comidaPizzeria.add(plato19);
-		comidaPizzeria.add(plato20);
-		comidaPizzeria.add(plato21);
-		comidaPizzeria.add(plato22);
-		comidaPizzeria.add(plato23);
-		comidaPizzeria.add(plato24);
-		comidaPizzeria.add(plato25);
-		comidaPizzeria.add(plato26);
-		/**
-		 * Sólo usado una vez para insertar el contenido de la lista en la base de datos	
-		 *	try {
-			conex.insertarEnTablaProductosBD("productos", comidaPizzeria);
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} 
- 
-		 */
-		 
-	
 		
+		lista.add(plato1);
+		lista.add(plato2);
+		lista.add(plato3);
+		lista.add(plato4);
+		lista.add(plato5);
+		lista.add(plato6);
+		lista.add(plato7);
+		lista.add(plato8);
+		lista.add(plato9);
+		lista.add(plato10);
+		lista.add(plato11);
+		lista.add(plato12);
+		lista.add(plato13);
+		lista.add(plato14);
+		lista.add(plato15);
+		lista.add(plato16);
+		lista.add(plato17);
+		lista.add(plato18);
+		lista.add(plato19);
+		lista.add(plato20);
+		lista.add(plato21);
+		lista.add(plato22);
+		lista.add(plato23);
+		lista.add(plato24);
+		lista.add(plato25);
+		lista.add(plato26);
+	}
+	
+	
+	public static void createWorkers(List<Trabajador> workers) {
 		//Generación de claves encriptadas para los usuarios
 		byte[] salt = new String("Juanillo").getBytes();  //es como una llave para la encriptación.Clave pública?
 		int iteractionCount=40000;						  //iteraciones del algoritmo de emcriptación	
@@ -141,53 +214,15 @@ public class Test {
 		Repartidor repartidor2 = new Repartidor("Manu", "González Gazquez","45826573J", 900.00,Turno.NOCHE,"631657157", passwordEncriptadaRepartidor2, Transport.Bicycle, 18, false, false);
 
 		//Creación de lista de Trabajadores y se añaden los cocineros, camareros y repartidores
-		List<Trabajador> trabajadoresPizzeria= new ArrayList<Trabajador>();
-		trabajadoresPizzeria.add(0, cocinero1);
-		trabajadoresPizzeria.add(1, cocinero2);
-		trabajadoresPizzeria.add(2, camarero1);
-		trabajadoresPizzeria.add(3, camarero2);
-		trabajadoresPizzeria.add(4, repartidor1);
-		trabajadoresPizzeria.add(5, repartidor2);
-		conex.insertWorkersBD(trabajadoresPizzeria);
-		//Creación de la lista de comidas para pedido1 y el objeto pedido1 y la lista de objetos pedido.
-		List<Productos> comidaPedido1 = new ArrayList<Productos>();
-		comidaPedido1.add(0, plato3); //0 es la posición en la lista y 1 el id de la "Comida"
-		comidaPedido1.add(1, plato5); //1 es la posición en la lista y 2 el id de la "Comida"
-		//Creación de un objeto pizzeria asociándole todos los datos creados antes
-		Restaurant pizzeria = new Restaurant("Pizzeria Bartolini", "c/Levantina 2 Bajo C.P:04240 Viator(Almeria)", trabajadoresPizzeria, comidaPizzeria,null);
-		//Se asigna el número de puestos en barra, mesas en interior, en exterior y repartos
-		pizzeria.setBarZones(4);
-		pizzeria.setInTables(3);
-		pizzeria.setOutTables(2);
-		pizzeria.setDeliveryZones(2);
-		//insertar los destinos en la base de datos
-		//conex.insertDestinationBD(pizzeria);
-		//Pedido pedido1 = new Pedido(comidaPedido1, 32, camarero1, destinoPedido1);
-		//conex.insertOrderTableBD(pedido1);
-		//Creación de la lista de pedidos e inserción del pedido1
-		List<Pedido> pedidosPizzeria= new ArrayList<Pedido>();
-		pizzeria.setOrders(pedidosPizzeria);
-		//pedidosPizzeria.add(0, pedido1);
 
-		System.out.println("\n***************Listado de comida en pizzeria********************");
-		System.out.println(comidaPizzeria);
-		System.out.println("\n***************Listado de trabajadores en pizzeria**************");
-		//pizzeria.setOrders(pedidosPizzeria);
-		//pizzeria.VisualizarListaTrabajadores(trabajadoresPizzeria);
-		
-		//Carga datos de base de datos
-			conex.chargeBDData();
-	
-		//Se lanza frame
-		Frame miFrame = new Frame(pizzeria);
-
-		//Generación de listado de pedidos
-		System.out.println("\n*************** Listado de pedidos en pizzeria *****************");
-		System.out.println(pizzeria.getOrders().toString());	
-		
-		
+		workers.add(0, cocinero1);
+		workers.add(1, cocinero2);
+		workers.add(2, camarero1);
+		workers.add(3, camarero2);
+		workers.add(4, repartidor1);
+		workers.add(5, repartidor2);
 	}
-
+	
 	public static SecretKeySpec getKey() {
 		return key;
 	}

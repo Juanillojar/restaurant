@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<database>
+		<motor>mysql</motor>
+		<name>bdRestaurantff</name>
+		<host>localhost</host>
+		<port>3306</port>
+		<user>root</user>
+		<pass></pass>
+	</database>
+	<zones>
+		<BarZones>4</BarZones>
+		<IntTables>3</IntTables>
+		<OutTables>2</OutTables>
+		<DeliveryZones>2</DeliveryZones>
+	</zones>
+</config>

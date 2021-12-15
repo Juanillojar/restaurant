@@ -54,7 +54,16 @@ public class GestorBotones implements ActionListener {
 			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelPrincipal,	Frame.InstanceFPizzerie.panelValida);
 		}
 		if (e.getActionCommand().equals("AbrirPanelConfiguracion")) {
+			if (Frame.InstanceFPizzerie.panelConfig == null) {
+				Frame.InstanceFPizzerie.panelConfig = new Panel(Test.arrayConfig);
+			}
+			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelConfig, Frame.InstanceFPizzerie.panelPrincipal);
+
 		}
+		if (e.getActionCommand().equals("SalirPanelConfig")) {
+			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelPrincipal,	Frame.InstanceFPizzerie.panelConfig);
+		}
+
 		if (e.getActionCommand().equals("AbrirPanelReports")) {
 			// create report panel if not exist
 			if (Frame.InstanceFPizzerie.panelReport == null) {

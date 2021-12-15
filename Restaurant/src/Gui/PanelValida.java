@@ -47,7 +47,7 @@ public class PanelValida extends JPanel {
 		gbc_MiConstraint.gridx = 1;
 		gbc_MiConstraint.gridy = 1;
 		gbc_MiConstraint.gridwidth = 1;
-		gbc_MiConstraint.fill = GridBagConstraints.NONE;
+		gbc_MiConstraint.fill = GridBagConstraints.NONE; //rellena la celda con el componente
 		//gbc_MiConstraint.anchor = GridBagConstraints.EAST;
 		gbc_MiConstraint.insets = new Insets(0, 5, 5, 5);
 		add(lblOperador, gbc_MiConstraint);

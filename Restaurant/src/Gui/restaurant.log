@@ -2699,3 +2699,766 @@
  8/12/21 12:09Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b0d79fc
  8/12/21 12:09Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@428640fa
  8/12/21 12:09Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2d710f1a
+ 11/12/21 11:20Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@ec756bd
+ 11/12/21 11:20Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@5876a9af
+ 11/12/21 11:20Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@6572421
+ 11/12/21 11:20Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@1356d4d4
+ 11/12/21 11:21Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@3c72f59f
+ 11/12/21 11:21Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@7b9a4292
+ 11/12/21 11:21Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@6379eb
+ 11/12/21 11:21Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@dd0c991
+ 11/12/21 11:26Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3571b748
+ 11/12/21 11:26Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4a668b6e
+ 11/12/21 11:26Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@78ffe6dc
+ 11/12/21 11:26Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@76f2bbc1
+ 11/12/21 11:26Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6f27a732
+ 11/12/21 11:26Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@f381794
+ 11/12/21 11:26Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7e9131d5
+ 11/12/21 11:26Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@61d6015a
+ 11/12/21 11:26Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@524d6d96
+ 11/12/21 11:26Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@44a7bfbc
+ 11/12/21 11:26Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@776b83cc
+ 11/12/21 11:26Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4e268090
+ 11/12/21 11:32Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@fa36558
+ 11/12/21 11:32Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6497b078
+ 11/12/21 11:32Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@53aad5d5
+ 11/12/21 11:32Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1fb700ee
+ 11/12/21 11:32Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4a668b6e
+ 11/12/21 11:32Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@78ffe6dc
+ 11/12/21 11:32Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@76f2bbc1
+ 11/12/21 11:32Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6f27a732
+ 11/12/21 11:32Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@f381794
+ 11/12/21 11:32Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7e9131d5
+ 11/12/21 11:32Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@61d6015a
+ 11/12/21 11:32Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@524d6d96
+ 11/12/21 11:44Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@a1cdc6d
+ 11/12/21 11:44Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@236e3f4e
+ 11/12/21 11:44Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6bf0219d
+ 11/12/21 11:44Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@5f16132a
+ 11/12/21 11:44Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@36d585c
+ 11/12/21 11:44Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@671a5887
+ 11/12/21 11:44Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3c947bc5
+ 11/12/21 11:44Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@55f616cf
+ 11/12/21 11:44Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@c03cf28
+ 11/12/21 11:44Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6497b078
+ 11/12/21 11:44Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@53aad5d5
+ 11/12/21 11:44Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1fb700ee
+ 11/12/21 11:46Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@a1cdc6d
+ 11/12/21 11:46Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@236e3f4e
+ 11/12/21 11:46Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6bf0219d
+ 11/12/21 11:46Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@5f16132a
+ 11/12/21 11:46Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@36d585c
+ 11/12/21 11:46Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@671a5887
+ 11/12/21 11:46Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3c947bc5
+ 11/12/21 11:46Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@55f616cf
+ 11/12/21 11:46Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@c03cf28
+ 11/12/21 11:46Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6497b078
+ 11/12/21 11:46Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@53aad5d5
+ 11/12/21 11:46Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1fb700ee
+ 11/12/21 11:57Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@fa36558
+ 11/12/21 11:57Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6497b078
+ 11/12/21 11:57Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@53aad5d5
+ 11/12/21 11:57Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1fb700ee
+ 11/12/21 11:57Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4a668b6e
+ 11/12/21 11:57Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@78ffe6dc
+ 11/12/21 11:57Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@76f2bbc1
+ 11/12/21 11:57Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6f27a732
+ 11/12/21 11:57Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@f381794
+ 11/12/21 11:57Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7e9131d5
+ 11/12/21 11:57Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@61d6015a
+ 11/12/21 11:57Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@524d6d96
+ 11/12/21 22:27Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3ee37e5a
+ 11/12/21 22:27Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b0d79fc
+ 11/12/21 22:27Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@428640fa
+ 11/12/21 22:27Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2d710f1a
+ 11/12/21 22:27Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@59505b48
+ 11/12/21 22:27Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6bd61f98
+ 11/12/21 22:27Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@13fd2ccd
+ 11/12/21 22:27Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@506ae4d4
+ 11/12/21 22:27Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@72e5a8e
+ 11/12/21 22:27Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@53aac487
+ 11/12/21 22:27Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@273e7444
+ 11/12/21 22:27Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@783a467b
+ 12/12/21 9:05Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@43dac38f
+ 12/12/21 9:05Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@659499f1
+ 12/12/21 9:05Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@47e2e487
+ 12/12/21 9:05Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@61001b64
+ 12/12/21 9:05Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54a7079e
+ 12/12/21 9:05Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@47d9a273
+ 12/12/21 9:05Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@27f981c6
+ 12/12/21 9:05Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1151e434
+ 12/12/21 9:05Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4659191b
+ 12/12/21 9:05Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b0d79fc
+ 12/12/21 9:05Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@428640fa
+ 12/12/21 9:05Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2d710f1a
+ 12/12/21 9:15Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@5b03b9fe
+ 12/12/21 9:15Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1b11171f
+ 12/12/21 9:15Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2dc54ad4
+ 12/12/21 9:15Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@55634720
+ 12/12/21 9:15Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4c1909a3
+ 12/12/21 9:15Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@d9345cd
+ 12/12/21 9:15Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@29215f06
+ 12/12/21 9:15Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4efac082
+ 12/12/21 9:15Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@48aca48b
+ 12/12/21 9:15Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@b9b00e0
+ 12/12/21 9:15Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7d4f9aae
+ 12/12/21 9:15Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54e1c68b
+ 12/12/21 9:22Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@43dac38f
+ 12/12/21 9:22Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@659499f1
+ 12/12/21 9:22Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@47e2e487
+ 12/12/21 9:22Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@61001b64
+ 12/12/21 9:22Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54a7079e
+ 12/12/21 9:22Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@47d9a273
+ 12/12/21 9:22Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@27f981c6
+ 12/12/21 9:22Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1151e434
+ 12/12/21 9:22Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4659191b
+ 12/12/21 9:22Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b0d79fc
+ 12/12/21 9:22Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@428640fa
+ 12/12/21 9:22Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2d710f1a
+ 12/12/21 9:48Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6404f418
+ 12/12/21 9:48Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@b9b00e0
+ 12/12/21 9:48Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7d4f9aae
+ 12/12/21 9:48Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54e1c68b
+ 12/12/21 9:48Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@52b1beb6
+ 12/12/21 9:48Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7db12bb6
+ 12/12/21 9:48Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@272113c4
+ 12/12/21 9:48Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@771a660
+ 12/12/21 9:48Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@242b836
+ 12/12/21 9:48Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3527942a
+ 12/12/21 9:48Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1ed6388a
+ 12/12/21 9:48Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@534a5a98
+ 12/12/21 10:05Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54bff557
+ 12/12/21 10:05Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54a7079e
+ 12/12/21 10:05Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@47d9a273
+ 12/12/21 10:05Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@27f981c6
+ 12/12/21 10:05Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1151e434
+ 12/12/21 10:05Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4659191b
+ 12/12/21 10:05Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b0d79fc
+ 12/12/21 10:05Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@428640fa
+ 12/12/21 10:05Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2d710f1a
+ 12/12/21 10:05Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@59505b48
+ 12/12/21 10:05Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6bd61f98
+ 12/12/21 10:05Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@13fd2ccd
+ 12/12/21 10:13Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@5b03b9fe
+ 12/12/21 10:13Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1b11171f
+ 12/12/21 10:13Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2dc54ad4
+ 12/12/21 10:13Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@55634720
+ 12/12/21 10:13Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4c1909a3
+ 12/12/21 10:13Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@d9345cd
+ 12/12/21 10:13Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@29215f06
+ 12/12/21 10:13Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4efac082
+ 12/12/21 10:13Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@48aca48b
+ 12/12/21 10:13Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@b9b00e0
+ 12/12/21 10:13Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7d4f9aae
+ 12/12/21 10:13Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54e1c68b
+ 12/12/21 10:15Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@43dac38f
+ 12/12/21 10:15Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@659499f1
+ 12/12/21 10:15Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@47e2e487
+ 12/12/21 10:15Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@61001b64
+ 12/12/21 10:15Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54a7079e
+ 12/12/21 10:15Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@47d9a273
+ 12/12/21 10:15Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@27f981c6
+ 12/12/21 10:15Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1151e434
+ 12/12/21 10:15Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4659191b
+ 12/12/21 10:15Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b0d79fc
+ 12/12/21 10:15Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@428640fa
+ 12/12/21 10:15Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2d710f1a
+ 12/12/21 10:37Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@f0da945
+ 12/12/21 10:37Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@59505b48
+ 12/12/21 10:37Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6bd61f98
+ 12/12/21 10:37Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@13fd2ccd
+ 12/12/21 10:37Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@506ae4d4
+ 12/12/21 10:37Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@72e5a8e
+ 12/12/21 10:37Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@53aac487
+ 12/12/21 10:37Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@273e7444
+ 12/12/21 10:37Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@783a467b
+ 12/12/21 10:37Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@73e9cf30
+ 12/12/21 10:37Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2d52216b
+ 12/12/21 10:37Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3f6f6701
+ 12/12/21 10:48Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6404f418
+ 12/12/21 10:48Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@b9b00e0
+ 12/12/21 10:48Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7d4f9aae
+ 12/12/21 10:48Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54e1c68b
+ 12/12/21 10:48Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@52b1beb6
+ 12/12/21 10:48Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7db12bb6
+ 12/12/21 10:48Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@272113c4
+ 12/12/21 10:48Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@771a660
+ 12/12/21 10:48Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@242b836
+ 12/12/21 10:48Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3527942a
+ 12/12/21 10:48Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1ed6388a
+ 12/12/21 10:48Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@534a5a98
+ 12/12/21 10:56Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6404f418
+ 12/12/21 10:56Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@b9b00e0
+ 12/12/21 10:56Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7d4f9aae
+ 12/12/21 10:56Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54e1c68b
+ 12/12/21 10:56Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@52b1beb6
+ 12/12/21 10:56Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7db12bb6
+ 12/12/21 10:56Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@272113c4
+ 12/12/21 10:56Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@771a660
+ 12/12/21 10:56Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@242b836
+ 12/12/21 10:56Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3527942a
+ 12/12/21 10:56Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1ed6388a
+ 12/12/21 10:56Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@534a5a98
+ 12/12/21 12:00Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3ee37e5a
+ 12/12/21 12:00Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b0d79fc
+ 12/12/21 12:00Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@428640fa
+ 12/12/21 12:00Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2d710f1a
+ 12/12/21 12:00Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@59505b48
+ 12/12/21 12:00Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6bd61f98
+ 12/12/21 12:00Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@13fd2ccd
+ 12/12/21 12:00Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@506ae4d4
+ 12/12/21 12:00Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@72e5a8e
+ 12/12/21 12:00Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@53aac487
+ 12/12/21 12:00Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@273e7444
+ 12/12/21 12:00Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@783a467b
+ 12/12/21 12:20Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1de76cc7
+ 12/12/21 12:20Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4310d43
+ 12/12/21 12:20Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@26e356f0
+ 12/12/21 12:20Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b8ee4de
+ 12/12/21 12:20Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1b11171f
+ 12/12/21 12:20Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2dc54ad4
+ 12/12/21 12:20Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@55634720
+ 12/12/21 12:20Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4c1909a3
+ 12/12/21 12:20Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@d9345cd
+ 12/12/21 12:20Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@29215f06
+ 12/12/21 12:20Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4efac082
+ 12/12/21 12:20Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@48aca48b
+ 12/12/21 12:30Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4803b726
+ 12/12/21 12:30Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4efac082
+ 12/12/21 12:30Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@48aca48b
+ 12/12/21 12:30Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@b9b00e0
+ 12/12/21 12:30Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7d4f9aae
+ 12/12/21 12:30Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54e1c68b
+ 12/12/21 12:30Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@52b1beb6
+ 12/12/21 12:30Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7db12bb6
+ 12/12/21 12:30Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@272113c4
+ 12/12/21 12:30Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@771a660
+ 12/12/21 12:30Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@242b836
+ 12/12/21 12:30Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3527942a
+ 12/12/21 12:47Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6404f418
+ 12/12/21 12:47Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@b9b00e0
+ 12/12/21 12:47Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7d4f9aae
+ 12/12/21 12:47Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54e1c68b
+ 12/12/21 12:47Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@52b1beb6
+ 12/12/21 12:47Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7db12bb6
+ 12/12/21 12:47Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@272113c4
+ 12/12/21 12:47Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@771a660
+ 12/12/21 12:47Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@242b836
+ 12/12/21 12:47Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3527942a
+ 12/12/21 12:47Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1ed6388a
+ 12/12/21 12:47Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@534a5a98
+ 12/12/21 12:53Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1de76cc7
+ 12/12/21 12:53Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4310d43
+ 12/12/21 12:53Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@26e356f0
+ 12/12/21 12:53Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b8ee4de
+ 12/12/21 12:53Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1b11171f
+ 12/12/21 12:53Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2dc54ad4
+ 12/12/21 12:53Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@55634720
+ 12/12/21 12:53Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4c1909a3
+ 12/12/21 12:53Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@d9345cd
+ 12/12/21 12:53Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@29215f06
+ 12/12/21 12:53Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4efac082
+ 12/12/21 12:53Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@48aca48b
+ 12/12/21 13:05Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6404f418
+ 12/12/21 13:05Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@b9b00e0
+ 12/12/21 13:05Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7d4f9aae
+ 12/12/21 13:05Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54e1c68b
+ 12/12/21 13:05Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@52b1beb6
+ 12/12/21 13:05Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7db12bb6
+ 12/12/21 13:05Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@272113c4
+ 12/12/21 13:05Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@771a660
+ 12/12/21 13:05Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@242b836
+ 12/12/21 13:05Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3527942a
+ 12/12/21 13:05Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1ed6388a
+ 12/12/21 13:05Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@534a5a98
+ 12/12/21 13:06Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@5a56cdac
+ 12/12/21 13:06Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@47d9a273
+ 12/12/21 13:06Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@27f981c6
+ 12/12/21 13:06Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1151e434
+ 12/12/21 13:06Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4659191b
+ 12/12/21 13:06Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b0d79fc
+ 12/12/21 13:06Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@428640fa
+ 12/12/21 13:06Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2d710f1a
+ 12/12/21 13:06Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@59505b48
+ 12/12/21 13:06Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6bd61f98
+ 12/12/21 13:06Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@13fd2ccd
+ 12/12/21 13:06Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@506ae4d4
+ 12/12/21 13:07Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1de76cc7
+ 12/12/21 13:09Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1de76cc7
+ 12/12/21 13:09Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4310d43
+ 12/12/21 13:09Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@26e356f0
+ 12/12/21 13:09Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b8ee4de
+ 12/12/21 13:09Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1b11171f
+ 12/12/21 13:09Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2dc54ad4
+ 12/12/21 13:09Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@55634720
+ 12/12/21 13:09Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4c1909a3
+ 12/12/21 13:09Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@d9345cd
+ 12/12/21 13:09Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@29215f06
+ 12/12/21 13:09Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4efac082
+ 12/12/21 13:09Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@48aca48b
+ 12/12/21 13:13Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@5a56cdac
+ 12/12/21 13:13Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@47d9a273
+ 12/12/21 13:13Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@27f981c6
+ 12/12/21 13:13Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1151e434
+ 12/12/21 13:13Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4659191b
+ 12/12/21 13:13Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b0d79fc
+ 12/12/21 13:13Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@428640fa
+ 12/12/21 13:13Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2d710f1a
+ 12/12/21 13:13Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@59505b48
+ 12/12/21 13:13Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6bd61f98
+ 12/12/21 13:13Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@13fd2ccd
+ 12/12/21 13:13Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@506ae4d4
+ 12/12/21 13:15Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3ee37e5a
+ 12/12/21 13:15Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b0d79fc
+ 12/12/21 13:15Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@428640fa
+ 12/12/21 13:15Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2d710f1a
+ 12/12/21 13:15Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@59505b48
+ 12/12/21 13:15Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6bd61f98
+ 12/12/21 13:15Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@13fd2ccd
+ 12/12/21 13:15Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@506ae4d4
+ 12/12/21 13:15Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@72e5a8e
+ 12/12/21 13:15Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@53aac487
+ 12/12/21 13:15Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@273e7444
+ 12/12/21 13:15Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@783a467b
+ 12/12/21 13:18Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@f0da945
+ 12/12/21 13:18Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@59505b48
+ 12/12/21 13:18Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6bd61f98
+ 12/12/21 13:18Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@13fd2ccd
+ 12/12/21 13:18Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@506ae4d4
+ 12/12/21 13:18Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@72e5a8e
+ 12/12/21 13:18Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@53aac487
+ 12/12/21 13:18Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@273e7444
+ 12/12/21 13:18Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@783a467b
+ 12/12/21 13:18Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@73e9cf30
+ 12/12/21 13:18Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2d52216b
+ 12/12/21 13:18Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3f6f6701
+ 12/12/21 13:21Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@43dac38f
+ 12/12/21 13:21Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@659499f1
+ 12/12/21 13:21Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@47e2e487
+ 12/12/21 13:21Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@61001b64
+ 12/12/21 13:21Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54a7079e
+ 12/12/21 13:21Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@47d9a273
+ 12/12/21 13:21Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@27f981c6
+ 12/12/21 13:21Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1151e434
+ 12/12/21 13:21Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4659191b
+ 12/12/21 13:21Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b0d79fc
+ 12/12/21 13:21Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@428640fa
+ 12/12/21 13:21Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2d710f1a
+ 12/12/21 13:22Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@5b03b9fe
+ 12/12/21 13:22Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1b11171f
+ 12/12/21 13:22Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2dc54ad4
+ 12/12/21 13:22Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@55634720
+ 12/12/21 13:22Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4c1909a3
+ 12/12/21 13:22Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@d9345cd
+ 12/12/21 13:22Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@29215f06
+ 12/12/21 13:22Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4efac082
+ 12/12/21 13:22Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@48aca48b
+ 12/12/21 13:22Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@b9b00e0
+ 12/12/21 13:22Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7d4f9aae
+ 12/12/21 13:22Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54e1c68b
+ 12/12/21 13:31Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2805d709
+ 12/12/21 13:31Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@55634720
+ 12/12/21 13:31Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4c1909a3
+ 12/12/21 13:31Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@d9345cd
+ 12/12/21 13:31Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@29215f06
+ 12/12/21 13:31Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4efac082
+ 12/12/21 13:31Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@48aca48b
+ 12/12/21 13:31Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@b9b00e0
+ 12/12/21 13:31Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7d4f9aae
+ 12/12/21 13:31Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54e1c68b
+ 12/12/21 13:31Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@52b1beb6
+ 12/12/21 13:31Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7db12bb6
+ 12/12/21 13:31Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4803b726
+ 12/12/21 13:31Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4efac082
+ 12/12/21 13:31Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@48aca48b
+ 12/12/21 13:31Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@b9b00e0
+ 12/12/21 13:31Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7d4f9aae
+ 12/12/21 13:31Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54e1c68b
+ 12/12/21 13:31Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@52b1beb6
+ 12/12/21 13:31Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7db12bb6
+ 12/12/21 13:31Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@272113c4
+ 12/12/21 13:31Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@771a660
+ 12/12/21 13:31Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@242b836
+ 12/12/21 13:31Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3527942a
+ 12/12/21 15:53Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3c7f66c4
+ 12/12/21 15:53Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@d9345cd
+ 12/12/21 15:53Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@29215f06
+ 12/12/21 15:53Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4efac082
+ 12/12/21 15:53Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@48aca48b
+ 12/12/21 15:53Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@b9b00e0
+ 12/12/21 15:53Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7d4f9aae
+ 12/12/21 15:53Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@54e1c68b
+ 12/12/21 15:53Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@52b1beb6
+ 12/12/21 15:53Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7db12bb6
+ 12/12/21 15:53Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@272113c4
+ 12/12/21 15:53Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@771a660
+ 12/12/21 20:04Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@62379589
+ 12/12/21 20:04Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@6a2f6f80
+ 12/12/21 20:04Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@291caca8
+ 12/12/21 20:04Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@27462a88
+ 12/12/21 20:20Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@62379589
+ 12/12/21 20:20Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@5aebe890
+ 12/12/21 20:20Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@75db5df9
+ 12/12/21 20:20Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@12aba8be
+ 12/12/21 22:58Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@62379589
+ 12/12/21 22:58Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@7530ad9c
+ 12/12/21 22:58Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@394df057
+ 12/12/21 22:58Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@7bab3f1a
+ 12/12/21 23:12Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@62379589
+ 12/12/21 23:12Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@75db5df9
+ 12/12/21 23:12Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@6a2f6f80
+ 12/12/21 23:12Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@6253c26
+ 13/12/21 9:43Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@17046283
+ 13/12/21 9:43Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@62379589
+ 13/12/21 9:43Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@5bf0d49
+ 13/12/21 9:46Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@17046283
+ 13/12/21 9:46Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@776aec5c
+ 13/12/21 9:46Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@75d4a5c2
+ 13/12/21 9:47Se crea panel mesas
+ 13/12/21 9:47Cantidad entregada pierde foco
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Nuevo boton producto
+ 13/12/21 9:47Añade producto al pedido.
+ 13/12/21 9:47Rellenado pedido Pedido 1 date:13/12/21 9:47 [ 6	Macarrones boloñesa, section:PASTAS, ingredients:Pasta, Tomate, Cebolla, champiñones, prize:7.5 €, lowPrice:false
+] orderPrice:8,25 € Vanesa valorDescuento: 0.0 € 
+
+ 13/12/21 9:47Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@3bed658e
+ 13/12/21 9:47Insercion tabla pedidoCannot invoke "java.sql.Connection.prepareStatement(String)" because "this.myConnection" is null[Ljava.lang.StackTraceElement;@3ab8072c
+ 13/12/21 9:47Select Cannot invoke "java.sql.Connection.createStatement()" because "this.myConnection" is null[Ljava.lang.StackTraceElement;@18bd88e6
+ 13/12/21 9:47Llama panel informe productosCannot invoke "java.sql.ResultSet.getMetaData()" because "rst" is null[Ljava.lang.StackTraceElement;@524f4e85
+ 13/12/21 9:50Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@7d8704ef
+ 13/12/21 9:52Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@55b53d44
+ 13/12/21 9:52Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@6a6afff2
+ 13/12/21 9:53Se crea panel mesas
+ 13/12/21 9:53Cantidad entregada pierde foco
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Nuevo boton producto
+ 13/12/21 9:53Añade producto al pedido.
+ 13/12/21 9:53Añade producto al pedido.
+ 13/12/21 9:54Rellenado pedido Pedido 1 date:13/12/21 9:53 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  8	Pizza Margarita, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, prize:9.8 €, lowPrice:false
+] orderPrice:20,24 € Vanesa valorDescuento: 0.0 € 
+
+ 13/12/21 9:54Rellenado pedido Pedido 1 date:13/12/21 9:53 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  8	Pizza Margarita, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, prize:9.8 €, lowPrice:false
+] orderPrice:20,24 € Vanesa valorDescuento: 0.0 € 
+
+ 13/12/21 10:11Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@7d8704ef
+ 13/12/21 10:24Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@17046283
+ 13/12/21 10:24Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@27406a17
+ 13/12/21 10:24Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@5d0bf09b
+ 13/12/21 10:27Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@17046283
+ 13/12/21 10:28Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@793f29ff
+ 13/12/21 10:28Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@543295b0
+ 14/12/21 12:11Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@732c2a62
+ 14/12/21 12:11Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@2df9b86
+ 14/12/21 12:11Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@15aab8c6
+ 14/12/21 12:11Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4de4b452
+ 14/12/21 12:11Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@101952da
+ 14/12/21 12:11Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3059cbc
+ 14/12/21 12:11Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@24fcf36f
+ 14/12/21 12:11Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3fb1549b
+ 14/12/21 12:11Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4d02f94e
+ 14/12/21 12:11Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1e683a3e
+ 14/12/21 12:11Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7a419da4
+ 14/12/21 12:11Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4bb33f74
+ 14/12/21 12:11Insert on 'destinopedido' tableDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6f46426d
+ 14/12/21 12:15Se crea panel mesas
+ 14/12/21 12:15Cantidad entregada pierde foco
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Nuevo boton producto
+ 14/12/21 12:15Añade producto al pedido.
+ 14/12/21 12:15Añade producto al pedido.
+ 14/12/21 12:15Rellenado pedido Pedido 7 date:14/12/21 12:15 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:18,92 € Vanesa valorDescuento: 0.0 € 
+
+ 14/12/21 12:15Worker insertionCommunications link failure
+
+The last packet successfully received from the server was 261.462 milliseconds ago. The last packet sent successfully to the server was 261.558 milliseconds ago.[Ljava.lang.StackTraceElement;@4bbc8769
+ 14/12/21 12:15Insercion tabla pedidoNo operations allowed after connection closed.[Ljava.lang.StackTraceElement;@410ed27e
+ 14/12/21 12:22Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@17046283
+ 14/12/21 12:23Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@27406a17
+ 14/12/21 12:23Insert on 'destinopedido' tableCannot invoke "java.sql.Connection.prepareStatement(String)" because "this.myConnection" is null[Ljava.lang.StackTraceElement;@5d0bf09b
+ 14/12/21 12:23Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@3e8c3cb
+ 14/12/21 12:56Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@17d919b6
+ 14/12/21 12:56Worker insertionDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@19b843ba
+ 14/12/21 12:56Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@77659b30
+ 14/12/21 12:56Worker insertionDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1e13529a
+ 14/12/21 12:56Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@452e19ca
+ 14/12/21 12:56Worker insertionDuplicate entry '3' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6f8e8894
+ 14/12/21 12:56Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@928763c
+ 14/12/21 12:56Worker insertionDuplicate entry '4' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@15f47664
+ 14/12/21 12:56Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@dc9876b
+ 14/12/21 12:56Worker insertionDuplicate entry '5' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@19976a65
+ 14/12/21 12:56Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@4b2c5e02
+ 14/12/21 12:56Worker insertionDuplicate entry '6' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@75c56eb9
+ 14/12/21 12:56Insert on 'destinopedido' tableDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@3b5fad2d
+ 14/12/21 13:25Unknown database 'bdrestaurantjj'[Ljava.lang.StackTraceElement;@52102734
+ 14/12/21 13:25Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@4e928fbf
+ 14/12/21 13:25Insert on 'destinopedido' tableCannot invoke "java.sql.Connection.prepareStatement(String)" because "this.myConnection" is null[Ljava.lang.StackTraceElement;@2e32ccc5
+ 14/12/21 13:25Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@3e44f2a5
+ 14/12/21 13:25Unknown database 'bdrestaurantjj'[Ljava.lang.StackTraceElement;@52102734
+ 14/12/21 13:33Unknown database 'bdrestaurantjj'[Ljava.lang.StackTraceElement;@52102734
+ 14/12/21 13:35Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@4e928fbf
+ 14/12/21 13:35Insert on 'destinopedido' tableCannot invoke "java.sql.Connection.prepareStatement(String)" because "this.myConnection" is null[Ljava.lang.StackTraceElement;@2e32ccc5
+ 14/12/21 13:35Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@3e44f2a5
+ 14/12/21 14:00Unknown database 'bdrestaurantjj'[Ljava.lang.StackTraceElement;@52102734
+ 14/12/21 14:02Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@7d8704ef
+ 14/12/21 17:12Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@3214ee6
+ 14/12/21 17:50Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@51a9ad5e
+ 14/12/21 18:00Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@11d8ae8b
+ 14/12/21 18:45Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@7a5ceedd
+ 14/12/21 18:47Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@7a5ceedd
+ 14/12/21 18:53Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.[Ljava.lang.StackTraceElement;@7a5ceedd
+ 14/12/21 19:35Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@52102734
+ 14/12/21 19:51Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@52102734
+ 14/12/21 19:53Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@52102734
+ 14/12/21 20:17Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@52102734
+ 14/12/21 22:14Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@702b8b12
+ 14/12/21 22:33Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@702b8b12
+ 14/12/21 22:35Creación base de datosYou have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''bdRestaurantff'' at line 1[Ljava.lang.StackTraceElement;@6ea2bc93
+ 14/12/21 22:39Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@702b8b12
+ 14/12/21 22:48Creación base de datosYou have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''bdRestaurantff'' at line 1[Ljava.lang.StackTraceElement;@4fa1c212
+ 14/12/21 22:49Creación base de datosYou have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''bdRestaurantff'' at line 1[Ljava.lang.StackTraceElement;@4e928fbf
+ 14/12/21 22:49Creación base de datosYou have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''bdRestaurantff'' at line 1[Ljava.lang.StackTraceElement;@4a00d9cf
+ 14/12/21 22:49Creación base de datosYou have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''bdRestaurantff'' at line 1[Ljava.lang.StackTraceElement;@2fba3fc4
+ 14/12/21 22:50Creación base de datosYou have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''bdRestaurantff'' at line 1[Ljava.lang.StackTraceElement;@48c76607
+ 14/12/21 23:02Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@79c97cb
+ 14/12/21 23:02Creación base de datosYou have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''bdRestaurantff'' at line 1[Ljava.lang.StackTraceElement;@53251a66
+ 14/12/21 23:02Creación base de datosYou have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''bdRestaurantff'' at line 1[Ljava.lang.StackTraceElement;@71e693fa
+ 14/12/21 23:02Creación base de datosYou have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''bdRestaurantff'' at line 1[Ljava.lang.StackTraceElement;@7c214cc0
+ 14/12/21 23:03Creación base de datosYou have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''bdRestaurantff'' at line 1[Ljava.lang.StackTraceElement;@3f67593e
+ 14/12/21 23:03Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@702b8b12
+ 14/12/21 23:23Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@702b8b12
+ 14/12/21 23:24Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@702b8b12
+ 14/12/21 23:44Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@702b8b12
+ 14/12/21 23:44Insercion tabla productsNo database selected[Ljava.lang.StackTraceElement;@df6620a
+ 14/12/21 23:44Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@1a72a540
+ 14/12/21 23:44Insert on 'destinopedido' tableNo database selected[Ljava.lang.StackTraceElement;@5e403b4a
+ 14/12/21 23:44Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@5be49b60
+ 14/12/21 23:45Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@702b8b12
+ 14/12/21 23:45Creación base de datosNo database selected[Ljava.lang.StackTraceElement;@495ee280
+ 15/12/21 0:09Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@702b8b12
+ 15/12/21 0:09CREATE DATABASE IF NOT EXISTS bdRestaurantff DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 15/12/21 0:09Creación tablasYou have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1[Ljava.lang.StackTraceElement;@3116c353
+ 15/12/21 0:12Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@702b8b12
+ 15/12/21 0:12CREATE DATABASE IF NOT EXISTS bdRestaurantff DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 15/12/21 0:16Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@702b8b12
+ 15/12/21 0:16CREATE DATABASE IF NOT EXISTS bdRestaurantff DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 15/12/21 0:16CREATE TABLE IF NOT EXISTS `cooker` (`cookerId` int(11) NOT NULL, `speciality` text COLLATE utf8mb4_unicode_ci NOT NULL, `workExperience` int(11) NOT NULL,`kitchenCategory` enum('CHEF','ASSISTANT') COLLATE utf8mb4_unicode_ci NOT NULL,PRIMARY KEY (`cookerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 15/12/21 0:20Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@1aafa419
+ 15/12/21 0:20CREATE DATABASE IF NOT EXISTS bdRestaurantff DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 15/12/21 0:20CREATE TABLE IF NOT EXISTS `cooker` (`cookerId` int(11) NOT NULL, `speciality` text COLLATE utf8mb4_unicode_ci NOT NULL, `workExperience` int(11) NOT NULL,`kitchenCategory` enum('CHEF','ASSISTANT') COLLATE utf8mb4_unicode_ci NOT NULL,PRIMARY KEY (`cookerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 15/12/21 0:20CREATE TABLE IF NOT EXISTS `delivery` (
+  `deliveryId` int(11) NOT NULL,
+  `deliveryMode` enum('On_foot','Motorcycle','Bicycle','Electric_car','Combustion_car') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `age` int(11) NOT NULL,
+  `motorcycleLicense` tinyint(1) NOT NULL,
+  `ownVehicle` tinyint(1) NOT NULL,
+  PRIMARY KEY (`deliveryId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 15/12/21 0:20CREATE TABLE IF NOT EXISTS `destinopedido` (  `destinationId` int(11) NOT NULL,  `destinationDenomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `destinationZone` enum('Bar','IntTable','ExtTable','Delivery') COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`destinationId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 15/12/21 0:20CREATE TABLE IF NOT EXISTS `orders` (  `orderId` int(11) NOT NULL,  `date` date NOT NULL,  `orderPrice` double NOT NULL,  `OrderPriceWithoutTaxes` double NOT NULL,  `workerId` int(11) NOT NULL,  `valorDescuento` double NOT NULL,  `destination` int(11) NOT NULL,  `pedidoCobrado` tinyint(1) NOT NULL,  PRIMARY KEY (`orderId`),  KEY `destination` (`destination`),  KEY `workerId` (`workerId`) USING BTREE) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 15/12/21 0:20CREATE TABLE IF NOT EXISTS `ordersproducts` (  `orderId` int(11) NOT NULL,  `foodId` int(11) NOT NULL,  KEY `orderId` (`orderId`),  KEY `foodId` (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 15/12/21 0:20CREATE TABLE IF NOT EXISTS `productos` (  `foodId` int(11) NOT NULL,  `denomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `section` enum('PIZZAS','STARTERS','PASTAS','COMBINADOS','SALADS','DESSERTS','DRINKS','BREAD','OTHERS') COLLATE utf8mb4_unicode_ci NOT NULL,  `ingredients` text COLLATE utf8mb4_unicode_ci NOT NULL,  `price` double NOT NULL,  `lowprice` tinyint(1) NOT NULL,  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 15/12/21 0:20CREATE TABLE IF NOT EXISTS `waiter` (  `waiterId` int(11) NOT NULL,  `cocktail` tinyint(1) NOT NULL,  `languaje1` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje2` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje3` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`waiterId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 15/12/21 0:20CREATE TABLE IF NOT EXISTS `worker` (  `workerId` int(11) NOT NULL,  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,  `surNames` text COLLATE utf8mb4_unicode_ci NOT NULL,  `dni` text COLLATE utf8mb4_unicode_ci NOT NULL,  `salary` double NOT NULL,  `telephone` text COLLATE utf8mb4_unicode_ci NOT NULL,  `clave` text COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`workerId`),  KEY `workerId` (`workerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 15/12/21 0:20ALTER TABLE `cooker`  ADD CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 15/12/21 0:20ALTER TABLE `delivery`  ADD CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 15/12/21 0:20ALTER TABLE `orders`  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`workerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`destination`) REFERENCES `destinopedido` (`destinationId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 15/12/21 0:20ALTER TABLE `ordersproducts`  ADD CONSTRAINT `ordersproducts_ibfk_1` FOREIGN KEY (`foodId`) REFERENCES `productos` (`foodId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `ordersproducts_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 15/12/21 0:20ALTER TABLE `waiter`  ADD CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 15/12/21 0:20Se crea panel mesas
+ 15/12/21 0:20Cantidad entregada pierde foco
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Nuevo boton producto
+ 15/12/21 0:20Añade producto al pedido.
+ 15/12/21 0:20Añade producto al pedido.
+ 15/12/21 0:20Rellenado pedido Pedido 1 date:15/12/21 0:20 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  7	Pizza Caprichosa, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, Cebolla, champiñones, prize:10.0 €, lowPrice:true
+] orderPrice:19,91 € Vanesa valorDescuento: 0.5 € 
+
+ 15/12/21 0:44Insercion tabla productsDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@1f9e9475
+ 15/12/21 0:44Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@32115b28
+ 15/12/21 0:44Insert on 'destinopedido' tableDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@7d9f158f
+ 15/12/21 0:44Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@4b8729ff
+ 15/12/21 0:44Insercion tabla productsDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@27e47833
+ 15/12/21 0:44Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@1f75a668
+ 15/12/21 0:44Insert on 'destinopedido' tableDuplicate entry '1' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@6304101a
+ 15/12/21 0:44Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@2812b107
+ 15/12/21 0:56Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@702b8b12
+ 15/12/21 0:58Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@1aafa419
+ 15/12/21 0:58Insercion tabla productsNo database selected[Ljava.lang.StackTraceElement;@2f01783a
+ 15/12/21 0:58Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@41488b16
+ 15/12/21 0:58Insert on 'destinopedido' tableNo database selected[Ljava.lang.StackTraceElement;@7ac296f6
+ 15/12/21 0:58Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@22f59fa
+ 15/12/21 0:58Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@702b8b12
+ 15/12/21 0:58Insercion tabla productsNo database selected[Ljava.lang.StackTraceElement;@7357a011
+ 15/12/21 0:58Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@5717c37
+ 15/12/21 0:58Insert on 'destinopedido' tableNo database selected[Ljava.lang.StackTraceElement;@4eaf3684
+ 15/12/21 0:58Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@3c01cfa1
+ 15/12/21 0:59Unknown database 'bdrestaurantff'[Ljava.lang.StackTraceElement;@1aafa419
+ 15/12/21 0:59CREATE DATABASE IF NOT EXISTS bdRestaurantff DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 15/12/21 0:59CREATE TABLE IF NOT EXISTS `cooker` (`cookerId` int(11) NOT NULL, `speciality` text COLLATE utf8mb4_unicode_ci NOT NULL, `workExperience` int(11) NOT NULL,`kitchenCategory` enum('CHEF','ASSISTANT') COLLATE utf8mb4_unicode_ci NOT NULL,PRIMARY KEY (`cookerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 15/12/21 0:59CREATE TABLE IF NOT EXISTS `delivery` (
+  `deliveryId` int(11) NOT NULL,
+  `deliveryMode` enum('On_foot','Motorcycle','Bicycle','Electric_car','Combustion_car') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `age` int(11) NOT NULL,
+  `motorcycleLicense` tinyint(1) NOT NULL,
+  `ownVehicle` tinyint(1) NOT NULL,
+  PRIMARY KEY (`deliveryId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 15/12/21 0:59CREATE TABLE IF NOT EXISTS `destinopedido` (  `destinationId` int(11) NOT NULL,  `destinationDenomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `destinationZone` enum('Bar','IntTable','ExtTable','Delivery') COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`destinationId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 15/12/21 0:59CREATE TABLE IF NOT EXISTS `orders` (  `orderId` int(11) NOT NULL,  `date` date NOT NULL,  `orderPrice` double NOT NULL,  `OrderPriceWithoutTaxes` double NOT NULL,  `workerId` int(11) NOT NULL,  `valorDescuento` double NOT NULL,  `destination` int(11) NOT NULL,  `pedidoCobrado` tinyint(1) NOT NULL,  PRIMARY KEY (`orderId`),  KEY `destination` (`destination`),  KEY `workerId` (`workerId`) USING BTREE) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 15/12/21 0:59CREATE TABLE IF NOT EXISTS `ordersproducts` (  `orderId` int(11) NOT NULL,  `foodId` int(11) NOT NULL,  KEY `orderId` (`orderId`),  KEY `foodId` (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 15/12/21 0:59CREATE TABLE IF NOT EXISTS `productos` (  `foodId` int(11) NOT NULL,  `denomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `section` enum('PIZZAS','STARTERS','PASTAS','COMBINADOS','SALADS','DESSERTS','DRINKS','BREAD','OTHERS') COLLATE utf8mb4_unicode_ci NOT NULL,  `ingredients` text COLLATE utf8mb4_unicode_ci NOT NULL,  `price` double NOT NULL,  `lowprice` tinyint(1) NOT NULL,  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 15/12/21 0:59CREATE TABLE IF NOT EXISTS `waiter` (  `waiterId` int(11) NOT NULL,  `cocktail` tinyint(1) NOT NULL,  `languaje1` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje2` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje3` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`waiterId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 15/12/21 0:59CREATE TABLE IF NOT EXISTS `worker` (  `workerId` int(11) NOT NULL,  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,  `surNames` text COLLATE utf8mb4_unicode_ci NOT NULL,  `dni` text COLLATE utf8mb4_unicode_ci NOT NULL,  `salary` double NOT NULL,  `telephone` text COLLATE utf8mb4_unicode_ci NOT NULL,  `clave` text COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`workerId`),  KEY `workerId` (`workerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 15/12/21 0:59ALTER TABLE `cooker`  ADD CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 15/12/21 0:59ALTER TABLE `delivery`  ADD CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 15/12/21 0:59ALTER TABLE `orders`  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`workerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`destination`) REFERENCES `destinopedido` (`destinationId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 15/12/21 0:59ALTER TABLE `ordersproducts`  ADD CONSTRAINT `ordersproducts_ibfk_1` FOREIGN KEY (`foodId`) REFERENCES `productos` (`foodId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `ordersproducts_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 15/12/21 0:59ALTER TABLE `waiter`  ADD CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE

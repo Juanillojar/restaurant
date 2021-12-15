@@ -16,6 +16,9 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -68,7 +71,6 @@ public class Panel extends JPanel {
 		bOperate.setActionCommand("AbrirPanelValida");
 		Boton bConf = new Boton(iconConf);
 		bConf.setActionCommand("AbrirPanelConfiguracion");
-		bConf.setEnabled(false);
 		Boton bReport = new Boton(iconReports);
 		bReport.setActionCommand("AbrirPanelReports");
 		add(bOperate);
@@ -79,6 +81,109 @@ public class Panel extends JPanel {
 		bReport.addActionListener(gestorBotones);
 		setVisible(true);
 	}
+	
+	/**
+	 * Constructor for Configuration panel
+	 */
+	public Panel(String[] arrayConfig) {
+		JTextField tfDatabaseName, tfDatabasePort, tfDatabaseUser,tfDdatabaseHost;
+		JTextField tfDatabaseMotor, tfRuta, tfDatabasePass;
+		
+	
+		setLayout(new BorderLayout());
+		JLabel lblTitulo = new Label("Datos de configuración", fuenteTitulo,"CENTER");
+		add(lblTitulo,BorderLayout.NORTH);
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setToolTipText("bd");
+		
+		JPanel panelDatabase = new JPanel();
+		tabbedPane.addTab("Database", null, panelDatabase, "Database data");
+		GridBagLayout gbl_panelDatabase = new GridBagLayout();
+		panelDatabase.setLayout(gbl_panelDatabase);
+		
+		GridBagConstraints gbc_MiConstraint= new GridBagConstraints();
+		gbc_MiConstraint.gridx = 0;		 //columna inicial que ocupa
+		gbc_MiConstraint.gridy = 0;		 //fila inicial que ocupa
+		gbc_MiConstraint.gridwidth = 1;  //Columnas que ocupa
+		gbc_MiConstraint.gridheight = 1; //Filas que ocupa
+		gbc_MiConstraint.fill = GridBagConstraints.HORIZONTAL; //ajusta el componente a la celda
+		gbc_MiConstraint.insets = new Insets(0, 50, 10, 0); //Espacio hasta los bordes del componente en la celda														  //top, left, botton, right
+		JLabel lblDbMotor = new JLabel("Database motor:");		
+		panelDatabase.add(lblDbMotor, gbc_MiConstraint);
+
+		JLabel lblBbName = new JLabel("Database name:");
+		gbc_MiConstraint.gridy = 1;		 //fila inicial que ocupa
+		panelDatabase.add(lblBbName, gbc_MiConstraint);
+		
+		JLabel lblDbHost = new JLabel("Database host:");
+		gbc_MiConstraint.gridy = 2;		 //fila inicial que ocupa
+		panelDatabase.add(lblDbHost, gbc_MiConstraint);
+		
+		JLabel lblDataBasePort = new JLabel("Port:");
+		gbc_MiConstraint.gridy = 3;		 //fila inicial que ocupa
+		panelDatabase.add(lblDataBasePort, gbc_MiConstraint);
+
+		JLabel lblDatabaseUser = new JLabel("User:");
+		gbc_MiConstraint.gridy = 4;		 //fila inicial que ocupa
+		panelDatabase.add(lblDatabaseUser, gbc_MiConstraint);
+
+		JLabel lblDatabasePass= new JLabel("Pass:");
+		gbc_MiConstraint.gridy = 5;		 //fila inicial que ocupa
+		panelDatabase.add(lblDatabasePass, gbc_MiConstraint);
+		
+		tfDatabaseMotor = new JTextField(arrayConfig[0]);
+		gbc_MiConstraint.gridx = 1;		 //columna inicial que ocupa
+		gbc_MiConstraint.gridy = 0;		 //fila inicial que ocupa
+		tfDatabaseMotor.setColumns(10);
+		tfDatabaseMotor.setEnabled(false);
+		panelDatabase.add(tfDatabaseMotor, gbc_MiConstraint);
+		
+		tfDatabaseName = new JTextField(arrayConfig[1]);
+		gbc_MiConstraint.gridy = 1;		 //fila inicial que ocupa
+		tfDatabaseName.setColumns(10);
+		panelDatabase.add(tfDatabaseName, gbc_MiConstraint);
+		
+		tfDdatabaseHost = new JTextField(arrayConfig[2]);
+		gbc_MiConstraint.gridy = 2;		 //fila inicial que ocupa
+		panelDatabase.add(tfDdatabaseHost, gbc_MiConstraint);
+		tfDdatabaseHost.setColumns(10);
+		
+		tfDatabasePort = new JTextField(arrayConfig[3]);
+		gbc_MiConstraint.gridy = 3;		 //fila inicial que ocupa
+		panelDatabase.add(tfDatabasePort, gbc_MiConstraint);
+		tfDatabasePort.setColumns(10);
+		
+		tfDatabaseUser = new JTextField(arrayConfig[4]);
+		gbc_MiConstraint.gridy = 4;		 //fila inicial que ocupa
+		panelDatabase.add(tfDatabaseUser, gbc_MiConstraint);
+		tfDatabaseUser.setColumns(10);
+		
+		tfDatabasePass = new JTextField(arrayConfig[5]);
+		gbc_MiConstraint.gridy = 5;		 //fila inicial que ocupa
+		panelDatabase.add(tfDatabasePass, gbc_MiConstraint);
+		tfDatabasePass.setColumns(10);
+		
+		JPanel panelLog = new JPanel();
+		tabbedPane.addTab("Log", null, panelLog, "Log");
+		JLabel lblRuta = new JLabel("Ruta");
+		panelLog.add(lblRuta);
+		
+		tfRuta = new JTextField();
+		panelLog.add(tfRuta);
+		tfRuta.setColumns(10);
+		add(tabbedPane,BorderLayout.CENTER);
+		
+
+		JPanel botones = new JPanel();
+		Boton buttonSalirConfig = new Boton(iconBack);
+		buttonSalirConfig.addActionListener(gestorBotones);
+		buttonSalirConfig.setActionCommand("SalirPanelConfig");
+		botones.add(buttonSalirConfig);
+		
+		add(botones, BorderLayout.SOUTH);
+		setVisible(false);
+	}
+
 
 	// Constructor for bar zones, tables and deliveries panel
 	public Panel(int barzones, int deliverys, int intTables, int extTables) {
@@ -124,10 +229,10 @@ public class Panel extends JPanel {
 
 	// Constructor for products panel
 	/**
-	 * @param productos Lista de productos
+	 * Constructor for products panel. Create list of Productos order in Tabs orders by the Enum Section
+	 * Selected product is asociated to the table in or out, bar zone or delivery selected in tables... panel
+	 * @param productos List of Productos
 	 * @param botonMesaPMesas Botón de mesa, zona de barra o reparto elegida por el usuario
-	 * Constructor for productos panel. Se genera lista de productos ordenados en pestañas por la
-	 * categoría del producto. El producto/s elegido/s se asocian a la mesa, zona de barra o reparto elegido
 	 */
 	public Panel(List<Productos> productos, BotonRestauranteMesas botonMesaPMesas) {
 		botonMesa = botonMesaPMesas;  //se carga la variable estática con los datos de la mesa en curso
@@ -168,8 +273,8 @@ public class Panel extends JPanel {
 	}
 
 	/**
-	 * @param i no se utiliza
 	 * Constructor for reports panel
+	 * @param i no se utiliza
 	 */
 	public Panel(int i) {
 		setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
@@ -197,8 +302,8 @@ public class Panel extends JPanel {
 	}
 	
 	/**
-	 * @param productos Lista de productos
 	 * Constructor for products report panel using a JTable
+	 * @param productos List of objects Productos
 	 */
 	public Panel(List<Productos> productos) {
 		setLayout(new BorderLayout());
@@ -443,7 +548,7 @@ public class Panel extends JPanel {
 		// store to pizzeria order list and mark as paid
 		Frame.InstanceFPizzerie.getPanelProductos().paidOut(Panel.getBotonMesa().getPedidoBoton());
 		//Al guardar en la base de datos ¿no sería necesaria la lista de pedidos?
-		//Se podría guardar en la lista y guardar los datos de esta cada cierto tiempo
+		//Se podría guardar en la lista si no hay conexión con la base de datos y guardar los datos de esta cada cierto tiempo
 		Frame.InstanceFPizzerie.myPizzerie.getOrders().add(Panel.getBotonMesa().getPedidoBoton());
 		Panel.getBotonMesa().setBackground(Color.LIGHT_GRAY);
 		//Insertar pedido en la base de datos
@@ -452,13 +557,9 @@ public class Panel extends JPanel {
 			Object[] valuesOrder = new Object[rsmdOrder.getColumnCount()];
 			valuesOrder = Test.conex.valuesToArray(Panel.getBotonMesa().getPedidoBoton(), rsmdOrder.getColumnCount());	// get values of a object ant put on a array
 			Test.conex.insertDataOnTableBd(valuesOrder,"orders",rsmdOrder); //insert data into database table
-
-			//Test.conex.insertDataOnTableBd(Test.conex.valuesToArray(Panel.getBotonMesa().getPedidoBoton(), Test.conex.metadataTable("order").getColumnCount()), "order", Test.conex.metadataTable("order"));			
 		}catch (Exception e){
 			System.out.println("Worker insertion" + e.getMessage() + e.getStackTrace().toString());
 			Frame.log.Escritura("Worker insertion" + e.getMessage() + e.getStackTrace());
-		
-			
 		};
 		
 

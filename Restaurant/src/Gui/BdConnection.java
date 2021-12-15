@@ -4,46 +4,239 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.CommunicationException;
+import javax.swing.JOptionPane;
+
 
 public class BdConnection {
+	private boolean connectedBdMotorButBbNoExist;      //indicates is database connection is ready
 	private Connection myConnection;
 	private Statement myStatement;
 	private PreparedStatement myPreparedStatement;
 	private ResultSet myResultset;
 	private ResultSetMetaData myResultSetMetaData;
 	
-	public BdConnection(){
+	public BdConnection() {
+		this.connectedBdMotorButBbNoExist = false;
+		this.myConnection = null;
+		this.myStatement = null;
+		this.myPreparedStatement = null;
+		this.myResultset = null;
+		this.myResultSetMetaData = null;
+	}
+
+	public BdConnection(String[] config){
+		StringBuilder cadenaConex = new StringBuilder("");
+		cadenaConex.append("jdbc:mysql");
+		cadenaConex.append("://" + config[2]);
+		cadenaConex.append(":" + config[3] + "/");
 		try {
-			myConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdrestaurant", "root", "");		
-		    myStatement = myConnection.createStatement();
-		    
-		    myResultset = myStatement.executeQuery("SELECT * FROM productos");
-			while(myResultset.next()) {
-				System.out.println(myResultset.getString("denomination"));		
+			myConnection = DriverManager.getConnection(cadenaConex.toString(), config[4], config[5]);		
+		    if (myConnection != null) {
+		    	System.out.println("Conexión con nysql ok");  	
+		    }
+		    cadenaConex.append(config[1] );
+		    myConnection = DriverManager.getConnection(cadenaConex.toString(), config[4], config[5]);		
+		}catch (SQLException e){
+			if (e.getErrorCode() == 0) { //
+				System.out.println("Tiempo de conexion agotado");
+				JOptionPane.showMessageDialog(null, "Tiempo de conexión agotado."+ e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		} 
+			else if(e.getErrorCode() == 1049) {
+				System.out.println("Conexión ok. Base de datos no existe");
+				connectedBdMotorButBbNoExist = true;
 			}
-			// Inserción de datos en tabla productos especificando los datos 
-			//String sql = "INSERT INTO productos (foodId,denomination, section, ingredients, price, lowprice, image)"
-			//		+ "values (2,'Patatas fritas','STARTERS','Patata, sal, aceite...',3.00, false, null)";
-			
-			// inserción de datos en tabla productos insertando los datos como datos de preparedStatement
-		/*	String sql = "INSERT INTO productos(foodId, denomination, section, ingredients, price, lowprice, image) values(?,?,?,?,?,?,?)";
-			myPreparedStatement = myConnection.prepareStatement(sql);
-			myPreparedStatement.setInt(1, 4);
-			myPreparedStatement.setString(2, "Aros de cebolla");
-			myPreparedStatement.setString(3, Section.STARTERS.name());
-			myPreparedStatement.setString(4, "Cebolla, aceite, pan rallado");
-			myPreparedStatement.setDouble(5, 5.50d);
-			myPreparedStatement.setBoolean(6, false);
-			myPreparedStatement.setString(7, null);
-			System.out.println(sql);
-			myPreparedStatement.executeUpdate();
-			*/
-	
-		
-		}catch (Exception e){
 			System.out.println(e.getMessage() + e.getStackTrace().toString());
 			Frame.log.Escritura(e.getMessage() + e.getStackTrace());
-		};
+			}
+	}
+	
+	public void createDatabase(String[] config) {
+		StringBuilder cadenaConex = new StringBuilder("");
+		StringBuilder sql = new StringBuilder("");
+		
+		if (config[0].equals("mysql")) {
+			cadenaConex.append("jdbc:mysql");
+		}
+		cadenaConex.append("://" + config[2]);
+		cadenaConex.append(":" + config[3] + "/");
+		try {
+			myConnection = DriverManager.getConnection(cadenaConex.toString(), config[4], config[5]);
+			myStatement = myConnection.createStatement();
+		
+			sql.append("CREATE DATABASE IF NOT EXISTS " + config[1] + " DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
+			System.out.println(sql);
+			myStatement.execute(sql.toString());
+			Frame.log.Escritura(sql.toString());
+		}catch (SQLException e) {
+			System.out.println("Creación base de datos"  + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Creación base de datos" + e.getMessage() + e.getStackTrace());
+			
+		}
+	}
+	
+	public void createTables(String[] config) {
+		StringBuilder cadenaConex = new StringBuilder("");
+		StringBuilder sql = new StringBuilder("");
+		
+		if (config[0].equals("mysql")) {
+			cadenaConex.append("jdbc:mysql");
+		}
+		cadenaConex.append("://" + config[2]);
+		cadenaConex.append(":" + config[3] + "/");
+		cadenaConex.append(config[1]);
+		
+		try {
+			myConnection = DriverManager.getConnection(cadenaConex.toString(), config[4], config[5]);
+			myStatement = myConnection.createStatement();
+		
+			sql.append("CREATE TABLE IF NOT EXISTS `cooker` (`cookerId` int(11) NOT NULL, "
+					+ "`speciality` text COLLATE utf8mb4_unicode_ci NOT NULL,"
+					+ " `workExperience` int(11) NOT NULL,`kitchenCategory`"
+					+ " enum('CHEF','ASSISTANT') COLLATE utf8mb4_unicode_ci NOT NULL,"
+					+ "PRIMARY KEY (`cookerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+			System.out.println(sql);
+			myStatement.execute(sql.toString());
+			Frame.log.Escritura(sql.toString());
+			sql.delete(0, sql.length());
+			sql.append("CREATE TABLE IF NOT EXISTS `delivery` (\r\n"
+					+ "  `deliveryId` int(11) NOT NULL,\r\n"
+					+ "  `deliveryMode` enum('On_foot','Motorcycle','Bicycle','Electric_car','Combustion_car') COLLATE utf8mb4_unicode_ci NOT NULL,\r\n"
+					+ "  `age` int(11) NOT NULL,\r\n"
+					+ "  `motorcycleLicense` tinyint(1) NOT NULL,\r\n"
+					+ "  `ownVehicle` tinyint(1) NOT NULL,\r\n"
+					+ "  PRIMARY KEY (`deliveryId`)\r\n"
+					+ ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+			
+			System.out.println(sql);
+			myStatement.execute(sql.toString());
+			Frame.log.Escritura(sql.toString());
+			sql.delete(0, sql.length());
+			sql.append("CREATE TABLE IF NOT EXISTS `destinopedido` ("
+					+ "  `destinationId` int(11) NOT NULL,"
+					+ "  `destinationDenomination` text COLLATE utf8mb4_unicode_ci NOT NULL,"
+					+ "  `destinationZone` enum('Bar','IntTable','ExtTable','Delivery') COLLATE utf8mb4_unicode_ci NOT NULL,"
+					+ "  PRIMARY KEY (`destinationId`)"
+					+ ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+			System.out.println(sql);
+			myStatement.execute(sql.toString());
+			Frame.log.Escritura(sql.toString());
+			sql.delete(0, sql.length());
+			sql.append("CREATE TABLE IF NOT EXISTS `orders` ("
+					+ "  `orderId` int(11) NOT NULL,"
+					+ "  `date` date NOT NULL,"
+					+ "  `orderPrice` double NOT NULL,"
+					+ "  `OrderPriceWithoutTaxes` double NOT NULL,"
+					+ "  `workerId` int(11) NOT NULL,"
+					+ "  `valorDescuento` double NOT NULL,"
+					+ "  `destination` int(11) NOT NULL,"
+					+ "  `pedidoCobrado` tinyint(1) NOT NULL,"
+					+ "  PRIMARY KEY (`orderId`),"
+					+ "  KEY `destination` (`destination`),"
+					+ "  KEY `workerId` (`workerId`) USING BTREE"
+					+ ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+			System.out.println(sql);
+			myStatement.execute(sql.toString());
+			Frame.log.Escritura(sql.toString());
+			sql.delete(0, sql.length());
+			sql.append("CREATE TABLE IF NOT EXISTS `ordersproducts` ("
+					+ "  `orderId` int(11) NOT NULL,"
+					+ "  `foodId` int(11) NOT NULL,"
+					+ "  KEY `orderId` (`orderId`),"
+					+ "  KEY `foodId` (`foodId`)"
+					+ ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+			System.out.println(sql);
+			myStatement.execute(sql.toString());
+			Frame.log.Escritura(sql.toString());
+			sql.delete(0, sql.length());
+			sql.append("CREATE TABLE IF NOT EXISTS `productos` ("
+					+ "  `foodId` int(11) NOT NULL,"
+					+ "  `denomination` text COLLATE utf8mb4_unicode_ci NOT NULL,"
+					+ "  `section` enum('PIZZAS','STARTERS','PASTAS','COMBINADOS','SALADS','DESSERTS','DRINKS','BREAD','OTHERS') COLLATE utf8mb4_unicode_ci NOT NULL,"
+					+ "  `ingredients` text COLLATE utf8mb4_unicode_ci NOT NULL,"
+					+ "  `price` double NOT NULL,"
+					+ "  `lowprice` tinyint(1) NOT NULL,"
+					+ "  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,"
+					+ "  PRIMARY KEY (`foodId`)"
+					+ ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+			System.out.println(sql);
+			myStatement.execute(sql.toString());
+			Frame.log.Escritura(sql.toString());
+			sql.delete(0, sql.length());
+			sql.append("CREATE TABLE IF NOT EXISTS `waiter` ("
+					+ "  `waiterId` int(11) NOT NULL,"
+					+ "  `cocktail` tinyint(1) NOT NULL,"
+					+ "  `languaje1` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,"
+					+ "  `languaje2` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,"
+					+ "  `languaje3` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,"
+					+ "  PRIMARY KEY (`waiterId`)"
+					+ ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+			System.out.println(sql);
+			myStatement.execute(sql.toString());
+			Frame.log.Escritura(sql.toString());
+			sql.delete(0, sql.length());
+			sql.append("CREATE TABLE IF NOT EXISTS `worker` ("
+					+ "  `workerId` int(11) NOT NULL,"
+					+ "  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,"
+					+ "  `surNames` text COLLATE utf8mb4_unicode_ci NOT NULL,"
+					+ "  `dni` text COLLATE utf8mb4_unicode_ci NOT NULL,"
+					+ "  `salary` double NOT NULL,"
+					+ "  `telephone` text COLLATE utf8mb4_unicode_ci NOT NULL,"
+					+ "  `clave` text COLLATE utf8mb4_unicode_ci NOT NULL,"
+					+ "  PRIMARY KEY (`workerId`),"
+					+ "  KEY `workerId` (`workerId`)"
+					+ ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+			System.out.println(sql);
+			myStatement.execute(sql.toString());
+			Frame.log.Escritura(sql.toString());
+			sql.delete(0, sql.length());
+			sql.append("ALTER TABLE `cooker`"
+					+ "  ADD CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE");
+			System.out.println(sql);
+			myStatement.execute(sql.toString());
+			Frame.log.Escritura(sql.toString());
+			sql.delete(0, sql.length());
+			sql.append("ALTER TABLE `delivery`"
+					+ "  ADD CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE");
+			System.out.println(sql);
+			myStatement.execute(sql.toString());
+			Frame.log.Escritura(sql.toString());
+			sql.delete(0, sql.length());
+			sql.append("ALTER TABLE `orders`"
+					+ "  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`workerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE,"
+					+ "  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`destination`) REFERENCES `destinopedido` (`destinationId`) ON DELETE CASCADE ON UPDATE CASCADE");
+			System.out.println(sql);
+			myStatement.execute(sql.toString());
+			Frame.log.Escritura(sql.toString());
+			sql.delete(0, sql.length());
+			sql.append("ALTER TABLE `ordersproducts`"
+					+ "  ADD CONSTRAINT `ordersproducts_ibfk_1` FOREIGN KEY (`foodId`) REFERENCES `productos` (`foodId`) ON DELETE CASCADE ON UPDATE CASCADE,"
+					+ "  ADD CONSTRAINT `ordersproducts_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE");
+			System.out.println(sql);
+			myStatement.execute(sql.toString());
+			Frame.log.Escritura(sql.toString());
+			sql.delete(0, sql.length());
+			sql.append("ALTER TABLE `waiter`"
+					+ "  ADD CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE");
+			System.out.println(sql);
+			myStatement.execute(sql.toString());
+			Frame.log.Escritura(sql.toString());
+		}catch (SQLException e) {
+			System.out.println("Creación tablas"  + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Creación tablas" + e.getMessage() + e.getStackTrace());
+			
+		}
+	}
+	
+	
+	
+	
+	
+	public void showProductsList() throws SQLException{
+		myResultset = myStatement.executeQuery("SELECT * FROM productos");
+		while(myResultset.next()) {
+			System.out.println(myResultset.getString("denomination"));		
+		}
 	}
 	
 	/**
@@ -52,8 +245,8 @@ public class BdConnection {
 	 */
 	public void chargeBDData() {
 		try {
-			Statement stm = myConnection.createStatement();
-			ResultSet rst = stm.executeQuery("SELECT MAX(orderId) FROM orders");
+			//Statement stm = myConnection.createStatement();
+			ResultSet rst = myStatement.executeQuery("SELECT MAX(orderId) FROM orders");
 			rst.next();
 			System.out.println("Recogido valor de número de pedidos en BD: "+ rst.getInt("MAX(orderId)"));
 			Pedido.setPedidos(rst.getInt(1));			
@@ -65,9 +258,9 @@ public class BdConnection {
 	}
 	
 	/**
-	 * @param table nombre de la tabla en la que se insertan
-	 * @param lProductos lista de productos a insertar
-	 * Se insertan los productos de la lista en la tabla. Usado 
+	 * Inserts data of a list of "Productos" in a database table.
+	 * @param table table name to insert data
+	 * @param lProductos list of "Productod" objects to insert
 	 */
 	public void insertarEnTablaProductosBD(String table, List<Productos> lProductos) {
 		StringBuilder sql = new StringBuilder();
@@ -84,7 +277,7 @@ public class BdConnection {
 				myPreparedStatement.setDouble(5, p.getPrice());
 				myPreparedStatement.setBoolean(6, p.isLowPrice());
 				myPreparedStatement.setString(7, null);
-				myPreparedStatement.executeLargeUpdate();
+				myPreparedStatement.executeUpdate();
 			}
 		}catch (Exception e){
 			System.out.println("Insercion tabla products" + e.getMessage() + e.getStackTrace().toString());
@@ -98,18 +291,17 @@ public class BdConnection {
 	 * @return Metadata of the table
 	 * @throws SQLException
 	 */
-	public ResultSetMetaData metadataTable(String table) throws SQLException{
-		
+	public ResultSetMetaData metadataTable(String table) throws SQLException{	
 		ResultSet rs = myStatement.executeQuery("SELECT * FROM " + table);
 		return rs.getMetaData();
 	}
 	
 	/**
+	 * Obtain data from source and store it in a array of objects with size "columns"
+	 * We need to specify getters from object source for each database table
 	 * @param source object from witch we obtain data
 	 * @param columns number or data to get
 	 * @return array of objects with data. His size is "columns"
-	 * Obtain data from source and store it in a array of objects with size "columns"
-	 * We need to specify getters from object source for each database table
 	 */
 	public Object[] valuesToArray(Object source, int columns) {
 		Object[] values = new Object[columns];
@@ -158,11 +350,11 @@ public class BdConnection {
 	}	
 	
 	/**
+	 * Generate a UPDATE sql command based on metadata of "table" and
+	 * data from object array "values' and insert in "table" of database
 	 * @param values array of objects that contain values to insert 
 	 * @param table no of database table wich insert values
 	 * @param rsmd ResultSetMetaData of database table
-	 * Generate a UPDATE sql command based on metadata of "table" and
-	 * data from object array "values' and insert in "table" of database
 	 */
 	public void insertDataOnTableBd(Object[] values, String table, ResultSetMetaData rsmd) {
 		try {
@@ -219,8 +411,8 @@ public class BdConnection {
 	}
 
 	/**
-	 * @param lWorkers list of objects to insert (cooker, waiters or delivery men)
 	 * Insert workers of the List on database with his details.
+	 * @param lWorkers list of objects to insert (cooker, waiters or delivery men)
 	 */
 	public void insertWorkersBD(List<?> lWorkers) {
 		Object[] valuesWorker;
@@ -256,10 +448,10 @@ public class BdConnection {
 	}
 	
 	/**
-	 * @param myRestaurant generic Restaurant object un variables of configuration
 	 * Store data in destinopedido table on database. 
 	 * Use variables barZones, inTables, outTables and deleveryZones
 	 * This data only store one the first time
+	 * @param myRestaurant generic Restaurant object. Use barZones, deliveryZones, inTables and outTables variables
 	 */
 	public void createDestinationsBD(Restaurant myRestaurant) {
 		StringBuilder sql = new StringBuilder();
@@ -306,10 +498,10 @@ public class BdConnection {
 		};
 	}
 	/**
-	 * @param order The order to insert y database
-	 * This metod insert orderId and foodId in table orders-producto table
+	 * This method insert orderId and foodId in table orders-producto table
 	 * Apply the relationship between an order and all products on it. 
 	 * Using a mysql relational database. Insert data on table "orderproducts"
+	 * @param order The order to insert y database
 	 */
 	public void insertTableordersProductsBD(Pedido order) {
 		PreparedStatement myPreparedStatement;
@@ -331,9 +523,9 @@ public class BdConnection {
 	}
 	
 	/**
+	 * Eject a Select sql in a database and obtain data in a ResultSet
 	 * @param sql sql command to eject in database
 	 * @return Resultset that contain data from database
-	 * Eject a Select sql in a database and obtain data in a ResultSet
 	 */
 	public ResultSet colletSQl(String sql) {		
 		try {
@@ -346,4 +538,13 @@ public class BdConnection {
 		};
 		return myResultset;
 	}
+
+	public boolean isConnectedBdMotorButBbNoExist() {
+		return connectedBdMotorButBbNoExist;
+	}
+
+	public void setConnectedBdMotorButBbNoExist(boolean connectedBdMotor) {
+		this.connectedBdMotorButBbNoExist = connectedBdMotor;
+	}
+	
 }
