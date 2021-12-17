@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<config>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><config>
 	<database>
 		<motor>mysql</motor>
-		<name>bdRestaurantrr</name>
-		<host>localhost</host>
+		<name>bdRestaurant</name>
+		<host>3306</host>
 		<port>3306</port>
 		<user>root</user>
-		<pass></pass>
+		<pass/>
 	</database>
 	<zones>
 		<BarZones>4</BarZones>
@@ -14,4 +13,10 @@
 		<OutTables>2</OutTables>
 		<DeliveryZones>2</DeliveryZones>
 	</zones>
+	<company>
+		<name>Wandesr´s gastro Bar</name>
+		<address>My Beatifull place 4 (Almería)</address>
+		<discount>5</discount>
+		<taxes>21</taxes>
+	</company>
 </config>

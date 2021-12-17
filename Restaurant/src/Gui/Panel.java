@@ -46,6 +46,8 @@ public class Panel extends JPanel {
 	private static Double subtotal = 0.0;
 	private Label lsubtotalOrder, lDestinoPedidoEnCurso;
 	private Boton buttonTique;  //botón para mostrar el tique de pedido. No siempre visible
+	//private XmlDoc myXmlDoc;	//objeto XmlDoc relativo al documento config.xml
+	
 
 	ImageIcon iconOperate = new ImageIcon("src/Gui/images/operar.jpg", "Operar");
 	ImageIcon iconConf = new ImageIcon("src/Gui/images/conf.png", "Configuración");
@@ -82,107 +84,6 @@ public class Panel extends JPanel {
 		setVisible(true);
 	}
 	
-	/**
-	 * Constructor for Configuration panel
-	 */
-	public Panel(String[] arrayConfig) {
-		JTextField tfDatabaseName, tfDatabasePort, tfDatabaseUser,tfDdatabaseHost;
-		JTextField tfDatabaseMotor, tfRuta, tfDatabasePass;
-		
-	
-		setLayout(new BorderLayout());
-		JLabel lblTitulo = new Label("Datos de configuración", fuenteTitulo,"CENTER");
-		add(lblTitulo,BorderLayout.NORTH);
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setToolTipText("bd");
-		
-		JPanel panelDatabase = new JPanel();
-		tabbedPane.addTab("Database", null, panelDatabase, "Database data");
-		GridBagLayout gbl_panelDatabase = new GridBagLayout();
-		panelDatabase.setLayout(gbl_panelDatabase);
-		
-		GridBagConstraints gbc_MiConstraint= new GridBagConstraints();
-		gbc_MiConstraint.gridx = 0;		 //columna inicial que ocupa
-		gbc_MiConstraint.gridy = 0;		 //fila inicial que ocupa
-		gbc_MiConstraint.gridwidth = 1;  //Columnas que ocupa
-		gbc_MiConstraint.gridheight = 1; //Filas que ocupa
-		gbc_MiConstraint.fill = GridBagConstraints.HORIZONTAL; //ajusta el componente a la celda
-		gbc_MiConstraint.insets = new Insets(0, 50, 10, 0); //Espacio hasta los bordes del componente en la celda														  //top, left, botton, right
-		JLabel lblDbMotor = new JLabel("Database motor:");		
-		panelDatabase.add(lblDbMotor, gbc_MiConstraint);
-
-		JLabel lblBbName = new JLabel("Database name:");
-		gbc_MiConstraint.gridy = 1;		 //fila inicial que ocupa
-		panelDatabase.add(lblBbName, gbc_MiConstraint);
-		
-		JLabel lblDbHost = new JLabel("Database host:");
-		gbc_MiConstraint.gridy = 2;		 //fila inicial que ocupa
-		panelDatabase.add(lblDbHost, gbc_MiConstraint);
-		
-		JLabel lblDataBasePort = new JLabel("Port:");
-		gbc_MiConstraint.gridy = 3;		 //fila inicial que ocupa
-		panelDatabase.add(lblDataBasePort, gbc_MiConstraint);
-
-		JLabel lblDatabaseUser = new JLabel("User:");
-		gbc_MiConstraint.gridy = 4;		 //fila inicial que ocupa
-		panelDatabase.add(lblDatabaseUser, gbc_MiConstraint);
-
-		JLabel lblDatabasePass= new JLabel("Pass:");
-		gbc_MiConstraint.gridy = 5;		 //fila inicial que ocupa
-		panelDatabase.add(lblDatabasePass, gbc_MiConstraint);
-		
-		tfDatabaseMotor = new JTextField(arrayConfig[0]);
-		gbc_MiConstraint.gridx = 1;		 //columna inicial que ocupa
-		gbc_MiConstraint.gridy = 0;		 //fila inicial que ocupa
-		tfDatabaseMotor.setColumns(10);
-		tfDatabaseMotor.setEnabled(false);
-		panelDatabase.add(tfDatabaseMotor, gbc_MiConstraint);
-		
-		tfDatabaseName = new JTextField(arrayConfig[1]);
-		gbc_MiConstraint.gridy = 1;		 //fila inicial que ocupa
-		tfDatabaseName.setColumns(10);
-		panelDatabase.add(tfDatabaseName, gbc_MiConstraint);
-		
-		tfDdatabaseHost = new JTextField(arrayConfig[2]);
-		gbc_MiConstraint.gridy = 2;		 //fila inicial que ocupa
-		panelDatabase.add(tfDdatabaseHost, gbc_MiConstraint);
-		tfDdatabaseHost.setColumns(10);
-		
-		tfDatabasePort = new JTextField(arrayConfig[3]);
-		gbc_MiConstraint.gridy = 3;		 //fila inicial que ocupa
-		panelDatabase.add(tfDatabasePort, gbc_MiConstraint);
-		tfDatabasePort.setColumns(10);
-		
-		tfDatabaseUser = new JTextField(arrayConfig[4]);
-		gbc_MiConstraint.gridy = 4;		 //fila inicial que ocupa
-		panelDatabase.add(tfDatabaseUser, gbc_MiConstraint);
-		tfDatabaseUser.setColumns(10);
-		
-		tfDatabasePass = new JTextField(arrayConfig[5]);
-		gbc_MiConstraint.gridy = 5;		 //fila inicial que ocupa
-		panelDatabase.add(tfDatabasePass, gbc_MiConstraint);
-		tfDatabasePass.setColumns(10);
-		
-		JPanel panelLog = new JPanel();
-		tabbedPane.addTab("Log", null, panelLog, "Log");
-		JLabel lblRuta = new JLabel("Ruta");
-		panelLog.add(lblRuta);
-		
-		tfRuta = new JTextField();
-		panelLog.add(tfRuta);
-		tfRuta.setColumns(10);
-		add(tabbedPane,BorderLayout.CENTER);
-		
-
-		JPanel botones = new JPanel();
-		Boton buttonSalirConfig = new Boton(iconBack);
-		buttonSalirConfig.addActionListener(gestorBotones);
-		buttonSalirConfig.setActionCommand("SalirPanelConfig");
-		botones.add(buttonSalirConfig);
-		
-		add(botones, BorderLayout.SOUTH);
-		setVisible(false);
-	}
 
 	// Constructor for bar zones, tables and deliveries panel
 	public Panel(int barzones, int deliverys, int intTables, int extTables) {
@@ -377,10 +278,10 @@ public class Panel extends JPanel {
 			}
 			tableModel.addRow(row); // add row data to table model
 		}
-		JTable tablePedidos = new JTable(tableModel);
+		JTable tableData = new JTable(tableModel);
 		
-		tablePedidos.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-		JScrollPane panelScrollPedidosReport = new JScrollPane(tablePedidos,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		tableData.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		JScrollPane panelScrollPedidosReport = new JScrollPane(tableData,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		add(panelScrollPedidosReport, BorderLayout.NORTH);
 		Boton buttonBackPedidosReport = new Boton(iconBack);
 		buttonBackPedidosReport.setActionCommand("BackReportsFromReportSql");

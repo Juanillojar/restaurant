@@ -38,9 +38,11 @@ public class Restaurant {
 	public List<Productos> foods;
 	private List<Pedido> orders;
 
-	public Restaurant(String noum, String address, List<Trabajador> workers, List<Productos> foods, List<Pedido> orders) {
+	public Restaurant(String noum, String address, int taxes, int discount, List<Trabajador> workers, List<Productos> foods, List<Pedido> orders) {
 		this.name = noum;
 		this.address = address;
+		this.impuestos = taxes;
+		this.descuento = discount;
 		this.workers = workers;
 		this.foods = foods;
 		this.orders = orders;

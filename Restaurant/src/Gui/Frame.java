@@ -30,7 +30,7 @@ public class Frame extends JFrame {
 	Panel panelProductsReport;	//used to show products report is there is no connection to database  
 	Panel panelOrderReport;		//used to show orders report is there is no connection to database
 	Panel panelWorkersReport;	//used to show workers report is there is no connection to database
-	Panel panelConfig;
+	PanelConfig panelConfig;
 	
 	Trabajador trabajadorValidado  = new Trabajador(); //especifica el trabajador que está validado con su clave
 	public static String path="src/Gui/restaurant.log";
@@ -79,6 +79,16 @@ public class Frame extends JFrame {
 		panelOcultar.setVisible(false);
 	}
 	public void cambiaPanel(panelticket panelMostrar,Panel panelOcultar) {
+		add(panelMostrar, BorderLayout.CENTER);
+		panelMostrar.setVisible(true);
+		panelOcultar.setVisible(false);
+	}
+	public void cambiaPanel(PanelConfig panelMostrar,Panel panelOcultar) {
+		add(panelMostrar, BorderLayout.CENTER);
+		panelMostrar.setVisible(true);
+		panelOcultar.setVisible(false);
+	}
+	public void cambiaPanel(Panel panelMostrar,PanelConfig panelOcultar) {
 		add(panelMostrar, BorderLayout.CENTER);
 		panelMostrar.setVisible(true);
 		panelOcultar.setVisible(false);
@@ -196,11 +206,11 @@ public class Frame extends JFrame {
 		this.panelReportsData = panelReportsData;
 	}
 
-	public Panel getPanelConfig() {
+	public PanelConfig getPanelConfig() {
 		return panelConfig;
 	}
 
-	public void setPanelConfig(Panel panelConfig) {
+	public void setPanelConfig(PanelConfig panelConfig) {
 		this.panelConfig = panelConfig;
 	}
 

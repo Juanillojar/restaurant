@@ -3943,3 +3943,244 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
  17/12/21 2:06Database connection ok
  17/12/21 2:06Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@7c7a06ec
  17/12/21 2:13Database connection ok
+ 17/12/21 10:06START: Load configuration file xml 
+ 17/12/21 10:06Tiempo de conexion agotado
+ 17/12/21 10:06Se crea panel mesas
+ 17/12/21 10:06Cantidad entregada pierde foco
+ 17/12/21 10:06Añade producto al pedido.
+ 17/12/21 10:06Rellenado pedido Pedido 2 date:17/12/21 10:06 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:9,03 € Vanesa valorDescuento: 0.0 € 
+
+ 17/12/21 10:06Boton mesa pulsado. No tiene datos
+ 17/12/21 10:06Añade producto al pedido.
+ 17/12/21 10:06Añade producto al pedido.
+ 17/12/21 10:06Rellenado pedido Pedido 3 date:17/12/21 10:06 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:18,06 € Vanesa valorDescuento: 0.0 € 
+
+ 17/12/21 10:06Gestor botones imprime tique
+ 17/12/21 10:07Gestor botones imprime tique
+ 17/12/21 10:08Rellenado pedido Pedido 3 date:17/12/21 10:06 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:18,06 € Vanesa valorDescuento: 0.0 € 
+
+ 17/12/21 10:10START: Load configuration file xml 
+ 17/12/21 10:10Tiempo de conexion agotado
+ 17/12/21 10:10Se crea panel mesas
+ 17/12/21 10:10Cantidad entregada pierde foco
+ 17/12/21 10:10Añade producto al pedido.
+ 17/12/21 10:10Rellenado pedido Pedido 2 date:17/12/21 10:10 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:9,03 € Vanesa valorDescuento: 0.0 € 
+
+ 17/12/21 10:11START: Load configuration file xml 
+ 17/12/21 10:13Tiempo de conexion agotado
+ 17/12/21 10:13START: Load configuration file xml 
+ 17/12/21 10:13Tiempo de conexion agotado
+ 17/12/21 10:13Se crea panel mesas
+ 17/12/21 10:13Cantidad entregada pierde foco
+ 17/12/21 10:13Añade producto al pedido.
+ 17/12/21 10:13Rellenado pedido Pedido 2 date:17/12/21 10:13 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:9,03 € Vanesa valorDescuento: 0.0 € 
+
+ 17/12/21 10:16START: Load configuration file xml 
+ 17/12/21 10:16Tiempo de conexion agotado
+ 17/12/21 10:16Se crea panel mesas
+ 17/12/21 10:16Cantidad entregada pierde foco
+ 17/12/21 10:16Añade producto al pedido.
+ 17/12/21 10:16Rellenado pedido Pedido 2 date:17/12/21 10:16 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:9,03 € Vanesa valorDescuento: 0.0 € 
+
+ 17/12/21 10:36START: Load configuration file xml 
+ 17/12/21 10:36START: Load configuration file xml 
+ 17/12/21 10:36Tiempo de conexion agotado
+ 17/12/21 10:46START: Load configuration file xml 
+ 17/12/21 10:46Tiempo de conexion agotado
+ 17/12/21 10:48START: Load configuration file xml 
+ 17/12/21 10:58START: Load configuration file xml 
+ 17/12/21 10:58Tiempo de conexion agotado
+ 17/12/21 11:11START: Load configuration file xml 
+ 17/12/21 11:11Tiempo de conexion agotado
+ 17/12/21 11:12START: Load configuration file xml 
+ 17/12/21 11:20Conexión ok. Base de datos no existe
+ 17/12/21 11:20START: Load configuration file xml 
+ 17/12/21 11:21START: Load configuration file xml 
+ 17/12/21 11:23Conexión ok. Base de datos no existe
+ 17/12/21 11:23Unknown database 'bdrestaurantmk'[Ljava.lang.StackTraceElement;@28f2a10f
+ 17/12/21 11:25START: Database creation. 
+ 17/12/21 11:25CREATE DATABASE IF NOT EXISTS bdRestaurantmk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 11:25END: Database creation. 
+ 17/12/21 11:26START: Database creation. 
+ 17/12/21 11:26CREATE DATABASE IF NOT EXISTS bdRestaurantmk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 11:26END: Database creation. 
+ 17/12/21 11:27START: Database creation. 
+ 17/12/21 11:27CREATE DATABASE IF NOT EXISTS bdRestaurantmk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 11:27END: Database creation. 
+ 17/12/21 11:27START: Database creation. 
+ 17/12/21 11:27CREATE DATABASE IF NOT EXISTS bdRestaurantmk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 11:27END: Database creation. 
+ 17/12/21 11:28START: Database creation. 
+ 17/12/21 11:28CREATE DATABASE IF NOT EXISTS bdRestaurantmk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 11:28END: Database creation. 
+ 17/12/21 11:29START: Database creation. 
+ 17/12/21 11:29CREATE DATABASE IF NOT EXISTS bdRestaurantmk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 11:29END: Database creation. 
+ 17/12/21 11:29START: Database creation. 
+ 17/12/21 11:29CREATE DATABASE IF NOT EXISTS bdRestaurantmk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 11:29END: Database creation. 
+ 17/12/21 11:30START: Database creation. 
+ 17/12/21 11:30CREATE DATABASE IF NOT EXISTS bdRestaurantmk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 11:30END: Database creation. 
+ 17/12/21 11:30START: Database creation. 
+ 17/12/21 11:30CREATE DATABASE IF NOT EXISTS bdRestaurantmk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 11:30END: Database creation. 
+ 17/12/21 11:35START: Load configuration file xml 
+ 17/12/21 11:51START: Load configuration file xml 
+ 17/12/21 11:56Conexión ok. Base de datos no existe
+ 17/12/21 11:56Unknown database 'bdrestaurantmk'[Ljava.lang.StackTraceElement;@1800a575
+ 17/12/21 11:57START: Database creation. 
+ 17/12/21 11:57CREATE DATABASE IF NOT EXISTS bdRestaurantmk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 11:57END: Database creation. 
+ 17/12/21 11:57START: Database creation. 
+ 17/12/21 11:57CREATE DATABASE IF NOT EXISTS bdRestaurantmk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 11:57END: Database creation. 
+ 17/12/21 11:57START: Database creation. 
+ 17/12/21 11:57CREATE DATABASE IF NOT EXISTS bdRestaurantmk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 11:57END: Database creation. 
+ 17/12/21 11:57START: Database creation. 
+ 17/12/21 11:57CREATE DATABASE IF NOT EXISTS bdRestaurantmk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 11:57END: Database creation. 
+ 17/12/21 11:58START: Database creation. 
+ 17/12/21 11:58CREATE DATABASE IF NOT EXISTS bdRestaurantmk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 11:58END: Database creation. 
+ 17/12/21 11:58START: Database creation. 
+ 17/12/21 11:58CREATE DATABASE IF NOT EXISTS bdRestaurantmk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 11:58END: Database creation. 
+ 17/12/21 11:58START: Database creation. 
+ 17/12/21 11:58CREATE DATABASE IF NOT EXISTS bdRestaurantmk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 11:58END: Database creation. 
+ 17/12/21 11:59START: Load configuration file xml 
+ 17/12/21 11:59Conexión ok. Base de datos no existe
+ 17/12/21 11:59Unknown database 'bdrestaurantmk'[Ljava.lang.StackTraceElement;@1e800aaa
+ 17/12/21 12:00START: Load configuration file xml 
+ 17/12/21 12:00Conexión ok. Base de datos no existe
+ 17/12/21 12:00Unknown database 'bdrestaurantmk'[Ljava.lang.StackTraceElement;@1e800aaa
+ 17/12/21 12:00START: Load configuration file xml 
+ 17/12/21 12:00Conexión ok. Base de datos no existe
+ 17/12/21 12:00Unknown database 'bdrestaurantmk'[Ljava.lang.StackTraceElement;@1e800aaa
+ 17/12/21 12:01START: Database creation. 
+ 17/12/21 12:01CREATE DATABASE IF NOT EXISTS bdRestaurantmk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 12:01END: Database creation. 
+ 17/12/21 12:01START: Tables creation. 
+ 17/12/21 12:01CREATE TABLE IF NOT EXISTS `cooker` (`cookerId` int(11) NOT NULL, `speciality` text COLLATE utf8mb4_unicode_ci NOT NULL, `workExperience` int(11) NOT NULL,`kitchenCategory` enum('CHEF','ASSISTANT') COLLATE utf8mb4_unicode_ci NOT NULL,PRIMARY KEY (`cookerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 12:01CREATE TABLE IF NOT EXISTS `delivery` (
+  `deliveryId` int(11) NOT NULL,
+  `deliveryMode` enum('On_foot','Motorcycle','Bicycle','Electric_car','Combustion_car') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `age` int(11) NOT NULL,
+  `motorcycleLicense` tinyint(1) NOT NULL,
+  `ownVehicle` tinyint(1) NOT NULL,
+  PRIMARY KEY (`deliveryId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 12:01CREATE TABLE IF NOT EXISTS `destinopedido` (  `destinationId` int(11) NOT NULL,  `destinationDenomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `destinationZone` enum('Bar','IntTable','ExtTable','Delivery') COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`destinationId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 12:01CREATE TABLE IF NOT EXISTS `orders` (  `orderId` int(11) NOT NULL,  `date` date NOT NULL,  `orderPrice` double NOT NULL,  `OrderPriceWithoutTaxes` double NOT NULL,  `workerId` int(11) NOT NULL,  `valorDescuento` double NOT NULL,  `destination` int(11) NOT NULL,  `pedidoCobrado` tinyint(1) NOT NULL,  PRIMARY KEY (`orderId`),  KEY `destination` (`destination`),  KEY `workerId` (`workerId`) USING BTREE) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 12:01CREATE TABLE IF NOT EXISTS `ordersproducts` (  `orderId` int(11) NOT NULL,  `foodId` int(11) NOT NULL,  KEY `orderId` (`orderId`),  KEY `foodId` (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 12:01CREATE TABLE IF NOT EXISTS `productos` (  `foodId` int(11) NOT NULL,  `denomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `section` enum('PIZZAS','STARTERS','PASTAS','COMBINADOS','SALADS','DESSERTS','DRINKS','BREAD','OTHERS') COLLATE utf8mb4_unicode_ci NOT NULL,  `ingredients` text COLLATE utf8mb4_unicode_ci NOT NULL,  `price` double NOT NULL,  `lowprice` tinyint(1) NOT NULL,  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 12:01CREATE TABLE IF NOT EXISTS `waiter` (  `waiterId` int(11) NOT NULL,  `cocktail` tinyint(1) NOT NULL,  `languaje1` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje2` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje3` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`waiterId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 12:01CREATE TABLE IF NOT EXISTS `worker` (  `workerId` int(11) NOT NULL,  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,  `surNames` text COLLATE utf8mb4_unicode_ci NOT NULL,  `dni` text COLLATE utf8mb4_unicode_ci NOT NULL,  `salary` double NOT NULL,  `telephone` text COLLATE utf8mb4_unicode_ci NOT NULL,  `clave` text COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`workerId`),  KEY `workerId` (`workerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 12:01ALTER TABLE `cooker`  ADD CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 12:01ALTER TABLE `delivery`  ADD CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 12:01ALTER TABLE `orders`  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`workerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`destination`) REFERENCES `destinopedido` (`destinationId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 12:01ALTER TABLE `ordersproducts`  ADD CONSTRAINT `ordersproducts_ibfk_1` FOREIGN KEY (`foodId`) REFERENCES `productos` (`foodId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `ordersproducts_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 12:01ALTER TABLE `waiter`  ADD CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 12:01END: Tables creation. 
+ 17/12/21 12:03START: Load configuration file xml 
+ 17/12/21 12:03Conexión ok. Base de datos no existe
+ 17/12/21 12:03Unknown database 'bdrestaurantmk'[Ljava.lang.StackTraceElement;@1e800aaa
+ 17/12/21 12:03START: Database creation. 
+ 17/12/21 12:03CREATE DATABASE IF NOT EXISTS bdRestaurantmk DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 12:03END: Database creation. 
+ 17/12/21 12:03START: Tables creation. 
+ 17/12/21 12:03CREATE TABLE IF NOT EXISTS `cooker` (`cookerId` int(11) NOT NULL, `speciality` text COLLATE utf8mb4_unicode_ci NOT NULL, `workExperience` int(11) NOT NULL,`kitchenCategory` enum('CHEF','ASSISTANT') COLLATE utf8mb4_unicode_ci NOT NULL,PRIMARY KEY (`cookerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 12:03CREATE TABLE IF NOT EXISTS `delivery` (
+  `deliveryId` int(11) NOT NULL,
+  `deliveryMode` enum('On_foot','Motorcycle','Bicycle','Electric_car','Combustion_car') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `age` int(11) NOT NULL,
+  `motorcycleLicense` tinyint(1) NOT NULL,
+  `ownVehicle` tinyint(1) NOT NULL,
+  PRIMARY KEY (`deliveryId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 12:03CREATE TABLE IF NOT EXISTS `destinopedido` (  `destinationId` int(11) NOT NULL,  `destinationDenomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `destinationZone` enum('Bar','IntTable','ExtTable','Delivery') COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`destinationId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 12:03CREATE TABLE IF NOT EXISTS `orders` (  `orderId` int(11) NOT NULL,  `date` date NOT NULL,  `orderPrice` double NOT NULL,  `OrderPriceWithoutTaxes` double NOT NULL,  `workerId` int(11) NOT NULL,  `valorDescuento` double NOT NULL,  `destination` int(11) NOT NULL,  `pedidoCobrado` tinyint(1) NOT NULL,  PRIMARY KEY (`orderId`),  KEY `destination` (`destination`),  KEY `workerId` (`workerId`) USING BTREE) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 12:03CREATE TABLE IF NOT EXISTS `ordersproducts` (  `orderId` int(11) NOT NULL,  `foodId` int(11) NOT NULL,  KEY `orderId` (`orderId`),  KEY `foodId` (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 12:03CREATE TABLE IF NOT EXISTS `productos` (  `foodId` int(11) NOT NULL,  `denomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `section` enum('PIZZAS','STARTERS','PASTAS','COMBINADOS','SALADS','DESSERTS','DRINKS','BREAD','OTHERS') COLLATE utf8mb4_unicode_ci NOT NULL,  `ingredients` text COLLATE utf8mb4_unicode_ci NOT NULL,  `price` double NOT NULL,  `lowprice` tinyint(1) NOT NULL,  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 12:03CREATE TABLE IF NOT EXISTS `waiter` (  `waiterId` int(11) NOT NULL,  `cocktail` tinyint(1) NOT NULL,  `languaje1` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje2` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje3` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`waiterId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 12:03CREATE TABLE IF NOT EXISTS `worker` (  `workerId` int(11) NOT NULL,  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,  `surNames` text COLLATE utf8mb4_unicode_ci NOT NULL,  `dni` text COLLATE utf8mb4_unicode_ci NOT NULL,  `salary` double NOT NULL,  `telephone` text COLLATE utf8mb4_unicode_ci NOT NULL,  `clave` text COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`workerId`),  KEY `workerId` (`workerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 12:03ALTER TABLE `cooker`  ADD CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 12:03ALTER TABLE `delivery`  ADD CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 12:03ALTER TABLE `orders`  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`workerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`destination`) REFERENCES `destinopedido` (`destinationId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 12:03ALTER TABLE `ordersproducts`  ADD CONSTRAINT `ordersproducts_ibfk_1` FOREIGN KEY (`foodId`) REFERENCES `productos` (`foodId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `ordersproducts_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 12:03ALTER TABLE `waiter`  ADD CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 12:03END: Tables creation. 
+ 17/12/21 12:04START: Insertion example data in database. 
+ 17/12/21 12:04Se crea panel mesas
+ 17/12/21 12:04Cantidad entregada pierde foco
+ 17/12/21 12:04Añade producto al pedido.
+ 17/12/21 12:04Rellenado pedido Pedido 2 date:17/12/21 12:04 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:9,03 € Vanesa valorDescuento: 0.0 € 
+
+ 17/12/21 12:07START: Load configuration file xml 
+ 17/12/21 12:07Database connection ok
+ 17/12/21 12:08START: Load configuration file xml 
+ 17/12/21 12:08Database connection ok
+ 17/12/21 12:31START: Load configuration file xml 
+ 17/12/21 12:31Database connection ok
+ 17/12/21 13:01START: Load configuration file xml 
+ 17/12/21 13:01Database connection ok
+ 17/12/21 13:06START: Load configuration file xml 
+ 17/12/21 13:06Database connection ok
+ 17/12/21 13:32START: Load configuration file xml 
+ 17/12/21 13:32Database connection ok
+ 17/12/21 13:34START: Load configuration file xml 
+ 17/12/21 13:34Database connection ok
+ 17/12/21 13:35START: Load configuration file xml 
+ 17/12/21 13:35Database connection ok
+ 17/12/21 13:35START: Load configuration file xml 
+ 17/12/21 13:35Database connection ok
+ 17/12/21 16:30START: Read configuration file xml 
+ 17/12/21 16:30Database connection ok
+ 17/12/21 16:34START: Read configuration file xml 
+ 17/12/21 16:34Database connection ok
+ 17/12/21 16:36START: Read configuration file xml 
+ 17/12/21 16:36Database connection ok
+ 17/12/21 16:36START: Read configuration file xml 
+ 17/12/21 16:36Database connection ok
+ 17/12/21 18:48START: Read configuration file xml 
+ 17/12/21 18:48Tiempo de conexion agotado
+ 17/12/21 18:49START: Read configuration file xml 
+ 17/12/21 18:49Tiempo de conexion agotado
+ 17/12/21 18:49START: Read configuration file xml 
+ 17/12/21 18:49Tiempo de conexion agotado
+ 17/12/21 19:15START: Read configuration file xml 
+ 17/12/21 19:15Tiempo de conexion agotado
+ 17/12/21 19:15START: Read configuration file xml 
+ 17/12/21 19:15START: Store configuration into xml file
+ 17/12/21 19:15START: Read configuration file xml 
+ 17/12/21 19:15Tiempo de conexion agotado
+ 17/12/21 19:15START: Read configuration file xml 
+ 17/12/21 19:15START: Store configuration into xml file
+ 17/12/21 19:16START: Read configuration file xml 
+ 17/12/21 19:16Tiempo de conexion agotado
+ 17/12/21 19:16START: Read configuration file xml 
+ 17/12/21 19:16Tiempo de conexion agotado
+ 17/12/21 19:17START: Read configuration file xml 
+ 17/12/21 19:17START: Store configuration into xml file
+ 17/12/21 19:17START: Read configuration file xml 
+ 17/12/21 19:19Tiempo de conexion agotado
+ 17/12/21 19:20START: Read configuration file xml 
+ 17/12/21 21:00START: Read configuration file xml 
+ 17/12/21 21:00Tiempo de conexion agotado
+ 17/12/21 21:00START: Read configuration file xml 
+ 17/12/21 21:00START: Store configuration into xml file
+ 17/12/21 21:00START: Read configuration file xml 
+ 17/12/21 21:00Tiempo de conexion agotado
+ 17/12/21 21:00START: Read configuration file xml 
+ 17/12/21 21:00START: Store configuration into xml file

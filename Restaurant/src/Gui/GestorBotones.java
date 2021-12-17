@@ -55,13 +55,18 @@ public class GestorBotones implements ActionListener {
 		}
 		if (e.getActionCommand().equals("AbrirPanelConfiguracion")) {
 			if (Frame.InstanceFPizzerie.panelConfig == null) {
-				Frame.InstanceFPizzerie.panelConfig = new Panel(Test.arrayConfig);
+				Frame.InstanceFPizzerie.panelConfig = new PanelConfig(Test.arrayConfig);
 			}
 			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelConfig, Frame.InstanceFPizzerie.panelPrincipal);
 
 		}
 		if (e.getActionCommand().equals("SalirPanelConfig")) {
 			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelPrincipal,	Frame.InstanceFPizzerie.panelConfig);
+		}
+
+		if (e.getActionCommand().equals("ApplyPanelConfig")) {
+			//Store data from config panel
+			Frame.InstanceFPizzerie.getPanelConfig().getMyXmlDoc().store(Frame.InstanceFPizzerie.getPanelConfig().getMyXmlDoc().read());
 		}
 
 		if (e.getActionCommand().equals("AbrirPanelReports")) {

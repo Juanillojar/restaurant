@@ -3,10 +3,19 @@ package Gui;
 import java.io.File;
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-
+import javax.xml.transform.Result;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.TransformerFactoryConfigurationError;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -25,49 +34,107 @@ public class XmlDoc {
 		this.myFile = new File(path + documentName);
 	}
 	
-	public String[] load() {
-		String [] arrayConf = new String[10];
+	/**
+	 * Read data from a xml document and store it on a array of String
+	 * @return array of String that contain data from xml document
+	 */
+	public String[] read() {
+		String [] arrayConf = new String[14];
+		Frame.log.Escritura("START: Read configuration file xml ");		
 		try {
 			DocumentBuilderFactory myDbf = DocumentBuilderFactory.newInstance();
-			DocumentBuilder myDocumentBulider = myDbf.newDocumentBuilder();
-			Document doc = myDocumentBulider.parse(myFile);
-			doc.getDocumentElement().normalize();
-			System.out.println("raiz " + doc.getDocumentElement().getNodeName());
-			NodeList lista = doc.getElementsByTagName("database");
+			DocumentBuilder myDocumentBulider = myDbf.newDocumentBuilder(); 
+			Document doc = myDocumentBulider.parse(myFile);//genera el documento a partir del xml para tratarlo con Java
+			doc.getDocumentElement().normalize();   //con esta acción se mejora el rendimiento
+			
+			//extract data about database
+			NodeList lista = doc.getElementsByTagName("database");  //se obtiene una lista con tudos los nodos que coincidan.
+																	//En nuestro caos sólo uno. De otr forma se utilizaría un bucle
 			Node nNode1 = lista.item(0);
-			Element elemento1 = (Element)nNode1;
-			arrayConf[0] = elemento1.getElementsByTagName("motor").item(0).getTextContent();
-			arrayConf[1] = elemento1.getElementsByTagName("name").item(0).getTextContent();
-			arrayConf[2] = elemento1.getElementsByTagName("host").item(0).getTextContent();
-			arrayConf[3] = elemento1.getElementsByTagName("port").item(0).getTextContent();
-			arrayConf[4] = elemento1.getElementsByTagName("user").item(0).getTextContent();
-			arrayConf[5] = elemento1.getElementsByTagName("pass").item(0).getTextContent();
+			Element myElement = (Element)nNode1;
+			arrayConf[0] = myElement.getElementsByTagName("motor").item(0).getTextContent();
+			arrayConf[1] = myElement.getElementsByTagName("name").item(0).getTextContent();
+			arrayConf[2] = myElement.getElementsByTagName("host").item(0).getTextContent();
+			arrayConf[3] = myElement.getElementsByTagName("port").item(0).getTextContent();
+			arrayConf[4] = myElement.getElementsByTagName("user").item(0).getTextContent();
+			arrayConf[5] = myElement.getElementsByTagName("pass").item(0).getTextContent();
 			
 			//extract data about zones
 			lista = doc.getElementsByTagName("zones");
 			nNode1 = lista.item(0);
-			elemento1 = (Element)nNode1;
-			arrayConf[6] = elemento1.getElementsByTagName("BarZones").item(0).getTextContent();
-			arrayConf[7] = elemento1.getElementsByTagName("IntTables").item(0).getTextContent();
-			arrayConf[8] = elemento1.getElementsByTagName("OutTables").item(0).getTextContent();
-			arrayConf[9] = elemento1.getElementsByTagName("DeliveryZones").item(0).getTextContent();
+			myElement = (Element)nNode1;
+			arrayConf[6] = myElement.getElementsByTagName("BarZones").item(0).getTextContent();
+			arrayConf[7] = myElement.getElementsByTagName("IntTables").item(0).getTextContent();
+			arrayConf[8] = myElement.getElementsByTagName("OutTables").item(0).getTextContent();
+			arrayConf[9] = myElement.getElementsByTagName("DeliveryZones").item(0).getTextContent();
 
-			//	for(int j = 0;j < lista.getLength();j++) {
-		//		Node nNode = lista.item(j);
-		//		System.out.println("Elemento: " + nNode.getNodeName());
-		//		if(nNode.getNodeType() == Node.ELEMENT_NODE){
-		//			Element elemento = (Element)nNode;
-		//			System.out.println(elemento.getElementsByTagName("name").item(0).getTextContent());
-		//			System.out.println(elemento.getElementsByTagName("host").item(0).getTextContent());
-		//			System.out.println(elemento.getElementsByTagName("port").item(0).getTextContent());
-		//			System.out.println(elemento.getElementsByTagName("user").item(0).getTextContent());
-		//			System.out.println(elemento.getElementsByTagName("pass").item(0).getTextContent());
-		//		};
-		//	};
-				}catch(ParserConfigurationException | SAXException | IOException ex) {
-			System.out.println("Lectura xm l" + ex.getMessage() + ex.getStackTrace().toString());
-			Frame.log.Escritura("Lectura xml " + ex.getMessage() + ex.getStackTrace());
+			//extract data about company
+			lista = doc.getElementsByTagName("company");
+			nNode1 = lista.item(0);
+			myElement = (Element)nNode1;
+			arrayConf[10] = myElement.getElementsByTagName("name").item(0).getTextContent();
+			arrayConf[11] = myElement.getElementsByTagName("address").item(0).getTextContent();
+			arrayConf[12] = myElement.getElementsByTagName("discount").item(0).getTextContent();
+			arrayConf[13] = myElement.getElementsByTagName("taxes").item(0).getTextContent();
+			}catch(ParserConfigurationException | SAXException | IOException ex) {
+				System.out.println("Lectura xml " + ex.getMessage() + ex.getStackTrace().toString());
+				Frame.log.Escritura("Lectura xml " + ex.getMessage() + ex.getStackTrace());
 		};
 		return arrayConf;
+	}
+	
+	public void store(String[] arrayConf) {
+		//String [] arrayConf = new String[14];
+		Frame.log.Escritura("START: Store configuration into xml file");		
+		try {
+			DocumentBuilderFactory myDbf = DocumentBuilderFactory.newInstance();
+			DocumentBuilder myDocumentBulider = myDbf.newDocumentBuilder();
+			Document doc = myDocumentBulider.parse(myFile); //genera el documento a partir del xml para tratarlo con Java
+			doc.getDocumentElement().normalize();   //con esta acción se mejora el rendimiento
+			
+			arrayConf[1]= "bdRestaurant";
+		
+			//store data about database
+			NodeList lista = doc.getElementsByTagName("database");
+			Node nNode1 = lista.item(0);
+			Element elemento1 = (Element)nNode1;
+			elemento1.getElementsByTagName("motor").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfDatabaseMotor().getText());
+			elemento1.getElementsByTagName("name").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfDatabaseName().getText());
+			elemento1.getElementsByTagName("host").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfDatabasePort().getText());
+			elemento1.getElementsByTagName("port").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfDatabasePort().getText());
+			elemento1.getElementsByTagName("user").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfDatabaseUser().getText());
+			elemento1.getElementsByTagName("pass").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfDatabasePass().getText());
+			
+			//store data about zones
+			lista = doc.getElementsByTagName("zones");
+			nNode1 = lista.item(0);
+			elemento1 = (Element)nNode1;
+			elemento1.getElementsByTagName("BarZones").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfZonesBar().getText());
+			elemento1.getElementsByTagName("IntTables").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfZonesIntTables().getText());
+			elemento1.getElementsByTagName("OutTables").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfZonesExtTables().getText());
+			elemento1.getElementsByTagName("DeliveryZones").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfZonesDelivery().getText());
+
+			//store data about company
+			lista = doc.getElementsByTagName("company");
+			nNode1 = lista.item(0);
+			elemento1 = (Element)nNode1;
+			elemento1.getElementsByTagName("name").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfCompanyName().getText());
+			elemento1.getElementsByTagName("address").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfCompanyAddress().getText());
+			elemento1.getElementsByTagName("discount").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfCompanyDiscount().getText());
+			elemento1.getElementsByTagName("taxes").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfCompanyTaxes().getText());
+			
+			//store data in XML documnent
+			Transformer transformer = TransformerFactory.newInstance().newTransformer();
+			Result output = new StreamResult(myFile);
+			Source input = new DOMSource(doc);
+			transformer.transform(input, output);
+			
+			JOptionPane.showMessageDialog(null, "Data Stored sucessfully", "Information", JOptionPane.INFORMATION_MESSAGE);
+			Frame.log.Escritura("Configuration file config.xml stored sucessfully");
+		}catch(ParserConfigurationException | SAXException | IOException | TransformerException | TransformerFactoryConfigurationError ex) {
+				System.out.println("Lectura xml " + ex.getMessage() + ex.getStackTrace().toString());
+				Frame.log.Escritura("Lectura xml " + ex.getMessage() + ex.getStackTrace());
+		};
+		
 	}
 }

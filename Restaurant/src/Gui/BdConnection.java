@@ -12,7 +12,7 @@ public class BdConnection {
 	private String cadenaConex;
 	private boolean timeOut;						//indicates if there are no connection with database motor
 	private boolean connected;						//indicates if database connection is ok
-	private boolean connectedBdMotorButBbNoExist;   //indicates if database is created
+	//private boolean connectedBdMotorButBbNoExist;   //indicates if database is created
 	private Connection myConnection;
 	private Statement myStatement;
 	private PreparedStatement myPreparedStatement;
@@ -23,7 +23,7 @@ public class BdConnection {
 		this.cadenaConex = null;
 		this.timeOut= true;
 		this.connected = false;
-		this.connectedBdMotorButBbNoExist = false;
+	//	this.connectedBdMotorButBbNoExist = false;
 		this.myConnection = null;
 		this.myStatement = null;
 		this.myPreparedStatement = null;
@@ -34,12 +34,12 @@ public class BdConnection {
 	/** Constructor for BdConnection. 
 	 * If exist connection with database motor but not with database change de value or
 	 * connectedBdMotorButBbNoExist variable
-	 * @param config
+	 * @param config array with configuration extracted from config.xml file
 	 */
 	public BdConnection(String[] config){
 		timeOut=true;
 		connected = false;
-		connectedBdMotorButBbNoExist= false;
+	//	connectedBdMotorButBbNoExist= false;
 		try {
 			if (DatabaseMotorConnection(config)) {
 				cadenaConex =  "jdbc:"+config[0]+"://"+config[2]+":"+config[3]+"/"+config[1];	
@@ -59,7 +59,7 @@ public class BdConnection {
 			else if(e.getErrorCode() == 1049) {
 				System.out.println("Conexión ok. Base de datos no existe");
 				Frame.log.Escritura("Conexión ok. Base de datos no existe");
-				connectedBdMotorButBbNoExist = true;
+	//			connectedBdMotorButBbNoExist = true;
 			}
 			System.out.println(e.getMessage() + e.getStackTrace().toString());
 			Frame.log.Escritura(e.getMessage() + e.getStackTrace());
@@ -83,7 +83,7 @@ public class BdConnection {
 			myConnection = DriverManager.getConnection(url, config[4], config[5]);		
 			if(myConnection != null) {
 				timeOut = false;
-				return true;
+				//return true;
 			}
 		}catch(SQLException e){
 			System.out.println("Tiempo de conexion agotado");
@@ -573,13 +573,13 @@ public class BdConnection {
 		return myResultset;
 	}
 
-	public boolean isConnectedBdMotorButBbNoExist() {
-		return connectedBdMotorButBbNoExist;
-	}
+//	public boolean isConnectedBdMotorButBbNoExist() {
+//		return connectedBdMotorButBbNoExist;
+//	}
 
-	public void setConnectedBdMotorButBbNoExist(boolean connectedBdMotor) {
-		this.connectedBdMotorButBbNoExist = connectedBdMotor;
-	}
+//	public void setConnectedBdMotorButBbNoExist(boolean connectedBdMotor) {
+//		this.connectedBdMotorButBbNoExist = connectedBdMotor;
+//	}
 
 	public boolean isTimeOut() {
 		return timeOut;

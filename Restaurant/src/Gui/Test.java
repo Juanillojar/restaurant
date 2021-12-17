@@ -27,10 +27,11 @@ public class Test {
 	public static String[] arrayConfig;
 	
 	public static void main(String[] args) {
-		arrayConfig = new String[10];
+		arrayConfig = new String[14];
 		//Carga datos de configuración
 		XmlDoc myXmlDoc = new XmlDoc("config.xml", "src/Gui/");
-		arrayConfig = myXmlDoc.load();
+		arrayConfig = myXmlDoc.read();
+		myXmlDoc = null;  			//liberar memoria
 		//creación estructuras de datos para trabajar en memoria
 		List<Productos> productsRestaurant = new ArrayList<Productos>();
 		List<Trabajador> workers= new ArrayList<Trabajador>();
@@ -41,8 +42,8 @@ public class Test {
 		if(!conex.isTimeOut()) {		//connected to database motor
 			if(!conex.isConnected())    //no connected to database
 			{  // no conneted to database
-				if(conex.isConnectedBdMotorButBbNoExist()) 
-				{  // conected to database motor but database no exist
+				//if(conex.isConnectedBdMotorButBbNoExist()) 
+			//	{  // conected to database motor but database no exist
 					if (JOptionPane.showConfirmDialog(null, "Database not found. Create database?", "Database not found", JOptionPane.YES_NO_CANCEL_OPTION) == 0) 
 					{//create database and tables	
 						
@@ -64,7 +65,7 @@ public class Test {
 							conex.createDestinationsBD(Integer.parseInt(arrayConfig[6]),Integer.parseInt(arrayConfig[7]), Integer.parseInt(arrayConfig[8]), Integer.parseInt(arrayConfig[9]));
 						}
 					}
-				}
+			//	}
 			}else{  //conected to database
 				// INCLUIR LA CARGA DE LOS DATOS DE TRABAJADORES PARA PONER EN EL PANEL VALIDA
 				
@@ -88,7 +89,8 @@ public class Test {
 			}
 		}
 		//Creación de un objeto Restaurant
-		Restaurant myRestaurant= new Restaurant("Pizzeria Bartolini", "c/Levantina 2 Bajo C.P:04240 Viator(Almeria)", workers, productsRestaurant, ordersRestaurant);
+		
+		Restaurant myRestaurant= new Restaurant(arrayConfig[10], arrayConfig[11], Integer.parseInt(arrayConfig[12]), Integer.parseInt(arrayConfig[13]), workers, productsRestaurant, ordersRestaurant);
 		//Se asigna el número de puestos en barra, mesas en interior, en exterior y repartos extraidas del archivo de configuración
 		myRestaurant.setBarZones(Integer.parseInt(arrayConfig[6]));
 		myRestaurant.setInTables(Integer.parseInt(arrayConfig[7]));
