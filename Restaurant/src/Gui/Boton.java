@@ -30,7 +30,7 @@ public class Boton extends JButton{
 		}
 		setActionCommand("AddToOrder");
 		System.out.print("Nuevo boton producto");
-		Frame.log.Escritura("Nuevo boton producto");
+		//Frame.log.Escritura("Nuevo boton producto");
 	}
 	
 	//getters and setters

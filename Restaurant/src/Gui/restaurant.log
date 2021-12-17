@@ -3462,3 +3462,484 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
  15/12/21 0:59ALTER TABLE `orders`  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`workerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`destination`) REFERENCES `destinopedido` (`destinationId`) ON DELETE CASCADE ON UPDATE CASCADE
  15/12/21 0:59ALTER TABLE `ordersproducts`  ADD CONSTRAINT `ordersproducts_ibfk_1` FOREIGN KEY (`foodId`) REFERENCES `productos` (`foodId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `ordersproducts_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE
  15/12/21 0:59ALTER TABLE `waiter`  ADD CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 15/12/21 13:43Se crea panel mesas
+ 15/12/21 13:43Cantidad entregada pierde foco
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Nuevo boton producto
+ 15/12/21 13:43Añade producto al pedido.
+ 15/12/21 13:43Añade producto al pedido.
+ 15/12/21 13:43Añade producto al pedido.
+ 15/12/21 13:43Rellenado pedido Pedido 1 date:15/12/21 13:43 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  8	Pizza Margarita, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, prize:9.8 €, lowPrice:false
+,  6	Macarrones boloñesa, section:PASTAS, ingredients:Pasta, Tomate, Cebolla, champiñones, prize:7.5 €, lowPrice:false
+] orderPrice:28,49 € Vanesa valorDescuento: 0.0 € 
+
+ 15/12/21 13:43Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@51e207ee
+ 15/12/21 13:43Insercion tabla pedidoCannot invoke "java.sql.Connection.prepareStatement(String)" because "this.myConnection" is null[Ljava.lang.StackTraceElement;@7d95ff48
+ 15/12/21 13:43Boton mesa pulsado. No tiene datos
+ 15/12/21 13:43Añade producto al pedido.
+ 15/12/21 13:43Añade producto al pedido.
+ 15/12/21 13:43Añade producto al pedido.
+ 15/12/21 13:43Rellenado pedido Pedido 2 date:15/12/21 13:43 [ 4	Musaka, section:STARTERS, ingredients:Berengena, queso, tomate, lecha, harina, sal, prize:11.5 €, lowPrice:false
+,  2	Pollo milanesa, section:STARTERS, ingredients:Pollo, tomate, cebolla, pan rallado, Huevo, pimienta, prize:10.5 €, lowPrice:false
+,  1	Patatas Fritas, section:STARTERS, ingredients:Patata, aceite, sal, prize:3.0 €, lowPrice:false
+] orderPrice:27,5 € Vanesa valorDescuento: 0.0 € 
+
+ 15/12/21 13:43Boton mesa pulsado. No tiene datos
+ 15/12/21 13:43Añade producto al pedido.
+ 15/12/21 13:43Añade producto al pedido.
+ 15/12/21 13:43Añade producto al pedido.
+ 15/12/21 13:43Rellenado pedido Pedido 3 date:15/12/21 13:43 [ 1	Patatas Fritas, section:STARTERS, ingredients:Patata, aceite, sal, prize:3.0 €, lowPrice:false
+,  3	Aros de cebolla, section:STARTERS, ingredients:Cebolla, aceite, pan rallado, prize:5.5 €, lowPrice:false
+,  4	Musaka, section:STARTERS, ingredients:Berengena, queso, tomate, lecha, harina, sal, prize:11.5 €, lowPrice:false
+] orderPrice:22 € Vanesa valorDescuento: 0.0 € 
+
+ 15/12/21 13:44Rellenado pedido Pedido 3 date:15/12/21 13:43 [ 1	Patatas Fritas, section:STARTERS, ingredients:Patata, aceite, sal, prize:3.0 €, lowPrice:false
+,  3	Aros de cebolla, section:STARTERS, ingredients:Cebolla, aceite, pan rallado, prize:5.5 €, lowPrice:false
+,  4	Musaka, section:STARTERS, ingredients:Berengena, queso, tomate, lecha, harina, sal, prize:11.5 €, lowPrice:false
+] orderPrice:22 € Vanesa valorDescuento: 0.0 € 
+
+ 15/12/21 14:07Tiempo de conexion agotado
+ 15/12/21 14:08Database connection ok
+ 15/12/21 14:09Se crea panel mesas
+ 15/12/21 14:09Cantidad entregada pierde foco
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Nuevo boton producto
+ 15/12/21 14:09Añade producto al pedido.
+ 15/12/21 14:09Añade producto al pedido.
+ 15/12/21 14:09Añade producto al pedido.
+ 15/12/21 14:09Añade producto al pedido.
+ 15/12/21 14:09Rellenado pedido Pedido 1 date:15/12/21 14:09 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  8	Pizza Margarita, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, prize:9.8 €, lowPrice:false
+,  14	Pan rústico, section:BREAD, ingredients:harina, sal, agua, prize:0.9 €, lowPrice:false
+,  14	Pan rústico, section:BREAD, ingredients:harina, sal, agua, prize:0.9 €, lowPrice:false
+] orderPrice:22,22 € Vanesa valorDescuento: 0.0 € 
+
+ 15/12/21 14:09Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@4b2ecbe8
+ 15/12/21 14:09Insercion tabla pedidoCannot add or update a child row: a foreign key constraint fails (`bdrestaurant`.`ordersproducts`, CONSTRAINT `ordersproducts_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@2e7ca365
+ 15/12/21 14:10Boton mesa pulsado. No tiene datos
+ 16/12/21 21:35Tiempo de conexion agotado
+ 16/12/21 21:35Select Cannot invoke "java.sql.Connection.createStatement()" because "this.myConnection" is null[Ljava.lang.StackTraceElement;@3808eb20
+ 16/12/21 21:35Llama panel informe productosCannot invoke "java.sql.ResultSet.getMetaData()" because "rst" is null[Ljava.lang.StackTraceElement;@68fac0eb
+ 16/12/21 21:36Select Cannot invoke "java.sql.Connection.createStatement()" because "this.myConnection" is null[Ljava.lang.StackTraceElement;@14c27b53
+ 16/12/21 21:36Llama panel informe productosCannot invoke "java.sql.ResultSet.getMetaData()" because "rst" is null[Ljava.lang.StackTraceElement;@1a1d4fe1
+ 16/12/21 21:36Select Cannot invoke "java.sql.Connection.createStatement()" because "this.myConnection" is null[Ljava.lang.StackTraceElement;@709b6010
+ 16/12/21 21:36Llama panel informe productosCannot invoke "java.sql.ResultSet.getMetaData()" because "rst" is null[Ljava.lang.StackTraceElement;@5b52a8ff
+ 16/12/21 21:36Se crea panel mesas
+ 16/12/21 21:36Cantidad entregada pierde foco
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Nuevo boton producto
+ 16/12/21 21:36Añade producto al pedido.
+ 16/12/21 21:36Añade producto al pedido.
+ 16/12/21 21:36Añade producto al pedido.
+ 16/12/21 21:36Rellenado pedido Pedido 2 date:16/12/21 21:36 [ 7	Pizza Caprichosa, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, Cebolla, champiñones, prize:10.0 €, lowPrice:true
+,  7	Pizza Caprichosa, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, Cebolla, champiñones, prize:10.0 €, lowPrice:true
+,  7	Pizza Caprichosa, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, Cebolla, champiñones, prize:10.0 €, lowPrice:true
+] orderPrice:31,35 € Vanesa valorDescuento: 1.5 € 
+
+ 16/12/21 21:36Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@3f7e330c
+ 16/12/21 21:36Insercion tabla pedidoCannot invoke "java.sql.Connection.prepareStatement(String)" because "this.myConnection" is null[Ljava.lang.StackTraceElement;@6ee37810
+ 16/12/21 21:36Select Cannot invoke "java.sql.Connection.createStatement()" because "this.myConnection" is null[Ljava.lang.StackTraceElement;@409bd73a
+ 16/12/21 21:36Llama panel informe productosCannot invoke "java.sql.ResultSet.getMetaData()" because "rst" is null[Ljava.lang.StackTraceElement;@55dcb0f4
+ 16/12/21 22:23Tiempo de conexion agotado
+ 16/12/21 22:24Tiempo de conexion agotado
+ 16/12/21 22:27Tiempo de conexion agotado
+ 16/12/21 22:30Tiempo de conexion agotado
+ 16/12/21 22:31Se crea panel mesas
+ 16/12/21 22:31Cantidad entregada pierde foco
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Nuevo boton producto
+ 16/12/21 22:31Añade producto al pedido.
+ 16/12/21 22:31Añade producto al pedido.
+ 16/12/21 22:31Rellenado pedido Pedido 1 date:16/12/21 22:31 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  8	Pizza Margarita, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, prize:9.8 €, lowPrice:false
+] orderPrice:20,24 € Vanesa valorDescuento: 0.0 € 
+
+ 16/12/21 22:31Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@71f0c540
+ 16/12/21 22:31Insercion tabla pedidoCannot invoke "java.sql.Connection.prepareStatement(String)" because "this.myConnection" is null[Ljava.lang.StackTraceElement;@3786ff86
+ 16/12/21 22:32Tiempo de conexion agotado
+ 16/12/21 22:34Tiempo de conexion agotado
+ 16/12/21 22:36Conexión ok. Base de datos no existe
+ 16/12/21 22:36Unknown database 'bdrestaurantrr'[Ljava.lang.StackTraceElement;@1e800aaa
+ 16/12/21 22:40Conexión ok. Base de datos no existe
+ 16/12/21 22:40Unknown database 'bdrestaurantrr'[Ljava.lang.StackTraceElement;@1e800aaa
+ 16/12/21 22:40Se crea panel mesas
+ 16/12/21 22:40Cantidad entregada pierde foco
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Nuevo boton producto
+ 16/12/21 22:40Añade producto al pedido.
+ 16/12/21 22:40Añade producto al pedido.
+ 16/12/21 22:40Rellenado pedido Pedido 1 date:16/12/21 22:40 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  8	Pizza Margarita, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, prize:9.8 €, lowPrice:false
+] orderPrice:20,24 € Vanesa valorDescuento: 0.0 € 
+
+ 16/12/21 22:40Rellenado pedido Pedido 1 date:16/12/21 22:40 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  8	Pizza Margarita, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, prize:9.8 €, lowPrice:false
+] orderPrice:20,24 € Vanesa valorDescuento: 0.0 € 
+
+ 16/12/21 22:40Añade producto al pedido.
+ 16/12/21 22:40Añade producto al pedido.
+ 16/12/21 22:40Rellenado pedido Pedido 1 date:16/12/21 22:40 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  8	Pizza Margarita, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, prize:9.8 €, lowPrice:false
+,  15	Pan centeno, section:BREAD, ingredients:Centeno, sal, agua, prize:0.9 €, lowPrice:false
+,  15	Pan centeno, section:BREAD, ingredients:Centeno, sal, agua, prize:0.9 €, lowPrice:false
+] orderPrice:22,22 € Vanesa valorDescuento: 0.0 € 
+
+ 16/12/21 22:41Rellenado pedido Pedido 1 date:16/12/21 22:40 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  8	Pizza Margarita, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, prize:9.8 €, lowPrice:false
+,  15	Pan centeno, section:BREAD, ingredients:Centeno, sal, agua, prize:0.9 €, lowPrice:false
+,  15	Pan centeno, section:BREAD, ingredients:Centeno, sal, agua, prize:0.9 €, lowPrice:false
+] orderPrice:22,22 € Vanesa valorDescuento: 0.0 € 
+
+ 16/12/21 22:41Boton mesa pulsado. No tiene datos
+ 16/12/21 22:41Añade producto al pedido.
+ 16/12/21 22:41Añade producto al pedido.
+ 16/12/21 22:41Añade producto al pedido.
+ 16/12/21 22:41Rellenado pedido Pedido 2 date:16/12/21 22:41 [ 15	Pan centeno, section:BREAD, ingredients:Centeno, sal, agua, prize:0.9 €, lowPrice:false
+,  18	Cazón y Huevos, section:COMBINADOS, ingredients:Cazón, huevo, patata, aceite, sal, prize:9.9 €, lowPrice:false
+,  19	Salchichas y pimientos, section:COMBINADOS, ingredients:Cerdo, pimiento, patata, aceite, sal, prize:5.9 €, lowPrice:false
+] orderPrice:18,37 € Vanesa valorDescuento: 0.0 € 
+
+ 16/12/21 22:41Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@2421012c
+ 16/12/21 22:41Insercion tabla pedidoNo database selected[Ljava.lang.StackTraceElement;@44cde396
+ 16/12/21 22:42Añade producto al pedido.
+ 16/12/21 22:42Rellenado pedido Pedido 1 date:16/12/21 22:40 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  8	Pizza Margarita, section:PIZZAS, ingredients:Harina, aceite, agua, tomate, Queso, prize:9.8 €, lowPrice:false
+,  15	Pan centeno, section:BREAD, ingredients:Centeno, sal, agua, prize:0.9 €, lowPrice:false
+,  15	Pan centeno, section:BREAD, ingredients:Centeno, sal, agua, prize:0.9 €, lowPrice:false
+,  19	Salchichas y pimientos, section:COMBINADOS, ingredients:Cerdo, pimiento, patata, aceite, sal, prize:5.9 €, lowPrice:false
+] orderPrice:28,71 € Vanesa valorDescuento: 0.0 € 
+
+ 16/12/21 22:42Worker insertionCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@1c72a596
+ 16/12/21 22:42Insercion tabla pedidoNo database selected[Ljava.lang.StackTraceElement;@78a0b825
+ 16/12/21 22:42Conexión ok. Base de datos no existe
+ 16/12/21 22:42Unknown database 'bdrestaurantrr'[Ljava.lang.StackTraceElement;@1e800aaa
+ 16/12/21 22:42Database creation. Unknown database 'bdrestaurantrr'[Ljava.lang.StackTraceElement;@5524cca1
+ 16/12/21 22:42Database tables creation. Unknown database 'bdrestaurantrr'[Ljava.lang.StackTraceElement;@48bb62
+ 16/12/21 22:42Insercion tabla productsNo database selected[Ljava.lang.StackTraceElement;@13d9cbf5
+ 16/12/21 22:42Worker insertionCannot invoke "java. sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@6ca18a14
+ 16/12/21 22:42Insert on 'destinopedido' tableNo database selected[Ljava.lang.StackTraceElement;@7b50df34
+ 16/12/21 22:43Se crea panel mesas
+ 16/12/21 22:43Cantidad entregada pierde foco
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 22:43Nuevo boton producto
+ 16/12/21 23:22Conexión ok. Base de datos no existe
+ 16/12/21 23:22Unknown database 'bdrestaurantrr'[Ljava.lang.StackTraceElement;@1e800aaa
+ 16/12/21 23:23Se crea panel mesas
+ 16/12/21 23:23Cantidad entregada pierde foco
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Nuevo boton producto
+ 16/12/21 23:23Añade producto al pedido.
+ 16/12/21 23:23Rellenado pedido Pedido 1 date:16/12/21 23:23 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:9,46 € Vanesa valorDescuento: 0.0 € 
+
+ 16/12/21 23:24Conexión ok. Base de datos no existe
+ 16/12/21 23:24Unknown database 'bdrestaurantrr'[Ljava.lang.StackTraceElement;@1e800aaa
+ 16/12/21 23:24START: Database creation. 
+ 16/12/21 23:24Database creation. Unknown database 'bdrestaurantrr'[Ljava.lang.StackTraceElement;@5524cca1
+ 16/12/21 23:24START: Tables creation. 
+ 16/12/21 23:24Database tables creation. Unknown database 'bdrestaurantrr'[Ljava.lang.StackTraceElement;@48bb62
+ 16/12/21 23:31Conexión ok. Base de datos no existe
+ 16/12/21 23:31Unknown database 'bdrestaurantrr'[Ljava.lang.StackTraceElement;@1e800aaa
+ 16/12/21 23:31START: Database creation. 
+ 16/12/21 23:31CREATE DATABASE IF NOT EXISTS bdRestaurantrr DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 16/12/21 23:31START: Tables creation. 
+ 16/12/21 23:31CREATE TABLE IF NOT EXISTS `cooker` (`cookerId` int(11) NOT NULL, `speciality` text COLLATE utf8mb4_unicode_ci NOT NULL, `workExperience` int(11) NOT NULL,`kitchenCategory` enum('CHEF','ASSISTANT') COLLATE utf8mb4_unicode_ci NOT NULL,PRIMARY KEY (`cookerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 16/12/21 23:31CREATE TABLE IF NOT EXISTS `delivery` (
+  `deliveryId` int(11) NOT NULL,
+  `deliveryMode` enum('On_foot','Motorcycle','Bicycle','Electric_car','Combustion_car') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `age` int(11) NOT NULL,
+  `motorcycleLicense` tinyint(1) NOT NULL,
+  `ownVehicle` tinyint(1) NOT NULL,
+  PRIMARY KEY (`deliveryId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 16/12/21 23:31CREATE TABLE IF NOT EXISTS `destinopedido` (  `destinationId` int(11) NOT NULL,  `destinationDenomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `destinationZone` enum('Bar','IntTable','ExtTable','Delivery') COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`destinationId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 16/12/21 23:31CREATE TABLE IF NOT EXISTS `orders` (  `orderId` int(11) NOT NULL,  `date` date NOT NULL,  `orderPrice` double NOT NULL,  `OrderPriceWithoutTaxes` double NOT NULL,  `workerId` int(11) NOT NULL,  `valorDescuento` double NOT NULL,  `destination` int(11) NOT NULL,  `pedidoCobrado` tinyint(1) NOT NULL,  PRIMARY KEY (`orderId`),  KEY `destination` (`destination`),  KEY `workerId` (`workerId`) USING BTREE) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 16/12/21 23:31CREATE TABLE IF NOT EXISTS `ordersproducts` (  `orderId` int(11) NOT NULL,  `foodId` int(11) NOT NULL,  KEY `orderId` (`orderId`),  KEY `foodId` (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 16/12/21 23:31CREATE TABLE IF NOT EXISTS `productos` (  `foodId` int(11) NOT NULL,  `denomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `section` enum('PIZZAS','STARTERS','PASTAS','COMBINADOS','SALADS','DESSERTS','DRINKS','BREAD','OTHERS') COLLATE utf8mb4_unicode_ci NOT NULL,  `ingredients` text COLLATE utf8mb4_unicode_ci NOT NULL,  `price` double NOT NULL,  `lowprice` tinyint(1) NOT NULL,  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 16/12/21 23:31CREATE TABLE IF NOT EXISTS `waiter` (  `waiterId` int(11) NOT NULL,  `cocktail` tinyint(1) NOT NULL,  `languaje1` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje2` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje3` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`waiterId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 16/12/21 23:31CREATE TABLE IF NOT EXISTS `worker` (  `workerId` int(11) NOT NULL,  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,  `surNames` text COLLATE utf8mb4_unicode_ci NOT NULL,  `dni` text COLLATE utf8mb4_unicode_ci NOT NULL,  `salary` double NOT NULL,  `telephone` text COLLATE utf8mb4_unicode_ci NOT NULL,  `clave` text COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`workerId`),  KEY `workerId` (`workerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 16/12/21 23:31ALTER TABLE `cooker`  ADD CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 16/12/21 23:31ALTER TABLE `delivery`  ADD CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 16/12/21 23:31ALTER TABLE `orders`  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`workerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`destination`) REFERENCES `destinopedido` (`destinationId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 16/12/21 23:31ALTER TABLE `ordersproducts`  ADD CONSTRAINT `ordersproducts_ibfk_1` FOREIGN KEY (`foodId`) REFERENCES `productos` (`foodId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `ordersproducts_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 16/12/21 23:31ALTER TABLE `waiter`  ADD CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 16/12/21 23:31START: Insertion example data in database. 
+ 16/12/21 23:41Database connection ok
+ 16/12/21 23:41Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@7c7a06ec
+ 17/12/21 0:17Database connection ok
+ 17/12/21 0:17Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@7c7a06ec
+ 17/12/21 0:23Database connection ok
+ 17/12/21 0:23Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@7c7a06ec
+ 17/12/21 0:31Database connection ok
+ 17/12/21 0:31Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@7c7a06ec
+ 17/12/21 0:58Database connection ok
+ 17/12/21 0:58Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@7c7a06ec
+ 17/12/21 1:39Database connection ok
+ 17/12/21 1:39Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@7c7a06ec
+ 17/12/21 1:41Conexión ok. Base de datos no existe
+ 17/12/21 1:41Unknown database 'bdrestaurantrr'[Ljava.lang.StackTraceElement;@1e800aaa
+ 17/12/21 1:42Conexión ok. Base de datos no existe
+ 17/12/21 1:42Unknown database 'bdrestaurantrr'[Ljava.lang.StackTraceElement;@1e800aaa
+ 17/12/21 1:42START: Database creation. 
+ 17/12/21 1:42CREATE DATABASE IF NOT EXISTS bdRestaurantrr DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 1:42END: Database creation. 
+ 17/12/21 1:42START: Tables creation. 
+ 17/12/21 1:42CREATE TABLE IF NOT EXISTS `cooker` (`cookerId` int(11) NOT NULL, `speciality` text COLLATE utf8mb4_unicode_ci NOT NULL, `workExperience` int(11) NOT NULL,`kitchenCategory` enum('CHEF','ASSISTANT') COLLATE utf8mb4_unicode_ci NOT NULL,PRIMARY KEY (`cookerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:42CREATE TABLE IF NOT EXISTS `delivery` (
+  `deliveryId` int(11) NOT NULL,
+  `deliveryMode` enum('On_foot','Motorcycle','Bicycle','Electric_car','Combustion_car') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `age` int(11) NOT NULL,
+  `motorcycleLicense` tinyint(1) NOT NULL,
+  `ownVehicle` tinyint(1) NOT NULL,
+  PRIMARY KEY (`deliveryId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:42CREATE TABLE IF NOT EXISTS `destinopedido` (  `destinationId` int(11) NOT NULL,  `destinationDenomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `destinationZone` enum('Bar','IntTable','ExtTable','Delivery') COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`destinationId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:42CREATE TABLE IF NOT EXISTS `orders` (  `orderId` int(11) NOT NULL,  `date` date NOT NULL,  `orderPrice` double NOT NULL,  `OrderPriceWithoutTaxes` double NOT NULL,  `workerId` int(11) NOT NULL,  `valorDescuento` double NOT NULL,  `destination` int(11) NOT NULL,  `pedidoCobrado` tinyint(1) NOT NULL,  PRIMARY KEY (`orderId`),  KEY `destination` (`destination`),  KEY `workerId` (`workerId`) USING BTREE) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:42CREATE TABLE IF NOT EXISTS `ordersproducts` (  `orderId` int(11) NOT NULL,  `foodId` int(11) NOT NULL,  KEY `orderId` (`orderId`),  KEY `foodId` (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:42CREATE TABLE IF NOT EXISTS `productos` (  `foodId` int(11) NOT NULL,  `denomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `section` enum('PIZZAS','STARTERS','PASTAS','COMBINADOS','SALADS','DESSERTS','DRINKS','BREAD','OTHERS') COLLATE utf8mb4_unicode_ci NOT NULL,  `ingredients` text COLLATE utf8mb4_unicode_ci NOT NULL,  `price` double NOT NULL,  `lowprice` tinyint(1) NOT NULL,  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:42CREATE TABLE IF NOT EXISTS `waiter` (  `waiterId` int(11) NOT NULL,  `cocktail` tinyint(1) NOT NULL,  `languaje1` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje2` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje3` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`waiterId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:42CREATE TABLE IF NOT EXISTS `worker` (  `workerId` int(11) NOT NULL,  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,  `surNames` text COLLATE utf8mb4_unicode_ci NOT NULL,  `dni` text COLLATE utf8mb4_unicode_ci NOT NULL,  `salary` double NOT NULL,  `telephone` text COLLATE utf8mb4_unicode_ci NOT NULL,  `clave` text COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`workerId`),  KEY `workerId` (`workerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:42ALTER TABLE `cooker`  ADD CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 1:42ALTER TABLE `delivery`  ADD CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 1:42ALTER TABLE `orders`  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`workerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`destination`) REFERENCES `destinopedido` (`destinationId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 1:42ALTER TABLE `ordersproducts`  ADD CONSTRAINT `ordersproducts_ibfk_1` FOREIGN KEY (`foodId`) REFERENCES `productos` (`foodId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `ordersproducts_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 1:42ALTER TABLE `waiter`  ADD CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 1:42END: Tables creation. 
+ 17/12/21 1:44Conexión ok. Base de datos no existe
+ 17/12/21 1:44Unknown database 'bdrestaurantrr'[Ljava.lang.StackTraceElement;@1e800aaa
+ 17/12/21 1:44START: Database creation. 
+ 17/12/21 1:44CREATE DATABASE IF NOT EXISTS bdRestaurantrr DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 1:44END: Database creation. 
+ 17/12/21 1:44START: Tables creation. 
+ 17/12/21 1:44CREATE TABLE IF NOT EXISTS `cooker` (`cookerId` int(11) NOT NULL, `speciality` text COLLATE utf8mb4_unicode_ci NOT NULL, `workExperience` int(11) NOT NULL,`kitchenCategory` enum('CHEF','ASSISTANT') COLLATE utf8mb4_unicode_ci NOT NULL,PRIMARY KEY (`cookerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:44CREATE TABLE IF NOT EXISTS `delivery` (
+  `deliveryId` int(11) NOT NULL,
+  `deliveryMode` enum('On_foot','Motorcycle','Bicycle','Electric_car','Combustion_car') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `age` int(11) NOT NULL,
+  `motorcycleLicense` tinyint(1) NOT NULL,
+  `ownVehicle` tinyint(1) NOT NULL,
+  PRIMARY KEY (`deliveryId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:44CREATE TABLE IF NOT EXISTS `destinopedido` (  `destinationId` int(11) NOT NULL,  `destinationDenomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `destinationZone` enum('Bar','IntTable','ExtTable','Delivery') COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`destinationId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:44CREATE TABLE IF NOT EXISTS `orders` (  `orderId` int(11) NOT NULL,  `date` date NOT NULL,  `orderPrice` double NOT NULL,  `OrderPriceWithoutTaxes` double NOT NULL,  `workerId` int(11) NOT NULL,  `valorDescuento` double NOT NULL,  `destination` int(11) NOT NULL,  `pedidoCobrado` tinyint(1) NOT NULL,  PRIMARY KEY (`orderId`),  KEY `destination` (`destination`),  KEY `workerId` (`workerId`) USING BTREE) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:44CREATE TABLE IF NOT EXISTS `ordersproducts` (  `orderId` int(11) NOT NULL,  `foodId` int(11) NOT NULL,  KEY `orderId` (`orderId`),  KEY `foodId` (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:44CREATE TABLE IF NOT EXISTS `productos` (  `foodId` int(11) NOT NULL,  `denomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `section` enum('PIZZAS','STARTERS','PASTAS','COMBINADOS','SALADS','DESSERTS','DRINKS','BREAD','OTHERS') COLLATE utf8mb4_unicode_ci NOT NULL,  `ingredients` text COLLATE utf8mb4_unicode_ci NOT NULL,  `price` double NOT NULL,  `lowprice` tinyint(1) NOT NULL,  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:44CREATE TABLE IF NOT EXISTS `waiter` (  `waiterId` int(11) NOT NULL,  `cocktail` tinyint(1) NOT NULL,  `languaje1` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje2` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje3` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`waiterId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:44CREATE TABLE IF NOT EXISTS `worker` (  `workerId` int(11) NOT NULL,  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,  `surNames` text COLLATE utf8mb4_unicode_ci NOT NULL,  `dni` text COLLATE utf8mb4_unicode_ci NOT NULL,  `salary` double NOT NULL,  `telephone` text COLLATE utf8mb4_unicode_ci NOT NULL,  `clave` text COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`workerId`),  KEY `workerId` (`workerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:44ALTER TABLE `cooker`  ADD CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 1:44ALTER TABLE `delivery`  ADD CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 1:44ALTER TABLE `orders`  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`workerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`destination`) REFERENCES `destinopedido` (`destinationId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 1:44ALTER TABLE `ordersproducts`  ADD CONSTRAINT `ordersproducts_ibfk_1` FOREIGN KEY (`foodId`) REFERENCES `productos` (`foodId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `ordersproducts_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 1:44ALTER TABLE `waiter`  ADD CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 1:44END: Tables creation. 
+ 17/12/21 1:45START: Insertion example data in database. 
+ 17/12/21 1:47Conexión ok. Base de datos no existe
+ 17/12/21 1:47Unknown database 'bdrestaurantrr'[Ljava.lang.StackTraceElement;@1e800aaa
+ 17/12/21 1:47START: Database creation. 
+ 17/12/21 1:47CREATE DATABASE IF NOT EXISTS bdRestaurantrr DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 17/12/21 1:47END: Database creation. 
+ 17/12/21 1:47START: Tables creation. 
+ 17/12/21 1:47CREATE TABLE IF NOT EXISTS `cooker` (`cookerId` int(11) NOT NULL, `speciality` text COLLATE utf8mb4_unicode_ci NOT NULL, `workExperience` int(11) NOT NULL,`kitchenCategory` enum('CHEF','ASSISTANT') COLLATE utf8mb4_unicode_ci NOT NULL,PRIMARY KEY (`cookerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:47CREATE TABLE IF NOT EXISTS `delivery` (
+  `deliveryId` int(11) NOT NULL,
+  `deliveryMode` enum('On_foot','Motorcycle','Bicycle','Electric_car','Combustion_car') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `age` int(11) NOT NULL,
+  `motorcycleLicense` tinyint(1) NOT NULL,
+  `ownVehicle` tinyint(1) NOT NULL,
+  PRIMARY KEY (`deliveryId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:47CREATE TABLE IF NOT EXISTS `destinopedido` (  `destinationId` int(11) NOT NULL,  `destinationDenomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `destinationZone` enum('Bar','IntTable','ExtTable','Delivery') COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`destinationId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:47CREATE TABLE IF NOT EXISTS `orders` (  `orderId` int(11) NOT NULL,  `date` date NOT NULL,  `orderPrice` double NOT NULL,  `OrderPriceWithoutTaxes` double NOT NULL,  `workerId` int(11) NOT NULL,  `valorDescuento` double NOT NULL,  `destination` int(11) NOT NULL,  `pedidoCobrado` tinyint(1) NOT NULL,  PRIMARY KEY (`orderId`),  KEY `destination` (`destination`),  KEY `workerId` (`workerId`) USING BTREE) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:47CREATE TABLE IF NOT EXISTS `ordersproducts` (  `orderId` int(11) NOT NULL,  `foodId` int(11) NOT NULL,  KEY `orderId` (`orderId`),  KEY `foodId` (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:47CREATE TABLE IF NOT EXISTS `productos` (  `foodId` int(11) NOT NULL,  `denomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `section` enum('PIZZAS','STARTERS','PASTAS','COMBINADOS','SALADS','DESSERTS','DRINKS','BREAD','OTHERS') COLLATE utf8mb4_unicode_ci NOT NULL,  `ingredients` text COLLATE utf8mb4_unicode_ci NOT NULL,  `price` double NOT NULL,  `lowprice` tinyint(1) NOT NULL,  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:47CREATE TABLE IF NOT EXISTS `waiter` (  `waiterId` int(11) NOT NULL,  `cocktail` tinyint(1) NOT NULL,  `languaje1` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje2` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje3` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`waiterId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:47CREATE TABLE IF NOT EXISTS `worker` (  `workerId` int(11) NOT NULL,  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,  `surNames` text COLLATE utf8mb4_unicode_ci NOT NULL,  `dni` text COLLATE utf8mb4_unicode_ci NOT NULL,  `salary` double NOT NULL,  `telephone` text COLLATE utf8mb4_unicode_ci NOT NULL,  `clave` text COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`workerId`),  KEY `workerId` (`workerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 17/12/21 1:47ALTER TABLE `cooker`  ADD CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 1:47ALTER TABLE `delivery`  ADD CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 1:47ALTER TABLE `orders`  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`workerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`destination`) REFERENCES `destinopedido` (`destinationId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 1:47ALTER TABLE `ordersproducts`  ADD CONSTRAINT `ordersproducts_ibfk_1` FOREIGN KEY (`foodId`) REFERENCES `productos` (`foodId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `ordersproducts_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 1:47ALTER TABLE `waiter`  ADD CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 17/12/21 1:47END: Tables creation. 
+ 17/12/21 1:47START: Insertion example data in database. 
+ 17/12/21 1:48Se crea panel mesas
+ 17/12/21 1:48Cantidad entregada pierde foco
+ 17/12/21 1:48Añade producto al pedido.
+ 17/12/21 1:48Añade producto al pedido.
+ 17/12/21 1:48Rellenado pedido Pedido 2 date:17/12/21 1:48 [ 9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+,  9	Pizza Pepperoni, section:PIZZAS, ingredients:Tomate, Queso, pepperoni, salchicas, prize:8.6 €, lowPrice:false
+] orderPrice:18,92 € Vanesa valorDescuento: 0.0 € 
+
+ 17/12/21 2:03Database connection ok
+ 17/12/21 2:03Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@7c7a06ec
+ 17/12/21 2:06Database connection ok
+ 17/12/21 2:06Lectura de datos BD Cannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@7c7a06ec
+ 17/12/21 2:13Database connection ok

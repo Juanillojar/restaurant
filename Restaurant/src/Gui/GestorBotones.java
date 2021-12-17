@@ -72,8 +72,7 @@ public class GestorBotones implements ActionListener {
 			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport, Frame.InstanceFPizzerie.panelPrincipal);
 		}
 		if (e.getActionCommand().equals("OpenProductsPanel")) {
-			// Se guarda en la variable estática BotonMesa el boton que genera la apertura
-			// de panel productos
+			// store static variable BotonMesa (button that generate open products panel
 			Panel.setBotonMesa((BotonRestauranteMesas) e.getSource());
 			Frame.InstanceFPizzerie.panelMesas.abrirPanelProductos();
 		}
@@ -108,82 +107,86 @@ public class GestorBotones implements ActionListener {
 			Frame.InstanceFPizzerie.panelProductos.pagarPedido();
 		}
 		if (e.getActionCommand().equals("OpenProductsReport")) {
-			// show or create products report panel
-			String sql= "SELECT foodId AS 'Food Number', denomination AS 'Product', section AS 'Section', "
-					+ "ingredients AS 'Ingredientes', price AS 'Price (€)', lowprice AS 'Discount' "
-					+ "FROM productos";
-			try {
-				Frame.InstanceFPizzerie.panelReportsData = new Panel(sql);
-			} catch (Exception e1){
-				System.out.println("Llama panel informe productos" + e1.getMessage() + e1.getStackTrace().toString());
-				Frame.log.Escritura("Llama panel informe productos" + e1.getMessage() + e1.getStackTrace());
-			}
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReportsData,	Frame.InstanceFPizzerie.panelReport);
-
-/*			
-  			if (Frame.InstanceFPizzerie.panelProductsReport == null) {
-				Frame.InstanceFPizzerie.panelProductsReport = new Panel(Frame.InstanceFPizzerie.myPizzerie.getFoods());
-			}
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelProductsReport,	Frame.InstanceFPizzerie.panelReport);
-*/
-		}
-		if (e.getActionCommand().equals("SalirPanelReports")) {
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelPrincipal,	Frame.InstanceFPizzerie.panelReport);
-		}
-		if (e.getActionCommand().equals("OpenOrderReport")) {
-			// Open order report
-//			if (Frame.InstanceFPizzerie.panelOrderReport == null) {
-//				Frame.InstanceFPizzerie.panelOrderReport = new Panel(Frame.InstanceFPizzerie.myPizzerie.getOrders(),"Informe");
-//			}			
-//			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelOrderReport,	Frame.InstanceFPizzerie.panelReport);			
-			String sql = "SELECT orders.orderId AS 'Order Number', orders.date AS 'Date', "
-			+ "orders.OrderPriceWithoutTaxes AS 'Price whitout taxes (€)', "
-			+ "orders.orderPrice AS 'Order Price (€)', orders.valorDescuento AS 'Discount', "
-			+ "destinopedido.destinationDenomination AS 'Zone', worker.name AS 'Atendido' "
-			+ "FROM orders, destinopedido, worker "
-			+ "WHERE orders.destination = destinopedido.destinationId AND "
-			+ "orders.workerId = worker.workerId;";	
-			if (Frame.InstanceFPizzerie.panelReportsData == null) {
+			// show or create "panelProductsReport" if there is no connetion with database. Show panel using sql if database connection is ok
+			if(Test.conex.isConnected()) {
+				String sql= "SELECT foodId AS 'Food Number', denomination AS 'Product', section AS 'Section', "
+						+ "ingredients AS 'Ingredientes', price AS 'Price (€)', lowprice AS 'Discount' "
+						+ "FROM productos";
 				try {
 					Frame.InstanceFPizzerie.panelReportsData = new Panel(sql);
 				} catch (Exception e1){
 					System.out.println("Llama panel informe productos" + e1.getMessage() + e1.getStackTrace().toString());
 					Frame.log.Escritura("Llama panel informe productos" + e1.getMessage() + e1.getStackTrace());
 				}
-			}			
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReportsData, Frame.InstanceFPizzerie.panelReport);
+				Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReportsData, Frame.InstanceFPizzerie.panelReport);	
+			}else {
+	  			if (Frame.InstanceFPizzerie.panelProductsReport == null) {
+					Frame.InstanceFPizzerie.panelProductsReport = new Panel(Frame.InstanceFPizzerie.myPizzerie.getFoods());
+				}
+				Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelProductsReport, Frame.InstanceFPizzerie.panelReport);				
+			}
+		}
+		if (e.getActionCommand().equals("OpenOrdersReport")) {
+			// show or create "panelOrdersReport" if there are connection with database. Show panel using sql if database connection is ok
+			if(Test.conex.isConnected()) {
+				String sql = "SELECT orders.orderId AS 'Order Number', orders.date AS 'Date', "
+						+ "orders.OrderPriceWithoutTaxes AS 'Price whitout taxes (€)', "
+						+ "orders.orderPrice AS 'Order Price (€)', orders.valorDescuento AS 'Discount', "
+						+ "destinopedido.destinationDenomination AS 'Zone', worker.name AS 'Atendido' "
+						+ "FROM orders, destinopedido, worker "
+						+ "WHERE orders.destination = destinopedido.destinationId AND "
+						+ "orders.workerId = worker.workerId;";	
+						if (Frame.InstanceFPizzerie.panelReportsData == null) {
+							try {
+								Frame.InstanceFPizzerie.panelReportsData = new Panel(sql);
+							} catch (Exception e1){
+								System.out.println("Llama panel informe pedidos" + e1.getMessage() + e1.getStackTrace().toString());
+								Frame.log.Escritura("Llama panel informe pedidos" + e1.getMessage() + e1.getStackTrace());
+							}
+						}			
+						Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReportsData, Frame.InstanceFPizzerie.panelReport);				
+			}else {
+				if (Frame.InstanceFPizzerie.panelOrderReport == null) {
+					Frame.InstanceFPizzerie.panelOrderReport = new Panel(Frame.InstanceFPizzerie.myPizzerie.getOrders(),"Informe");
+				}			
+				Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelOrderReport,	Frame.InstanceFPizzerie.panelReport);				
+			}
 		}
 		if (e.getActionCommand().equals("OpenWorkersReport")) {
-			String sql = "SELECT workerId AS 'Worker Number', name AS 'Name', surNames AS 'Surnames', "
-				   	   + "dni AS 'Dni', salary AS 'Salary (€)', telephone AS 'Telephone' "
-				   	   + "FROM worker";
-			try {
-				Frame.InstanceFPizzerie.panelReportsData = new Panel(sql);
-			} catch (Exception e1){
-				System.out.println("Llama panel informe productos" + e1.getMessage() + e1.getStackTrace().toString());
-				Frame.log.Escritura("Llama panel informe productos" + e1.getMessage() + e1.getStackTrace());
+			if(Test.conex.isConnected()) {
+				String sql = "SELECT workerId AS 'Worker Number', name AS 'Name', surNames AS 'Surnames', "
+					   	   + "dni AS 'Dni', salary AS 'Salary (€)', telephone AS 'Telephone' "
+					   	   + "FROM worker";
+				try {
+					Frame.InstanceFPizzerie.panelReportsData = new Panel(sql);
+				} catch (Exception e1){
+					System.out.println("Llama panel informe trabajadores" + e1.getMessage() + e1.getStackTrace().toString());
+					Frame.log.Escritura("Llama panel informe trabajadores" + e1.getMessage() + e1.getStackTrace());
+				}
+				Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReportsData,	Frame.InstanceFPizzerie.panelReport);				
+			}else {
+				if (Frame.InstanceFPizzerie.panelWorkersReport == null) {
+					Frame.InstanceFPizzerie.panelWorkersReport = new Panel(Frame.InstanceFPizzerie.myPizzerie.getWorkers(),"Informe","Trabajadores");
+				}			
+				Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelWorkersReport,	Frame.InstanceFPizzerie.panelReport);	
 			}
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReportsData,	Frame.InstanceFPizzerie.panelReport);
-
-		/*	
-			Frame.InstanceFPizzerie.panelWorkersReport = new Panel(Frame.InstanceFPizzerie.myPizzerie.getWorkers(),"Informe", "Trabajadores");
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelWorkersReport,	Frame.InstanceFPizzerie.panelReport);
-		*/
 		}
-		// OBSOLETO???
+		if (e.getActionCommand().equals("SalirPanelReports")) {
+			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelPrincipal,	Frame.InstanceFPizzerie.panelReport);
+		}
 		if (e.getActionCommand().equals("BackReportsFromProductsReport")) {
 			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelProductsReport);
 		}
-		// OBSOLETO???
 		if (e.getActionCommand().equals("BackReportsFromOrderReport")) {
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelReportsData);
-			//			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelOrderReport);
+			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelOrderReport);
 		}
-		// OBSOLETO???
 		if (e.getActionCommand().equals("BackReportsFromWorkersReport")) {
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelReportsData);
-			//Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelWorkersReport);
+			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelWorkersReport);
 		}
+		if (e.getActionCommand().equals("BackReportsFromReportSql")) {
+			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,	Frame.InstanceFPizzerie.panelReportsData);
+		}
+
 	}
 
 }

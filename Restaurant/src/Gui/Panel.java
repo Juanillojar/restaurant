@@ -184,7 +184,6 @@ public class Panel extends JPanel {
 		setVisible(false);
 	}
 
-
 	// Constructor for bar zones, tables and deliveries panel
 	public Panel(int barzones, int deliverys, int intTables, int extTables) {
 		setLayout(new BorderLayout());
@@ -227,7 +226,6 @@ public class Panel extends JPanel {
 		setVisible(false);
 	}
 
-	// Constructor for products panel
 	/**
 	 * Constructor for products panel. Create list of Productos order in Tabs orders by the Enum Section
 	 * Selected product is asociated to the table in or out, bar zone or delivery selected in tables... panel
@@ -274,7 +272,7 @@ public class Panel extends JPanel {
 
 	/**
 	 * Constructor for reports panel
-	 * @param i no se utiliza
+	 * @param i not used
 	 */
 	public Panel(int i) {
 		setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
@@ -289,8 +287,7 @@ public class Panel extends JPanel {
 		add(bWorkerReport);
 		bProductosReport.setActionCommand("OpenProductsReport");
 		bProductosReport.addActionListener(gestorBotones);
-
-		bOrderReport.setActionCommand("OpenOrderReport");
+		bOrderReport.setActionCommand("OpenOrdersReport");
 		bOrderReport.addActionListener(gestorBotones);
 		bWorkerReport.setActionCommand("OpenWorkersReport");
 		bWorkerReport.addActionListener(gestorBotones);
@@ -319,7 +316,6 @@ public class Panel extends JPanel {
 		buttonBackProductReport.addActionListener(gestorBotones);
 		add(buttonBackProductReport, BorderLayout.SOUTH);	
 	}
- 
 	/**
 	 * Constructor for order report panel using JTable. Collet data from a List
 	 * @param pedidos Lista de pedidos 
@@ -340,7 +336,27 @@ public class Panel extends JPanel {
 		add(buttonBackPedidosReport, BorderLayout.SOUTH);	
 	}
 	/**
-	 * Constructor for report panel using JTable. Collet data from a database based on a sql
+	 * Genera un panel que contiene una tabla con la lista de trabajadores
+	 * @param workers Lista de trabajadores
+	 * @param str1 No se utiliza
+	 * @param str2 No se utiliza
+	 */
+	public Panel(List<Trabajador> workers, String str1, String str2) {
+		setLayout(new BorderLayout());
+		String [] nombresColumnas = {"id", "Name", "Surnames", "Telephone", "Dni", "salary", "Password"};
+		Class [] tipoColumnas = {java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class};
+		ModeloTablaTrabajadores tModelTrabajadores = new ModeloTablaTrabajadores(workers, nombresColumnas, tipoColumnas);
+		JTable tableTrabajadores = new JTable(tModelTrabajadores);
+		tableTrabajadores.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		JScrollPane panelScrollPedidosReport = new JScrollPane(tableTrabajadores,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		add(panelScrollPedidosReport, BorderLayout.NORTH);
+		Boton buttonBackPedidosReport = new Boton(iconBack);
+		buttonBackPedidosReport.setActionCommand("BackReportsFromWorkersReport");
+		buttonBackPedidosReport.addActionListener(gestorBotones);
+		add(buttonBackPedidosReport, BorderLayout.SOUTH);	
+	}
+	/**
+	 * Constructor for report panel using JTable. Collet data from a database based on a sql. Used for products, workers and orders 
 	 * @param str the title of the Panel
 	 */
 	public Panel(String sql) throws SQLException {
@@ -367,38 +383,15 @@ public class Panel extends JPanel {
 		JScrollPane panelScrollPedidosReport = new JScrollPane(tablePedidos,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		add(panelScrollPedidosReport, BorderLayout.NORTH);
 		Boton buttonBackPedidosReport = new Boton(iconBack);
-		buttonBackPedidosReport.setActionCommand("BackReportsFromOrderReport");
-		buttonBackPedidosReport.addActionListener(gestorBotones);
-		add(buttonBackPedidosReport, BorderLayout.SOUTH);	
-	}
-
-	
-	/**
-	 * @param workers Lista de trabajadores
-	 * @param str1 No se utiliza
-	 * @param str2 No se utiliza
-	 * Genera un panel que contiene una tabla con la lista de trabajadores
-	 */
-	public Panel(List<Trabajador> workers, String str1, String str2) {
-		setLayout(new BorderLayout());
-		String [] nombresColumnas = {"id", "Name", "Surnames", "Telephone", "Dni", "salary", "Password"};
-		Class [] tipoColumnas = {java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class};
-		ModeloTablaTrabajadores tModelTrabajadores = new ModeloTablaTrabajadores(workers, nombresColumnas, tipoColumnas);
-		JTable tableTrabajadores = new JTable(tModelTrabajadores);
-		tableTrabajadores.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-		JScrollPane panelScrollPedidosReport = new JScrollPane(tableTrabajadores,ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		add(panelScrollPedidosReport, BorderLayout.NORTH);
-		Boton buttonBackPedidosReport = new Boton(iconBack);
-		buttonBackPedidosReport.setActionCommand("BackReportsFromWorkersReport");
+		buttonBackPedidosReport.setActionCommand("BackReportsFromReportSql");
 		buttonBackPedidosReport.addActionListener(gestorBotones);
 		add(buttonBackPedidosReport, BorderLayout.SOUTH);	
 	}
 	
-	//
 	/**
+	 * Este panel muestra el total del tique y proporciona al usuario el dinero a devolver
 	 * @param totalTique el total del tique a cobrar
 	 * Constructor panel for change and collect money ticket)
-	 * Este panel muestra el total del tique y proporciona al usuario el dinero a devolver
 	 */
 	public Panel(double totalTique) {
 		JTextField txfEntregaDato;
@@ -551,19 +544,19 @@ public class Panel extends JPanel {
 		//Se podría guardar en la lista si no hay conexión con la base de datos y guardar los datos de esta cada cierto tiempo
 		Frame.InstanceFPizzerie.myPizzerie.getOrders().add(Panel.getBotonMesa().getPedidoBoton());
 		Panel.getBotonMesa().setBackground(Color.LIGHT_GRAY);
-		//Insertar pedido en la base de datos
-		try {
-			ResultSetMetaData rsmdOrder = Test.conex.metadataTable("orders");  //obtain metadata from table
-			Object[] valuesOrder = new Object[rsmdOrder.getColumnCount()];
-			valuesOrder = Test.conex.valuesToArray(Panel.getBotonMesa().getPedidoBoton(), rsmdOrder.getColumnCount());	// get values of a object ant put on a array
-			Test.conex.insertDataOnTableBd(valuesOrder,"orders",rsmdOrder); //insert data into database table
-		}catch (Exception e){
-			System.out.println("Worker insertion" + e.getMessage() + e.getStackTrace().toString());
-			Frame.log.Escritura("Worker insertion" + e.getMessage() + e.getStackTrace());
-		};
-		
-
-		Test.conex.insertTableordersProductsBD(Panel.getBotonMesa().getPedidoBoton());
+		if(Test.conex.isConnected()) {
+			//Insertar pedido en la base de datos
+			try {
+				ResultSetMetaData rsmdOrder = Test.conex.metadataTable("orders");  //obtain metadata from table
+				Object[] valuesOrder = new Object[rsmdOrder.getColumnCount()];
+				valuesOrder = Test.conex.valuesToArray(Panel.getBotonMesa().getPedidoBoton(), rsmdOrder.getColumnCount());	// get values of a object ant put on a array
+				Test.conex.insertDataOnTableBd(valuesOrder,"orders",rsmdOrder); //insert data into database table
+			}catch (Exception e){
+				System.out.println("Order insertion" + e.getMessage() + e.getStackTrace().toString());
+				Frame.log.Escritura("Order insertion" + e.getMessage() + e.getStackTrace());
+			};			
+			Test.conex.insertTableordersProductsBD(Panel.getBotonMesa().getPedidoBoton());	
+		}
 		// crea panel cobro y lo visualiza
 		Frame.InstanceFPizzerie.panelCobro = new Panel(Panel.getBotonMesa().getPedidoBoton().getOrderPrice());
 		Frame.InstanceFPizzerie.panelticket.setVisible(false);

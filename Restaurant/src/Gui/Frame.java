@@ -26,17 +26,15 @@ public class Frame extends JFrame {
 	panelticket panelticket;
 	Panel panelCobro;
 	Panel panelReport;
-	Panel panelReportsData;
-	Panel panelProductsReport;
-	Panel panelOrderReport;
-	Panel panelWorkersReport;
+	Panel panelReportsData;		//user to show products, orders or workers report if there are connection to database
+	Panel panelProductsReport;	//used to show products report is there is no connection to database  
+	Panel panelOrderReport;		//used to show orders report is there is no connection to database
+	Panel panelWorkersReport;	//used to show workers report is there is no connection to database
 	Panel panelConfig;
 	
 	Trabajador trabajadorValidado  = new Trabajador(); //especifica el trabajador que está validado con su clave
 	public static String path="src/Gui/restaurant.log";
 	public static FicheroLog log = new FicheroLog(path);
-	//BdConnection conex = new BdConnection();
-	
 	Font fuenteTitulo = new Font("arial",Font.BOLD,20);
 	
 	public Frame(Restaurant myPizzerie) {

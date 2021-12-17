@@ -9,7 +9,10 @@ import javax.swing.JOptionPane;
 
 
 public class BdConnection {
-	private boolean connectedBdMotorButBbNoExist;      //indicates is database connection is ready
+	private String cadenaConex;
+	private boolean timeOut;						//indicates if there are no connection with database motor
+	private boolean connected;						//indicates if database connection is ok
+	private boolean connectedBdMotorButBbNoExist;   //indicates if database is created
 	private Connection myConnection;
 	private Statement myStatement;
 	private PreparedStatement myPreparedStatement;
@@ -17,6 +20,9 @@ public class BdConnection {
 	private ResultSetMetaData myResultSetMetaData;
 	
 	public BdConnection() {
+		this.cadenaConex = null;
+		this.timeOut= true;
+		this.connected = false;
 		this.connectedBdMotorButBbNoExist = false;
 		this.myConnection = null;
 		this.myStatement = null;
@@ -25,25 +31,34 @@ public class BdConnection {
 		this.myResultSetMetaData = null;
 	}
 
+	/** Constructor for BdConnection. 
+	 * If exist connection with database motor but not with database change de value or
+	 * connectedBdMotorButBbNoExist variable
+	 * @param config
+	 */
 	public BdConnection(String[] config){
-		StringBuilder cadenaConex = new StringBuilder("");
-		cadenaConex.append("jdbc:mysql");
-		cadenaConex.append("://" + config[2]);
-		cadenaConex.append(":" + config[3] + "/");
+		timeOut=true;
+		connected = false;
+		connectedBdMotorButBbNoExist= false;
 		try {
-			myConnection = DriverManager.getConnection(cadenaConex.toString(), config[4], config[5]);		
-		    if (myConnection != null) {
-		    	System.out.println("Conexión con nysql ok");  	
+			if (DatabaseMotorConnection(config)) {
+				cadenaConex =  "jdbc:"+config[0]+"://"+config[2]+":"+config[3]+"/"+config[1];	
+			    myConnection = DriverManager.getConnection(cadenaConex.toString(), config[4], config[5]);
+			    if(myConnection != null) {
+			    	System.out.println("Database commection ok.");
+			    	Frame.log.Escritura("Database connection ok");
+			    	connected = true;
+			    }
 		    }
-		    cadenaConex.append(config[1] );
-		    myConnection = DriverManager.getConnection(cadenaConex.toString(), config[4], config[5]);		
 		}catch (SQLException e){
 			if (e.getErrorCode() == 0) { //
-				System.out.println("Tiempo de conexion agotado");
-				JOptionPane.showMessageDialog(null, "Tiempo de conexión agotado."+ e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+				System.out.println("Database connection time out.");
+				Frame.log.Escritura("Database connection time out.");
+				JOptionPane.showMessageDialog(null, "Database connection time out."+ e.getMessage(), "Database connection. Error", JOptionPane.ERROR_MESSAGE);
 		} 
 			else if(e.getErrorCode() == 1049) {
 				System.out.println("Conexión ok. Base de datos no existe");
+				Frame.log.Escritura("Conexión ok. Base de datos no existe");
 				connectedBdMotorButBbNoExist = true;
 			}
 			System.out.println(e.getMessage() + e.getStackTrace().toString());
@@ -51,17 +66,42 @@ public class BdConnection {
 			}
 	}
 	
+	public void closeConnection() {
+		try {
+			if (!myConnection.isClosed()) {
+				myConnection.close();
+			}	
+		}catch(SQLException e) {
+			System.out.println("Closing dabase connmection. " + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Closing dabase connmection. " + e.getMessage() + e.getStackTrace());
+		}
+		
+	}
+	public boolean DatabaseMotorConnection(String[] config) {
+		String url = "jdbc:"+config[0]+"://"+config[2]+":"+config[3]+"/";  // not inserted database name
+		try {
+			myConnection = DriverManager.getConnection(url, config[4], config[5]);		
+			if(myConnection != null) {
+				timeOut = false;
+				return true;
+			}
+		}catch(SQLException e){
+			System.out.println("Tiempo de conexion agotado");
+			Frame.log.Escritura("Tiempo de conexion agotado");
+			JOptionPane.showMessageDialog(null, "Connection time out."+ e.getMessage(), "Commecting to database. Error", JOptionPane.ERROR_MESSAGE);
+			timeOut =true;
+			return false;
+		}
+		return true;
+	}
+	
 	public void createDatabase(String[] config) {
-		StringBuilder cadenaConex = new StringBuilder("");
 		StringBuilder sql = new StringBuilder("");
 		
-		if (config[0].equals("mysql")) {
-			cadenaConex.append("jdbc:mysql");
-		}
-		cadenaConex.append("://" + config[2]);
-		cadenaConex.append(":" + config[3] + "/");
+		cadenaConex =  "jdbc:"+config[0]+"://"+config[2]+":"+config[3]+"/";	// +config[1]		
+		Frame.log.Escritura("START: Database creation. ");
 		try {
-			myConnection = DriverManager.getConnection(cadenaConex.toString(), config[4], config[5]);
+			myConnection = DriverManager.getConnection(cadenaConex, config[4], config[5]);
 			myStatement = myConnection.createStatement();
 		
 			sql.append("CREATE DATABASE IF NOT EXISTS " + config[1] + " DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
@@ -69,23 +109,21 @@ public class BdConnection {
 			myStatement.execute(sql.toString());
 			Frame.log.Escritura(sql.toString());
 		}catch (SQLException e) {
-			System.out.println("Creación base de datos"  + e.getMessage() + e.getStackTrace().toString());
-			Frame.log.Escritura("Creación base de datos" + e.getMessage() + e.getStackTrace());
-			
+			System.out.println("Database creation. "  + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Database creation. " + e.getMessage() + e.getStackTrace());		
 		}
+		Frame.log.Escritura("END: Database creation. ");
 	}
 	
+	/**
+	 * Create the tables structure in database
+	 * @param config array of String containing data for database connection
+	 */
 	public void createTables(String[] config) {
-		StringBuilder cadenaConex = new StringBuilder("");
 		StringBuilder sql = new StringBuilder("");
 		
-		if (config[0].equals("mysql")) {
-			cadenaConex.append("jdbc:mysql");
-		}
-		cadenaConex.append("://" + config[2]);
-		cadenaConex.append(":" + config[3] + "/");
-		cadenaConex.append(config[1]);
-		
+		cadenaConex =  "jdbc:"+config[0]+"://"+config[2]+":"+config[3]+"/"+config[1];	
+		Frame.log.Escritura("START: Tables creation. ");
 		try {
 			myConnection = DriverManager.getConnection(cadenaConex.toString(), config[4], config[5]);
 			myStatement = myConnection.createStatement();
@@ -222,15 +260,11 @@ public class BdConnection {
 			myStatement.execute(sql.toString());
 			Frame.log.Escritura(sql.toString());
 		}catch (SQLException e) {
-			System.out.println("Creación tablas"  + e.getMessage() + e.getStackTrace().toString());
-			Frame.log.Escritura("Creación tablas" + e.getMessage() + e.getStackTrace());
-			
+			System.out.println("Database tables creation. "  + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Database tables creation. " + e.getMessage() + e.getStackTrace());
 		}
+		Frame.log.Escritura("END: Tables creation. ");
 	}
-	
-	
-	
-	
 	
 	public void showProductsList() throws SQLException{
 		myResultset = myStatement.executeQuery("SELECT * FROM productos");
@@ -245,7 +279,7 @@ public class BdConnection {
 	 */
 	public void chargeBDData() {
 		try {
-			//Statement stm = myConnection.createStatement();
+			myStatement = myConnection.createStatement();
 			ResultSet rst = myStatement.executeQuery("SELECT MAX(orderId) FROM orders");
 			rst.next();
 			System.out.println("Recogido valor de número de pedidos en BD: "+ rst.getInt("MAX(orderId)"));
@@ -453,13 +487,13 @@ public class BdConnection {
 	 * This data only store one the first time
 	 * @param myRestaurant generic Restaurant object. Use barZones, deliveryZones, inTables and outTables variables
 	 */
-	public void createDestinationsBD(Restaurant myRestaurant) {
+	public void createDestinationsBD(int barZones, int intTables, int outTables, int deliveryZones) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("INSERT INTO destinopedido (destinationId, destinationDenomination, destinationZone) ");
 		sql.append("VALUES(?,?,?)");
 		int contador = 1;
 		try {
-			for(int i = 1; i<= myRestaurant.getBarZones();i++) {
+			for(int i = 1; i<= barZones;i++) {
 				myPreparedStatement = myConnection.prepareStatement(sql.toString());
 				myPreparedStatement.setInt(1, contador);
 				myPreparedStatement.setString(2, "Zona barra " + i);
@@ -467,7 +501,7 @@ public class BdConnection {
 				myPreparedStatement.executeLargeUpdate();
 				contador ++;
 			}
-			for(int i = 1; i<= myRestaurant.getInTables();i++) {
+			for(int i = 1; i<= intTables;i++) {
 				myPreparedStatement = myConnection.prepareStatement(sql.toString());
 				myPreparedStatement.setInt(1, contador);
 				myPreparedStatement.setString(2, "In table " + i);
@@ -475,7 +509,7 @@ public class BdConnection {
 				myPreparedStatement.executeLargeUpdate();
 				contador ++;
 			}
-			for(int i = 1; i<= myRestaurant.getOutTables();i++) {
+			for(int i = 1; i<= outTables;i++) {
 				myPreparedStatement = myConnection.prepareStatement(sql.toString());
 				myPreparedStatement.setInt(1, contador);
 				myPreparedStatement.setString(2, "Out Table " + i);
@@ -483,7 +517,7 @@ public class BdConnection {
 				myPreparedStatement.executeLargeUpdate();
 				contador ++;
 			}
-			for(int i = 1; i<= myRestaurant.getDeliveryZones();i++) {
+			for(int i = 1; i<= deliveryZones;i++) {
 				myPreparedStatement = myConnection.prepareStatement(sql.toString());
 				myPreparedStatement.setInt(1, contador);
 				myPreparedStatement.setString(2, "Delivery " + i);
@@ -545,6 +579,22 @@ public class BdConnection {
 
 	public void setConnectedBdMotorButBbNoExist(boolean connectedBdMotor) {
 		this.connectedBdMotorButBbNoExist = connectedBdMotor;
+	}
+
+	public boolean isTimeOut() {
+		return timeOut;
+	}
+
+	public boolean isConnected() {
+		return connected;
+	}
+
+	public void setTimeOut(boolean timeOut) {
+		this.timeOut = timeOut;
+	}
+
+	public void setConnected(boolean connected) {
+		this.connected = connected;
 	}
 	
 }

@@ -31,78 +31,89 @@ public class Test {
 		//Carga datos de configuración
 		XmlDoc myXmlDoc = new XmlDoc("config.xml", "src/Gui/");
 		arrayConfig = myXmlDoc.load();
-		//conexión a base de datos
-		conex = new BdConnection(arrayConfig);
-		
-		if(conex.isConnectedBdMotorButBbNoExist()) {
-			int respuesta = JOptionPane.showConfirmDialog(null, "Database not found. Create database?", "Database not found", JOptionPane.YES_NO_CANCEL_OPTION);
-			if (respuesta == 0) {
-				//create database and tables
-				conex.createDatabase(arrayConfig);
-				conex.createTables(arrayConfig);
-			}			
-		}
-		
+		//creación estructuras de datos para trabajar en memoria
 		List<Productos> productsRestaurant = new ArrayList<Productos>();
-		createProducts(productsRestaurant);
 		List<Trabajador> workers= new ArrayList<Trabajador>();
-		createWorkers(workers);
-
-		//Creación de un objeto pizzeria asociándole todos los datos creados antes
-		Restaurant myRestaurant= new Restaurant("Pizzeria Bartolini", "c/Levantina 2 Bajo C.P:04240 Viator(Almeria)", workers, productsRestaurant,null);
+		List<Pedido> ordersRestaurant = new ArrayList<Pedido>();
+		
+		//crea el objeto conexión a base de datos
+		conex = new BdConnection(arrayConfig);
+		if(!conex.isTimeOut()) {		//connected to database motor
+			if(!conex.isConnected())    //no connected to database
+			{  // no conneted to database
+				if(conex.isConnectedBdMotorButBbNoExist()) 
+				{  // conected to database motor but database no exist
+					if (JOptionPane.showConfirmDialog(null, "Database not found. Create database?", "Database not found", JOptionPane.YES_NO_CANCEL_OPTION) == 0) 
+					{//create database and tables	
+						
+						conex.createDatabase(arrayConfig);
+						conex.createTables(arrayConfig);
+						conex.setConnected(true);
+						JOptionPane.showMessageDialog(null, "Database created successfully", "Information" , JOptionPane.INFORMATION_MESSAGE);
+						if(JOptionPane.showConfirmDialog(null, "Do you want to insert exmample data?", "Question", JOptionPane.OK_CANCEL_OPTION) == 0) 
+						{//insert example data in database
+							//insert data into memory structures
+							Frame.log.Escritura("START: Insertion example data in database. ");							
+							createProducts(productsRestaurant);
+							createWorkers(workers);
+							createPedidos(ordersRestaurant, productsRestaurant, workers);
+							conex.insertarEnTablaProductosBD("productos", productsRestaurant);
+							//insert worker list in database
+							conex.insertWorkersBD(workers);
+							//insertar los destinos en la base de datos
+							conex.createDestinationsBD(Integer.parseInt(arrayConfig[6]),Integer.parseInt(arrayConfig[7]), Integer.parseInt(arrayConfig[8]), Integer.parseInt(arrayConfig[9]));
+						}
+					}
+				}
+			}else{  //conected to database
+				// INCLUIR LA CARGA DE LOS DATOS DE TRABAJADORES PARA PONER EN EL PANEL VALIDA
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				conex.chargeBDData();	//Carga datos de base de datos
+				}	
+		}else {  	// no connection with database motor
+			if (JOptionPane.showConfirmDialog(null, "Do you want to charge example data?", "No conecction to database motor", JOptionPane.YES_NO_CANCEL_OPTION) == 0) 
+			{//insert data into memory structures
+				createProducts(productsRestaurant);
+				createWorkers(workers);
+				createPedidos(ordersRestaurant, productsRestaurant, workers);
+			}
+		}
+		//Creación de un objeto Restaurant
+		Restaurant myRestaurant= new Restaurant("Pizzeria Bartolini", "c/Levantina 2 Bajo C.P:04240 Viator(Almeria)", workers, productsRestaurant, ordersRestaurant);
 		//Se asigna el número de puestos en barra, mesas en interior, en exterior y repartos extraidas del archivo de configuración
 		myRestaurant.setBarZones(Integer.parseInt(arrayConfig[6]));
 		myRestaurant.setInTables(Integer.parseInt(arrayConfig[7]));
 		myRestaurant.setOutTables(Integer.parseInt(arrayConfig[8]));
 		myRestaurant.setDeliveryZones(Integer.parseInt(arrayConfig[9]));
-		
-		//Creación de la lista de comidas para pedido1 y el objeto pedido1 y la lista de objetos pedido.
-		//List<Productos> comidaPedido1 = new ArrayList<Productos>();
-		//comidaPedido1.add(0, plato3); //0 es la posición en la lista y 1 el id de la "Comida"
-		//comidaPedido1.add(1, plato5); //1 es la posición en la lista y 2 el id de la "Comida"
-
-		//Pedido pedido1 = new Pedido(comidaPedido1, 32, camarero1, destinoPedido1);
-		
-		//Creación de la lista de pedidos e inserción del pedido1
-		List<Pedido> pedidosPizzeria= new ArrayList<Pedido>();
-		//pizzeria.setOrders(pedidosPizzeria);
-		//pedidosPizzeria.add(0, pedido1);
-	
-		if (conex.isConnectedBdMotorButBbNoExist() == true) {
-		 // Sólo usado una vez para insertar el contenido de la lista en la base de datos	
-		 //	try {
-				conex.insertarEnTablaProductosBD("productos", productsRestaurant);
-		//	} catch (Exception e1) {
-			// TODO Auto-generated catch block
-		//		e1.printStackTrace();
-		//	} 	 
-		 
-		//insert worker list in database
-		conex.insertWorkersBD(workers);
-		//insertar los destinos en la base de datos
-		conex.createDestinationsBD(myRestaurant);
-		//Carga datos de base de datos
-		conex.chargeBDData();
-		//conex.insertOrderTableBD(pedido1);
-			
-		}
+				
+		//Se lanza frame
+		Frame miFrame = new Frame(myRestaurant);
 				
 	
 		System.out.println("\n***************Listado de comida en pizzeria********************");
 		System.out.println(productsRestaurant);
 		System.out.println("\n***************Listado de trabajadores en pizzeria**************");
-		myRestaurant.setOrders(pedidosPizzeria);
+		//myRestaurant.setOrders(pedidosPizzeria);
 		//pizzeria.VisualizarListaTrabajadores(trabajadoresPizzeria);
 		
-	
-		//Se lanza frame
-		Frame miFrame = new Frame(myRestaurant);
-
 		//Generación de listado de pedidos
 		System.out.println("\n*************** Listado de pedidos en pizzeria *****************");
 		System.out.println(myRestaurant.getOrders().toString());	
 	}
 	
+	/**
+	 * create products example data in List
+	 * @param lista List Productos objects
+	 */
 	public static void createProducts(List<Productos> lista){
 	//Se crean los productos (objetos Comida), se crea la lista y se rellena 
 		Productos plato1 = new Productos("Patatas Fritas",Section.STARTERS,"Patata, aceite, sal", 3.00, false);
@@ -131,7 +142,6 @@ public class Test {
 		Productos plato24 = new Productos("Cerveza sin",Section.DRINKS,"Cebada",1.5,false);
 		Productos plato25 = new Productos("Agua grande",Section.DRINKS,"Agua",2.5,false);
 		Productos plato26 = new Productos("Agua pequeña",Section.DRINKS,"Agua",1.5,false);
-		
 		
 		lista.add(plato1);
 		lista.add(plato2);
@@ -162,6 +172,10 @@ public class Test {
 	}
 	
 	
+	/**
+	 * Create worker example data
+	 * @param workers List of Trabajador objects
+	 */
 	public static void createWorkers(List<Trabajador> workers) {
 		//Generación de claves encriptadas para los usuarios
 		byte[] salt = new String("Juanillo").getBytes();  //es como una llave para la encriptación.Clave pública?
@@ -223,6 +237,15 @@ public class Test {
 		workers.add(5, repartidor2);
 	}
 	
+	public static void createPedidos(List<Pedido> orders,List<Productos> productsList, List<Trabajador> workersList ) {
+		//Creación de la lista de comidas para pedido1 y el objeto pedido1 y la lista de objetos pedido.
+		List<Productos> comidaPedido1 = new ArrayList<Productos>();
+		comidaPedido1.add(0, productsList.get(1)); //0 es la posición en la lista y 1 el id de "Productos"
+		comidaPedido1.add(1, productsList.get(15)); 
+		DestinoPedido destinoPedido1= new DestinoPedido("Bar1",Zone.Bar);
+		Pedido pedido1 = new Pedido(comidaPedido1, 32.0, workersList.get(3), destinoPedido1);
+		orders.add(pedido1);
+	}
 	public static SecretKeySpec getKey() {
 		return key;
 	}

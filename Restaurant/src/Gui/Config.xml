@@ -2,7 +2,7 @@
 <config>
 	<database>
 		<motor>mysql</motor>
-		<name>bdRestaurantff</name>
+		<name>bdRestaurantrr</name>
 		<host>localhost</host>
 		<port>3306</port>
 		<user>root</user>
