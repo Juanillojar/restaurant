@@ -65,14 +65,15 @@ public class Repartidor extends Trabajador{
 	}
 
 	@Override
-	public String toString() {
+/*	public String toString() {
 		return 	getName() + " " + getSurNames();
 	}
-/*	public String toString() {
+*/
+	public String toString() {
 		return "Repartidor " + super.toString() + " deliveyMode:" + deliveyMode + ", age:" + age + ", motorcycleLicense:" + motorcycleLicense
 				+ ", ownVehicle:" + ownVehicle;
 	}
-*/
+
 	public boolean equals(Repartidor obj) {
 		return super.equals(obj);
 	}

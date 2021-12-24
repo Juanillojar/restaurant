@@ -61,6 +61,7 @@ public class Panel extends JPanel {
 	ImageIcon iconCaja = new ImageIcon("src/gui/images/caja.png", "Caja");
 	ImageIcon iconImprimir = new ImageIcon("src/gui/images/imprimir.png", "Imprimir");
 	ImageIcon iconAceptar = new ImageIcon("src/gui/images/aceptar2.png", "Aceptar");
+	ImageIcon iconInsert = new ImageIcon("src/gui/images/insert2.png", "Insertion");
 	Font fuenteTitulo = new Font("arial", Font.BOLD, 20);
 	Font fuenteDatos = new Font("arial", Font.PLAIN, 12);
 	DateFormat formatoFechaHora = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
@@ -75,12 +76,16 @@ public class Panel extends JPanel {
 		bConf.setActionCommand("AbrirPanelConfiguracion");
 		Boton bReport = new Boton(iconReports);
 		bReport.setActionCommand("AbrirPanelReports");
+		Boton bInsert = new Boton(iconInsert);
+		bInsert.setActionCommand("OpenPanelInsert");
 		add(bOperate);
 		add(bConf);
 		add(bReport);
+		add(bInsert);
 		bOperate.addActionListener(gestorBotones);
 		bConf.addActionListener(gestorBotones);
 		bReport.addActionListener(gestorBotones);
+		bInsert.addActionListener(gestorBotones);
 		setVisible(true);
 	}
 	

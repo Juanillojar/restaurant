@@ -56,9 +56,10 @@ public class PanelValida extends JPanel {
 		for(Trabajador tr : trabajadores) {
 			if(tr.getClass().equals(cam.getClass()) || tr.getClass().equals(rep.getClass())) {
 				comboBoxUser.addItem(tr);
+				//comboBoxUser.setName(tr.getName() + " " + tr.getSurNames());
 			}
 		}
-		comboBoxUser.getSelectedItem();
+		//comboBoxUser.getSelectedItem();
 		gbc_MiConstraint.insets = new Insets(0, 0, 5, 0);
 		gbc_MiConstraint.gridx = 2;
 		gbc_MiConstraint.gridy = 1;

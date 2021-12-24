@@ -57,7 +57,7 @@ public class Cocinero extends Trabajador{
 
 	@Override
 	public String toString() {
-		return "Cocinero: "+ super.toString() + " specialty:" + speciality + ", workExperience:" + workExperience + ", chef" + category ;
+		return "Cocinero: "+ super.toString() + " specialty:" + speciality + ", workExperience:" + workExperience + ", chef: " + category ;
 	}
 
 	public boolean equals(Cocinero obj) {		

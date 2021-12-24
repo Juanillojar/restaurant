@@ -30,9 +30,11 @@ public class Frame extends JFrame {
 	Panel panelProductsReport;	//used to show products report is there is no connection to database  
 	Panel panelOrderReport;		//used to show orders report is there is no connection to database
 	Panel panelWorkersReport;	//used to show workers report is there is no connection to database
-	PanelConfig panelConfig;
+	PanelConfig panelConfig;	//used to show and modify config.xml file data
+	PanelInsert panelInsert;    //user to insert new data
 	
-	Trabajador trabajadorValidado  = new Trabajador(); //especifica el trabajador que está validado con su clave
+	
+	Trabajador trabajadorValidado;//  = new Trabajador(); //especifica el trabajador que está validado con su clave
 	public static String path="src/Gui/restaurant.log";
 	public static FicheroLog log = new FicheroLog(path);
 	Font fuenteTitulo = new Font("arial",Font.BOLD,20);
@@ -58,6 +60,13 @@ public class Frame extends JFrame {
 		setVisible(true);	
 	}
 	
+	public void cambiaPanel(JPanel panelMostrar, JPanel panelOcultar) {
+		add(panelMostrar, BorderLayout.CENTER);
+		panelMostrar.setVisible(true);
+		panelOcultar.setVisible(false);
+	}
+	
+/*	
 	public void cambiaPanel(Panel panelMostrar,Panel panelOcultar) {
 		add(panelMostrar, BorderLayout.CENTER);
 		panelMostrar.setVisible(true);
@@ -93,7 +102,10 @@ public class Frame extends JFrame {
 		panelMostrar.setVisible(true);
 		panelOcultar.setVisible(false);
 	}
-	public void ActivaPanel(Panel panel) {
+	*/
+/**
+  	public void ActivaPanel(Panel panel) {
+ 
 		add(panel, BorderLayout.CENTER);
 		setVisible(true);
 	}
@@ -109,7 +121,7 @@ public class Frame extends JFrame {
 		add(panel, BorderLayout.CENTER);
 		setVisible(true);
 	}
-	
+*/	
 	public Panel getPanelPrincipal() {
 		return panelPrincipal;
 	}
@@ -212,6 +224,14 @@ public class Frame extends JFrame {
 
 	public void setPanelConfig(PanelConfig panelConfig) {
 		this.panelConfig = panelConfig;
+	}
+
+	public PanelInsert getPanelInsert() {
+		return panelInsert;
+	}
+
+	public void setPanelInsert(PanelInsert panelInsert) {
+		this.panelInsert = panelInsert;
 	}
 
 }

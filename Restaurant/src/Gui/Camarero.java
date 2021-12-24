@@ -59,8 +59,9 @@ public class Camarero extends Trabajador{
 	public String toString() {
 		return 	getName() + " " + getSurNames();
 	}
-/*	public String toString() {
-		return "Camarero " + super.toString() + " workZone:" + workZone + ", languages:(" + visualizaLanguages(languages) + "), cocktail:" + cocktail;
+
+	/*	public String toString() {
+		return "Camarero " + super.toString() + ", languages:(" + visualizaLanguages(languages) + "), cocktail:" + cocktail;
 	}
 */
 	public boolean equals(Camarero obj) {
