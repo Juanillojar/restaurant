@@ -1,5 +1,6 @@
 package Gui;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -251,38 +252,55 @@ public class GestorBotones implements ActionListener {
 			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelPrincipal,
 					Frame.InstanceFPizzerie.panelInsert);
 		}
+		if (e.getActionCommand().equals("cbSelectionChange")) {
+			PanelInsert mypan = Frame.InstanceFPizzerie.panelInsert; // only to use a short description
+			if (((JComboBox) e.getSource()).getSelectedItem() == "Worker") {
+				if(mypan.panelProduct != null)
+					mypan.remove(mypan.panelProduct);
+				mypan.add(mypan.panelWorkerData,BorderLayout.CENTER);
+				mypan.repaint();
+				mypan.changeVisibility(true, mypan.lblSelectWorkerType, mypan.cbWorkerType);
+			};
+			if (((JComboBox) e.getSource()).getSelectedItem() == "Product") {
+				if(mypan.panelWorkerData != null)
+					mypan.remove(mypan.panelWorkerData);	
+				mypan.add(mypan.panelProduct, BorderLayout.CENTER);
+				mypan.repaint();
+				mypan.changeVisibility(false, mypan.lblSelectWorkerType, mypan.cbWorkerType);
+			};
+			System.out.println("Gestor botones. cambia tipo seleccion trabajador o producto");
+		}
+
 		if (e.getActionCommand().equals("cbWorkerTypeChange")) {
 			PanelInsert mypan = Frame.InstanceFPizzerie.panelInsert; // only to use a short
 			if (((JComboBox) e.getSource()).getSelectedItem() == "Waiter") {
-				mypan.changeVisibility(true, mypan.lblCocktail, mypan.lblLanguage1, mypan.lblLanguage2,
-						mypan.lblLanguage3, mypan.chbCocktail, mypan.tfLanguage1, mypan.tfLanguage2, mypan.tfLanguage3);
-				mypan.changeVisibility(false, mypan.lblSpeciality, mypan.lblWorkExperience, mypan.lblKitchenCategory,
-						mypan.tfSpeciality, mypan.tfWorkExperience, mypan.cbKitchenCategory);
-				mypan.changeVisibility(false, mypan.lblDeliveryMode, mypan.lblAge, mypan.lblMotorcycleLicense,
-						mypan.lblOwnVehicle, mypan.cbDeliveryMode, mypan.tfAge, mypan.chbMotorcycleLicense,
-						mypan.chbOwnVehicle);
-			}
-			;
+				mypan.changeVisibility(true, mypan.panelWorkerData.lblCocktail, mypan.panelWorkerData.lblLanguage1, mypan.panelWorkerData.lblLanguage2,
+						mypan.panelWorkerData.lblLanguage3, mypan.panelWorkerData.chbCocktail, mypan.panelWorkerData.tfLanguage1, mypan.panelWorkerData.tfLanguage2, mypan.panelWorkerData.tfLanguage3);
+				mypan.changeVisibility(false, mypan.panelWorkerData.lblSpeciality, mypan.panelWorkerData.lblWorkExperience, mypan.panelWorkerData.lblKitchenCategory,
+						mypan.panelWorkerData.tfSpeciality, mypan.panelWorkerData.tfWorkExperience, mypan.panelWorkerData.cbKitchenCategory);
+				mypan.changeVisibility(false, mypan.panelWorkerData.lblDeliveryMode, mypan.panelWorkerData.lblAge, mypan.panelWorkerData.lblMotorcycleLicense,
+						mypan.panelWorkerData.lblOwnVehicle, mypan.panelWorkerData.cbDeliveryMode, mypan.panelWorkerData.tfAge, mypan.panelWorkerData.chbMotorcycleLicense,
+						mypan.panelWorkerData.chbOwnVehicle);
+			};
 			if (((JComboBox) e.getSource()).getSelectedItem() == "Cooker") {
-				mypan.changeVisibility(false, mypan.lblCocktail, mypan.lblLanguage1, mypan.lblLanguage2,
-						mypan.lblLanguage3, mypan.chbCocktail, mypan.tfLanguage1, mypan.tfLanguage2, mypan.tfLanguage3);
-				mypan.changeVisibility(true, mypan.lblSpeciality, mypan.lblWorkExperience, mypan.lblKitchenCategory,
-						mypan.tfSpeciality, mypan.tfWorkExperience, mypan.cbKitchenCategory);
-				mypan.changeVisibility(false, mypan.lblDeliveryMode, mypan.lblAge, mypan.lblMotorcycleLicense,
-						mypan.lblOwnVehicle, mypan.cbDeliveryMode, mypan.tfAge, mypan.chbMotorcycleLicense,
-						mypan.chbOwnVehicle);
-			}
-			;
+				
+				mypan.changeVisibility(false, mypan.panelWorkerData.lblCocktail, mypan.panelWorkerData.lblLanguage1, mypan.panelWorkerData.lblLanguage2,
+						mypan.panelWorkerData.lblLanguage3, mypan.panelWorkerData.chbCocktail, mypan.panelWorkerData.tfLanguage1, mypan.panelWorkerData.tfLanguage2, mypan.panelWorkerData.tfLanguage3);
+				mypan.changeVisibility(true, mypan.panelWorkerData.lblSpeciality, mypan.panelWorkerData.lblWorkExperience, mypan.panelWorkerData.lblKitchenCategory,
+						mypan.panelWorkerData.tfSpeciality, mypan.panelWorkerData.tfWorkExperience, mypan.panelWorkerData.cbKitchenCategory);
+				mypan.changeVisibility(false, mypan.panelWorkerData.lblDeliveryMode, mypan.panelWorkerData.lblAge, mypan.panelWorkerData.lblMotorcycleLicense,
+						mypan.panelWorkerData.lblOwnVehicle, mypan.panelWorkerData.cbDeliveryMode, mypan.panelWorkerData.tfAge, mypan.panelWorkerData.chbMotorcycleLicense,
+						mypan.panelWorkerData.chbOwnVehicle);
+			};
 			if (((JComboBox) e.getSource()).getSelectedItem() == "Delivery man") {
-				mypan.changeVisibility(false, mypan.lblCocktail, mypan.lblLanguage1, mypan.lblLanguage2,
-						mypan.lblLanguage3, mypan.chbCocktail, mypan.tfLanguage1, mypan.tfLanguage2, mypan.tfLanguage3);
-				mypan.changeVisibility(false, mypan.lblSpeciality, mypan.lblWorkExperience, mypan.lblKitchenCategory,
-						mypan.tfSpeciality, mypan.tfWorkExperience, mypan.cbKitchenCategory);
-				mypan.changeVisibility(true, mypan.lblDeliveryMode, mypan.lblAge, mypan.lblMotorcycleLicense,
-						mypan.lblOwnVehicle, mypan.cbDeliveryMode, mypan.tfAge, mypan.chbMotorcycleLicense,
-						mypan.chbOwnVehicle);
-			}
-			;
+				mypan.changeVisibility(false, mypan.panelWorkerData.lblCocktail, mypan.panelWorkerData.lblLanguage1, mypan.panelWorkerData.lblLanguage2,
+						mypan.panelWorkerData.lblLanguage3, mypan.panelWorkerData.chbCocktail, mypan.panelWorkerData.tfLanguage1, mypan.panelWorkerData.tfLanguage2, mypan.panelWorkerData.tfLanguage3);
+				mypan.changeVisibility(false, mypan.panelWorkerData.lblSpeciality, mypan.panelWorkerData.lblWorkExperience, mypan.panelWorkerData.lblKitchenCategory,
+						mypan.panelWorkerData.tfSpeciality, mypan.panelWorkerData.tfWorkExperience, mypan.panelWorkerData.cbKitchenCategory);
+				mypan.changeVisibility(true, mypan.panelWorkerData.lblDeliveryMode, mypan.panelWorkerData.lblAge, mypan.panelWorkerData.lblMotorcycleLicense,
+						mypan.panelWorkerData.lblOwnVehicle, mypan.panelWorkerData.cbDeliveryMode, mypan.panelWorkerData.tfAge, mypan.panelWorkerData.chbMotorcycleLicense,
+						mypan.panelWorkerData.chbOwnVehicle);
+			};
 			System.out.println("Gestor botones. cambia tipo trabajador en panel de inserción");
 		}
 		if (e.getActionCommand().equals("ApplyPanelInsert")) {
@@ -303,12 +321,23 @@ public class GestorBotones implements ActionListener {
 				// Frame.InstanceFPizzerie.panelReport);
 			} else { // insert data in objetcs lists
 				PanelInsert mypan = Frame.InstanceFPizzerie.panelInsert;
-				if(mypan.requiredFields(mypan.tfName, mypan.tfPassword, mypan.tfSalary)) {  
-					mypan.insertWorker();
-					Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelPrincipal,
-														Frame.InstanceFPizzerie.panelInsert);
-					Frame.InstanceFPizzerie.panelInsert = null;					
+				
+				switch((String)mypan.cbSelection.getSelectedItem()) {
+				case "Product":
+					if(mypan.requiredFields(mypan.panelProduct.tfDenomination, mypan.panelProduct.tfPrice)) {  
+						mypan.insertProduct();					
+					}
+					break;
+				case "Worker":
+					if(mypan.requiredFields(mypan.panelWorkerData.tfName, mypan.panelWorkerData.tfPassword, mypan.panelWorkerData.tfSalary)) {  
+						mypan.insertWorker((String)mypan.cbWorkerType.getSelectedItem());
+					}
+					break;
 				}
+				Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelPrincipal,
+						Frame.InstanceFPizzerie.panelInsert);
+				Frame.InstanceFPizzerie.panelInsert = null;					
+
 			}
 		}
 	}	
