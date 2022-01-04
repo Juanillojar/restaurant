@@ -49,18 +49,18 @@ public class Panel extends JPanel {
 	//private XmlDoc myXmlDoc;	//objeto XmlDoc relativo al documento config.xml
 	
 
-	ImageIcon iconOperate = new ImageIcon("src/Gui/images/operar.jpg", "Operar");
-	ImageIcon iconConf = new ImageIcon("src/Gui/images/conf.png", "Configuración");
-	ImageIcon iconReports = new ImageIcon("src/Gui/images/informes.png", "Informes");
+	ImageIcon iconOperate = new ImageIcon("src/Gui/images/operar.jpg", "Operate");
+	ImageIcon iconConf = new ImageIcon("src/Gui/images/conf.png", "Configuration");
+	ImageIcon iconReports = new ImageIcon("src/Gui/images/informes.png", "Reports");
 	ImageIcon iconBar = new ImageIcon("src/Gui/images/barra.jpg", "Bar");
 	ImageIcon iconDelivery = new ImageIcon("src/gui/images/Delivery.jpg", "Delivery");
 	ImageIcon iconIntTable = new ImageIcon("src/gui/images/ExtTable.png", "Int. Table");
 	ImageIcon iconExtTable = new ImageIcon("src/gui/images/intTable.jpg", "Ext. Table");
 	ImageIcon iconBack = new ImageIcon("src/gui/images/Back.png", "Back");
 	ImageIcon iconTique = new ImageIcon("src/gui/images/tique.png", "Tique");
-	ImageIcon iconCaja = new ImageIcon("src/gui/images/caja.png", "Caja");
-	ImageIcon iconImprimir = new ImageIcon("src/gui/images/imprimir.png", "Imprimir");
-	ImageIcon iconAceptar = new ImageIcon("src/gui/images/aceptar2.png", "Aceptar");
+	ImageIcon iconCaja = new ImageIcon("src/gui/images/caja.png", "Cash");
+	ImageIcon iconImprimir = new ImageIcon("src/gui/images/imprimir.png", "Print");
+	ImageIcon iconAceptar = new ImageIcon("src/gui/images/aceptar2.png", "Apply");
 	ImageIcon iconInsert = new ImageIcon("src/gui/images/insert2.png", "Insertion");
 	Font fuenteTitulo = new Font("arial", Font.BOLD, 20);
 	Font fuenteDatos = new Font("arial", Font.PLAIN, 12);

@@ -12,7 +12,6 @@ public class BdConnection {
 	private String cadenaConex;
 	private boolean timeOut;						//indicates if there are no connection with database motor
 	private boolean connected;						//indicates if database connection is ok
-	//private boolean connectedBdMotorButBbNoExist;   //indicates if database is created
 	private Connection myConnection;
 	private Statement myStatement;
 	private PreparedStatement myPreparedStatement;
@@ -283,7 +282,12 @@ public class BdConnection {
 			ResultSet rst = myStatement.executeQuery("SELECT MAX(orderId) FROM orders");
 			rst.next();
 			System.out.println("Recogido valor de número de pedidos en BD: "+ rst.getInt("MAX(orderId)"));
-			Pedido.setPedidos(rst.getInt(1));			
+			Pedido.setPedidos(rst.getInt(1));
+			
+			//copy users from database to List
+			
+			
+			
 		}catch(Exception e){
 			System.out.println("Lectura de datos BD " + e.getMessage() + e.getStackTrace().toString());
 			Frame.log.Escritura("Lectura de datos BD " + e.getMessage() + e.getStackTrace());
@@ -380,11 +384,19 @@ public class BdConnection {
 			values[6] = ((Pedido)source).getDestination().getDestinationId();
 			values[7] = ((Pedido)source).isPedidoCobrado();
 		}
+		else if(source.getClass() == Productos.class) {
+			values[0] = ((Productos)source).getFoodId();
+			values[1] = ((Productos)source).getDenomination();
+			values[2] = ((Productos)source).getSection().name();
+			values[3] = ((Productos)source).getIngredients();		
+			values[4] = ((Productos)source).getPrice();
+			values[5] = ((Productos)source).isLowPrice();
+		}
 		return values;
 	}	
 	
 	/**
-	 * Generate a UPDATE sql command based on metadata of "table" and
+	 * Generate a INSERT sql command based on metadata of "table" and
 	 * data from object array "values' and insert in "table" of database
 	 * @param values array of objects that contain values to insert 
 	 * @param table no of database table wich insert values
@@ -439,8 +451,8 @@ public class BdConnection {
 			System.out.println(myPreparedStatement.toString());
 			myPreparedStatement.executeUpdate();			
 		}catch (Exception e){
-			System.out.println("Worker insertion" + e.getMessage() + e.getStackTrace().toString());
-			Frame.log.Escritura("Worker insertion" + e.getMessage() + e.getStackTrace());
+			System.out.println("Insertion in database" + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Insertion in database" + e.getMessage() + e.getStackTrace());
 		};
 	}
 
@@ -448,15 +460,53 @@ public class BdConnection {
 	 * Insert workers of the List on database with his details.
 	 * @param lWorkers list of objects to insert (cooker, waiters or delivery men)
 	 */
-	public void insertWorkersBD(List<?> lWorkers) {
-		Object[] valuesWorker;
-		try {
-			ResultSetMetaData rsmdWorker = metadataTable("worker");  //obtain metadata from table worker
+	public void insertWorkersBD(List<?> lWorkers, String table) {
+//		Object[] valuesWorker;
+//		try {
+//			ResultSetMetaData rsmdWorker = metadataTable("worker");  //obtain metadata from table worker
 			for(int i =0; i<=lWorkers.size()-1;i++) {
 				Trabajador w = (Trabajador)lWorkers.get(i);
+				insertWorkerBD(w, table);
+//				valuesWorker = new Object[rsmdWorker.getColumnCount()];
+//				valuesWorker = valuesToArray(((Trabajador)w), rsmdWorker.getColumnCount());	// get values of a object ant put on a array
+//				insertDataOnTableBd(valuesWorker,"worker",rsmdWorker); //insert data into database table
+			
+//				if(w.getClass() == Cocinero.class) {
+//					myResultSetMetaData = metadataTable("cooker");  //obtain metadata from table cooker
+//					Object[] valuesWorkerDetail = new Object[myResultSetMetaData.getColumnCount()];
+//					valuesWorkerDetail = valuesToArray(((Cocinero)w), myResultSetMetaData.getColumnCount()); // get values of a object ant put on a array
+//					insertDataOnTableBd(valuesWorkerDetail,"cooker",myResultSetMetaData);//insert data into database cooker table
+//				}else if (w.getClass() == Camarero.class) {
+//					myResultSetMetaData = metadataTable("waiter");  //obtain metadata from table waiter
+//					Object[] values = new Object[myResultSetMetaData.getColumnCount()];
+//					values = valuesToArray(((Camarero)w), myResultSetMetaData.getColumnCount()); // get values of a object ant put on a array
+//					insertDataOnTableBd(values,"waiter",myResultSetMetaData); //insert data into database waiter table
+//				}else if (w.getClass() == Repartidor.class) {
+//					myResultSetMetaData = metadataTable("delivery");  //obtain metadata from table delivery
+//					Object[] values = new Object[myResultSetMetaData.getColumnCount()];
+//					values = valuesToArray(((Repartidor)w), myResultSetMetaData.getColumnCount()); // get values of a object ant put on a array
+//					insertDataOnTableBd(values,"delivery",myResultSetMetaData);  //insert data into database delevery table
+//				}
+			}
+	//	}catch (Exception e){
+	//		System.out.println("Worker insertion in database" + e.getMessage() + e.getStackTrace().toString());
+	//		Frame.log.Escritura("Worker insertion in database" + e.getMessage() + e.getStackTrace());
+	//	};
+	}
+	
+	/**
+	 * Insert a worker on database with his details. Camarero, Cocinero and Repartidor classes are subclasses of Trabajador class
+	 * @param w the Trabajador object to insert in database
+	 */
+	public void insertWorkerBD(Trabajador w, String table){		//(Trabajador w) {
+		Object[] valuesWorker;
+		try {
+			ResultSetMetaData rsmdWorker = metadataTable(table);  //obtain metadata from table worker
+	//		for(int i =0; i<=lWorkers.size()-1;i++) {
+				//Trabajador w = (Trabajador)lWorkers.get(i);
 				valuesWorker = new Object[rsmdWorker.getColumnCount()];
 				valuesWorker = valuesToArray(((Trabajador)w), rsmdWorker.getColumnCount());	// get values of a object ant put on a array
-				insertDataOnTableBd(valuesWorker,"worker",rsmdWorker); //insert data into database table
+				insertDataOnTableBd(valuesWorker,table,rsmdWorker); //insert data into database table
 			
 				if(w.getClass() == Cocinero.class) {
 					myResultSetMetaData = metadataTable("cooker");  //obtain metadata from table cooker
@@ -474,15 +524,35 @@ public class BdConnection {
 					values = valuesToArray(((Repartidor)w), myResultSetMetaData.getColumnCount()); // get values of a object ant put on a array
 					insertDataOnTableBd(values,"delivery",myResultSetMetaData);  //insert data into database delevery table
 				}
-			}
+//			}
 		}catch (Exception e){
-			System.out.println("Worker insertion" + e.getMessage() + e.getStackTrace().toString());
-			Frame.log.Escritura("Worker insertion" + e.getMessage() + e.getStackTrace());
+			System.out.println("Worker insertion in database" + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Worker insertion in database" + e.getMessage() + e.getStackTrace());
 		};
 	}
 	
 	/**
-	 * Store data in destinopedido table on database. 
+	 * insert values of a Productos object into a databae
+	 * @param product the Productos object to insert
+	 */
+	public void insertProductBD(Productos product, String table){
+		Object[] valuesProduct;
+		
+		ResultSetMetaData rsmdProduct;
+		try {
+			rsmdProduct = metadataTable(table); //obtain metadata from table 
+			valuesProduct = new Object[rsmdProduct.getColumnCount()];
+			valuesProduct = valuesToArray(product, rsmdProduct.getColumnCount());	// get values of a object ant put on a array
+			insertDataOnTableBd(valuesProduct,table,rsmdProduct); //insert data into database table
+		} catch (SQLException e) {
+			System.out.println("Product insertion in database" + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Product insertion in database" + e.getMessage() + e.getStackTrace());
+		}
+	}
+	
+	
+	/**
+	 * Store data in 'destinopedido' table on database. 
 	 * Use variables barZones, inTables, outTables and deleveryZones
 	 * This data only store one the first time
 	 * @param myRestaurant generic Restaurant object. Use barZones, deliveryZones, inTables and outTables variables
@@ -573,14 +643,7 @@ public class BdConnection {
 		return myResultset;
 	}
 
-//	public boolean isConnectedBdMotorButBbNoExist() {
-//		return connectedBdMotorButBbNoExist;
-//	}
-
-//	public void setConnectedBdMotorButBbNoExist(boolean connectedBdMotor) {
-//		this.connectedBdMotorButBbNoExist = connectedBdMotor;
-//	}
-
+	// setters and getters
 	public boolean isTimeOut() {
 		return timeOut;
 	}

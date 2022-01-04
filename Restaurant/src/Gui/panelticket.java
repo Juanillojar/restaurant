@@ -6,7 +6,6 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -21,6 +20,9 @@ import javax.swing.ImageIcon;
 
 /**
  * @author Juan José Cárdenas
+ * The ticket panel is generated with two sub-panels: one with the data of the ticket to be printed
+ * and another with the action buttons.
+ * The Caja button accesses the panel for calculation of change defined in the class "Panel"
  * Se genera el panel del ticket con dos subpaneles: uno con los datos del tiquet a imprimir
  * y otro con los botones de las acciones.
  * El botón Caja accede al panel para calculo de cambio y cobro definido en la clase Panel

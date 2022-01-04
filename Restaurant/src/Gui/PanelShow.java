@@ -18,6 +18,12 @@ import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 import javax.swing.text.NumberFormatter;
 
+/**
+ * @author Juan José Cárdenas
+ *	show components in a panel. Used to generate subpanels of panelInsert class
+ * Two constructors are defined to show the data of products or Workers (Waiter, cook and delivery man)
+ * Son definidos dos constructores para mostrar los datos de productos o Trabajadores (Camarero, cocinero y repartidor)
+ */
 public class PanelShow extends JPanel {
 	NumberFormatter formatoNumero = new NumberFormatter();
 	JTextField tfName, tfSurNames, tfPassword;
@@ -38,7 +44,12 @@ public class PanelShow extends JPanel {
 	JComboBox cbSection;
 	JFormattedTextField tfPrice;
 	JCheckBox chbLowPrice;
-	
+
+	/**
+	 * Constructor for panel that show components to insert a Productos object
+	 * 
+	 * @param a not used
+	 */
 	PanelShow(int a) {
 		setLayout(new GridBagLayout());
 		GridBagConstraints gbc_MiConstraint = new GridBagConstraints();
@@ -65,7 +76,7 @@ public class PanelShow extends JPanel {
 		gbc_MiConstraint.gridy = 4; // fila inicial que ocupa
 		JLabel lblLowPrice = new JLabel("Low price:");
 		add(lblLowPrice, gbc_MiConstraint);
-		try {
+//		try {
 			gbc_MiConstraint.gridx = 1; // columna inicial que ocupa
 			gbc_MiConstraint.gridy = 0; // fila inicial que ocupa
 			tfDenomination = new JTextField(15);
@@ -74,7 +85,6 @@ public class PanelShow extends JPanel {
 			cbSection = new JComboBox<Section>(Section.values());
 			add(cbSection, gbc_MiConstraint);
 			gbc_MiConstraint.gridy = 2; // fila inicial que ocupa
-			MaskFormatter mascaraDni = new MaskFormatter("########U");
 			tfIngredients = new JTextField(15);
 			add(tfIngredients, gbc_MiConstraint);
 			gbc_MiConstraint.gridy = 3; // fila inicial que ocupa
@@ -84,19 +94,25 @@ public class PanelShow extends JPanel {
 			NumberFormatter ef = new NumberFormatter(formatoEdicionDouble);
 			DefaultFormatterFactory dff = new DefaultFormatterFactory(vf, vf, ef);
 			tfPrice = new JFormattedTextField(dff);
+			tfPrice.setValue(10.10);
 			add(tfPrice, gbc_MiConstraint);
 			gbc_MiConstraint.gridy = 4; // fila inicial que ocupa
 			chbLowPrice = new JCheckBox();
 			add(chbLowPrice, gbc_MiConstraint);
 
-		} catch (ParseException ex) {
-			System.out.println("Formato incorrecto " + ex.getMessage() + ex.getStackTrace());
-			Frame.log.Escritura("Formato incorrecto " + ex.getMessage() + ex.getStackTrace());
-		}
+//		} catch (ParseException ex) {
+	//		System.out.println("Formato incorrecto " + ex.getMessage() + ex.getStackTrace());
+//			Frame.log.Escritura("Formato incorrecto " + ex.getMessage() + ex.getStackTrace());
+	//	}
 	}
 
-	public PanelShow(String worker)
-	{
+	/**
+	 * Constructor for panel that show components to insert a Trabajador (Cocinero,
+	 * Camarero or Repartidor) object
+	 * 
+	 * @param worker not used
+	 */
+	public PanelShow(String worker) {
 		// Create panel for worker data
 		setLayout(new GridBagLayout());
 		GridBagConstraints gbc_MiConstraint = new GridBagConstraints();
@@ -106,8 +122,7 @@ public class PanelShow extends JPanel {
 		gbc_MiConstraint.gridheight = 1; // Filas que ocupa
 		gbc_MiConstraint.fill = GridBagConstraints.HORIZONTAL; // ajusta el componente a la celda
 		gbc_MiConstraint.insets = new Insets(0, 5, 5, 0); // Espacio hasta los bordes del componente en la celda
-															// //top,
-															// left, botton, right
+															// top, left, botton, right
 
 		JLabel lblName = new JLabel("Name:*");
 		add(lblName, gbc_MiConstraint);
@@ -130,43 +145,43 @@ public class PanelShow extends JPanel {
 		JLabel lblPassword = new JLabel("Password:*");
 		add(lblPassword, gbc_MiConstraint);
 		try {
-			
-		gbc_MiConstraint.gridx = 1; // columna inicial que ocupa
-		gbc_MiConstraint.gridy = 0; // fila inicial que ocupa
-		tfName = new JTextField(15);
-		add(tfName, gbc_MiConstraint);
-		gbc_MiConstraint.gridy = 1; // fila inicial que ocupa
-		tfSurNames = new JTextField(15);
-		add(tfSurNames, gbc_MiConstraint);
-		gbc_MiConstraint.gridy = 2; // fila inicial que ocupa
-		MaskFormatter mascaraDni;
+
+			gbc_MiConstraint.gridx = 1; // columna inicial que ocupa
+			gbc_MiConstraint.gridy = 0; // fila inicial que ocupa
+			tfName = new JTextField(15);
+			add(tfName, gbc_MiConstraint);
+			gbc_MiConstraint.gridy = 1; // fila inicial que ocupa
+			tfSurNames = new JTextField(15);
+			add(tfSurNames, gbc_MiConstraint);
+			gbc_MiConstraint.gridy = 2; // fila inicial que ocupa
+			MaskFormatter mascaraDni;
 			mascaraDni = new MaskFormatter("########U");
-		tfDni = new JFormattedTextField(mascaraDni);
-		add(tfDni, gbc_MiConstraint);
-		gbc_MiConstraint.gridy = 3; // fila inicial que ocupa
-		NumberFormat formatoVisualizacionDouble = NumberFormat.getCurrencyInstance();
-		NumberFormat formatoEdicionDouble = NumberFormat.getInstance(Locale.ENGLISH);
-		NumberFormatter vf = new NumberFormatter(formatoVisualizacionDouble);
-		NumberFormatter ef = new NumberFormatter(formatoEdicionDouble);
-		DefaultFormatterFactory dff = new DefaultFormatterFactory(vf, vf, ef);
-		tfSalary = new JFormattedTextField(dff);
-		add(tfSalary, gbc_MiConstraint);
-		gbc_MiConstraint.gridy = 4; // fila inicial que ocupa
-		cbShift = new JComboBox<Turno>(Turno.values());
-		add(cbShift, gbc_MiConstraint);
-		gbc_MiConstraint.gridy = 5; // fila inicial que ocupa
-		MaskFormatter mascaraTlf = new MaskFormatter("+##' #########");
-		tfTelephone = new JFormattedTextField(mascaraTlf);
-		add(tfTelephone, gbc_MiConstraint);
-		gbc_MiConstraint.gridy = 6; // fila inicial que ocupa
-		tfPassword = new JTextField(10);
-		add(tfPassword, gbc_MiConstraint);
+			tfDni = new JFormattedTextField(mascaraDni);
+			add(tfDni, gbc_MiConstraint);
+			gbc_MiConstraint.gridy = 3; // fila inicial que ocupa
+			NumberFormat formatoVisualizacionDouble = NumberFormat.getCurrencyInstance();
+			NumberFormat formatoEdicionDouble = NumberFormat.getInstance(Locale.ENGLISH);
+			NumberFormatter vf = new NumberFormatter(formatoVisualizacionDouble);
+			NumberFormatter ef = new NumberFormatter(formatoEdicionDouble);
+			DefaultFormatterFactory dff = new DefaultFormatterFactory(vf, vf, ef);
+			tfSalary = new JFormattedTextField(dff);
+			tfSalary.setValue(1000.10);
+			add(tfSalary, gbc_MiConstraint);
+			gbc_MiConstraint.gridy = 4; // fila inicial que ocupa
+			cbShift = new JComboBox<Turno>(Turno.values());
+			add(cbShift, gbc_MiConstraint);
+			gbc_MiConstraint.gridy = 5; // fila inicial que ocupa
+			MaskFormatter mascaraTlf = new MaskFormatter("+##' #########");
+			tfTelephone = new JFormattedTextField(mascaraTlf);
+			add(tfTelephone, gbc_MiConstraint);
+			gbc_MiConstraint.gridy = 6; // fila inicial que ocupa
+			tfPassword = new JTextField(10);
+			add(tfPassword, gbc_MiConstraint);
 		} catch (ParseException ex) {
 			System.out.println("Formato incorrecto " + ex.getMessage() + ex.getStackTrace());
 			Frame.log.Escritura("Formato incorrecto " + ex.getMessage() + ex.getStackTrace());
 		}
-	
-		
+
 		// Create components for detail worker (waiter) data
 		gbc_MiConstraint.gridx = 0; // columna inicial que ocupa
 		gbc_MiConstraint.gridy = 7; // fila inicial que ocupa
@@ -221,6 +236,7 @@ public class PanelShow extends JPanel {
 		gbc_MiConstraint.gridy = 8; // fila inicial que ocupa
 		add(tfWorkExperience, gbc_MiConstraint);
 		tfWorkExperience.setVisible(false);
+		tfWorkExperience.setValue(0);
 		cbKitchenCategory = new JComboBox<kitchenCategory>(kitchenCategory.values());
 		gbc_MiConstraint.gridy = 9; // fila inicial que ocupa
 		add(cbKitchenCategory, gbc_MiConstraint);

@@ -26,12 +26,12 @@ public class Frame extends JFrame {
 	panelticket panelticket;
 	Panel panelCobro;
 	Panel panelReport;
-	Panel panelReportsData;		//user to show products, orders or workers report if there are connection to database
+	Panel panelReportsData;		//used to show products, orders or workers report if there are connection to database
 	Panel panelProductsReport;	//used to show products report is there is no connection to database  
 	Panel panelOrderReport;		//used to show orders report is there is no connection to database
 	Panel panelWorkersReport;	//used to show workers report is there is no connection to database
 	PanelConfig panelConfig;	//used to show and modify config.xml file data
-	PanelInsert panelInsert;    //user to insert new data
+	PanelInsert panelInsert;    //used to insert new data
 	
 	
 	Trabajador trabajadorValidado;//  = new Trabajador(); //especifica el trabajador que está validado con su clave
@@ -47,14 +47,13 @@ public class Frame extends JFrame {
 		Dimension tamanoPantalla = mipantalla.getScreenSize();
 		int width = tamanoPantalla.width;
 		int height = tamanoPantalla.height;
-		setBounds(width / 6, height / 6, width * 1 / 3, height * 2 / 3);// le doy al frame la posicón centrada y el																		// tamaño de 2/3 de la pantalla
+		setBounds(width / 6, height / 6, width * 1 / 3, height * 2 / 3);// le doy al frame la posicón centrada y el tamaño																// tamaño de 2/3 de la pantalla
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Image miIcono = mipantalla.getImage("src/images/icono.png");
 		setIconImage(miIcono); // icono del JFrame
 		setLayout(new BorderLayout());
 		Label lTitle = new Label(Frame.InstanceFPizzerie.myPizzerie.getName(), fuenteTitulo);
 		add(lTitle, BorderLayout.NORTH);
-		//LabelPizzeria lOfertas = new LabelPizzeria("Nuestras ofertas", fuenteTitulo);
 		panelPrincipal = new Panel();
 		add(panelPrincipal, BorderLayout.CENTER);
 		setVisible(true);	
@@ -66,62 +65,6 @@ public class Frame extends JFrame {
 		panelOcultar.setVisible(false);
 	}
 	
-/*	
-	public void cambiaPanel(Panel panelMostrar,Panel panelOcultar) {
-		add(panelMostrar, BorderLayout.CENTER);
-		panelMostrar.setVisible(true);
-		panelOcultar.setVisible(false);
-	}
-	public void cambiaPanel(PanelValida panelMostrar,Panel panelOcultar) {
-		add(panelMostrar, BorderLayout.CENTER);
-		panelMostrar.setVisible(true);
-		panelOcultar.setVisible(false);
-	}
-	public void cambiaPanel(Panel panelMostrar,PanelValida panelOcultar) {
-		add(panelMostrar, BorderLayout.CENTER);
-		panelMostrar.setVisible(true);
-		panelOcultar.setVisible(false);
-	}
-	public void cambiaPanel(Panel panelMostrar,panelticket panelOcultar) {
-		add(panelMostrar, BorderLayout.CENTER);
-		panelMostrar.setVisible(true);
-		panelOcultar.setVisible(false);
-	}
-	public void cambiaPanel(panelticket panelMostrar,Panel panelOcultar) {
-		add(panelMostrar, BorderLayout.CENTER);
-		panelMostrar.setVisible(true);
-		panelOcultar.setVisible(false);
-	}
-	public void cambiaPanel(PanelConfig panelMostrar,Panel panelOcultar) {
-		add(panelMostrar, BorderLayout.CENTER);
-		panelMostrar.setVisible(true);
-		panelOcultar.setVisible(false);
-	}
-	public void cambiaPanel(Panel panelMostrar,PanelConfig panelOcultar) {
-		add(panelMostrar, BorderLayout.CENTER);
-		panelMostrar.setVisible(true);
-		panelOcultar.setVisible(false);
-	}
-	*/
-/**
-  	public void ActivaPanel(Panel panel) {
- 
-		add(panel, BorderLayout.CENTER);
-		setVisible(true);
-	}
-	public void ActivaPanel(ScrollPane panel) {
-		add(panel, BorderLayout.CENTER);
-		setVisible(true);
-	}
-	public void ActivaPanel(panelticket panel) {
-		add(panel, BorderLayout.CENTER);
-		setVisible(true);
-	}
-	public void ActivaPanel(JPanel panel) {
-		add(panel, BorderLayout.CENTER);
-		setVisible(true);
-	}
-*/	
 	public Panel getPanelPrincipal() {
 		return panelPrincipal;
 	}

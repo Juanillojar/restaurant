@@ -224,29 +224,12 @@ public class GestorBotones implements ActionListener {
 			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,
 					Frame.InstanceFPizzerie.panelReportsData);
 		}
-		if (e.getActionCommand().equals("OpenPanelInsert")) {
-			if (Test.conex.isConnected()) {
-				// String sql = "SELECT workerId AS 'Worker Number', name AS 'Name', surNames AS
-				// 'Surnames', "
-				// + "dni AS 'Dni', salary AS 'Salary (€)', telephone AS 'Telephone' "
-				// + "FROM worker";
-				// try {
-				// Frame.InstanceFPizzerie.panelReportsData = new Panel(sql);
-				// } catch (Exception e1){
-				// System.out.println("Llama panel informe trabajadores" + e1.getMessage() +
-				// e1.getStackTrace().toString());
-				// Frame.log.Escritura("Llama panel informe trabajadores" + e1.getMessage() +
-				// e1.getStackTrace());
-				// }
-				// Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReportsData,
-				// Frame.InstanceFPizzerie.panelReport);
-			} else {
-				if (Frame.InstanceFPizzerie.panelInsert == null) {
-					Frame.InstanceFPizzerie.panelInsert = new PanelInsert();
-				}
-				Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelInsert,
-						Frame.InstanceFPizzerie.panelPrincipal);
+		if (e.getActionCommand().equals("OpenPanelInsert")) {		
+			if (Frame.InstanceFPizzerie.panelInsert == null) {
+				Frame.InstanceFPizzerie.panelInsert = new PanelInsert();
 			}
+			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelInsert,
+			Frame.InstanceFPizzerie.panelPrincipal);
 		}
 		if (e.getActionCommand().equals("SalirPanelInsert")) {
 			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelPrincipal,
@@ -258,16 +241,15 @@ public class GestorBotones implements ActionListener {
 				if(mypan.panelProduct != null)
 					mypan.remove(mypan.panelProduct);
 				mypan.add(mypan.panelWorkerData,BorderLayout.CENTER);
-				mypan.repaint();
 				mypan.changeVisibility(true, mypan.lblSelectWorkerType, mypan.cbWorkerType);
 			};
 			if (((JComboBox) e.getSource()).getSelectedItem() == "Product") {
 				if(mypan.panelWorkerData != null)
 					mypan.remove(mypan.panelWorkerData);	
 				mypan.add(mypan.panelProduct, BorderLayout.CENTER);
-				mypan.repaint();
 				mypan.changeVisibility(false, mypan.lblSelectWorkerType, mypan.cbWorkerType);
 			};
+			mypan.repaint();
 			System.out.println("Gestor botones. cambia tipo seleccion trabajador o producto");
 		}
 
@@ -304,41 +286,31 @@ public class GestorBotones implements ActionListener {
 			System.out.println("Gestor botones. cambia tipo trabajador en panel de inserción");
 		}
 		if (e.getActionCommand().equals("ApplyPanelInsert")) {
-			if (Test.conex.isConnected()) {
-				// String sql = "SELECT workerId AS 'Worker Number', name AS 'Name', surNames AS
-				// 'Surnames', "
-				// + "dni AS 'Dni', salary AS 'Salary (€)', telephone AS 'Telephone' "
-				// + "FROM worker";
-				// try {
-				// Frame.InstanceFPizzerie.panelReportsData = new Panel(sql);
-				// } catch (Exception e1){
-				// System.out.println("Llama panel informe trabajadores" + e1.getMessage() +
-				// e1.getStackTrace().toString());
-				// Frame.log.Escritura("Llama panel informe trabajadores" + e1.getMessage() +
-				// e1.getStackTrace());
-				// }
-				// Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReportsData,
-				// Frame.InstanceFPizzerie.panelReport);
-			} else { // insert data in objetcs lists
-				PanelInsert mypan = Frame.InstanceFPizzerie.panelInsert;
-				
-				switch((String)mypan.cbSelection.getSelectedItem()) {
-				case "Product":
-					if(mypan.requiredFields(mypan.panelProduct.tfDenomination, mypan.panelProduct.tfPrice)) {  
-						mypan.insertProduct();					
-					}
-					break;
-				case "Worker":
-					if(mypan.requiredFields(mypan.panelWorkerData.tfName, mypan.panelWorkerData.tfPassword, mypan.panelWorkerData.tfSalary)) {  
-						mypan.insertWorker((String)mypan.cbWorkerType.getSelectedItem());
-					}
-					break;
+			
+			PanelInsert mypan = Frame.InstanceFPizzerie.panelInsert;  //only to use shorted sentences		
+			switch((String)mypan.cbSelection.getSelectedItem()) {
+			case "Product":
+				Productos product;
+				if(mypan.requiredFields(mypan.panelProduct.tfDenomination, mypan.panelProduct.tfPrice)) {  					
+					product = mypan.insertProduct();  //insert product in a List
+					if(Test.conex.isConnected()) {
+						Test.conex.insertProductBD(product,"productos");
+					}				
 				}
-				Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelPrincipal,
-						Frame.InstanceFPizzerie.panelInsert);
-				Frame.InstanceFPizzerie.panelInsert = null;					
-
+				break;
+			case "Worker":
+			Trabajador worker;
+				if(mypan.requiredFields(mypan.panelWorkerData.tfName, mypan.panelWorkerData.tfPassword, mypan.panelWorkerData.tfSalary)) {  
+					worker = mypan.insertWorker((String)mypan.cbWorkerType.getSelectedItem());
+					if(Test.conex.isConnected()) {
+						Test.conex.insertWorkerBD(worker,"worker");
+					}
+				}
+				break;
 			}
+			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelPrincipal,
+			Frame.InstanceFPizzerie.panelInsert);
+			Frame.InstanceFPizzerie.panelInsert = null;					
 		}
 	}	
 

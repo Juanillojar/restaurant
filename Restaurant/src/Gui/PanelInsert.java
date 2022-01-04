@@ -8,7 +8,6 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.io.UnsupportedEncodingException;
 import java.security.GeneralSecurityException;
-import java.text.ParseException;
 import java.util.Locale;
 
 import javax.swing.ImageIcon;
@@ -90,9 +89,9 @@ public class PanelInsert extends JPanel {
 
 		add(panelTitle, BorderLayout.NORTH);
 
-		panelProduct = new PanelShow(2);  		// create panel for product data insertion
-		
-		panelWorkerData = new PanelShow("Worker"); 		// create panel for worker data insertion
+		panelProduct = new PanelShow(2); // create panel for product data insertion
+
+		panelWorkerData = new PanelShow("Worker"); // create panel for worker data insertion
 
 		JPanel botones = new JPanel();
 		Boton buttonSalirConfig = new Boton(iconBack);
@@ -128,56 +127,93 @@ public class PanelInsert extends JPanel {
 	 * 
 	 * @param workerType a String that specified ther worker type.
 	 */
-	public void insertWorker(String workerType) {
+	public Trabajador insertWorker(String workerType) {
 		Trabajador worker;
 		String clave = "";
+		NumberFormat formatoEdicionDouble = NumberFormat.getInstance(Locale.ENGLISH);
 		try {
 			clave = encriptation.encrypt(panelWorkerData.tfPassword.getText(), Test.key);
 		} catch (UnsupportedEncodingException | GeneralSecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		switch (workerType) {
-		case "Waiter":
-			String languages[] = {panelWorkerData.tfLanguage1.getText(), panelWorkerData.tfLanguage2.getText(), panelWorkerData.tfLanguage3.getText() };
-			worker = new Camarero(panelWorkerData.tfName.getText(), panelWorkerData.tfSurNames.getText(), panelWorkerData.tfDni.getText(),
-					((Long) panelWorkerData.tfSalary.getValue()).doubleValue(), (Turno) panelWorkerData.cbShift.getSelectedItem(),
-					panelWorkerData.tfTelephone.getText(), clave, languages, panelWorkerData.chbCocktail.isSelected());
-			break;
-		case "Cooker":
-			worker = new Cocinero(panelWorkerData.tfName.getText(), panelWorkerData.tfSurNames.getText(), panelWorkerData.tfDni.getText(),
-					((Long) panelWorkerData.tfSalary.getValue()).doubleValue(), (Turno) panelWorkerData.cbShift.getSelectedItem(),
-					panelWorkerData.tfTelephone.getText(), clave, panelWorkerData.tfSpeciality.getText(), Integer.parseInt(panelWorkerData.tfWorkExperience.getText()),
-					(kitchenCategory) panelWorkerData.cbKitchenCategory.getSelectedItem());
-			break;
-		case "Delivery man":
-			worker = new Repartidor(panelWorkerData.tfName.getText(), panelWorkerData.tfSurNames.getText(), panelWorkerData.tfDni.getText(),
-					((Long) panelWorkerData.tfSalary.getValue()).doubleValue(), (Turno) panelWorkerData.cbShift.getSelectedItem(),
-					panelWorkerData.tfTelephone.getText(), clave, (Transport) panelWorkerData.cbDeliveryMode.getSelectedItem(),
-					Integer.parseInt(panelWorkerData.tfAge.getText()), panelWorkerData.chbMotorcycleLicense.isSelected(), panelWorkerData.chbOwnVehicle.isSelected());
-			break;
-		default:
-			worker = null;
+		try {
+
+			switch (workerType) {
+			case "Waiter":
+				String languages[] = { panelWorkerData.tfLanguage1.getText(), panelWorkerData.tfLanguage2.getText(),
+						panelWorkerData.tfLanguage3.getText() };
+				worker = new Camarero(panelWorkerData.tfName.getText(), panelWorkerData.tfSurNames.getText(),
+						panelWorkerData.tfDni.getText(),
+						(Double) formatoEdicionDouble.parse(panelWorkerData.tfSalary.getValue().toString()),
+						(Turno) panelWorkerData.cbShift.getSelectedItem(), panelWorkerData.tfTelephone.getText(), clave,
+						languages, panelWorkerData.chbCocktail.isSelected());
+
+				break;
+			case "Cooker":
+				worker = new Cocinero(panelWorkerData.tfName.getText(), panelWorkerData.tfSurNames.getText(),
+						panelWorkerData.tfDni.getText(),
+						(Double) formatoEdicionDouble.parse(panelWorkerData.tfSalary.getValue().toString()),
+						(Turno) panelWorkerData.cbShift.getSelectedItem(), panelWorkerData.tfTelephone.getText(), clave,
+						panelWorkerData.tfSpeciality.getText(),
+						Integer.parseInt(panelWorkerData.tfWorkExperience.getText()),
+						(kitchenCategory) panelWorkerData.cbKitchenCategory.getSelectedItem());
+				break;
+			case "Delivery man":
+				worker = new Repartidor(panelWorkerData.tfName.getText(), panelWorkerData.tfSurNames.getText(),
+						panelWorkerData.tfDni.getText(),
+						(Double) formatoEdicionDouble.parse(panelWorkerData.tfSalary.getValue().toString()),
+						(Turno) panelWorkerData.cbShift.getSelectedItem(), panelWorkerData.tfTelephone.getText(), clave,
+						(Transport) panelWorkerData.cbDeliveryMode.getSelectedItem(),
+						Integer.parseInt(panelWorkerData.tfAge.getText()),
+						panelWorkerData.chbMotorcycleLicense.isSelected(), panelWorkerData.chbOwnVehicle.isSelected());
+				break;
+			default:
+				worker = null;
+			}
+			// insert worker on JList (not in database)
+			Frame.InstanceFPizzerie.myPizzerie.getWorkers().add(worker);
+			JOptionPane.showMessageDialog(null, "Worker inserted sucessfully", "Insertion",
+					JOptionPane.INFORMATION_MESSAGE);
+			Frame.log.Escritura("Worker '" + panelWorkerData.tfName.getText() + panelWorkerData.tfSurNames.getText()
+					+ "' inserted sucessfully");
+			System.out.println(worker);
+			return worker;
+		} catch (ParseException e) {
+			System.out.println("Worker insertion. " + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Worker insertion. " + e.getMessage() + e.getStackTrace());
+			return null;
 		}
-		// insert worker on JList (not in database)
-		Frame.InstanceFPizzerie.myPizzerie.getWorkers().add(worker);
-		JOptionPane.showMessageDialog(null, "Worker inserted sucessfully", "Insertion",
-				JOptionPane.INFORMATION_MESSAGE);
-		Frame.log.Escritura("Worker '" + panelWorkerData.tfName.getText() + panelWorkerData.tfSurNames.getText() + "' inserted sucessfully");
-		System.out.println(worker);
-		worker = null;
+
 	}
 
-	public void insertProduct() {
-		Productos product = new Productos(panelProduct.tfDenomination.getText(),(Section) panelProduct.cbSection.getSelectedItem() , panelProduct.tfIngredients.getText(), (Long)panelProduct.tfPrice.getValue(), panelProduct.chbLowPrice.isSelected());
-		// insert worker on JList (not in database)
-		Frame.InstanceFPizzerie.myPizzerie.getFoods().add(product);
-		JOptionPane.showMessageDialog(null, "Product inserted sucessfully", "Insertion",
-				JOptionPane.INFORMATION_MESSAGE);
-		Frame.log.Escritura("Product '" + panelProduct.tfDenomination.getText() + "' inserted sucessfully");
-		System.out.println(product);
-		product = null;
+	/**
+	 * Insert a Productos Object into a JList.
+	 */
+	public Productos insertProduct() {
+		NumberFormat formatoEdicionDouble = NumberFormat.getInstance(Locale.ENGLISH);
+		Productos product;
+		try {
+			product = new Productos(panelProduct.tfDenomination.getText(),
+					(Section) panelProduct.cbSection.getSelectedItem(), panelProduct.tfIngredients.getText(),
+					(Double) formatoEdicionDouble.parse(panelProduct.tfPrice.getValue().toString()),
+					panelProduct.chbLowPrice.isSelected());
+
+			// insert product on JList (not in database)
+			Frame.InstanceFPizzerie.myPizzerie.getFoods().add(product);
+			JOptionPane.showMessageDialog(null, "Product inserted sucessfully", "Insertion",
+					JOptionPane.INFORMATION_MESSAGE);
+			Frame.log.Escritura("Product '" + panelProduct.tfDenomination.getText() + "' inserted sucessfully");
+			System.out.println(product);
+			return product;
+		} catch (ParseException e) {
+			System.out.println("Product insertion. " + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Product insertion. " + e.getMessage() + e.getStackTrace());
+			return null;
+		}
 	}
+
+
 	public Boolean requiredFields(JTextField... componentes) {
 		for (JTextField cmp : componentes) {
 			if (cmp.getText().isEmpty()) {

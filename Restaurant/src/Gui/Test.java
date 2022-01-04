@@ -64,7 +64,7 @@ public class Test {
 						createPedidos(ordersRestaurant, productsRestaurant, workers);
 						conex.insertarEnTablaProductosBD("productos", productsRestaurant);
 						// insert worker list in database
-						conex.insertWorkersBD(workers);
+						conex.insertWorkersBD(workers,"worker");
 						// insertar los destinos en la base de datos
 						conex.createDestinationsBD(Integer.parseInt(arrayConfig[6]), Integer.parseInt(arrayConfig[7]),
 								Integer.parseInt(arrayConfig[8]), Integer.parseInt(arrayConfig[9]));

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><config>
 	<database>
 		<motor>mysql</motor>
-		<name>bdRestaurant</name>
-		<host>3306</host>
+		<name>bdRestaurantjj</name>
+		<host>localhost</host>
 		<port>3306</port>
 		<user>root</user>
 		<pass/>
