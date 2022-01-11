@@ -17,8 +17,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 public class Frame extends JFrame {
-	public static Frame InstanceFPizzerie = null;
-	Restaurant myPizzerie;
+	public static Frame InstanceFRestaurant = null;
+	Restaurant myRestaurant;
 	Panel panelPrincipal;
 	PanelValida panelValida;
 	Panel panelMesas;
@@ -40,9 +40,9 @@ public class Frame extends JFrame {
 	Font fuenteTitulo = new Font("arial",Font.BOLD,20);
 	
 	public Frame(Restaurant myPizzerie) {
-		InstanceFPizzerie = this; // instancia del JFrame Singleton
-		this.myPizzerie = myPizzerie;
-		setTitle("Mi pizzeria");
+		InstanceFRestaurant = this; // instancia del JFrame Singleton
+		this.myRestaurant = myPizzerie;
+		setTitle("Restaurant");
 		Toolkit mipantalla = Toolkit.getDefaultToolkit(); // almacena nuestro sistema nativo de ventanas
 		Dimension tamanoPantalla = mipantalla.getScreenSize();
 		int width = tamanoPantalla.width;
@@ -52,7 +52,7 @@ public class Frame extends JFrame {
 		Image miIcono = mipantalla.getImage("src/images/icono.png");
 		setIconImage(miIcono); // icono del JFrame
 		setLayout(new BorderLayout());
-		Label lTitle = new Label(Frame.InstanceFPizzerie.myPizzerie.getName(), fuenteTitulo);
+		Label lTitle = new Label(Frame.InstanceFRestaurant.myRestaurant.getName(), fuenteTitulo);
 		add(lTitle, BorderLayout.NORTH);
 		panelPrincipal = new Panel();
 		add(panelPrincipal, BorderLayout.CENTER);

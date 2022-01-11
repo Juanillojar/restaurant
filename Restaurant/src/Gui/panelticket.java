@@ -47,8 +47,8 @@ public class panelticket extends JPanel implements Printable{
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		panelDatos = new JPanel(gridBagLayout);
 		GridBagConstraints gbc_Miconstraint = new GridBagConstraints();
-		Label lTitulopizzeria = new Label("<html>" + Frame.InstanceFPizzerie.myPizzerie.getName() +"<br/>" +
-				 Frame.InstanceFPizzerie.myPizzerie.getAddress() +"</html>", fuenteTitulo, "CENTER");
+		Label lTitulopizzeria = new Label("<html>" + Frame.InstanceFRestaurant.myRestaurant.getName() +"<br/>" +
+				 Frame.InstanceFRestaurant.myRestaurant.getAddress() +"</html>", fuenteTitulo, "CENTER");
 		
 		gbc_Miconstraint.gridx = 0;
 		gbc_Miconstraint.gridy = 0;
@@ -125,7 +125,7 @@ public class panelticket extends JPanel implements Printable{
 		gbc_Miconstraint.gridy = gridy;
 		panelDatos.add(lTituloPrecioSinIva, gbc_Miconstraint);
 		
-		Frame.InstanceFPizzerie.getPanelProductos().calculoPrecioPedido(order);
+		Frame.InstanceFRestaurant.getPanelProductos().calculoPrecioPedido(order);
 		Label lPrecioSinIva = new Label(formatoDecimales.format(order.getOrderPriceWithoutTaxes()) + " €",	fuenteDatos);
 		gbc_Miconstraint.anchor = GridBagConstraints.WEST;
 		gbc_Miconstraint.insets = new Insets(0, 0, 5, 5);

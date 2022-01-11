@@ -20,8 +20,8 @@ import java.security.*;
 public class PanelValida extends JPanel {
 	private JComboBox<Trabajador> comboBoxUser;
 	private JPasswordField passwordField;
-	private Camarero cam = new Camarero();
-	private Repartidor rep = new Repartidor();
+	//private Camarero cam = new Camarero();
+	//private Repartidor rep = new Repartidor();
 	private GestorBotones gestotBotones = new GestorBotones();
 	private DataEncryption dataEncryption = new DataEncryption();
 	  
@@ -54,7 +54,9 @@ public class PanelValida extends JPanel {
 		
 		comboBoxUser = new JComboBox<Trabajador>();
 		for(Trabajador tr : trabajadores) {
-			if(tr.getClass().equals(cam.getClass()) || tr.getClass().equals(rep.getClass())) {
+			//if(tr.getClass().equals(cam.getClass()) || tr.getClass().equals(rep.getClass())) {
+		    if(tr.getClass()== Camarero.class || tr.getClass() == Cocinero.class) {
+
 				comboBoxUser.addItem(tr);
 				//comboBoxUser.setName(tr.getName() + " " + tr.getSurNames());
 			}
@@ -107,9 +109,9 @@ public class PanelValida extends JPanel {
 	
 	public boolean validaClave() throws GeneralSecurityException, IOException {
 		//desencrita clave
-		String claveDesencriptada = dataEncryption.decrypt(((Trabajador)Frame.InstanceFPizzerie.getPanelValida().getComboBoxUser().getSelectedItem()).getClave(), Test.key);
+		String claveDesencriptada = dataEncryption.decrypt(((Trabajador)Frame.InstanceFRestaurant.getPanelValida().getComboBoxUser().getSelectedItem()).getClave(), Test.key);
 		;
-		if(claveDesencriptada.equals(Frame.InstanceFPizzerie.getPanelValida().getPasswordField().getText())) {
+		if(claveDesencriptada.equals(Frame.InstanceFRestaurant.getPanelValida().getPasswordField().getText())) {
 			return true;
 		}else {
 			JOptionPane.showMessageDialog(null, "Clave not match","clave insertion" , JOptionPane.INFORMATION_MESSAGE);

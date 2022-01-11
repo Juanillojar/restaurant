@@ -98,30 +98,30 @@ public class XmlDoc {
 			NodeList lista = doc.getElementsByTagName("database");
 			Node nNode1 = lista.item(0);
 			Element elemento1 = (Element)nNode1;
-			elemento1.getElementsByTagName("motor").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfDatabaseMotor().getText());
-			elemento1.getElementsByTagName("name").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfDatabaseName().getText());
-			elemento1.getElementsByTagName("host").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfDatabasePort().getText());
-			elemento1.getElementsByTagName("port").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfDatabasePort().getText());
-			elemento1.getElementsByTagName("user").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfDatabaseUser().getText());
-			elemento1.getElementsByTagName("pass").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfDatabasePass().getText());
+			elemento1.getElementsByTagName("motor").item(0).setTextContent(Frame.InstanceFRestaurant.panelConfig.getTfDatabaseMotor().getText());
+			elemento1.getElementsByTagName("name").item(0).setTextContent(Frame.InstanceFRestaurant.panelConfig.getTfDatabaseName().getText());
+			elemento1.getElementsByTagName("host").item(0).setTextContent(Frame.InstanceFRestaurant.panelConfig.getTfDatabasePort().getText());
+			elemento1.getElementsByTagName("port").item(0).setTextContent(Frame.InstanceFRestaurant.panelConfig.getTfDatabasePort().getText());
+			elemento1.getElementsByTagName("user").item(0).setTextContent(Frame.InstanceFRestaurant.panelConfig.getTfDatabaseUser().getText());
+			elemento1.getElementsByTagName("pass").item(0).setTextContent(Frame.InstanceFRestaurant.panelConfig.getTfDatabasePass().getText());
 			
 			//store data about zones
 			lista = doc.getElementsByTagName("zones");
 			nNode1 = lista.item(0);
 			elemento1 = (Element)nNode1;
-			elemento1.getElementsByTagName("BarZones").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfZonesBar().getText());
-			elemento1.getElementsByTagName("IntTables").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfZonesIntTables().getText());
-			elemento1.getElementsByTagName("OutTables").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfZonesExtTables().getText());
-			elemento1.getElementsByTagName("DeliveryZones").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfZonesDelivery().getText());
+			elemento1.getElementsByTagName("BarZones").item(0).setTextContent(Frame.InstanceFRestaurant.panelConfig.getTfZonesBar().getText());
+			elemento1.getElementsByTagName("IntTables").item(0).setTextContent(Frame.InstanceFRestaurant.panelConfig.getTfZonesIntTables().getText());
+			elemento1.getElementsByTagName("OutTables").item(0).setTextContent(Frame.InstanceFRestaurant.panelConfig.getTfZonesExtTables().getText());
+			elemento1.getElementsByTagName("DeliveryZones").item(0).setTextContent(Frame.InstanceFRestaurant.panelConfig.getTfZonesDelivery().getText());
 
 			//store data about company
 			lista = doc.getElementsByTagName("company");
 			nNode1 = lista.item(0);
 			elemento1 = (Element)nNode1;
-			elemento1.getElementsByTagName("name").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfCompanyName().getText());
-			elemento1.getElementsByTagName("address").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfCompanyAddress().getText());
-			elemento1.getElementsByTagName("discount").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfCompanyDiscount().getText());
-			elemento1.getElementsByTagName("taxes").item(0).setTextContent(Frame.InstanceFPizzerie.panelConfig.getTfCompanyTaxes().getText());
+			elemento1.getElementsByTagName("name").item(0).setTextContent(Frame.InstanceFRestaurant.panelConfig.getTfCompanyName().getText());
+			elemento1.getElementsByTagName("address").item(0).setTextContent(Frame.InstanceFRestaurant.panelConfig.getTfCompanyAddress().getText());
+			elemento1.getElementsByTagName("discount").item(0).setTextContent(Frame.InstanceFRestaurant.panelConfig.getTfCompanyDiscount().getText());
+			elemento1.getElementsByTagName("taxes").item(0).setTextContent(Frame.InstanceFRestaurant.panelConfig.getTfCompanyTaxes().getText());
 			
 			//store data in XML documnent
 			Transformer transformer = TransformerFactory.newInstance().newTransformer();

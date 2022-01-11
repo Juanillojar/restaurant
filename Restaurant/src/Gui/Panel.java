@@ -397,26 +397,26 @@ public class Panel extends JPanel {
 	 * Si hay un pedido pendiente en el botón asociado carga los datos para visualizarlos  
 	 */
 	public void abrirPanelProductos() {
-		if (Frame.InstanceFPizzerie.panelProductos == null) {
+		if (Frame.InstanceFRestaurant.panelProductos == null) {
 			System.out.println("nuevo panel productos");
 			Frame.log.Escritura("Cantidad entregada pierde foco");
-			Frame.InstanceFPizzerie.panelProductos = new Panel(Frame.InstanceFPizzerie.myPizzerie.foods,Panel.getBotonMesa());
+			Frame.InstanceFRestaurant.panelProductos = new Panel(Frame.InstanceFRestaurant.myRestaurant.foods,Panel.getBotonMesa());
 		} else { // ya existe el panel de productos
-			if (Frame.InstanceFPizzerie.panelMesas.checkForOpenOrder(Panel.getBotonMesa().getPedidoBoton())) { 
+			if (Frame.InstanceFRestaurant.panelMesas.checkForOpenOrder(Panel.getBotonMesa().getPedidoBoton())) { 
 				// hay un pedido pendiente de la mesa, zona de barra o reparto asociado al botón
 				// carga total pedido en curso en variable estática
 				Panel.setSubtotal(Panel.getBotonMesa().getPedidoBoton().getOrderPriceWithoutTaxes());
 				// Actualiza los valores de total pedido en curso y muestra el boton tique
-				Frame.InstanceFPizzerie.getPanelProductos().getLsubtotalOrder().setText(
+				Frame.InstanceFRestaurant.getPanelProductos().getLsubtotalOrder().setText(
 						"Subtotal Order: " + Panel.getBotonMesa().getPedidoBoton().getOrderPriceWithoutTaxes() + " €");
-				Frame.InstanceFPizzerie.getPanelProductos().getButtonTique().setVisible(true);
+				Frame.InstanceFRestaurant.getPanelProductos().getButtonTique().setVisible(true);
 			}
 		}
 		// actualiza el texto del label que indica la mesa, zona de barra o reparto que se está tratando
-		Frame.InstanceFPizzerie.getPanelProductos().getlDestinoPedidoEnCurso().setText(Panel.getBotonMesa().getDestinoBoton().getDestinationDenomination());
-		Frame.InstanceFPizzerie.getPanelProductos().getlDestinoPedidoEnCurso().repaint();
+		Frame.InstanceFRestaurant.getPanelProductos().getlDestinoPedidoEnCurso().setText(Panel.getBotonMesa().getDestinoBoton().getDestinationDenomination());
+		Frame.InstanceFRestaurant.getPanelProductos().getlDestinoPedidoEnCurso().repaint();
 		// Visualiza panel productos y oculta panel mesas
-		Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelProductos,	Frame.InstanceFPizzerie.panelMesas);
+		Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelProductos,	Frame.InstanceFRestaurant.panelMesas);
 	}
 
 	/**
@@ -428,14 +428,14 @@ public class Panel extends JPanel {
 	public void cerrarPanelProductos(ActionEvent e) {
 		if (Panel.getBotonMesa().getPedidoBoton() != null) { // Se ha insertado producto/s al pedido
 			// rellena datos del pedido (el operador añade productos sin ver el tique)
-			Frame.InstanceFPizzerie.panelProductos.upgradeOrderData(Panel.getBotonMesa().getPedidoBoton());
+			Frame.InstanceFRestaurant.panelProductos.upgradeOrderData(Panel.getBotonMesa().getPedidoBoton());
 			Panel.getBotonMesa().setBackground(Color.MAGENTA);
 			// guarda los datos en el botón del panel de mesas
 			((BotonRestauranteMesas) e.getSource()).setPedidoBoton(Panel.getBotonMesa().getPedidoBoton());
 		}
 		reseteaVariablesEstaticas(); 
 		// back to bar and tables panel
-		Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelMesas,	Frame.InstanceFPizzerie.panelProductos);
+		Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelMesas,	Frame.InstanceFRestaurant.panelProductos);
 	}
 
 	/**
@@ -445,10 +445,10 @@ public class Panel extends JPanel {
 	 */
 	public void pagarPedido() {
 		// store to pizzeria order list and mark as paid
-		Frame.InstanceFPizzerie.getPanelProductos().paidOut(Panel.getBotonMesa().getPedidoBoton());
+		Frame.InstanceFRestaurant.getPanelProductos().paidOut(Panel.getBotonMesa().getPedidoBoton());
 		//Al guardar en la base de datos ¿no sería necesaria la lista de pedidos?
 		//Se podría guardar en la lista si no hay conexión con la base de datos y guardar los datos de esta cada cierto tiempo
-		Frame.InstanceFPizzerie.myPizzerie.getOrders().add(Panel.getBotonMesa().getPedidoBoton());
+		Frame.InstanceFRestaurant.myRestaurant.getOrders().add(Panel.getBotonMesa().getPedidoBoton());
 		Panel.getBotonMesa().setBackground(Color.LIGHT_GRAY);
 		if(Test.conex.isConnected()) {
 			//Insertar pedido en la base de datos
@@ -464,10 +464,10 @@ public class Panel extends JPanel {
 			Test.conex.insertTableordersProductsBD(Panel.getBotonMesa().getPedidoBoton());	
 		}
 		// crea panel cobro y lo visualiza
-		Frame.InstanceFPizzerie.panelCobro = new Panel(Panel.getBotonMesa().getPedidoBoton().getOrderPrice());
-		Frame.InstanceFPizzerie.panelticket.setVisible(false);
-		Frame.InstanceFPizzerie.add(Frame.InstanceFPizzerie.panelCobro, BorderLayout.CENTER);
-		Frame.InstanceFPizzerie.panelCobro.setVisible(true);
+		Frame.InstanceFRestaurant.panelCobro = new Panel(Panel.getBotonMesa().getPedidoBoton().getOrderPrice());
+		Frame.InstanceFRestaurant.panelticket.setVisible(false);
+		Frame.InstanceFRestaurant.add(Frame.InstanceFRestaurant.panelCobro, BorderLayout.CENTER);
+		Frame.InstanceFRestaurant.panelCobro.setVisible(true);
 		// reset de variables estáticas
 		Panel.getBotonMesa().setPedidoBoton(null);// resetea el pedido guardado
 		reseteaVariablesEstaticas();
@@ -478,8 +478,8 @@ public class Panel extends JPanel {
 	 */
 	public void reseteaVariablesEstaticas() {
 		Panel.setBotonMesa(null);
-		Frame.InstanceFPizzerie.getPanelProductos().IncrementaSutotal(0.0);
-		Frame.InstanceFPizzerie.panelProductos.getButtonTique().setVisible(false);
+		Frame.InstanceFRestaurant.getPanelProductos().IncrementaSutotal(0.0);
+		Frame.InstanceFRestaurant.panelProductos.getButtonTique().setVisible(false);
 	}
 
 	/**
@@ -496,10 +496,10 @@ public class Panel extends JPanel {
 		// Add product to the order object list
 		Panel.getBotonMesa().getPedidoBoton().getOrderFoods().add(((Boton) e.getSource()).getProducto());
 		// incrementa el precio del pedido, lo guarda en el botón y actualiza el label
-		Panel.getBotonMesa().getPedidoBoton().setOrderPriceWithoutTaxes(Frame.InstanceFPizzerie.panelProductos
+		Panel.getBotonMesa().getPedidoBoton().setOrderPriceWithoutTaxes(Frame.InstanceFRestaurant.panelProductos
 				.IncrementaSutotal(((Boton) e.getSource()).getProducto().getPrice()));
 		// make visible Tique button
-		Frame.InstanceFPizzerie.getPanelProductos().getButtonTique().setVisible(true);
+		Frame.InstanceFRestaurant.getPanelProductos().getButtonTique().setVisible(true);
 		System.out.println("Añade producto al pedido.");
 		Frame.log.Escritura("Añade producto al pedido.");
 	}
@@ -522,9 +522,9 @@ public class Panel extends JPanel {
 	//rellena los datos del pedido con el precio con impuestos y descuentos, el camarero o repartidor
 	public void upgradeOrderData(Pedido pedidoEnCurso) {
 		pedidoEnCurso.setOrderPriceWithoutTaxes(subtotal); // add total price whitout taxes
-		pedidoEnCurso.setTrabajador(Frame.InstanceFPizzerie.getTrabajadorValidado());
+		pedidoEnCurso.setTrabajador(Frame.InstanceFRestaurant.getTrabajadorValidado());
 		// calc total price and discounts
-		Frame.InstanceFPizzerie.myPizzerie.calculoPrecioPedido(pedidoEnCurso);
+		Frame.InstanceFRestaurant.myRestaurant.calculoPrecioPedido(pedidoEnCurso);
 		System.out.println("Rellenado pedido " + pedidoEnCurso);
 		Frame.log.Escritura("Rellenado pedido " + pedidoEnCurso);
 	}

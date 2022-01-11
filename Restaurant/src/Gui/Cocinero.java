@@ -15,9 +15,9 @@ public class Cocinero extends Trabajador{
 	private int workExperience;		// guarda los años de experiencia
 	private kitchenCategory category;	// specifies the category of a worker in the kitchen
 	
-	public Cocinero(String name, String surNames, String dni, double salary, Turno shift,
+	public Cocinero(String name, String surNames, String dni, double salary, Turno shift2,
 			String telephone, String clave, String specialty, int workExperience, kitchenCategory category) {
-		super(name, surNames, dni, salary, shift, telephone, clave);
+		super(name, surNames, dni, salary, shift2, telephone, clave);
 		this.speciality = specialty;
 		this.workExperience = workExperience;
 		this.category = category;

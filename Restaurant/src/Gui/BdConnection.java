@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.naming.CommunicationException;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 
 public class BdConnection {
@@ -22,7 +24,6 @@ public class BdConnection {
 		this.cadenaConex = null;
 		this.timeOut= true;
 		this.connected = false;
-	//	this.connectedBdMotorButBbNoExist = false;
 		this.myConnection = null;
 		this.myStatement = null;
 		this.myPreparedStatement = null;
@@ -31,14 +32,13 @@ public class BdConnection {
 	}
 
 	/** Constructor for BdConnection. 
-	 * If exist connection with database motor but not with database change de value or
-	 * connectedBdMotorButBbNoExist variable
+	 * checks if there is connection to the database engine and if the database exists
 	 * @param config array with configuration extracted from config.xml file
 	 */
 	public BdConnection(String[] config){
 		timeOut=true;
 		connected = false;
-	//	connectedBdMotorButBbNoExist= false;
+		
 		try {
 			if (DatabaseMotorConnection(config)) {
 				cadenaConex =  "jdbc:"+config[0]+"://"+config[2]+":"+config[3]+"/"+config[1];	
@@ -50,7 +50,7 @@ public class BdConnection {
 			    }
 		    }
 		}catch (SQLException e){
-			if (e.getErrorCode() == 0) { //
+			if (e.getErrorCode() == 0) { 
 				System.out.println("Database connection time out.");
 				Frame.log.Escritura("Database connection time out.");
 				JOptionPane.showMessageDialog(null, "Database connection time out."+ e.getMessage(), "Database connection. Error", JOptionPane.ERROR_MESSAGE);
@@ -58,7 +58,6 @@ public class BdConnection {
 			else if(e.getErrorCode() == 1049) {
 				System.out.println("Conexión ok. Base de datos no existe");
 				Frame.log.Escritura("Conexión ok. Base de datos no existe");
-	//			connectedBdMotorButBbNoExist = true;
 			}
 			System.out.println(e.getMessage() + e.getStackTrace().toString());
 			Frame.log.Escritura(e.getMessage() + e.getStackTrace());
@@ -73,16 +72,21 @@ public class BdConnection {
 		}catch(SQLException e) {
 			System.out.println("Closing dabase connmection. " + e.getMessage() + e.getStackTrace().toString());
 			Frame.log.Escritura("Closing dabase connmection. " + e.getMessage() + e.getStackTrace());
-		}
-		
+		}		
 	}
+	
+	/**
+	 * check if there is a connection to the database engine
+	 * @param config array of String with "config.xml" configuration file parameters
+	 * @return boolean thar return true if there is a connection with database engine
+	 */
 	public boolean DatabaseMotorConnection(String[] config) {
 		String url = "jdbc:"+config[0]+"://"+config[2]+":"+config[3]+"/";  // not inserted database name
 		try {
 			myConnection = DriverManager.getConnection(url, config[4], config[5]);		
 			if(myConnection != null) {
 				timeOut = false;
-				//return true;
+				return true;
 			}
 		}catch(SQLException e){
 			System.out.println("Tiempo de conexion agotado");
@@ -94,6 +98,10 @@ public class BdConnection {
 		return true;
 	}
 	
+	/**
+	 * Create a database in mysql database engine using "config.xml" configuration file parameters
+	 * @param config config array of String with "config.xml" configuration file parameters
+	 */
 	public void createDatabase(String[] config) {
 		StringBuilder sql = new StringBuilder("");
 		
@@ -218,6 +226,7 @@ public class BdConnection {
 					+ "  `surNames` text COLLATE utf8mb4_unicode_ci NOT NULL,"
 					+ "  `dni` text COLLATE utf8mb4_unicode_ci NOT NULL,"
 					+ "  `salary` double NOT NULL,"
+					+ "  `shift` enum('Morning','Afternoon','Evening') COLLATE utf8mb4_unicode_ci NOT NULL,"
 					+ "  `telephone` text COLLATE utf8mb4_unicode_ci NOT NULL,"
 					+ "  `clave` text COLLATE utf8mb4_unicode_ci NOT NULL,"
 					+ "  PRIMARY KEY (`workerId`),"
@@ -274,25 +283,29 @@ public class BdConnection {
 	
 	/**
 	 * Charge data from Database. The number of orders...
-	 * @throws SQLException 
 	 */
-	public void chargeBDData() {
+	public void chargeBDData(Restaurant myRestaurant) {
 		try {
 			myStatement = myConnection.createStatement();
 			ResultSet rst = myStatement.executeQuery("SELECT MAX(orderId) FROM orders");
 			rst.next();
 			System.out.println("Recogido valor de número de pedidos en BD: "+ rst.getInt("MAX(orderId)"));
-			Pedido.setPedidos(rst.getInt(1));
-			
+			Pedido.setPedidos(rst.getInt("MAX(orderId)"));
+			rst =null;
 			//copy users from database to List
 			
-			
-			
-		}catch(Exception e){
+
+			rst = myStatement.executeQuery("SELECT MAX(workerId) FROM worker");
+			rst.next();
+			System.out.println("Recogido valor de número de trabajadores en BD: "+ rst.getInt("MAX(workerId)"));
+			Trabajador.setWorkers(rst.getInt("MAX(workerId)"));
+			loadWorkersFromBD(myRestaurant.getWorkers(),"worker");
+				//	closeConnection();
+		}catch(SQLException e){
 			System.out.println("Lectura de datos BD " + e.getMessage() + e.getStackTrace().toString());
 			Frame.log.Escritura("Lectura de datos BD " + e.getMessage() + e.getStackTrace());
+			//closeConnection();
 		};
-
 	}
 	
 	/**
@@ -300,7 +313,7 @@ public class BdConnection {
 	 * @param table table name to insert data
 	 * @param lProductos list of "Productod" objects to insert
 	 */
-	public void insertarEnTablaProductosBD(String table, List<Productos> lProductos) {
+/*	public void insertarEnTablaProductosBD(String table, List<Productos> lProductos) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("INSERT INTO " + table + " (foodId,denomination, section, ingredients, price, lowprice, image) ");
 		sql.append("VALUES(?,?,?,?,?,?,?)");
@@ -322,6 +335,7 @@ public class BdConnection {
 			Frame.log.Escritura("Insercion tabla products" + e.getMessage() + e.getStackTrace());
 		};
 	}
+	*/
 	
 	/**
 	 * Return the metadata information of a table in the database
@@ -330,6 +344,7 @@ public class BdConnection {
 	 * @throws SQLException
 	 */
 	public ResultSetMetaData metadataTable(String table) throws SQLException{	
+		myStatement = myConnection.createStatement();
 		ResultSet rs = myStatement.executeQuery("SELECT * FROM " + table);
 		return rs.getMetaData();
 	}
@@ -343,14 +358,15 @@ public class BdConnection {
 	 */
 	public Object[] valuesToArray(Object source, int columns) {
 		Object[] values = new Object[columns];
-		if((source.getClass() == Cocinero.class || source.getClass() == Camarero.class || source.getClass() == Repartidor.class) && columns == 7) {
+		if((source.getClass() == Cocinero.class || source.getClass() == Camarero.class || source.getClass() == Repartidor.class) && columns == 8) {
 			values[0] = ((Trabajador)source).getWorkerId();
 			values[1] = ((Trabajador)source).getName();
 			values[2] = ((Trabajador)source).getSurNames();
 			values[3] = ((Trabajador)source).getDni();		
-			values[4] = ((Trabajador)source).getSalary();		
-			values[5] = ((Trabajador)source).getTelephone();
-			values[6] = ((Trabajador)source).getClave();
+			values[4] = ((Trabajador)source).getSalary();	
+			values[5] = ((Trabajador)source).getShift().name();
+			values[6] = ((Trabajador)source).getTelephone();
+			values[7] = ((Trabajador)source).getClave();
 		}else if(source.getClass() == Cocinero.class) {
 			values[0] = ((Cocinero)source).getWorkerId();
 			values[1] = ((Cocinero)source).getSpeciality();
@@ -461,37 +477,10 @@ public class BdConnection {
 	 * @param lWorkers list of objects to insert (cooker, waiters or delivery men)
 	 */
 	public void insertWorkersBD(List<?> lWorkers, String table) {
-//		Object[] valuesWorker;
-//		try {
-//			ResultSetMetaData rsmdWorker = metadataTable("worker");  //obtain metadata from table worker
-			for(int i =0; i<=lWorkers.size()-1;i++) {
-				Trabajador w = (Trabajador)lWorkers.get(i);
-				insertWorkerBD(w, table);
-//				valuesWorker = new Object[rsmdWorker.getColumnCount()];
-//				valuesWorker = valuesToArray(((Trabajador)w), rsmdWorker.getColumnCount());	// get values of a object ant put on a array
-//				insertDataOnTableBd(valuesWorker,"worker",rsmdWorker); //insert data into database table
-			
-//				if(w.getClass() == Cocinero.class) {
-//					myResultSetMetaData = metadataTable("cooker");  //obtain metadata from table cooker
-//					Object[] valuesWorkerDetail = new Object[myResultSetMetaData.getColumnCount()];
-//					valuesWorkerDetail = valuesToArray(((Cocinero)w), myResultSetMetaData.getColumnCount()); // get values of a object ant put on a array
-//					insertDataOnTableBd(valuesWorkerDetail,"cooker",myResultSetMetaData);//insert data into database cooker table
-//				}else if (w.getClass() == Camarero.class) {
-//					myResultSetMetaData = metadataTable("waiter");  //obtain metadata from table waiter
-//					Object[] values = new Object[myResultSetMetaData.getColumnCount()];
-//					values = valuesToArray(((Camarero)w), myResultSetMetaData.getColumnCount()); // get values of a object ant put on a array
-//					insertDataOnTableBd(values,"waiter",myResultSetMetaData); //insert data into database waiter table
-//				}else if (w.getClass() == Repartidor.class) {
-//					myResultSetMetaData = metadataTable("delivery");  //obtain metadata from table delivery
-//					Object[] values = new Object[myResultSetMetaData.getColumnCount()];
-//					values = valuesToArray(((Repartidor)w), myResultSetMetaData.getColumnCount()); // get values of a object ant put on a array
-//					insertDataOnTableBd(values,"delivery",myResultSetMetaData);  //insert data into database delevery table
-//				}
-			}
-	//	}catch (Exception e){
-	//		System.out.println("Worker insertion in database" + e.getMessage() + e.getStackTrace().toString());
-	//		Frame.log.Escritura("Worker insertion in database" + e.getMessage() + e.getStackTrace());
-	//	};
+		for(int i =0; i<=lWorkers.size()-1;i++) {
+			Trabajador w = (Trabajador)lWorkers.get(i);
+			insertWorkerBD(w, table);
+		}
 	}
 	
 	/**
@@ -502,8 +491,6 @@ public class BdConnection {
 		Object[] valuesWorker;
 		try {
 			ResultSetMetaData rsmdWorker = metadataTable(table);  //obtain metadata from table worker
-	//		for(int i =0; i<=lWorkers.size()-1;i++) {
-				//Trabajador w = (Trabajador)lWorkers.get(i);
 				valuesWorker = new Object[rsmdWorker.getColumnCount()];
 				valuesWorker = valuesToArray(((Trabajador)w), rsmdWorker.getColumnCount());	// get values of a object ant put on a array
 				insertDataOnTableBd(valuesWorker,table,rsmdWorker); //insert data into database table
@@ -524,7 +511,6 @@ public class BdConnection {
 					values = valuesToArray(((Repartidor)w), myResultSetMetaData.getColumnCount()); // get values of a object ant put on a array
 					insertDataOnTableBd(values,"delivery",myResultSetMetaData);  //insert data into database delevery table
 				}
-//			}
 		}catch (Exception e){
 			System.out.println("Worker insertion in database" + e.getMessage() + e.getStackTrace().toString());
 			Frame.log.Escritura("Worker insertion in database" + e.getMessage() + e.getStackTrace());
@@ -549,8 +535,37 @@ public class BdConnection {
 			Frame.log.Escritura("Product insertion in database" + e.getMessage() + e.getStackTrace());
 		}
 	}
-	
-	
+
+	/**
+	 * Insert products of the List on database with his details.
+	 * @param lProducts list of objects to insert 
+	 */
+	public void insertProductsBD(List<?> lProducts, String table) {
+		for(int i =0; i<=lProducts.size()-1;i++) {
+			Productos w = (Productos)lProducts.get(i);
+			insertProductBD(w, table);
+		}
+	}
+
+	/**
+	 * insert values of a object into a databae
+	 * @param product the object to insert
+	 */
+/*	public void insertdataInBD(T product , String table){
+		Object[] valuesProduct;
+		
+		ResultSetMetaData rsmdProduct;
+		try {
+			rsmdProduct = metadataTable(table); //obtain metadata from table 
+			valuesProduct = new Object[rsmdProduct.getColumnCount()];
+			valuesProduct = valuesToArray(product, rsmdProduct.getColumnCount());	// get values of a object ant put on a array
+			insertDataOnTableBd(valuesProduct,table,rsmdProduct); //insert data into database table
+		} catch (SQLException e) {
+			System.out.println("Product insertion in database" + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Product insertion in database" + e.getMessage() + e.getStackTrace());
+		}
+	}
+	*/
 	/**
 	 * Store data in 'destinopedido' table on database. 
 	 * Use variables barZones, inTables, outTables and deleveryZones
@@ -621,9 +636,156 @@ public class BdConnection {
 				myPreparedStatement.executeLargeUpdate();				
 			}
 		}catch (Exception e){
-			System.out.println("Insercion tabla pedido" + sql + e.getMessage() + e.getStackTrace().toString());
-			Frame.log.Escritura("Insercion tabla pedido" + e.getMessage() + e.getStackTrace());
-		};
+			System.out.println("Table orders insertion " + sql + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Table orders insertion " + e.getMessage() + e.getStackTrace());
+		};	
+	}
+	
+	public void loadWorkersFromBD(List<Trabajador> workers, String table){
+		Trabajador worker;
+		String sql = "SELECT * FROM " + table + ", waiter WHERE worker.workerId = waiter.waiterId";
+		ResultSet rst = colletSQl(sql);
+		ResultSetMetaData metaData;
+		try {
+			metaData = rst.getMetaData();
+ 			while(rst.next()) {			
+				String[] languages = {rst.getString(11),rst.getString(12),rst.getString(13)};
+				worker = new Camarero(
+						rst.getString(2),
+						rst.getString(3),
+						rst.getString(4), 
+						(Double)rst.getObject(5),
+						Turno.Afternoon,
+						rst.getString(7),
+						rst.getString(8),
+						languages,
+						(Boolean)rst.getObject(10));
+				
+				switch(rst.getString(6)){
+				case "Afternoon":
+					worker.setShift(Turno.Afternoon);
+					break;
+				case "Evening":
+					worker.setShift(Turno.Evening);
+					break;
+				case "Morning":
+					worker.setShift(Turno.Morning);
+					break;
+				}				
+				workers.add(worker);
+			}
+		} catch (SQLException e) {
+			System.out.println("Load from database " + sql + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Load from database " + e.getMessage() + e.getStackTrace());
+
+		}
+		
+		
+		// load cookers
+		Cocinero cooker;
+		sql = "SELECT * FROM " + table + ", cooker WHERE worker.workerId = cooker.cookerId";
+		rst = colletSQl(sql);
+		try {
+			metaData = rst.getMetaData();
+ 			while(rst.next()) {			
+				cooker = new Cocinero(
+						rst.getString(2),
+						rst.getString(3),
+						rst.getString(4), 
+						(Double)rst.getObject(5),
+						Turno.Afternoon,
+						rst.getString(7),
+						rst.getString(8),
+						rst.getString(10),
+						rst.getInt(11),
+						kitchenCategory.ASSISTANT);
+				
+				switch(rst.getString(6)){
+				case "Afternoon":
+					cooker.setShift(Turno.Afternoon);
+					break;
+				case "Evening":
+					cooker.setShift(Turno.Evening);
+					break;
+				case "Morning":
+					cooker.setShift(Turno.Morning);
+					break;
+				}				
+				switch(rst.getString(12)){
+				case "CHEF":
+					cooker.setCategory(kitchenCategory.CHEF);
+					break;
+				case "ASSISTANT":
+					cooker.setCategory(kitchenCategory.ASSISTANT);
+					break;
+				}				
+				workers.add(cooker);
+			}
+		} catch (SQLException e) {
+			System.out.println("Load from database " + sql + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Load from database " + e.getMessage() + e.getStackTrace());
+
+		}
+
+		
+		//load deliveries
+		
+		// load cookers
+		Repartidor delivery;
+		sql = "SELECT * FROM " + table + ", delivery  WHERE worker.workerId = delivery.deliveryId";
+		rst = colletSQl(sql);
+		try {
+			metaData = rst.getMetaData();
+ 			while(rst.next()) {			
+				delivery =  new Repartidor(
+						rst.getString(2),
+						rst.getString(3),
+						rst.getString(4), 
+						(Double)rst.getObject(5),
+						Turno.Afternoon,
+						rst.getString(7),
+						rst.getString(8),
+						Transport.Bicycle,
+						rst.getInt(11),
+						(Boolean)rst.getObject(12),
+						(Boolean)rst.getObject(13));
+				
+				switch(rst.getString(6)){
+				case "Afternoon":
+					delivery.setShift(Turno.Afternoon);
+					break;
+				case "Evening":
+					delivery.setShift(Turno.Evening);
+					break;
+				case "Morning":
+					delivery.setShift(Turno.Morning);
+					break;
+				}				
+				switch(rst.getString(10)){
+				case "On_foot":
+					delivery.setDeliveyMode(Transport.On_foot);
+					break;
+				case "Motoycycle":
+					delivery.setDeliveyMode(Transport.Motorcycle);
+					break;
+				case "Bicycle":
+					delivery.setDeliveyMode(Transport.Bicycle);
+					break;
+				case "Electric_car":
+					delivery.setDeliveyMode(Transport.Electric_car);
+					break;
+				case "Combustion_car":
+					delivery.setDeliveyMode(Transport.Combustion_car);
+					break;
+
+				}
+				workers.add(delivery);
+			}
+		} catch (SQLException e) {
+			System.out.println("Load from database " + sql + e.getMessage() + e.getStackTrace().toString());
+			Frame.log.Escritura("Load from database " + e.getMessage() + e.getStackTrace());
+		}
+
 	}
 	
 	/**
@@ -635,7 +797,6 @@ public class BdConnection {
 		try {
 			myStatement = myConnection.createStatement();		    
 		    myResultset = myStatement.executeQuery(sql);
-			return myResultset;
 		}catch (Exception e){
 			System.out.println("Select " + e.getMessage() + e.getStackTrace().toString());
 			Frame.log.Escritura("Select " + e.getMessage() + e.getStackTrace());

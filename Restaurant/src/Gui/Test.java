@@ -36,7 +36,8 @@ public class Test {
 		List<Productos> productsRestaurant = new ArrayList<Productos>();
 		List<Trabajador> workers = new ArrayList<Trabajador>();
 		List<Pedido> ordersRestaurant = new ArrayList<Pedido>();
-
+		Restaurant myRestaurant;
+		
 		// create de key for the password encrypt
 		key = createKey();
 		
@@ -62,7 +63,8 @@ public class Test {
 						createProducts(productsRestaurant);
 						createWorkers(workers);
 						createPedidos(ordersRestaurant, productsRestaurant, workers);
-						conex.insertarEnTablaProductosBD("productos", productsRestaurant);
+						//conex.insertarEnTablaProductosBD("productos", productsRestaurant);
+						conex.insertProductsBD(productsRestaurant, "productos");
 						// insert worker list in database
 						conex.insertWorkersBD(workers,"worker");
 						// insertar los destinos en la base de datos
@@ -72,9 +74,21 @@ public class Test {
 				}
 				// }
 			} else { // conected to database
-				// INCLUIR LA CARGA DE LOS DATOS DE TRABAJADORES PARA PONER EN EL PANEL VALIDA
+				// Creación de un objeto Restaurant sin datos
+				myRestaurant = new Restaurant(arrayConfig[10], arrayConfig[11], Integer.parseInt(arrayConfig[12]),
+						Integer.parseInt(arrayConfig[13]),  workers, productsRestaurant, ordersRestaurant);
+				// Se asigna el número de puestos en barra, mesas en interior, en exterior y
+				// repartos extraidas del archivo de configuración
+				myRestaurant.setBarZones(Integer.parseInt(arrayConfig[6]));
+				myRestaurant.setInTables(Integer.parseInt(arrayConfig[7]));
+				myRestaurant.setOutTables(Integer.parseInt(arrayConfig[8]));
+				myRestaurant.setDeliveryZones(Integer.parseInt(arrayConfig[9]));
 
-				conex.chargeBDData(); // Carga datos de base de datos
+				// INCLUIR LA CARGA DE LOS DATOS DE TRABAJADORES PARA PONER EN EL PANEL VALIDA
+				
+				conex.chargeBDData(myRestaurant); // Carga datos de base de datos
+				// Se lanza frame
+				Frame miFrame = new Frame(myRestaurant);
 			}
 		} else { // no connection with database motor
 			if (JOptionPane.showConfirmDialog(null, "Do you want to charge example data?",
@@ -83,21 +97,23 @@ public class Test {
 				createProducts(productsRestaurant);
 				createWorkers(workers);
 				createPedidos(ordersRestaurant, productsRestaurant, workers);
+				// Creación de un objeto Restaurant con los datos de ejemplo
+
+				myRestaurant = new Restaurant(arrayConfig[10], arrayConfig[11], Integer.parseInt(arrayConfig[12]),
+						Integer.parseInt(arrayConfig[13]), workers, productsRestaurant, ordersRestaurant);
+				// Se asigna el número de puestos en barra, mesas en interior, en exterior y
+				// repartos extraidas del archivo de configuración
+				myRestaurant.setBarZones(Integer.parseInt(arrayConfig[6]));
+				myRestaurant.setInTables(Integer.parseInt(arrayConfig[7]));
+				myRestaurant.setOutTables(Integer.parseInt(arrayConfig[8]));
+				myRestaurant.setDeliveryZones(Integer.parseInt(arrayConfig[9]));
+				// Se lanza frame
+				Frame miFrame = new Frame(myRestaurant);
 			}
 		}
-		// Creación de un objeto Restaurant
+		
 
-		Restaurant myRestaurant = new Restaurant(arrayConfig[10], arrayConfig[11], Integer.parseInt(arrayConfig[12]),
-				Integer.parseInt(arrayConfig[13]), workers, productsRestaurant, ordersRestaurant);
-		// Se asigna el número de puestos en barra, mesas en interior, en exterior y
-		// repartos extraidas del archivo de configuración
-		myRestaurant.setBarZones(Integer.parseInt(arrayConfig[6]));
-		myRestaurant.setInTables(Integer.parseInt(arrayConfig[7]));
-		myRestaurant.setOutTables(Integer.parseInt(arrayConfig[8]));
-		myRestaurant.setDeliveryZones(Integer.parseInt(arrayConfig[9]));
-
-		// Se lanza frame
-		Frame miFrame = new Frame(myRestaurant);
+		
 
 		System.out.println("\n***************Listado de comida en pizzeria********************");
 		System.out.println(productsRestaurant);
@@ -107,7 +123,7 @@ public class Test {
 
 		// Generación de listado de pedidos
 		System.out.println("\n*************** Listado de pedidos en pizzeria *****************");
-		System.out.println(myRestaurant.getOrders().toString());
+	//	System.out.println(myRestaurant.getOrders().toString());
 	}
 
 	public static SecretKeySpec createKey() {
@@ -237,17 +253,17 @@ public class Test {
 		String[] language1 = { "Español", "inglés" };
 		String[] language2 = { "Español", "inglés, Francés" };
 		String[] language3 = { "Español", "inglés, Alemán" };
-		Cocinero cocinero1 = new Cocinero("Francisco", "Soler Villegas", "14253678A", 1200.50, Turno.TARDE, "624582159",
+		Cocinero cocinero1 = new Cocinero("Francisco", "Soler Villegas", "14253678A", 1200.50, Turno.Evening, "624582159",
 				passwordEncriptadacocinero1, "Desserts", 3, kitchenCategory.ASSISTANT);
-		Cocinero cocinero2 = new Cocinero("Elena", "García Moro", "85854545C", 1400.50, Turno.NOCHE, "9834235485",
+		Cocinero cocinero2 = new Cocinero("Elena", "García Moro", "85854545C", 1400.50, Turno.Afternoon, "9834235485",
 				passwordEncriptadacocinero2, "Vanguardia", 5, kitchenCategory.CHEF);
-		Camarero camarero1 = new Camarero("Vanesa", "Martin Fierro", "85412365B", 1050.50, Turno.NOCHE, "523568974",
+		Camarero camarero1 = new Camarero("Vanesa", "Martin Fierro", "85412365B", 1050.50, Turno.Evening, "523568974",
 				passwordEncriptadaCamarero1, language1, false);
-		Camarero camarero2 = new Camarero("Jonas", "Valverde Schultz", "44128369R", 1050.50, Turno.TARDE, "685214792",
+		Camarero camarero2 = new Camarero("Jonas", "Valverde Schultz", "44128369R", 1050.50, Turno.Afternoon, "685214792",
 				passwordEncriptadaCamarero2, language2, true);
-		Repartidor repartidor1 = new Repartidor("Juan", "Pérez Morales", "78451236C", 800.00, Turno.TARDE, "568471236",
+		Repartidor repartidor1 = new Repartidor("Juan", "Pérez Morales", "78451236C", 800.00, Turno.Evening, "568471236",
 				passwordEncriptadaRepartidor1, Transport.Motorcycle, 19, true, true);
-		Repartidor repartidor2 = new Repartidor("Manu", "González Gazquez", "45826573J", 900.00, Turno.NOCHE,
+		Repartidor repartidor2 = new Repartidor("Manu", "González Gazquez", "45826573J", 900.00, Turno.Afternoon,
 				"631657157", passwordEncriptadaRepartidor2, Transport.Bicycle, 18, false, false);
 
 		// Creación de lista de Trabajadores y se añaden los cocineros, camareros y

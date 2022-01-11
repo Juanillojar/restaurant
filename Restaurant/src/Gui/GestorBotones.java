@@ -24,28 +24,28 @@ public class GestorBotones implements ActionListener {
 		// TODO Auto-generated method stub
 		if (e.getActionCommand().equals("AbrirPanelValida")) {
 			// crea valida panel si no existe
-			if (Frame.InstanceFPizzerie.panelValida == null) {
-				Frame.InstanceFPizzerie.panelValida = new PanelValida(Frame.InstanceFPizzerie.myPizzerie.getWorkers());
+			if (Frame.InstanceFRestaurant.panelValida == null) {
+				Frame.InstanceFRestaurant.panelValida = new PanelValida(Frame.InstanceFRestaurant.myRestaurant.getWorkers());
 				System.out.println("Se crea panel valida");
 			}
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelValida,
-					Frame.InstanceFPizzerie.panelPrincipal);
+			Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelValida,
+					Frame.InstanceFRestaurant.panelPrincipal);
 		}
 		if (e.getActionCommand().equals("Valida clave")) {
 			try {
-				if (Frame.InstanceFPizzerie.getPanelValida().validaClave()) {
+				if (Frame.InstanceFRestaurant.getPanelValida().validaClave()) {
 					// inserted password is correct. Show bar and tables panel
-					if (Frame.InstanceFPizzerie.panelMesas == null) {
-						Frame.InstanceFPizzerie.panelMesas = new Panel(Frame.InstanceFPizzerie.myPizzerie.getBarZones(),
-								Frame.InstanceFPizzerie.myPizzerie.getDeliveryZones(),
-								Frame.InstanceFPizzerie.myPizzerie.getInTables(),
-								Frame.InstanceFPizzerie.myPizzerie.getOutTables());
+					if (Frame.InstanceFRestaurant.panelMesas == null) {
+						Frame.InstanceFRestaurant.panelMesas = new Panel(Frame.InstanceFRestaurant.myRestaurant.getBarZones(),
+								Frame.InstanceFRestaurant.myRestaurant.getDeliveryZones(),
+								Frame.InstanceFRestaurant.myRestaurant.getInTables(),
+								Frame.InstanceFRestaurant.myRestaurant.getOutTables());
 						System.out.println("Se crea panel mesas");
 						Frame.log.Escritura("Se crea panel mesas");
 					}
 
-					Frame.InstanceFPizzerie.setTrabajadorValidado(
-							(Trabajador) Frame.InstanceFPizzerie.getPanelValida().getComboBoxUser().getSelectedItem());
+					Frame.InstanceFRestaurant.setTrabajadorValidado(
+							(Trabajador) Frame.InstanceFRestaurant.getPanelValida().getComboBoxUser().getSelectedItem());
 				}
 			} catch (GeneralSecurityException e1) {
 				// TODO Auto-generated catch block
@@ -54,77 +54,77 @@ public class GestorBotones implements ActionListener {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelMesas,
-					Frame.InstanceFPizzerie.panelValida);
+			Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelMesas,
+					Frame.InstanceFRestaurant.panelValida);
 		}
 		if (e.getActionCommand().equals("Salir panel valida")) {
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelPrincipal,
-					Frame.InstanceFPizzerie.panelValida);
+			Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelPrincipal,
+					Frame.InstanceFRestaurant.panelValida);
 		}
 		if (e.getActionCommand().equals("AbrirPanelConfiguracion")) {
-			if (Frame.InstanceFPizzerie.panelConfig == null) {
-				Frame.InstanceFPizzerie.panelConfig = new PanelConfig(Test.arrayConfig);
+			if (Frame.InstanceFRestaurant.panelConfig == null) {
+				Frame.InstanceFRestaurant.panelConfig = new PanelConfig(Test.arrayConfig);
 			}
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelConfig,
-					Frame.InstanceFPizzerie.panelPrincipal);
+			Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelConfig,
+					Frame.InstanceFRestaurant.panelPrincipal);
 
 		}
 		if (e.getActionCommand().equals("SalirPanelConfig")) {
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelPrincipal,
-					Frame.InstanceFPizzerie.panelConfig);
+			Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelPrincipal,
+					Frame.InstanceFRestaurant.panelConfig);
 		}
 
 		if (e.getActionCommand().equals("ApplyPanelConfig")) {
 			// Store data from config panel
-			Frame.InstanceFPizzerie.getPanelConfig().getMyXmlDoc()
-					.store(Frame.InstanceFPizzerie.getPanelConfig().getMyXmlDoc().read());
+			Frame.InstanceFRestaurant.getPanelConfig().getMyXmlDoc()
+					.store(Frame.InstanceFRestaurant.getPanelConfig().getMyXmlDoc().read());
 		}
 
 		if (e.getActionCommand().equals("AbrirPanelReports")) {
 			// create report panel if not exist
-			if (Frame.InstanceFPizzerie.panelReport == null) {
-				Frame.InstanceFPizzerie.panelReport = new Panel(1);
+			if (Frame.InstanceFRestaurant.panelReport == null) {
+				Frame.InstanceFRestaurant.panelReport = new Panel(1);
 			}
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,
-					Frame.InstanceFPizzerie.panelPrincipal);
+			Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelReport,
+					Frame.InstanceFRestaurant.panelPrincipal);
 		}
 		if (e.getActionCommand().equals("OpenProductsPanel")) {
 			// store static variable BotonMesa (button that generate open products panel
 			Panel.setBotonMesa((BotonRestauranteMesas) e.getSource());
-			Frame.InstanceFPizzerie.panelMesas.abrirPanelProductos();
+			Frame.InstanceFRestaurant.panelMesas.abrirPanelProductos();
 		}
 		if (e.getActionCommand().equals("SalirPanelMesas")) {
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelPrincipal,
-					Frame.InstanceFPizzerie.panelMesas);
+			Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelPrincipal,
+					Frame.InstanceFRestaurant.panelMesas);
 		}
 		if (e.getActionCommand().equals("AddToOrder")) {
-			Frame.InstanceFPizzerie.panelProductos.anyadeProducto(e);
+			Frame.InstanceFRestaurant.panelProductos.anyadeProducto(e);
 		}
 		if (e.getActionCommand().equals("OpenTiquePanel")) {
 			// completa datos del Pedido y se pasa al panel tiquet
-			Frame.InstanceFPizzerie.panelProductos.upgradeOrderData(Panel.getBotonMesa().getPedidoBoton());
-			Frame.InstanceFPizzerie.panelticket = new panelticket(Panel.getBotonMesa().getPedidoBoton());
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelticket,
-					Frame.InstanceFPizzerie.panelProductos);
+			Frame.InstanceFRestaurant.panelProductos.upgradeOrderData(Panel.getBotonMesa().getPedidoBoton());
+			Frame.InstanceFRestaurant.panelticket = new panelticket(Panel.getBotonMesa().getPedidoBoton());
+			Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelticket,
+					Frame.InstanceFRestaurant.panelProductos);
 		}
 		if (e.getActionCommand().equals("SalirPanelProductos")) {
-			Frame.InstanceFPizzerie.panelProductos.cerrarPanelProductos(e);
+			Frame.InstanceFRestaurant.panelProductos.cerrarPanelProductos(e);
 		}
 		if (e.getActionCommand().equals("SalirPanelTique")) {
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelProductos,
-					Frame.InstanceFPizzerie.panelticket);
+			Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelProductos,
+					Frame.InstanceFRestaurant.panelticket);
 		}
 		if (e.getActionCommand().equals("Acepta cobro")) {
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelMesas, Frame.InstanceFPizzerie.panelCobro);
+			Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelMesas, Frame.InstanceFRestaurant.panelCobro);
 			JOptionPane.showMessageDialog(null, "Tique cobrado", "Paid out", JOptionPane.INFORMATION_MESSAGE);
 		}
 		if (e.getActionCommand().equals("Imprimir")) {
-			Frame.InstanceFPizzerie.panelticket.imprimirTicket();
+			Frame.InstanceFRestaurant.panelticket.imprimirTicket();
 			System.out.println("Gestor botones imprime");
 			Frame.log.Escritura("Gestor botones imprime tique");
 		}
 		if (e.getActionCommand().equals("PaidOut")) {
-			Frame.InstanceFPizzerie.panelProductos.pagarPedido();
+			Frame.InstanceFRestaurant.panelProductos.pagarPedido();
 		}
 		if (e.getActionCommand().equals("OpenProductsReport")) {
 			// show or create "panelProductsReport" if there is no connetion with database.
@@ -134,21 +134,21 @@ public class GestorBotones implements ActionListener {
 						+ "ingredients AS 'Ingredientes', price AS 'Price (€)', lowprice AS 'Discount' "
 						+ "FROM productos";
 				try {
-					Frame.InstanceFPizzerie.panelReportsData = new Panel(sql);
+					Frame.InstanceFRestaurant.panelReportsData = new Panel(sql);
 				} catch (Exception e1) {
 					System.out
 							.println("Llama panel informe productos" + e1.getMessage() + e1.getStackTrace().toString());
 					Frame.log.Escritura("Llama panel informe productos" + e1.getMessage() + e1.getStackTrace());
 				}
-				Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReportsData,
-						Frame.InstanceFPizzerie.panelReport);
+				Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelReportsData,
+						Frame.InstanceFRestaurant.panelReport);
 			} else {
-				if (Frame.InstanceFPizzerie.panelProductsReport == null) {
-					Frame.InstanceFPizzerie.panelProductsReport = new Panel(
-							Frame.InstanceFPizzerie.myPizzerie.getFoods());
+				if (Frame.InstanceFRestaurant.panelProductsReport == null) {
+					Frame.InstanceFRestaurant.panelProductsReport = new Panel(
+							Frame.InstanceFRestaurant.myRestaurant.getFoods());
 				}
-				Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelProductsReport,
-						Frame.InstanceFPizzerie.panelReport);
+				Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelProductsReport,
+						Frame.InstanceFRestaurant.panelReport);
 			}
 		}
 		if (e.getActionCommand().equals("OpenOrdersReport")) {
@@ -162,24 +162,24 @@ public class GestorBotones implements ActionListener {
 						+ "FROM orders, destinopedido, worker "
 						+ "WHERE orders.destination = destinopedido.destinationId AND "
 						+ "orders.workerId = worker.workerId;";
-				if (Frame.InstanceFPizzerie.panelReportsData == null) {
+				if (Frame.InstanceFRestaurant.panelReportsData == null) {
 					try {
-						Frame.InstanceFPizzerie.panelReportsData = new Panel(sql);
+						Frame.InstanceFRestaurant.panelReportsData = new Panel(sql);
 					} catch (Exception e1) {
 						System.out.println(
 								"Llama panel informe pedidos" + e1.getMessage() + e1.getStackTrace().toString());
 						Frame.log.Escritura("Llama panel informe pedidos" + e1.getMessage() + e1.getStackTrace());
 					}
 				}
-				Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReportsData,
-						Frame.InstanceFPizzerie.panelReport);
+				Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelReportsData,
+						Frame.InstanceFRestaurant.panelReport);
 			} else {
-				if (Frame.InstanceFPizzerie.panelOrderReport == null) {
-					Frame.InstanceFPizzerie.panelOrderReport = new Panel(Frame.InstanceFPizzerie.myPizzerie.getOrders(),
+				if (Frame.InstanceFRestaurant.panelOrderReport == null) {
+					Frame.InstanceFRestaurant.panelOrderReport = new Panel(Frame.InstanceFRestaurant.myRestaurant.getOrders(),
 							"Informe");
 				}
-				Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelOrderReport,
-						Frame.InstanceFPizzerie.panelReport);
+				Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelOrderReport,
+						Frame.InstanceFRestaurant.panelReport);
 			}
 		}
 		if (e.getActionCommand().equals("OpenWorkersReport")) {
@@ -187,56 +187,56 @@ public class GestorBotones implements ActionListener {
 				String sql = "SELECT workerId AS 'Worker Number', name AS 'Name', surNames AS 'Surnames', "
 						+ "dni AS 'Dni', salary AS 'Salary (€)', telephone AS 'Telephone' " + "FROM worker";
 				try {
-					Frame.InstanceFPizzerie.panelReportsData = new Panel(sql);
+					Frame.InstanceFRestaurant.panelReportsData = new Panel(sql);
 				} catch (Exception e1) {
 					System.out.println(
 							"Llama panel informe trabajadores" + e1.getMessage() + e1.getStackTrace().toString());
 					Frame.log.Escritura("Llama panel informe trabajadores" + e1.getMessage() + e1.getStackTrace());
 				}
-				Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReportsData,
-						Frame.InstanceFPizzerie.panelReport);
+				Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelReportsData,
+						Frame.InstanceFRestaurant.panelReport);
 			} else {
-				if (Frame.InstanceFPizzerie.panelWorkersReport == null) {
-					Frame.InstanceFPizzerie.panelWorkersReport = new Panel(
-							Frame.InstanceFPizzerie.myPizzerie.getWorkers(), "Informe", "Trabajadores");
+				if (Frame.InstanceFRestaurant.panelWorkersReport == null) {
+					Frame.InstanceFRestaurant.panelWorkersReport = new Panel(
+							Frame.InstanceFRestaurant.myRestaurant.getWorkers(), "Informe", "Trabajadores");
 				}
-				Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelWorkersReport,
-						Frame.InstanceFPizzerie.panelReport);
+				Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelWorkersReport,
+						Frame.InstanceFRestaurant.panelReport);
 			}
 		}
 		if (e.getActionCommand().equals("SalirPanelReports")) {
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelPrincipal,
-					Frame.InstanceFPizzerie.panelReport);
+			Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelPrincipal,
+					Frame.InstanceFRestaurant.panelReport);
 		}
 		if (e.getActionCommand().equals("BackReportsFromProductsReport")) {
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,
-					Frame.InstanceFPizzerie.panelProductsReport);
+			Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelReport,
+					Frame.InstanceFRestaurant.panelProductsReport);
 		}
 		if (e.getActionCommand().equals("BackReportsFromOrderReport")) {
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,
-					Frame.InstanceFPizzerie.panelOrderReport);
+			Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelReport,
+					Frame.InstanceFRestaurant.panelOrderReport);
 		}
 		if (e.getActionCommand().equals("BackReportsFromWorkersReport")) {
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,
-					Frame.InstanceFPizzerie.panelWorkersReport);
+			Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelReport,
+					Frame.InstanceFRestaurant.panelWorkersReport);
 		}
 		if (e.getActionCommand().equals("BackReportsFromReportSql")) {
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelReport,
-					Frame.InstanceFPizzerie.panelReportsData);
+			Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelReport,
+					Frame.InstanceFRestaurant.panelReportsData);
 		}
 		if (e.getActionCommand().equals("OpenPanelInsert")) {		
-			if (Frame.InstanceFPizzerie.panelInsert == null) {
-				Frame.InstanceFPizzerie.panelInsert = new PanelInsert();
+			if (Frame.InstanceFRestaurant.panelInsert == null) {
+				Frame.InstanceFRestaurant.panelInsert = new PanelInsert();
 			}
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelInsert,
-			Frame.InstanceFPizzerie.panelPrincipal);
+			Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelInsert,
+			Frame.InstanceFRestaurant.panelPrincipal);
 		}
 		if (e.getActionCommand().equals("SalirPanelInsert")) {
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelPrincipal,
-					Frame.InstanceFPizzerie.panelInsert);
+			Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelPrincipal,
+					Frame.InstanceFRestaurant.panelInsert);
 		}
 		if (e.getActionCommand().equals("cbSelectionChange")) {
-			PanelInsert mypan = Frame.InstanceFPizzerie.panelInsert; // only to use a short description
+			PanelInsert mypan = Frame.InstanceFRestaurant.panelInsert; // only to use a short description
 			if (((JComboBox) e.getSource()).getSelectedItem() == "Worker") {
 				if(mypan.panelProduct != null)
 					mypan.remove(mypan.panelProduct);
@@ -254,7 +254,7 @@ public class GestorBotones implements ActionListener {
 		}
 
 		if (e.getActionCommand().equals("cbWorkerTypeChange")) {
-			PanelInsert mypan = Frame.InstanceFPizzerie.panelInsert; // only to use a short
+			PanelInsert mypan = Frame.InstanceFRestaurant.panelInsert; // only to use a short
 			if (((JComboBox) e.getSource()).getSelectedItem() == "Waiter") {
 				mypan.changeVisibility(true, mypan.panelWorkerData.lblCocktail, mypan.panelWorkerData.lblLanguage1, mypan.panelWorkerData.lblLanguage2,
 						mypan.panelWorkerData.lblLanguage3, mypan.panelWorkerData.chbCocktail, mypan.panelWorkerData.tfLanguage1, mypan.panelWorkerData.tfLanguage2, mypan.panelWorkerData.tfLanguage3);
@@ -287,7 +287,7 @@ public class GestorBotones implements ActionListener {
 		}
 		if (e.getActionCommand().equals("ApplyPanelInsert")) {
 			
-			PanelInsert mypan = Frame.InstanceFPizzerie.panelInsert;  //only to use shorted sentences		
+			PanelInsert mypan = Frame.InstanceFRestaurant.panelInsert;  //only to use shorted sentences		
 			switch((String)mypan.cbSelection.getSelectedItem()) {
 			case "Product":
 				Productos product;
@@ -308,9 +308,9 @@ public class GestorBotones implements ActionListener {
 				}
 				break;
 			}
-			Frame.InstanceFPizzerie.cambiaPanel(Frame.InstanceFPizzerie.panelPrincipal,
-			Frame.InstanceFPizzerie.panelInsert);
-			Frame.InstanceFPizzerie.panelInsert = null;					
+			Frame.InstanceFRestaurant.cambiaPanel(Frame.InstanceFRestaurant.panelPrincipal,
+			Frame.InstanceFRestaurant.panelInsert);
+			Frame.InstanceFRestaurant.panelInsert = null;					
 		}
 	}	
 

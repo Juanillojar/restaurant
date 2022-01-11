@@ -172,7 +172,7 @@ public class PanelInsert extends JPanel {
 				worker = null;
 			}
 			// insert worker on JList (not in database)
-			Frame.InstanceFPizzerie.myPizzerie.getWorkers().add(worker);
+			Frame.InstanceFRestaurant.myRestaurant.getWorkers().add(worker);
 			JOptionPane.showMessageDialog(null, "Worker inserted sucessfully", "Insertion",
 					JOptionPane.INFORMATION_MESSAGE);
 			Frame.log.Escritura("Worker '" + panelWorkerData.tfName.getText() + panelWorkerData.tfSurNames.getText()
@@ -200,7 +200,7 @@ public class PanelInsert extends JPanel {
 					panelProduct.chbLowPrice.isSelected());
 
 			// insert product on JList (not in database)
-			Frame.InstanceFPizzerie.myPizzerie.getFoods().add(product);
+			Frame.InstanceFRestaurant.myRestaurant.getFoods().add(product);
 			JOptionPane.showMessageDialog(null, "Product inserted sucessfully", "Insertion",
 					JOptionPane.INFORMATION_MESSAGE);
 			Frame.log.Escritura("Product '" + panelProduct.tfDenomination.getText() + "' inserted sucessfully");

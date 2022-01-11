@@ -7,7 +7,7 @@ clase Repartidor. Además de los atributos del objeto Repartidor se definen const
 y los métodos toString y equals. 
  */
 
-enum Transport {On_foot, Motorcycle, Bicycle, Electric_car, Combustion_car;}
+enum Transport {On_foot, Motorcycle, Bicycle, Electric_car, Combustion_car};
 
 public class Repartidor extends Trabajador{
 	private Transport deliveyMode;   //especifica si se desplaza a pie, bicicleta, moto...
@@ -15,9 +15,9 @@ public class Repartidor extends Trabajador{
 	private boolean motorcycleLicense;
 	private boolean ownVehicle;		//especifica si el vehículo utilizado para el reparto es propio
 	
-	public Repartidor(String name, String surNames, String dni, double salary, Turno shift,
+	public Repartidor(String name, String surNames, String dni, double salary, Turno shift2,
 			String telephone, String clave, Transport deliveyMode, int age, boolean motorcycleLicense, boolean ownVehicle) {
-		super(name, surNames, dni, salary, shift, telephone, clave);
+		super(name, surNames, dni, salary, shift2, telephone, clave);
 		this.deliveyMode = deliveyMode;
 		this.age = age;
 		this.motorcycleLicense = motorcycleLicense;

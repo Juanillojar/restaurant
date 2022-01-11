@@ -4753,3 +4753,254 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
  4/1/22 17:06Database connection ok
  4/1/22 17:07Worker 'cccccc dddd' inserted sucessfully
  4/1/22 17:07Product 'milanesa' inserted sucessfully
+ 5/1/22 12:44START: Read configuration file xml 
+ 5/1/22 12:44Database connection ok
+ 5/1/22 12:44Lectura de datos BD Column 'MAX(orderId)' not found.[Ljava.lang.StackTraceElement;@55634720
+ 5/1/22 12:46START: Read configuration file xml 
+ 5/1/22 12:46Database connection ok
+ 5/1/22 12:51Lectura de datos BD Column 'MAX(orderId)' not found.[Ljava.lang.StackTraceElement;@428640fa
+ 5/1/22 12:51START: Read configuration file xml 
+ 5/1/22 12:51Database connection ok
+ 5/1/22 12:55START: Read configuration file xml 
+ 5/1/22 12:55Database connection ok
+ 5/1/22 13:00START: Read configuration file xml 
+ 5/1/22 13:00Database connection ok
+ 5/1/22 13:08START: Read configuration file xml 
+ 5/1/22 13:08Database connection ok
+ 5/1/22 13:09START: Read configuration file xml 
+ 5/1/22 13:09Database connection ok
+ 5/1/22 13:11START: Read configuration file xml 
+ 5/1/22 13:11Database connection ok
+ 5/1/22 13:14START: Read configuration file xml 
+ 5/1/22 13:14Conexión ok. Base de datos no existe
+ 5/1/22 13:14Unknown database 'bdrestaurantjj'[Ljava.lang.StackTraceElement;@32502377
+ 5/1/22 13:15START: Database creation. 
+ 5/1/22 13:15CREATE DATABASE IF NOT EXISTS bdRestaurantjj DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 5/1/22 13:15END: Database creation. 
+ 5/1/22 13:15START: Tables creation. 
+ 5/1/22 13:15CREATE TABLE IF NOT EXISTS `cooker` (`cookerId` int(11) NOT NULL, `speciality` text COLLATE utf8mb4_unicode_ci NOT NULL, `workExperience` int(11) NOT NULL,`kitchenCategory` enum('CHEF','ASSISTANT') COLLATE utf8mb4_unicode_ci NOT NULL,PRIMARY KEY (`cookerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 5/1/22 13:15CREATE TABLE IF NOT EXISTS `delivery` (
+  `deliveryId` int(11) NOT NULL,
+  `deliveryMode` enum('On_foot','Motorcycle','Bicycle','Electric_car','Combustion_car') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `age` int(11) NOT NULL,
+  `motorcycleLicense` tinyint(1) NOT NULL,
+  `ownVehicle` tinyint(1) NOT NULL,
+  PRIMARY KEY (`deliveryId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 5/1/22 13:15CREATE TABLE IF NOT EXISTS `destinopedido` (  `destinationId` int(11) NOT NULL,  `destinationDenomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `destinationZone` enum('Bar','IntTable','ExtTable','Delivery') COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`destinationId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 5/1/22 13:15CREATE TABLE IF NOT EXISTS `orders` (  `orderId` int(11) NOT NULL,  `date` date NOT NULL,  `orderPrice` double NOT NULL,  `OrderPriceWithoutTaxes` double NOT NULL,  `workerId` int(11) NOT NULL,  `valorDescuento` double NOT NULL,  `destination` int(11) NOT NULL,  `pedidoCobrado` tinyint(1) NOT NULL,  PRIMARY KEY (`orderId`),  KEY `destination` (`destination`),  KEY `workerId` (`workerId`) USING BTREE) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 5/1/22 13:15CREATE TABLE IF NOT EXISTS `ordersproducts` (  `orderId` int(11) NOT NULL,  `foodId` int(11) NOT NULL,  KEY `orderId` (`orderId`),  KEY `foodId` (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 5/1/22 13:15CREATE TABLE IF NOT EXISTS `productos` (  `foodId` int(11) NOT NULL,  `denomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `section` enum('PIZZAS','STARTERS','PASTAS','COMBINADOS','SALADS','DESSERTS','DRINKS','BREAD','OTHERS') COLLATE utf8mb4_unicode_ci NOT NULL,  `ingredients` text COLLATE utf8mb4_unicode_ci NOT NULL,  `price` double NOT NULL,  `lowprice` tinyint(1) NOT NULL,  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 5/1/22 13:15CREATE TABLE IF NOT EXISTS `waiter` (  `waiterId` int(11) NOT NULL,  `cocktail` tinyint(1) NOT NULL,  `languaje1` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje2` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje3` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`waiterId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 5/1/22 13:15CREATE TABLE IF NOT EXISTS `worker` (  `workerId` int(11) NOT NULL,  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,  `surNames` text COLLATE utf8mb4_unicode_ci NOT NULL,  `dni` text COLLATE utf8mb4_unicode_ci NOT NULL,  `salary` double NOT NULL,  `shift` enum('MAÑANA','TARDE','NOCHE') COLLATE utf8mb4_unicode_ci NOT NULL,  `telephone` text COLLATE utf8mb4_unicode_ci NOT NULL,  `clave` text COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`workerId`),  KEY `workerId` (`workerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 5/1/22 13:15ALTER TABLE `cooker`  ADD CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 5/1/22 13:15ALTER TABLE `delivery`  ADD CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 5/1/22 13:15ALTER TABLE `orders`  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`workerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`destination`) REFERENCES `destinopedido` (`destinationId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 5/1/22 13:15ALTER TABLE `ordersproducts`  ADD CONSTRAINT `ordersproducts_ibfk_1` FOREIGN KEY (`foodId`) REFERENCES `productos` (`foodId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `ordersproducts_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 5/1/22 13:15ALTER TABLE `waiter`  ADD CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 5/1/22 13:15END: Tables creation. 
+ 5/1/22 13:15START: Insertion example data in database. 
+ 5/1/22 13:15Insertion in databaseclass java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@4397ad89
+ 5/1/22 13:15Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`cooker`, CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@6f19ac19
+ 5/1/22 13:15Insertion in databaseclass java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@71329995
+ 5/1/22 13:15Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`cooker`, CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@5454d35e
+ 5/1/22 13:15Insertion in databaseclass java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@455b6df1
+ 5/1/22 13:15Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`waiter`, CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@3f67593e
+ 5/1/22 13:15Insertion in databaseclass java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@41ab013
+ 5/1/22 13:15Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`waiter`, CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@1115ec15
+ 5/1/22 13:15Insertion in databaseclass java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@59e505b2
+ 5/1/22 13:15Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`delivery`, CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@43b9fd5
+ 5/1/22 13:15Insertion in databaseclass java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@8e50104
+ 5/1/22 13:15Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`delivery`, CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@6f7923a5
+ 5/1/22 13:31Lectura de datos BD Column 'MAX(orderId)' not found.[Ljava.lang.StackTraceElement;@72e5a8e
+ 5/1/22 15:30START: Read configuration file xml 
+ 5/1/22 15:30Database connection ok
+ 5/1/22 15:31START: Read configuration file xml 
+ 5/1/22 15:31Database connection ok
+ 5/1/22 15:34START: Read configuration file xml 
+ 5/1/22 15:34Database connection ok
+ 5/1/22 15:34Worker insertion in databaseCannot invoke "java.sql.Statement.executeQuery(String)" because "this.myStatement" is null[Ljava.lang.StackTraceElement;@21282ed8
+ 5/1/22 15:39START: Read configuration file xml 
+ 5/1/22 15:39Database connection ok
+ 5/1/22 15:39Insertion in databaseclass java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@1530c739
+ 5/1/22 15:39Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`cooker`, CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@53045c6c
+ 5/1/22 15:39Insertion in databaseclass java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@6bbe85a8
+ 5/1/22 15:39Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`cooker`, CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@4be29ed9
+ 5/1/22 15:39Insertion in databaseclass java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@4b013c76
+ 5/1/22 15:39Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`waiter`, CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@cb0755b
+ 5/1/22 15:39Insertion in databaseclass java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@712625fd
+ 5/1/22 15:39Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`waiter`, CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@742ff096
+ 5/1/22 15:39Insertion in databaseclass java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@350aac89
+ 5/1/22 15:39Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`delivery`, CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@17f9d882
+ 5/1/22 15:39Insertion in databaseclass java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@196a42c3
+ 5/1/22 15:39Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`delivery`, CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@15043a2f
+ 5/1/22 15:39Lectura de datos BD Column 'MAX(orderId)' not found.[Ljava.lang.StackTraceElement;@4b29d1d2
+ 5/1/22 15:40START: Read configuration file xml 
+ 5/1/22 15:40Database connection ok
+ 5/1/22 15:40Insertion in databaseclass java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@17f62e33
+ 5/1/22 15:40Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`cooker`, CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@17f9d882
+ 5/1/22 15:40Insertion in databaseclass java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@196a42c3
+ 5/1/22 15:40Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`cooker`, CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@15043a2f
+ 5/1/22 15:40Insertion in databaseclass java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@1349883
+ 5/1/22 15:40Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`waiter`, CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@7f485fda
+ 5/1/22 15:40Insertion in databaseclass java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@d737b89
+ 5/1/22 15:40Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`waiter`, CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@35dab4eb
+ 5/1/22 15:40Insertion in databaseclass java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@3ba987b8
+ 5/1/22 15:40Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`delivery`, CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@5f049ea1
+ 5/1/22 15:40Insertion in databaseclass java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@5afa3c9
+ 5/1/22 15:40Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`delivery`, CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@909217e
+ 5/1/22 15:40Lectura de datos BD Column 'MAX(orderId)' not found.[Ljava.lang.StackTraceElement;@8458f04
+ 5/1/22 15:40START: Read configuration file xml 
+ 5/1/22 15:40Database connection ok
+ 5/1/22 15:42Insertion in databaseclass java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@2e8c1c9b
+ 5/1/22 15:42Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`cooker`, CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@663c9e7a
+ 5/1/22 16:26START: Read configuration file xml 
+ 5/1/22 16:26Database connection ok
+ 5/1/22 16:28START: Read configuration file xml 
+ 5/1/22 16:28Database connection ok
+ 5/1/22 16:29START: Read configuration file xml 
+ 5/1/22 16:29Database connection ok
+ 5/1/22 16:34START: Read configuration file xml 
+ 5/1/22 16:34Database connection ok
+ 5/1/22 16:37Insertion in databaseclass Gui.Turno cannot be cast to class java.lang.String (Gui.Turno is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@1530c739
+ 5/1/22 16:40Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`cooker`, CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@33065d67
+ 5/1/22 16:46Insertion in databaseclass Gui.Turno cannot be cast to class java.lang.String (Gui.Turno is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@4a83a74a
+ 5/1/22 16:46Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`cooker`, CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@4b29d1d2
+ 5/1/22 16:49Insertion in databaseclass Gui.Turno cannot be cast to class java.lang.String (Gui.Turno is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@5afa3c9
+ 5/1/22 16:50Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`waiter`, CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@68c9133c
+ 5/1/22 16:50Insertion in databaseclass Gui.Turno cannot be cast to class java.lang.String (Gui.Turno is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@5e2c3d18
+ 5/1/22 16:50Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`waiter`, CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@cc43f62
+ 5/1/22 16:50Insertion in databaseclass Gui.Turno cannot be cast to class java.lang.String (Gui.Turno is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@645aa696
+ 5/1/22 16:56Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`delivery`, CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@353352b6
+ 5/1/22 17:09START: Read configuration file xml 
+ 5/1/22 17:09Database connection ok
+ 5/1/22 17:14Insertion in databaseclass Gui.Turno cannot be cast to class java.lang.String (Gui.Turno is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@69e153c5
+ 5/1/22 17:16Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`cooker`, CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@742ff096
+ 5/1/22 17:18Insertion in databaseclass Gui.Turno cannot be cast to class java.lang.String (Gui.Turno is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@350aac89
+ 5/1/22 17:18Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`cooker`, CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@17f9d882
+ 5/1/22 17:21Insertion in databaseclass Gui.Turno cannot be cast to class java.lang.String (Gui.Turno is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@196a42c3
+ 5/1/22 17:33START: Read configuration file xml 
+ 5/1/22 17:33Conexión ok. Base de datos no existe
+ 5/1/22 17:33Unknown database 'bdrestaurantjj'[Ljava.lang.StackTraceElement;@f0da945
+ 5/1/22 17:33START: Database creation. 
+ 5/1/22 17:33CREATE DATABASE IF NOT EXISTS bdRestaurantjj DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+ 5/1/22 17:33END: Database creation. 
+ 5/1/22 17:33START: Tables creation. 
+ 5/1/22 17:33CREATE TABLE IF NOT EXISTS `cooker` (`cookerId` int(11) NOT NULL, `speciality` text COLLATE utf8mb4_unicode_ci NOT NULL, `workExperience` int(11) NOT NULL,`kitchenCategory` enum('CHEF','ASSISTANT') COLLATE utf8mb4_unicode_ci NOT NULL,PRIMARY KEY (`cookerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 5/1/22 17:33CREATE TABLE IF NOT EXISTS `delivery` (
+  `deliveryId` int(11) NOT NULL,
+  `deliveryMode` enum('On_foot','Motorcycle','Bicycle','Electric_car','Combustion_car') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `age` int(11) NOT NULL,
+  `motorcycleLicense` tinyint(1) NOT NULL,
+  `ownVehicle` tinyint(1) NOT NULL,
+  PRIMARY KEY (`deliveryId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 5/1/22 17:33CREATE TABLE IF NOT EXISTS `destinopedido` (  `destinationId` int(11) NOT NULL,  `destinationDenomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `destinationZone` enum('Bar','IntTable','ExtTable','Delivery') COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`destinationId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 5/1/22 17:33CREATE TABLE IF NOT EXISTS `orders` (  `orderId` int(11) NOT NULL,  `date` date NOT NULL,  `orderPrice` double NOT NULL,  `OrderPriceWithoutTaxes` double NOT NULL,  `workerId` int(11) NOT NULL,  `valorDescuento` double NOT NULL,  `destination` int(11) NOT NULL,  `pedidoCobrado` tinyint(1) NOT NULL,  PRIMARY KEY (`orderId`),  KEY `destination` (`destination`),  KEY `workerId` (`workerId`) USING BTREE) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 5/1/22 17:33CREATE TABLE IF NOT EXISTS `ordersproducts` (  `orderId` int(11) NOT NULL,  `foodId` int(11) NOT NULL,  KEY `orderId` (`orderId`),  KEY `foodId` (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 5/1/22 17:33CREATE TABLE IF NOT EXISTS `productos` (  `foodId` int(11) NOT NULL,  `denomination` text COLLATE utf8mb4_unicode_ci NOT NULL,  `section` enum('PIZZAS','STARTERS','PASTAS','COMBINADOS','SALADS','DESSERTS','DRINKS','BREAD','OTHERS') COLLATE utf8mb4_unicode_ci NOT NULL,  `ingredients` text COLLATE utf8mb4_unicode_ci NOT NULL,  `price` double NOT NULL,  `lowprice` tinyint(1) NOT NULL,  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`foodId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 5/1/22 17:33CREATE TABLE IF NOT EXISTS `waiter` (  `waiterId` int(11) NOT NULL,  `cocktail` tinyint(1) NOT NULL,  `languaje1` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje2` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  `languaje3` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,  PRIMARY KEY (`waiterId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 5/1/22 17:33CREATE TABLE IF NOT EXISTS `worker` (  `workerId` int(11) NOT NULL,  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,  `surNames` text COLLATE utf8mb4_unicode_ci NOT NULL,  `dni` text COLLATE utf8mb4_unicode_ci NOT NULL,  `salary` double NOT NULL,  `shift` enum('Morning','Afternoon','Evening') COLLATE utf8mb4_unicode_ci NOT NULL,  `telephone` text COLLATE utf8mb4_unicode_ci NOT NULL,  `clave` text COLLATE utf8mb4_unicode_ci NOT NULL,  PRIMARY KEY (`workerId`),  KEY `workerId` (`workerId`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+ 5/1/22 17:33ALTER TABLE `cooker`  ADD CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 5/1/22 17:33ALTER TABLE `delivery`  ADD CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 5/1/22 17:33ALTER TABLE `orders`  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`workerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`destination`) REFERENCES `destinopedido` (`destinationId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 5/1/22 17:33ALTER TABLE `ordersproducts`  ADD CONSTRAINT `ordersproducts_ibfk_1` FOREIGN KEY (`foodId`) REFERENCES `productos` (`foodId`) ON DELETE CASCADE ON UPDATE CASCADE,  ADD CONSTRAINT `ordersproducts_ibfk_2` FOREIGN KEY (`orderId`) REFERENCES `orders` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 5/1/22 17:33ALTER TABLE `waiter`  ADD CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE
+ 5/1/22 17:33END: Tables creation. 
+ 5/1/22 17:33START: Insertion example data in database. 
+ 5/1/22 17:54Insertion in databaseclass Gui.Turno cannot be cast to class java.lang.String (Gui.Turno is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@301eda63
+ 5/1/22 18:02Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`cooker`, CONSTRAINT `cooker_ibfk_1` FOREIGN KEY (`cookerId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@71329995
+ 5/1/22 18:07Insertion in databaseclass Gui.Turno cannot be cast to class java.lang.String (Gui.Turno is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@82ea68c
+ 5/1/22 18:08Insertion in databaseclass Gui.Turno cannot be cast to class java.lang.String (Gui.Turno is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@3af0a9da
+ 5/1/22 19:13START: Read configuration file xml 
+ 5/1/22 19:13Tiempo de conexion agotado
+ 5/1/22 19:15Worker 'aaaaaa' inserted sucessfully
+ 5/1/22 19:15Product 'aaaaaa' inserted sucessfully
+ 5/1/22 19:16Se crea panel mesas
+ 5/1/22 19:16Cantidad entregada pierde foco
+ 5/1/22 19:16Añade producto al pedido.
+ 5/1/22 19:16Rellenado pedido Pedido 2 date:5/1/22 19:16 [ 27	aaaaaa, section:PIZZAS, ingredients:aaaaa, prize:10.1 €, lowPrice:true
+] orderPrice:8,38 € Vanesa valorDescuento: 2.121 € 
+
+ 5/1/22 19:16Añade producto al pedido.
+ 5/1/22 19:16Rellenado pedido Pedido 2 date:5/1/22 19:16 [ 27	aaaaaa, section:PIZZAS, ingredients:aaaaa, prize:10.1 €, lowPrice:true
+,  12	Helado, section:DESSERTS, ingredients:Leche, azucar, Fruta según sabor, prize:2.95 €, lowPrice:false
+] orderPrice:11,48 € Vanesa valorDescuento: 2.121 € 
+
+ 5/1/22 19:17Añade producto al pedido.
+ 5/1/22 19:17Añade producto al pedido.
+ 5/1/22 19:17Rellenado pedido Pedido 2 date:5/1/22 19:16 [ 27	aaaaaa, section:PIZZAS, ingredients:aaaaa, prize:10.1 €, lowPrice:true
+,  12	Helado, section:DESSERTS, ingredients:Leche, azucar, Fruta según sabor, prize:2.95 €, lowPrice:false
+,  25	Agua grande, section:DRINKS, ingredients:Agua, prize:2.5 €, lowPrice:false
+,  25	Agua grande, section:DRINKS, ingredients:Agua, prize:2.5 €, lowPrice:false
+] orderPrice:16,73 € Vanesa valorDescuento: 2.121 € 
+
+ 5/1/22 19:19START: Read configuration file xml 
+ 5/1/22 19:19Database connection ok
+ 5/1/22 19:19Lectura de datos BD Column 'MAX(orderId)' not found.[Ljava.lang.StackTraceElement;@b9b00e0
+ 5/1/22 19:20Worker 'aaaaaa aaa' inserted sucessfully
+ 5/1/22 19:23Insertion in databaseclass Gui.Turno cannot be cast to class java.lang.String (Gui.Turno is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')[Ljava.lang.StackTraceElement;@4c71a3f7
+ 5/1/22 19:26Insertion in databaseCannot add or update a child row: a foreign key constraint fails (`bdrestaurantjj`.`waiter`, CONSTRAINT `waiter_ibfk_1` FOREIGN KEY (`waiterId`) REFERENCES `worker` (`workerId`) ON DELETE CASCADE ON UPDATE CASCADE)[Ljava.lang.StackTraceElement;@686490c3
+ 5/1/22 19:48START: Read configuration file xml 
+ 5/1/22 19:48Database connection ok
+ 5/1/22 20:00START: Read configuration file xml 
+ 5/1/22 20:00Database connection ok
+ 5/1/22 20:00Insertion in databaseDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@10feca44
+ 5/1/22 20:00Insertion in databaseDuplicate entry '2' for key 'PRIMARY'[Ljava.lang.StackTraceElement;@ea6147e
+ 5/1/22 20:00Lectura de datos BD Column 'MAX(orderId)' not found.[Ljava.lang.StackTraceElement;@1e683a3e
+ 5/1/22 20:05START: Read configuration file xml 
+ 5/1/22 20:05Database connection ok
+ 5/1/22 20:05Lectura de datos BD Column 'MAX(orderId)' not found.[Ljava.lang.StackTraceElement;@4efac082
+ 5/1/22 21:18START: Read configuration file xml 
+ 5/1/22 21:18Database connection ok
+ 5/1/22 21:39START: Read configuration file xml 
+ 5/1/22 21:39Database connection ok
+ 5/1/22 21:44START: Read configuration file xml 
+ 5/1/22 21:44Database connection ok
+ 10/1/22 19:32START: Read configuration file xml 
+ 10/1/22 19:32Database connection ok
+ 10/1/22 19:33Lectura de datos BD Column 'MAX(orderId)' not found.[Ljava.lang.StackTraceElement;@41c2284a
+ 10/1/22 19:34START: Read configuration file xml 
+ 10/1/22 19:34Database connection ok
+ 10/1/22 19:55START: Read configuration file xml 
+ 10/1/22 19:55Database connection ok
+ 10/1/22 19:56START: Read configuration file xml 
+ 10/1/22 19:56Database connection ok
+ 10/1/22 19:57Lectura de datos BD Column 'MAX(orderId)' not found.[Ljava.lang.StackTraceElement;@59505b48
+ 10/1/22 19:59Select No operations allowed after connection closed.[Ljava.lang.StackTraceElement;@8ca67f2
+ 10/1/22 19:59Llama panel informe productosCannot invoke "java.sql.ResultSet.getMetaData()" because "rst" is null[Ljava.lang.StackTraceElement;@6a81cb29
+ 10/1/22 19:59Select No operations allowed after connection closed.[Ljava.lang.StackTraceElement;@2894a42
+ 10/1/22 19:59Llama panel informe pedidosCannot invoke "java.sql.ResultSet.getMetaData()" because "rst" is null[Ljava.lang.StackTraceElement;@68054b56
+ 10/1/22 19:59Select No operations allowed after connection closed.[Ljava.lang.StackTraceElement;@58abd84b
+ 10/1/22 19:59Llama panel informe trabajadoresCannot invoke "java.sql.ResultSet.getMetaData()" because "rst" is null[Ljava.lang.StackTraceElement;@355e8abd
+ 10/1/22 20:07START: Read configuration file xml 
+ 10/1/22 20:09Database connection ok
+ 10/1/22 20:11START: Read configuration file xml 
+ 10/1/22 20:11Database connection ok
+ 10/1/22 20:12START: Read configuration file xml 
+ 10/1/22 20:12Database connection ok
+ 10/1/22 20:29START: Read configuration file xml 
+ 10/1/22 20:29Database connection ok
+ 10/1/22 20:37START: Read configuration file xml 
+ 10/1/22 20:37Database connection ok
+ 10/1/22 20:40START: Read configuration file xml 
+ 10/1/22 20:40Database connection ok
+ 10/1/22 20:44START: Read configuration file xml 
+ 10/1/22 20:44Database connection ok
+ 10/1/22 20:58START: Read configuration file xml 
+ 10/1/22 20:58Database connection ok
+ 10/1/22 21:17START: Read configuration file xml 
+ 10/1/22 21:17Database connection ok
+ 10/1/22 21:23START: Read configuration file xml 
+ 10/1/22 21:23Database connection ok
+ 10/1/22 21:28Select No operations allowed after connection closed.[Ljava.lang.StackTraceElement;@740ee14d
+ 10/1/22 21:28Llama panel informe trabajadoresOperation not allowed after ResultSet closed[Ljava.lang.StackTraceElement;@5f780147
+ 10/1/22 21:29START: Read configuration file xml 
+ 10/1/22 21:29Database connection ok
+ 10/1/22 21:31START: Read configuration file xml 
+ 10/1/22 21:31Database connection ok
+ 11/1/22 20:24START: Read configuration file xml 
+ 11/1/22 20:24Database connection ok
+ 11/1/22 20:24Se crea panel mesas
+ 11/1/22 23:23START: Read configuration file xml 
+ 11/1/22 23:23Database connection ok

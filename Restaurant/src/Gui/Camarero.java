@@ -9,17 +9,14 @@ y los métodos toString y equals.
 Se define un métodoa para visualización de lenguajes que domina el camarero
  */
 
-import java.util.Arrays;
-import java.util.Objects;
-
 public class Camarero extends Trabajador{
 	//private String workZone;  		//especifica si sirve en terraza, interior o barra.
 	private boolean cocktail;		//especifica si el camarero sabe preparar cocteles
 	private String[] languages;		//especifíca los idiomas que domina
 	
-	public Camarero(String name, String surNames, String dni, double salary, Turno shift,
+	public Camarero(String name, String surNames, String dni, double salary, Turno shift2,
 			String telephone, String clave, String[] languages, boolean cocktail) {
-		super(name, surNames, dni, salary, shift, telephone, clave);
+		super(name, surNames, dni, salary, shift2, telephone, clave);
 	//	this.workZone = workZone;
 		this.languages = languages;
 		this.cocktail = cocktail;
